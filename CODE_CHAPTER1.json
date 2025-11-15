@@ -1,0 +1,476 @@
+{
+    "capitulo": "1",
+    "titulo": "NORMAS URBANÍSTICAS COMUNES",
+    "secciones": [
+      {
+        "id": "1.1",
+        "titulo": "CONCEPTOS Y DEFINICIONES",
+        "contenido":"Las definiciones establecidas en el presente documento constituyen complemento de las disposiciones establecidas en el Decreto Distrital 555 de 2021 y normas que lo modifiquen o sustituyan, así como de sus documentos y planos anexos.",
+        "subsecciones": [
+          {
+            "id": "1.1.1",
+            "titulo": "Antejardín",
+            "contenido": "Área libre de propiedad privada que hace parte de las áreas privadas afectas al uso público, comprendida entre el lindero del predio contra espacio público, y el paramento de construcción reglamentario."
+          },
+          {
+            "id": "1.1.2",
+            "titulo": "Antejardín existente",
+            "contenido": "A efectos de la aplicación de las normas sobre Empates de antejardines, definidas en este documento, corresponde al antejardín previsto por las edificaciones existentes de tres (3) o más pisos."
+          },
+          {
+            "id": "1.1.3",
+            "titulo": "Aislamiento entre edificaciones",
+            "contenido": "Separación del plano de fachada de las edificaciones de un mismo proyecto, en uno o varios lotes."
+          },
+          {
+            "id": "1.1.4",
+            "titulo": "Aislamiento lateral",
+            "contenido": "Separación del plano de fachada de las edificaciones respecto del lindero lateral del lote."
+          },
+          {
+            "id": "1.1.5",
+            "titulo": "Aislamiento posterior",
+            "contenido": "Separación del plano de fachada de las edificaciones respecto del lindero posterior del lote."
+          },
+          {
+            "id": "1.1.6",
+            "titulo": "Área construida en el uso",
+            "contenido": "Corresponde al área construida para un uso en particular, descontando muros de fachada, muros perimetrales, ductos, estructura, equipamiento comunal privado, circulaciones comunes y cuartos de acopio. Esta área se usa para efectos del cálculo de equipamiento comunal privado (Ver 1.3., 1.3.2., A. Exigencia de equipamiento comunal privado), cuartos de acopio (Ver artículo 190, numeral 7 del Decreto Distrital 555 de 2021) y área mínima habitable de la unidad de vivienda (Ver artículo 384 del Decreto Distrital 555 de 2021). (Ver ilustración 01)"
+          },
+          {
+            "id": "1.1.7",
+            "titulo": "Área Construida para el cálculo de obligaciones e incentivos urbanísticos por edificabilidad",
+            "contenido": " Para efectos del cálculo del índice de construcción efectivo y de las obligaciones urbanísticas correspondientes a cesiones de suelo o compensaciones y de área en productos inmobiliarios VIS y VIP, el área construida es la parte edificada que corresponde a la suma de la superficie de todos los pisos. Excluye azoteas, hall de cubierta, áreas duras sin cubrir o techar, áreas de las instalaciones mecánicas, depósitos que se encuentren en pisos de la edificación que no contengan usos habitables, y que a su vez no colinden con unidades privadas habitables, puntos fijos, el área de los estacionamientos y de circulación vehicular y el área de equipamiento comunal privado ubicada en un piso como máximo, así como el área de los estacionamientos y de circulación vehicular ubicados en semisótanos y sótanos. El área construida no podrá superar la edificabilidad máxima permitida para cada tratamiento urbanístico. Para el cálculo de obligaciones urbanísticas no se contabilizará en el área construida el área destinada al cumplimiento de la obligación VIS y VIP, con excepción del tratamiento urbanístico de Desarrollo."
+          },
+          {
+            "id": "1.1.8",
+            "titulo": "Área construida para el cálculo de estacionamientos",
+            "contenido": "Corresponde a la definida en el artículo 390 del Decreto Distrital 555 de 2021. (Ver artículo 390 del Decreto Distrital 555 de 2021)."
+          },
+          {
+            "id": "1.1.9",
+            "titulo": "Área mínima habitable",
+            "contenido": "Para efectos de la aplicación del artículo 384 del Decreto Distrital 555 de 2021, y de la Circular No. 007 de 2022 de la Secretaría Distrital de Planeación, corresponde al área construida en el uso para las unidades de vivienda, allí definidas. (Ver artículo 384 del Decreto Distrital 555 de 2021)"
+          },
+          {
+            "id": "1.1.10",
+            "titulo": "Área neta urbanizable ANU",
+            "contenido": "Es el área resultante de descontar del área bruta, las áreas para la localización de la infraestructura para el sistema vial principal y de transporte, las redes primarias de servicios públicos domiciliarios y las áreas de conservación y protección de los recursos naturales y paisajísticos. (Ver artículo 2.2.1.1. del Decreto Nacional 1077 de 2015)"
+          },
+          {
+            "id": "1.1.11",
+            "titulo": "Área total construida",
+            "contenido": "Parte edificada que corresponde a la suma de las superficies de los pisos, excluyendo azoteas y áreas sin cubrir o techar. (Ver artículo 2.2.6.1.1.7 del Decreto Nacional 1077 de 2015)"
+          },
+          {
+            "id": "1.1.12",
+            "titulo": "Cubierta",
+            "contenido": "Parte superior de un edificio destinada a protegerlo de los agentes atmosféricos."
+          },
+          {
+            "id": "1.1.13",
+            "titulo": "Empate de antejardín",
+            "contenido": "Acción de igualar la dimensión del antejardín de la edificación vecina existente."
+          },
+          {
+            "id": "1.1.14",
+            "titulo": "Empate estricto",
+            "contenido": "Corresponde al empate volumétrico, en el cual se incluyen, además de los elementos previstos para dicho empate, los ángulos de cubiertas y aleros. (Ver ilustración 02A)"
+          },
+          {
+            "id": "1.1.15",
+            "titulo": "Empate volumétrico",
+            "contenido": "Adosamiento de la forma arquitectónica proyectada, contra los volúmenes construidos de las edificaciones colindantes en relación con la altura en metros, aislamientos y voladizos. Excluye los siguientes elementos: ductos, chimeneas, remates de cubiertas, puntos fijos, cerramientos, tanques, equipos técnicos, sobre-recorridos de ascensores y hall de cubierta. (Ver ilustración 02B)"
+          },
+          {
+            "id": "1.1.15",
+            "titulo": "Equipamiento Comunal Privado",
+            "contenido": "Áreas de propiedad privada destinadas al servicio común de determinado grupo de personas, necesarias para el buen desarrollo de las actividades a las cuales está destinada una edificación o conjunto de edificaciones."
+          },
+          {
+            "id": "1.1.16",
+            "titulo": "Frente de lote",
+            "contenido": "Dimensión que presenta un lote o englobe sobre cualquiera de las vías o espacio público que lo delimitan."
+          },
+          {
+            "id": "1.1.17",
+            "titulo": "Grandes superficies",
+            "contenido": "Corresponde a usos comerciales y de servicios Tipo 3. (Ver artículo 233 numeral 4 del Decreto Distrital 555 de 2021)."
+          },
+          {
+            "id": "1.1.18",
+            "titulo": "Hall de cubierta",
+            "contenido": "Área cubierta que corresponde al punto fijo sobre la cubierta. En este hall se permite un área adicional, que no exceda en más de dos veces el área de ascensores y escaleras, en la cual se puede incluir baños para personas en condición de discapacidad, u otras áreas contabilizables como equipamiento comunal privado. (Ver ilustración 03B)"
+          },
+          {
+            "id": "1.1.19",
+            "titulo": "Línea de inclinación del terreno",
+            "contenido": "Línea recta resultante de la unión entre el punto más alto y el punto más bajo de los límites del paramento propuesto de una edificación sobre el terreno. Esta línea puede corresponder a superficies naturales, o niveladas a través de obras ejecutadas por urbanismo, legalizaciones u obras de infraestructura. (Ver ilustración 04)"
+          },
+          {
+            "id": "1.1.20",
+            "titulo": "Micromovilidad",
+            "contenido": "De acuerdo con la Circular Externa No. 11 de 2021 de la Secretaría de Movilidad, se entiende como la movilización individual en vehículos pequeños, ligeros, que funcionan por autopropulsión, energía eléctrica, o con una combinación de las dos, que incluye, pero no se limita, a las bicicletas y patinetas. Esta definición podrá ser ajustada por acto administrativo que expida la Secretaría Distrital de Movilidad."
+          },
+          {
+            "id": "1.1.21",
+            "titulo": "Paramento de construcción reglamentario",
+            "contenido": "Para efectos de la aplicación de las definiciones de Antejardín y Voladizo, constituye el plano vertical que delimita la fachada de un inmueble sobre un área pública o privada, el cual se determina en función de las normas de cada tratamiento."
+          },
+          {
+            "id": "1.1.22",
+            "titulo": "Patio",
+            "contenido": "Espacio sin cubrir de una edificación, delimitado por sus fachadas internas o muros medianeros propios de la edificación o entre predios vecinos, que garantiza iluminación y ventilación natural a los espacios habitables."
+          },
+          {
+            "id": "1.1.23",
+            "titulo": "Predio urbanizado no edificado",
+            "contenido": "Predio señalado con la denominación UNE en los mapas CU-5.4.2. a CU-5.4.33. que cuenta con proceso de urbanización legalmente ejecutado, en el cual no existen edificaciones. (Ver artículo 313 del Decreto Distrital 555 de 2021)."
+          },
+          {
+            "id": "1.1.24",
+            "titulo": "Predio",
+            "contenido": "Terreno o lote individualizado, de propiedad privada o bien fiscal, identificado con un folio de matrícula inmobiliaria. (Ver artículo 2.2.1.1. del Decreto Nacional 1077 de 2015)"
+          },
+          {
+            "id": "1.1.25",
+            "titulo": "Punto fijo",
+            "contenido": "Corresponde al área de ascensores y escaleras, así como las circulaciones comunes en cada piso, que no excedan en más de una vez el área correspondiente a ascensores y escaleras en cada piso. (Ver ilustración 03A)"
+          },
+          {
+            "id": "1.1.26",
+            "titulo": "Terreno inclinado",
+            "contenido": "Corresponde a aquel cuya línea de inclinación del terreno supera una pendiente del 12%. Si uno o más de los paramentos de construcción propuestos de una edificación, se localiza sobre terreno inclinado, aplica esta definición para toda la edificación."
+          },
+          {
+            "id": "1.1.27",
+            "titulo": "Usos activos",
+            "contenido": "Destinación prevista en el artículo 272 del Decreto Distrital 555 de 2021. Los usos citados en dicho artículo deben estar permitidos según la norma urbanística aplicable. Usos habitables: Residencial, Comercio y Servicios, Industria o Dotacional."
+          },
+          {
+            "id": "1.1.28",
+            "titulo": "Vivienda Bifamiliar",
+            "contenido": "Par de edificaciones o unidades habitacionales construidas individualmente con los espacios necesarios para que cada una sea ocupada por una sola familia. Se caracteriza por desarrollarse en un mismo lote. (Ver DTS Libro II Componente Urbano - numeral 8.5.2.)"
+          },
+          {
+            "id": "1.1.29",
+            "titulo": "Vivienda Multifamiliar",
+            "contenido": "Edificación construida con el objetivo de que varias familias habiten el inmueble, en unidades independientes que cuenten con los espacios necesarios para que cada una sea ocupada por una sola familia. Se caracterizan por desarrollarse en un mismo lote y por compartir áreas comunes como accesos, escaleras y ascensores, entre otros. (Ver DTS Libro II Componente Urbano - numeral 8.5.2.)"
+          },
+          {
+            "id": "1.1.30",
+            "titulo": "Vivienda Productiva",
+            "contenido": "Es aquella vivienda en suelo urbano o rural en la que se destina un área para el uso comercial, servicios o industria artesanal, reconoce las tradiciones y saberes del hábitat popular como estrategia productiva para que las familias aumenten sus capacidades de ingresos. Este tipo de vivienda contabiliza para el cumplimiento de las obligaciones que generan condiciones de seguridad y relaciones directas de las fachadas con el espacio público. Se cumple esta obligación mediante la demarcación de las viviendas en la respectiva licencia urbanística. El uso comercial, servicios o industria artesanal, que haga parte de la vivienda productiva, debe encontrarse permitido en la norma urbanística respectiva."
+          },
+          {
+            "id": "1.1.31",
+            "titulo": "Vivienda unifamiliar",
+            "contenido": "Edificación construida con los espacios necesarios para ser ocupada en su totalidad por una sola familia. Se caracteriza por desarrollarse individualmente en uno o varios lotes. (Ver DTS Libro II Componente Urbano - numeral 8.5.2.)"
+          },
+          {
+            "id": "1.1.32",
+            "titulo": "Voladizo",
+            "contenido": "Elemento volumétrico de la fachada de una edificación que sobresale del paramento de construcción reglamentario en pisos diferentes del primero, y se proyecta sobre vías públicas o su antejardín y demás áreas públicas de propiedad privada (APAUP), con la dimensión prevista en la norma urbanística. Se contabiliza en el índice de construcción en los pisos diferentes al primero. No se contabiliza dentro del área ocupada."
+          }
+        ]
+      },
+      {
+        "id": "1.2",
+        "titulo": "ELEMENTOS DE VOLUMETRÍA",
+        "subsecciones": [
+          {
+            "id": "1.2.1",
+            "titulo": "ALTURA DE LAS EDIFICACIONES",
+            "apartados": [
+              { "id": "A.", "titulo": "Limitantes generales de altura", "contenido": "<p>La altura de las edificaciones, incluyendo cualquier elemento que sobresalga de las cubiertas (por ejemplo: ductos, chimeneas, remates de cubiertas, puntos fijos, cerramientos, tanques, equipos técnicos, sobre recorridos de ascensores o hall de cubierta) está limitada por las siguientes determinantes generales:</p><ul><li>La altura en metros sobre el nivel del terreno determinada por la Unidad Administrativa Especial de Aeronáutica Civil (AEROCIVIL) o la entidad que haga sus veces, mediante el mapa de SECTORIZACIÓN DE OBSTÁCULOS POR ALTURA DEL ESPACIO AÉREO DE BOGOTÁ - AEROPUERTO INTERNACIONAL EL DORADO Y AEROPUERTO GUAYMARAL (año 2021), que forma parte del presente anexo (Ver mapa anexo No. 01).</li><li>Las alturas determinadas mediante los actos administrativos que adopten proyectos de cables aéreos de la Red de Transporte Público de Pasajeros del Sistema de Movilidad.  Las alturas de las edificaciones en el área de influencia de los cables aéreos deberán considerar el diseño definitivo de dichas infraestructuras, establecido mediante acto administrativo de la autoridad competente. Por consiguiente, la altura máxima de las edificaciones en estas áreas se limita a tres (3) pisos, hasta que se presenten y adopten los diseños de dichos proyectos, y se verifique la posibilidad de superar esa altura.</li></ul><p>En el evento en que, en la aplicación de las normas de altura máxima de las edificaciones, se sobrepase la altura en metros descrita en el mapa de SECTORIZACIÓN DE OBSTÁCULOS POR ALTURA DEL ESPACIO AÉREO DE BOGOTÁ - AEROPUERTO INTERNACIONAL EL DORADO Y AEROPUERTO GUAYMARAL (año 2021), o que este mapa no cuente con información de altura, o que la altura señalada sea de 0, se requiere concepto técnico favorable de la Aeronáutica Civil.</p>"},
+              { "id": "B.", "titulo": "Altura máxima de las edificaciones", "contenido": "<p>En concordancia con el artículo 260 del Decreto Distrital 555 de 2021, la altura máxima de las edificaciones está sujeta a la aplicación de las normas de ocupación, cumplimiento de obligaciones urbanísticas en sitio, el número máximo de pisos permitido cuando éste se especifique en los mapas Nos. CU-5.4.2 a CU-5.4.33., los empates, aislamientos y retrocesos exigidos y las demás normas relacionadas con el aprovechamiento de los predios en edificabilidad. Para los tratamientos de Consolidación, Conservación, Mejoramiento Integral y Desarrollo en los rangos 4A y 4B la altura máxima se determina en pisos. Para los tratamientos de Renovación Urbana y Desarrollo en los rangos 1, 2, 3, 4C y 4D, la altura máxima es resultante de la aplicación de las normas del tratamiento.</p><p>Las alturas máximas de las edificaciones se regulan por las siguientes condiciones:</p><p><b>B.1.</b> Con excepción de los sótanos, semisótanos y cubiertas, toda placa (o su equivalente) cuenta como piso.</p><p><b>B.2.</b> Las variaciones volumétricas, como áreas bajo cubierta inclinada, altillos, mansardas y mezanines, hacen parte de las áreas construidas incluidas en el índice de construcción, y se contabilizan como piso.</p><p><b>B.3.</b> No se contabilizan dentro de la altura máxima de las edificaciones los siguientes elementos: ductos, chimeneas, remates de cubiertas, puntos fijos, cerramientos, tanques, equipos técnicos, sobre-recorridos de ascensores, hall de cubierta. Cualquier otro elemento adicional no señalado en este párrafo, se contabiliza como piso dentro de la altura máxima.</p><p><b>B.4.</b> Con excepción de lo dispuesto para terrenos inclinados, en todos los puntos de corte sobre la línea de inclinación del terreno, la edificación está limitada por la altura máxima permitida. (Ver CAP. 1, 1.2.1., C. ALTURAS EN TERRENOS INCLINADOS)</p><p><b>B.5.</b> La altura de la edificación corresponde a la distancia vertical medida desde el punto de cruce del paramento propuesto con la línea de inclinación del terreno, hasta la parte superior de la placa de cubierta o último piso de la edificación.</p><p><b>B.6.</b> En predios con frente menor a once (11) metros, que se localicen en tipología aislada, se permite una altura máxima de dos (2) pisos sin exigencia de aislamiento lateral, o la aplicación de las normas de empates de aislamientos laterales. (Ver CAP 1, 1.2.2., C.3. Empates de aislamientos laterales)</p><p>Las alturas máximas de las edificaciones podrán presentar restricciones adicionales o condiciones diferentes, derivadas de proyectos de infraestructura de la ciudad, o de estudios urbanísticos previstos en el artículo 176 numeral 4 del Decreto Distrital 555 de 2021. </p>"},
+              { "id": "C.", "titulo": "Alturas en terrenos inclinados", "contenido": "<p><b>C.1.</b> En terreno inclinado, en todos los puntos de las fachadas frente a espacio público o predios colindantes, la edificación está limitada por la altura máxima permitida, medida desde el límite del paramento de construcción propuesto en su cruce con la línea de inclinación del terreno. (Ver ilustración 04) (Ver CAP. 1, 1.2.2., A.4. Antejardines en nivel diferente del andén).</p><p><b>C.2.</b> A efectos de permitir el ajuste de los niveles de la edificación en terreno inclinado, se establece una franja de ajuste de máximo tres (3,00) metros, paralela a la línea de inclinación del terreno, dentro de la cual, la volumetría de la edificación puede superar la altura máxima de la edificación. Los volúmenes que se localicen en la franja de ajuste, deben generar retrocesos de las fachadas frente a espacio público, en una dimensión mínima de tres (3,00) metros. (Ver ilustraciones 05A, 05B y 05C).</p><p><b>C.3.</b> La regulación de alturas en terrenos inclinados no es aplicable en tratamientos con altura máxima resultante, o en empates de alturas que superen la máxima permitida. </p>"},              
+              { "id": "D.", "titulo": "Alturas por piso", "contenido": "A continuación, se definen las alturas mínimas y máximas libres por piso, expresadas en metros:<p>Otros elementos de regulación:</p><ul><li>Las alturas mínima y máxima libre por piso en metros, corresponde a la medida entre acabados arquitectónicos, libre de obstáculos.</li><li>La altura mínima libre por piso en metros aplica para nuevas edificaciones. En actuaciones sobre edificaciones existentes aplica lo dispuesto para otras actuaciones en edificaciones. (Ver CAP 1., 1.11. APLICACIÓN DE NORMAS URBANÍSTICAS EN FUNCIÓN DE ACTUACIONES EN EDIFICACIONES)</li><li>Cuando el proyecto supere la altura máxima libre por piso, señalada en la tabla anterior, cada 3,80 m o 4,20 m adicional (según el caso), o fracción de estas dimensiones, se contabilizarán como piso adicional. </li><li>Con excepción de lo dispuesto para otras actuaciones en edificaciones. (Ver CAP 1., 1.11. APLICACIÓN DE NORMAS URBANÍSTICAS EN FUNCIÓN DE ACTUACIONES EN EDIFICACIONES), en los proyectos en los que se plantea mezcla de usos en un mismo piso o nivel, son aplicables las alturas por piso del uso cuyas normas plantean mayores dimensiones.</li><li>Para los predios en los que se establece altura máxima de las edificaciones en pisos (Ver CAP 1, 1.2.1. ALTURA MÁXIMA DE LAS EDIFICACIONES; Ver CAP 3, 3.1.1., A. ALTURA MÁXIMA DE LAS EDIFICACIONES EN USOS DOTACIONALES), cuando la altura máxima libre por piso en metros se define como “La requerida para el uso”, la altura máxima de la edificación está supeditada a la siguiente fórmula: (Altura máxima de la edificación = Altura en pisos permitidos X 4,60 metros).</li></ul>"},
+              { "id": "E.", "titulo": "Empates de alturas", "contenido": "" }
+            ]
+          },
+          {
+            "id": "1.2.2",
+            "titulo": "AISLAMIENTOS",
+            "apartados": [
+              {
+                "id": "A.",
+                "titulo": "ANTEJARDINES",
+                "subapartados": [
+                  { "id": "A.1", "titulo": "Exigencia", "contenido": "" },
+                  { "id": "A.2", "titulo": "Dimensionamiento", "contenido": "" },
+                  { "id": "A.3", "titulo": "Empates de antejardines", "contenido": "" },
+                  { "id": "A.4", "titulo": "Antejardines en nivel diferente del andén", "contenido": "" },
+                  { "id": "A.5", "titulo": "Manejo de antejardines", "contenido": "" }
+                ]
+              },
+              {
+                "id": "B.",
+                "titulo": "AISLAMIENTOS POSTERIORES",
+                "subapartados": [
+                  { "id": "B.1", "titulo": "Exigencia de aislamientos posteriores", "contenido": "" },
+                  { "id": "B.2", "titulo": "Dimensionamiento de aislamientos posteriores", "contenido": "" },
+                  { "id": "B.3", "titulo": "Empates de aislamientos posteriores", "contenido": "" },
+                  { "id": "B.4", "titulo": "Regulación de aislamientos posteriores en englobes", "contenido": "" },
+                  { "id": "B.5", "titulo": "Manejo de aislamientos posteriores", "contenido": "" }
+                ]
+              },
+              {
+                "id": "C.",
+                "titulo": "AISLAMIENTOS LATERALES",
+                "subapartados": [
+                  { "id": "C.1", "titulo": "Exigencia de aislamientos laterales", "contenido": "" },
+                  { "id": "C.2", "titulo": "Dimensionamiento de aislamientos laterales", "contenido": "" },
+                  { "id": "C.3", "titulo": "Empates de aislamientos laterales", "contenido": "" },
+                  { "id": "C.4", "titulo": "Regulación de aislamientos laterales en englobes", "contenido": "" },
+                  { "id": "C.5", "titulo": "Manejo de aislamientos laterales", "contenido": "" }
+                ]
+              },
+              {
+                "id": "D.",
+                "titulo": "AISLAMIENTOS ENTRE EDIFICACIONES",
+                "subapartados": [
+                  { "id": "D.1", "titulo": "Exigencia de aislamientos entre edificaciones", "contenido": "" },
+                  { "id": "D.2", "titulo": "Dimensionamiento de aislamientos entre edificaciones", "contenido": "" }                  
+                ]
+              },
+              {
+                "id": "E.",
+                "titulo": "RETROCESOS DE FACHADA CONTRA ESPACIO PÚBLICO",
+                "subapartados": [
+                  { "id": "E.1", "titulo": "Exigencia y dimensiones de retrocesos de fachada contra espacio público", "contenido": "" }                  
+                ]
+              }
+            ]
+          },
+          {
+            "id": "1.2.3",
+            "titulo": "PATIOS",
+            "apartados": [
+              { "id": "A", "titulo": "Exigencia de patios", "contenido": "" },
+              { "id": "B", "titulo": "Dimensionamiento de patios", "contenido": "" }
+            ]
+          },
+          {
+            "id": "1.2.4",
+            "titulo": "VOLADIZOS",
+            "apartados": [
+              { "id": "A", "titulo": "Aplicación de voladizos", "contenido": "" },
+              { "id": "B", "titulo": "Dimensionamiento de voladizos", "contenido": "" },
+              { "id": "C", "titulo": "Empates de voladizos", "contenido": "" },
+              { "id": "D", "titulo": "Manejo de voladizos", "contenido": "" }
+            ]
+          },
+          {
+            "id": "1.2.5",
+            "titulo": "CUBIERTAS",
+            "apartados": []
+          },
+          {
+            "id": "1.2.6",
+            "titulo": "RAMPAS PEATONALES Y ESCALERAS",
+            "apartados": []
+          },
+          {
+            "id": "1.2.7",
+            "titulo": "SÓTANOS Y SEMISÓTANOS",
+            "apartados": []
+          },
+          {
+            "id": "1.2.8",
+            "titulo": "CERRAMIENTOS",
+            "apartados": [{ "id": "A", "titulo": "Cerramiento de antejardines", "contenido": "" },
+            { "id": "B", "titulo": "Cerramientos contra zonas verdes y entre zonas libres comunales privadas y espacio público", "contenido": "" },
+            { "id": "C", "titulo": "Cerramientos contra predios colindantes", "contenido": "" },
+            { "id": "D", "titulo": "Cerramientos en pisos superiores contra vacíos de antejardines, aislamientos, patios, vías, parques y/o espacio público", "contenido": "" },
+            { "id": "E", "titulo": "Otros cerramientos", "contenido": "" },
+            { "id": "F", "titulo": "Cerramientos temporales", "contenido": "" }
+          ]
+          }
+        ]
+      },
+      {
+        "id": "1.3",
+        "titulo": "EQUIPAMIENTO COMUNAL PRIVADO",
+        "subsecciones": [ 
+          {
+            "id": "1.3.1",
+            "titulo": "Elementos del Equipamiento Comunal Privado ECP",
+            "contenido": [             
+            ]
+          },
+          {
+            "id": "1.3.2",
+            "titulo": "Exigencia y destinación",
+            "contenido": [  { "id": "A", "titulo": "Exigencia de equipamiento comunal privado", "contenido": "" },
+            { "id": "B", "titulo": "Destinación del equipamiento comunal privado", "contenido": "" }           
+            ]
+          },
+          {
+            "id": "1.3.3",
+            "titulo": "Equipamiento comunal privado en conjuntos o agrupaciones bajo el régimen de copropiedad, localizados en el Tratamiento de Consolidación",
+            "contenido": [             
+            ]
+          } 
+        ]
+      },{
+        "id": "1.4",
+        "titulo": "LOTEO Y SUBDIVISIONES",
+        "contenido":""
+      },
+      {
+        "id": "1.5",
+        "titulo": "ENGLOBES",
+        "contenido":""
+      },
+      {
+        "id": "1.6",
+        "titulo": "CESIONES PARA ESPACIO PÚBLICO",
+        "subsecciones":[
+          {
+            "id": "1.6.1",
+            "titulo": "Condiciones generales de localización de las cesiones de espacio público para todos los tratamientos",
+            "contenido": [             
+            ]
+          },
+          {
+            "id": "1.6.2",
+            "titulo": "Condiciones específicas de las cesiones de espacio público para los diferentes tratamientos",
+            "contenido": [             
+            ]
+          },
+          {
+            "id": "1.6.2",
+            "titulo": "Condiciones para las cesiones de espacio público en ladera ",
+            "contenido": [             
+            ]
+          }
+        ]
+      },
+      {
+        "id": "1.7",
+        "titulo": "ÁREAS PRIVADAS AFECTAS AL USO PÚBLICO",
+        "subsecciones":[
+          {
+            "id": "1.7.1",
+            "titulo": "Configuración de áreas privadas afectas al uso público en centros de manzana",
+            "contenido": [             
+            ]
+          }
+        ]
+      },
+      {
+        "id": "1.8",
+        "titulo": "ESTACIONAMIENTOS",
+        "subsecciones":[
+          {
+            "id": "1.8.1",
+            "titulo": "Cupos obligatorios para bicicletas y otros vehículos de micromovilidad",
+            "contenido": ""
+          },
+          {
+            "id": "1.8.2",
+            "titulo": "Cupos accesibles para personas con discapacidad",
+            "contenido": ""
+          },
+          {
+            "id": "1.8.3",
+            "titulo": "Estacionamientos preferenciales para vehículos eléctricos y/o de cero emisiones",
+            "contenido": ""
+          },
+          {
+            "id": "1.8.4",
+            "titulo": "Estacionamientos exigidos según necesidades de funcionamiento de los usos",
+            "contenido": ""
+          },
+          {
+            "id": "1.8.5",
+            "titulo": "Medidas de control sobre la operación de los estacionamientos",
+            "contenido": ""
+          },
+          {
+            "id": "1.8.6",
+            "titulo": "Accesos y salidas vehiculares respecto del espacio público",
+            "apartados": [ 
+              {
+                "id": "A",
+                "titulo": "Localización de accesos y salidas vehiculares",
+                "contenido":""
+              }, 
+              {
+                "id": "B",
+                "titulo": "Dimensionamiento de accesos y salidas vehiculares",
+                "contenido":""
+              },
+              {
+                "id": "C",
+                "titulo": "Características de los accesos y salidas vehiculares",
+                "contenido":""
+              }
+            ]
+          },
+          {
+            "id": "1.8.7",
+            "titulo": "Dimensiones de los estacionamientos",
+            "apartados": [ 
+              {
+                "id": "A",
+                "titulo": "Estacionamientos de vehículos motorizados",
+                "contenido":""
+              }, 
+              {
+                "id": "B",
+                "titulo": "Estacionamientos para bicicletas",
+                "contenido":""
+              }
+            ]
+          },
+          {
+            "id": "1.8.8",
+            "titulo": "Dimensiones de circulación y áreas de maniobra",
+            "apartados": [ 
+              {
+                "id": "A",
+                "titulo": "Para automóviles, camionetas y camperos",
+                "contenido":""
+              }, 
+              {
+                "id": "B",
+                "titulo": "Para motocicletas",
+                "contenido":""
+              }
+            ]
+          },
+          {
+            "id": "1.8.9",
+            "titulo": "Rampas vehiculares",
+            "contenido": ""
+          },
+          {
+            "id": "1.8.10",
+            "titulo": "Servidumbres de estacionamientos",
+            "contenido": ""
+          }
+        ]
+      },
+      {
+        "id": "1.9",
+        "titulo": "CONDICIONES GENERALES PARA GARANTIZAR EL PROCESO DE URBANIZACIÓN O REURBANIZACIÓN",
+        "contenido":""
+      },
+      {
+        "id": "1.10",
+        "titulo": "CONDICIONES DE VENTILACIÓN E ILUMINACIÓN",
+        "contenido":""
+      },
+      {
+        "id": "1.11",
+        "titulo": "APLICACIÓN DE NORMAS URBANÍSTICAS EN FUNCIÓN DE ACTUACIONES EN EDIFICACIONES",
+        "contenido":""
+      }       
+    
+    ]
+
+  }
+
+  

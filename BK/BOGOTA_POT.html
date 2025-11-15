@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capítulo 1 - Normas Urbanísticas Comunes</title>
+  <link rel="icon" href="https://img.icons8.com/ios-filled/32/apartment.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      height: 100vh;
+      color: #333;
+    }
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 64px;
+      background-color: #222;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 0 1rem;
+      z-index: 1000;
+      border-bottom: 1px solid #444;
+    }
+    .navbar span {
+      font-size: 0.9rem;
+    }
+    aside {
+      width: 300px;
+      background-color: #f1f3f4;
+      border-right: 1px solid #ccc;
+      overflow-y: auto;
+      padding: 1rem;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      height: calc(100% - 64px);
+    }
+    aside h2 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    main {
+      margin-left: 300px;
+      padding: 2rem;
+      flex: 1;
+      overflow-y: auto;
+      height: calc(100vh - 64px);
+      margin-top: 64px;
+    }
+    header {
+      background-color: #333;
+      color: white;
+      padding: 2rem 1rem;
+      position: sticky;
+      top: 64px;
+      z-index: 10;
+    }
+    details {
+      margin-bottom: 0.5rem;
+      border-left: 3px solid transparent;
+      transition: border-color 0.2s;
+    }
+    details:hover {
+      border-color: #4285f4;
+    }
+    summary {
+      font-weight: bold;
+      cursor: pointer;
+      padding: 0.25rem 0;
+    }
+    summary:hover {
+      background-color: #e0e0e0;
+    }
+    ul {
+      padding-left: 1.5rem;
+      list-style-type: disc;
+    }
+    li {
+      margin-bottom: 0.25rem;
+    }
+    #contenido {
+      line-height: 1.6;
+    }
+    #contenido p {
+      margin-bottom: 1rem;
+    }
+    .definition {
+      margin-bottom: 1.5rem;
+    }
+    .definition h3 {
+      margin-bottom: 0.25rem;
+    }
+    a {
+      color: #333;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .anchor-spacer {
+      position: relative;
+      top: -150px;
+      height: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <span>ACTUALIZACIÓN ANEXO No. 5: MANUAL DE NORMAS COMUNES A LOS TRATAMIENTOS URBANÍSTICOS</span>
+  </div>
+  <aside id="menu">
+    <h2>Capítulo 1 - Normas Urbanísticas Comunes</h2>
+  </aside>
+  <main>
+    <header>
+      <h1 id="titulo-seccion">Capítulo 1 - Normas Urbanísticas Comunes</h1>
+    </header>
+    <div id="contenido">
+      <p>Selecciona un artículo del menú para visualizar su contenido.</p>
+    </div>
+  </main>
+  <script>
+    async function cargarJSON() {
+      const response = await fetch("CODE_CHAPTER1.json");
+      const data = await response.json();
+      document.getElementById("titulo-seccion").textContent = "Capítulo 1 - Normas Urbanísticas Comunes";
+      renderSecciones(data.secciones);
+    }
+
+    function renderSecciones(secciones) {
+      const contenedor = document.getElementById("menu");
+      contenedor.innerHTML = "";
+      secciones.forEach(seccion => {
+        const sec = document.createElement("details");
+        const summary = document.createElement("summary");
+        summary.innerHTML = `<a href='#' onclick="mostrarDefiniciones('${seccion.id}', '${seccion.titulo}')">${seccion.id} ${seccion.titulo}</a>`;
+        sec.appendChild(summary);
+        const lista = document.createElement("ul");
+
+        if (seccion.articulos) {
+          summary.addEventListener("click", () => mostrarDefiniciones(seccion.id, seccion.titulo));
+
+          seccion.articulos.forEach(art => {
+            const li = document.createElement("li");
+            li.innerHTML = `<a href="#${art.id}">${art.id} ${art.titulo}</a>`;
+            lista.appendChild(li);
+          });
+        } else if (seccion.subsecciones) {
+          seccion.subsecciones.forEach(sub => {
+            const subDetails = document.createElement("details");
+            const subSummary = document.createElement("summary");
+            subSummary.textContent = `${sub.id} ${sub.titulo}`;
+            subDetails.appendChild(subSummary);
+            const subList = document.createElement("ul");
+
+            if (sub.apartados) {
+              sub.apartados.forEach(ap => {
+                const apDetails = document.createElement("details");
+                apDetails.innerHTML = `<summary>${ap.id} ${ap.titulo}</summary>`;
+                const apList = document.createElement("ul");
+
+                if (ap.subapartados) {
+                  ap.subapartados.forEach(subap => {
+                    const subapItem = document.createElement("li");
+                    subapItem.textContent = `${subap.id} ${subap.titulo}`;
+                    apList.appendChild(subapItem);
+                  });
+                }
+
+                apDetails.appendChild(apList);
+                subList.appendChild(apDetails);
+              });
+            } else if (sub.contenido) {
+              const contentLi = document.createElement("li");
+              contentLi.innerHTML = `<a href="#" onclick="mostrarDefiniciones('${sub.id}', '${sub.titulo}')">${sub.id} ${sub.titulo}</a>`;
+              subList.appendChild(contentLi);
+            }
+
+            subDetails.appendChild(subList);
+            lista.appendChild(subDetails);
+          });
+        }
+
+        sec.appendChild(lista);
+        contenedor.appendChild(sec);
+      });
+    }
+
+    function mostrarDefiniciones(seccionId, titulo) {
+      fetch("CODE_CHAPTER1.json")
+        .then(res => res.json())
+        .then(data => {
+          const cont = document.getElementById("contenido");
+          cont.innerHTML = "";
+          const title = document.getElementById("titulo-seccion");
+          title.textContent = `Capítulo 1 - Normas Urbanísticas Comunes`;
+
+          const seccion = data.secciones.find(s => s.id === seccionId);
+          if (!seccion) return;
+
+          if (seccion.contenido) {
+            const intro = document.createElement("p");
+            intro.textContent = seccion.contenido;
+            cont.appendChild(intro);
+          }
+
+          if (seccion.articulos) {
+            seccion.articulos.forEach(art => {
+              const def = document.createElement("div");
+              def.classList.add("definition");
+              const anchor = document.createElement("div");
+              anchor.className = "anchor-spacer";
+              const idAnchor = document.createElement("a");
+              idAnchor.id = art.id;
+              anchor.appendChild(idAnchor);
+              def.appendChild(anchor);
+
+              const h3 = document.createElement("h3");
+              h3.textContent = `${art.id} ${art.titulo}`;
+
+              const p = document.createElement("p");
+              p.textContent = art.contenido;
+
+              def.appendChild(h3);
+              def.appendChild(p);
+              cont.appendChild(def);
+            });
+          }
+        });
+    }
+
+    cargarJSON();
+  </script>
+</body>
+</html>
