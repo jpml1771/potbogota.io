@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BOGOTA POT</title>
+  <link rel="icon" href="https://img.icons8.com/ios-filled/32/apartment.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      height: 100vh;
+      color: #333;
+    }
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 64px;
+      background-color: #222;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 0 1rem;
+      z-index: 1000;
+      border-bottom: 1px solid #444;
+    }
+    aside {
+      width: 300px;
+      background-color: #f1f3f4;
+      border-right: 1px solid #ccc;
+      overflow-y: auto;
+      padding: 1rem;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      height: calc(100% - 64px);
+    }
+    main {
+      margin-left: 300px;
+      padding: 2rem;
+      flex: 1;
+      overflow-y: auto;
+      height: calc(100vh - 64px);
+      margin-top: 64px;
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+    #contenido h1 {
+      font-size: 1.8rem;
+      margin-top: 1.5rem;
+    }
+    #contenido h2 {
+      font-size: 1.4rem;
+      margin-top: 1.25rem;
+    }
+    #contenido h3, #contenido h4, #contenido h5, #contenido h6 {
+      font-size: 1rem;
+      margin-top: 1rem;
+    }
+    #contenido ul {
+      list-style-type: disc;
+      padding-left: 2rem;
+      margin-bottom: 1rem;
+    }
+    #contenido li {
+      margin-bottom: 0.5rem;
+    }
+    aside ul { list-style-type: none; padding-left: 1rem; }
+    aside li { margin-bottom: 0.25rem; }
+    aside a {
+      color: #333;
+      text-decoration: none;
+      display: block;
+      padding: 4px 0;
+      cursor: pointer;
+    }
+    aside a:hover { text-decoration: underline; }
+    aside ul ul { padding-left: 0.75rem; }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <span>BOGOTA POT</span>
+  </div>
+  <aside id="menu">
+    <h2>Capítulo 1 - Normas Urbanísticas Comunes</h2>
+  </aside>
+  <main>
+    <div id="contenido"></div>
+  </main>
+  <script>
+    async function cargarJSON() {
+      const response = await fetch("CODE_CHAPTER1.json");
+      const data = await response.json();
+      renderEstructura(data);
+      renderContenidoCompleto(data);
+    }
+
+    function expandAncestors(li) {
+      let node = li;
+      while (node && node.id !== 'menu') {
+        if (node.tagName === 'UL') node.style.display = 'block';
+        node = node.parentElement;
+      }
+    }
+
+    function renderEstructura(capitulo) {
+      const contenedor = document.getElementById("menu");
+      contenedor.innerHTML = `<h2>${capitulo.capitulo} ${capitulo.titulo}</h2>`;
+
+      function crearMenu(items) {
+        const lista = document.createElement("ul");
+        items.forEach(item => {
+          const li = document.createElement("li");
+
+          const link = document.createElement("a");
+          link.href = `#${item.id}`;
+          link.textContent = `${item.id} ${item.titulo}`;
+
+          li.appendChild(link);
+
+          const subniveles = item.subsecciones || item.apartados || item.subapartados || item.articulos;
+          if (Array.isArray(subniveles) && subniveles.length > 0) {
+            const subLista = crearMenu(subniveles);
+            subLista.style.display = 'none';
+            li.appendChild(subLista);
+
+            link.addEventListener('click', (e) => {
+              e.preventDefault();
+              const parentUl = li.parentElement;
+              Array.from(parentUl.children).forEach(sibLi => {
+                for (let node of sibLi.childNodes) {
+                  if (node.tagName === 'UL' && node !== subLista) node.style.display = 'none';
+                }
+              });
+              subLista.style.display = (subLista.style.display === 'block') ? 'none' : 'block';
+              expandAncestors(li);
+
+              const targetId = link.getAttribute('href').slice(1);
+              const target = document.getElementById(targetId);
+              if (target) {
+                const main = document.querySelector('main');
+                const mainRect = main.getBoundingClientRect();
+                const targetRect = target.getBoundingClientRect();
+                const currentMainScroll = main.scrollTop;
+                const offset = (targetRect.top - mainRect.top) + currentMainScroll - 80;
+                main.scrollTo({ top: offset, behavior: 'smooth' });
+              }
+            });
+          } else {
+            link.addEventListener('click', (e) => {
+              e.preventDefault();
+              expandAncestors(li);
+              const targetId = link.getAttribute('href').slice(1);
+              const target = document.getElementById(targetId);
+              if (target) {
+                const main = document.querySelector('main');
+                const mainRect = main.getBoundingClientRect();
+                const targetRect = target.getBoundingClientRect();
+                const currentMainScroll = main.scrollTop;
+                const offset = (targetRect.top - mainRect.top) + currentMainScroll - 80;
+                main.scrollTo({ top: offset, behavior: 'smooth' });
+              }
+            });
+          }
+
+          lista.appendChild(li);
+        });
+        return lista;
+      }
+
+      if (capitulo.secciones) {
+        contenedor.appendChild(crearMenu(capitulo.secciones));
+      }
+    }
+
+    function renderContenidoCompleto(capitulo) {
+      const cont = document.getElementById("contenido");
+      cont.innerHTML = "";
+
+      const capDiv = document.createElement("section");
+      capDiv.id = `capitulo-${capitulo.capitulo}`;
+      const h1 = document.createElement("h1");
+      h1.textContent = `${capitulo.capitulo} ${capitulo.titulo}`;
+      capDiv.appendChild(h1);
+      if (capitulo.contenido) {
+        const p = document.createElement("div");
+        p.innerHTML = capitulo.contenido;
+        capDiv.appendChild(p);
+      }
+
+      function renderNivel(items, nivel, parent) {
+        items.forEach(item => {
+          const div = document.createElement("section");
+          div.id = item.id;
+          const heading = document.createElement(`h${nivel}`);
+          heading.textContent = `${item.id} ${item.titulo}`;
+          div.appendChild(heading);
+
+          if (item.contenido && typeof item.contenido === 'string' && item.contenido.trim() !== '') {
+            const p = document.createElement("div");
+            p.innerHTML = item.contenido;
+            div.appendChild(p);
+          }
+
+          parent.appendChild(div);
+
+          const subniveles = item.subsecciones || item.apartados || item.subapartados || item.articulos;
+          if (Array.isArray(subniveles) && subniveles.length > 0) {
+            renderNivel(subniveles, Math.min(nivel + 1, 6), div);
+          }
+        });
+      }
+
+      if (capitulo.secciones) {
+        renderNivel(capitulo.secciones, 2, capDiv);
+      }
+
+      cont.appendChild(capDiv);
+    }
+
+    cargarJSON();
+  </script>
+</body>
+</html>

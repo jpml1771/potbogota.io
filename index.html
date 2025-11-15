@@ -1,231 +1,466 @@
-<!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="h-full">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BOGOTA POT</title>
-  <link rel="icon" href="https://img.icons8.com/ios-filled/32/apartment.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      font-family: 'Open Sans', sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      height: 100vh;
-      color: #333;
-    }
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 64px;
-      background-color: #222;
-      color: white;
-      display: flex;
-      align-items: center;
-      padding: 0 1rem;
-      z-index: 1000;
-      border-bottom: 1px solid #444;
-    }
-    aside {
-      width: 300px;
-      background-color: #f1f3f4;
-      border-right: 1px solid #ccc;
-      overflow-y: auto;
-      padding: 1rem;
-      position: fixed;
-      top: 64px;
-      left: 0;
-      height: calc(100% - 64px);
-    }
-    main {
-      margin-left: 300px;
-      padding: 2rem;
-      flex: 1;
-      overflow-y: auto;
-      height: calc(100vh - 64px);
-      margin-top: 64px;
-      scroll-behavior: smooth;
-      scroll-padding-top: 100px;
-    }
-    #contenido h1 {
-      font-size: 1.8rem;
-      margin-top: 1.5rem;
-    }
-    #contenido h2 {
-      font-size: 1.4rem;
-      margin-top: 1.25rem;
-    }
-    #contenido h3, #contenido h4, #contenido h5, #contenido h6 {
-      font-size: 1rem;
-      margin-top: 1rem;
-    }
-    #contenido ul {
-      list-style-type: disc;
-      padding-left: 2rem;
-      margin-bottom: 1rem;
-    }
-    #contenido li {
-      margin-bottom: 0.5rem;
-    }
-    aside ul { list-style-type: none; padding-left: 1rem; }
-    aside li { margin-bottom: 0.25rem; }
-    aside a {
-      color: #333;
-      text-decoration: none;
-      display: block;
-      padding: 4px 0;
-      cursor: pointer;
-    }
-    aside a:hover { text-decoration: underline; }
-    aside ul ul { padding-left: 0.75rem; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POT Bogotá - Visor de Normas</title>
+    <!-- Ícono de la pestaña (Favicon) -->
+    <link rel="icon" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cpath fill='rgb(37, 99, 235)' d='M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 18H6V4h2v9l2.5-1.5L13 13V4h5v16z'/%3e%3c/svg%3e">
+    <!-- Cargar Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Estilos personalizados */
+        html, body {
+            overflow: hidden; /* Prevenir scroll en la página principal */
+            font-family: 'Inter', sans-serif;
+        }
+        /* Estilo para el enlace activo en la barra lateral */
+        .nav-link.active {
+            background-color: #eff6ff; /* bg-blue-50 */
+            color: #2563eb; /* text-blue-700 */
+            font-weight: 600; /* semibold */
+        }
+        /* Ocultar la barra de scroll por defecto en la barra lateral y el contenido */
+        #sidebar::-webkit-scrollbar, #content-pane::-webkit-scrollbar {
+            width: 8px;
+        }
+        #sidebar::-webkit-scrollbar-thumb, #content-pane::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1; /* slate-300 */
+            border-radius: 4px;
+        }
+        #sidebar:hover::-webkit-scrollbar-thumb, #content-pane:hover::-webkit-scrollbar-thumb {
+            background-color: #94a3b8; /* slate-400 */
+        }
+        /* Estilo para el texto de búsqueda */
+        .search-highlight {
+            background-color: #fef08a; /* yellow-200 */
+        }
+        /* Estilos de Prose para el contenido principal (tipografía) */
+        .prose h2 { margin-bottom: 1.5rem; border-bottom-width: 2px; padding-bottom: 0.75rem; }
+        .prose h3 { margin-bottom: 1.25rem; margin-top: 2rem; border-bottom-width: 1px; padding-bottom: 0.5rem; }
+        .prose h4 { margin-bottom: 1rem; margin-top: 1.75rem; }
+        .prose h5 { margin-bottom: 0.75rem; margin-top: 1.5rem; }
+        .prose p, .prose ul { margin-bottom: 1rem; }
+        .prose .code-section { padding-top: 1.5rem; }
+        .prose .code-section:not(:last-child) { border-bottom: 1px solid #e5e7eb; padding-bottom: 1.5rem; }
+    </style>
 </head>
-<body>
-  <div class="navbar">
-    <span>BOGOTA POT</span>
-  </div>
-  <aside id="menu">
-    <h2>Capítulo 1 - Normas Urbanísticas Comunes</h2>
-  </aside>
-  <main>
-    <div id="contenido"></div>
-  </main>
-  <script>
-    async function cargarJSON() {
-      const response = await fetch("CODE_CHAPTER1.json");
-      const data = await response.json();
-      renderEstructura(data);
-      renderContenidoCompleto(data);
-    }
+<body class="h-full bg-gray-100">
 
-    function expandAncestors(li) {
-      let node = li;
-      while (node && node.id !== 'menu') {
-        if (node.tagName === 'UL') node.style.display = 'block';
-        node = node.parentElement;
-      }
-    }
+    <!-- Contenedor de la aplicación (100% de la altura de la vista) -->
+    <div class="h-full flex flex-col">
+        
+        <!-- Header -->
+        <header class="bg-white border-b border-gray-200 p-4 shadow-sm flex-shrink-0">
+            <div class="flex justify-between items-center max-w-7xl mx-auto">
+                <h1 class="text-xl font-bold text-gray-800">Visor de Normas (POT Bogotá)</h1>
+                <div class="w-full max-w-xs">
+                    <input type="search" id="search-box" placeholder="Buscar..." class="w-full px-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+            </div>
+        </header>
 
-    function renderEstructura(capitulo) {
-      const contenedor = document.getElementById("menu");
-      contenedor.innerHTML = `<h2>${capitulo.capitulo} ${capitulo.titulo}</h2>`;
+        <!-- Contenedor principal (Sidebar + Content) -->
+        <div class="flex-1 flex overflow-hidden">
+            
+            <!-- Sidebar (Navegación) -->
+            <nav id="sidebar" class="w-80 flex-shrink-0 overflow-y-auto bg-white border-r border-gray-200 p-4">
+                <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">Tabla de Contenido</h2>
+                <!-- El contenido del Sidebar se generará dinámicamente -->
+                <div id="sidebar-content" class="space-y-1 text-sm">
+                    <!-- Loader -->
+                    <p class="text-gray-500">Cargando...</p>
+                </div>
+            </nav>
 
-      function crearMenu(items) {
-        const lista = document.createElement("ul");
-        items.forEach(item => {
-          const li = document.createElement("li");
+            <!-- Content Pane (Contenido) -->
+            <main id="content-pane" class="flex-1 overflow-y-auto bg-gray-50 p-8">
+                <!-- El contenido principal se generará dinámicamente -->
+                <div id="main-content" class="max-w-4xl mx-auto bg-white p-10 rounded-lg shadow prose max-w-none">
+                    <!-- Loader -->
+                    <p class="text-gray-500">Cargando contenido...</p>
+                </div>
+            </main>
 
-          const link = document.createElement("a");
-          link.href = `#${item.id}`;
-          link.textContent = `${item.id} ${item.titulo}`;
+        </div>
+    </div>
 
-          li.appendChild(link);
+    <script>
+        // --- INICIO: Datos JSON del POT ---
+        // ¡Ya no está! Ahora lo cargaremos con fetch().
+        // --- FIN: Datos JSON del POT ---
 
-          const subniveles = item.subsecciones || item.apartados || item.subapartados || item.articulos;
-          if (Array.isArray(subniveles) && subniveles.length > 0) {
-            const subLista = crearMenu(subniveles);
-            subLista.style.display = 'none';
-            li.appendChild(subLista);
 
-            link.addEventListener('click', (e) => {
-              e.preventDefault();
-              const parentUl = li.parentElement;
-              Array.from(parentUl.children).forEach(sibLi => {
-                for (let node of sibLi.childNodes) {
-                  if (node.tagName === 'UL' && node !== subLista) node.style.display = 'none';
+        /**
+         * Función para limpiar y generar un ID único para los elementos.
+         * Reemplaza puntos, paréntesis y espacios con guiones.
+         */
+        function generateId(prefix, id) {
+            const cleanId = String(id).toLowerCase()
+                .replace(/\./g, '-') // Reemplaza . con -
+                .replace(/\s+/g, '-') // Reemplaza espacios con -
+                .replace(/[^\w-]+/g, ''); // Remueve caracteres no alfanuméricos
+            return `${prefix}-${cleanId}`;
+        }
+
+        /**
+         * Construye la barra lateral (Tabla de Contenidos) recursivamente.
+         */
+        function buildSidebar(data) {
+            const sidebarContainer = document.getElementById('sidebar-content');
+            sidebarContainer.innerHTML = ''; // Limpiar el loader
+
+            // Crear el nivel superior (Capítulo)
+            const capId = generateId('cap', data.capitulo);
+            const capDetails = document.createElement('details');
+            capDetails.open = true;
+            
+            const capSummary = document.createElement('summary');
+            capSummary.className = 'font-medium text-gray-700 py-1 hover:text-blue-600';
+            capSummary.innerHTML = `<a href="#${capId}" class="text-current no-underline">Capítulo ${data.capitulo}: ${data.titulo}</a>`;
+            
+            const capDiv = document.createElement('div');
+            capDiv.className = 'pl-4';
+            
+            // Recorrer las secciones (Nivel 2)
+            data.secciones.forEach(seccion => {
+                const secId = generateId('sec', seccion.id);
+                const secDetails = document.createElement('details');
+                const secSummary = document.createElement('summary');
+                secSummary.className = 'font-medium text-gray-600 py-1 hover:text-blue-600';
+                secSummary.innerHTML = `<a href="#${secId}" class="text-current no-underline">${seccion.id}: ${seccion.titulo}</a>`;
+                
+                const secDiv = document.createElement('div');
+                secDiv.className = 'pl-4';
+
+                let hasChildren = false;
+
+                // Recorrer subsecciones (Nivel 3)
+                if (seccion.subsecciones) {
+                    hasChildren = true;
+                    seccion.subsecciones.forEach(subsec => {
+                        const subsecId = generateId('subsec', subsec.id);
+                        const subsecLink = document.createElement('a');
+                        subsecLink.href = `#${subsecId}`;
+                        subsecLink.className = 'nav-link block py-1 pr-1 pl-2 text-gray-600 hover:bg-blue-50 hover:text-blue-700 rounded-md';
+                        subsecLink.textContent = `${subsec.id}: ${subsec.titulo}`;
+                        secDiv.appendChild(subsecLink);
+                    });
                 }
-              });
-              subLista.style.display = (subLista.style.display === 'block') ? 'none' : 'block';
-              expandAncestors(li);
 
-              const targetId = link.getAttribute('href').slice(1);
-              const target = document.getElementById(targetId);
-              if (target) {
-                const main = document.querySelector('main');
-                const mainRect = main.getBoundingClientRect();
-                const targetRect = target.getBoundingClientRect();
-                const currentMainScroll = main.scrollTop;
-                const offset = (targetRect.top - mainRect.top) + currentMainScroll - 80;
-                main.scrollTo({ top: offset, behavior: 'smooth' });
-              }
+                // Recorrer apartados (Nivel 3)
+                if (seccion.apartados) {
+                    hasChildren = true;
+                    seccion.apartados.forEach(ap => {
+                        const apId = generateId('ap', `${seccion.id}-${ap.id}`);
+                        const apDetails = document.createElement('details');
+                        const apSummary = document.createElement('summary');
+                        apSummary.className = 'font-medium text-gray-500 py-1 hover:text-blue-600';
+                        apSummary.innerHTML = `<a href="#${apId}" class="text-current no-underline">${ap.id} ${ap.titulo}</a>`;
+                        
+                        const apDiv = document.createElement('div');
+                        apDiv.className = 'pl-4';
+
+                        // Recorrer subapartados (Nivel 4)
+                        if (ap.subapartados) {
+                            ap.subapartados.forEach(subap => {
+                                const subapId = generateId('subap', `${seccion.id}-${ap.id}-${subap.id}`);
+                                const subapLink = document.createElement('a');
+                                subapLink.href = `#${subapId}`;
+                                subapLink.className = 'nav-link block py-1 pr-1 pl-2 text-gray-600 hover:bg-blue-50 hover:text-blue-700 rounded-md';
+                                subapLink.textContent = `${subap.id} ${subap.titulo}`;
+                                apDiv.appendChild(subapLink);
+                            });
+                        }
+                        apDetails.appendChild(apSummary);
+                        apDetails.appendChild(apDiv);
+                        secDiv.appendChild(apDetails);
+                    });
+                }
+
+                if (hasChildren) {
+                    secDetails.appendChild(secSummary);
+                    secDetails.appendChild(secDiv);
+                    capDiv.appendChild(secDetails);
+                } else {
+                    // Si no tiene hijos, es un enlace directo
+                    const secLink = document.createElement('a');
+                    secLink.href = `#${secId}`;
+                    secLink.className = 'nav-link block py-1 pr-1 pl-2 text-gray-600 hover:bg-blue-50 hover:text-blue-700 rounded-md font-medium';
+                    secLink.textContent = `${seccion.id}: ${seccion.titulo}`;
+                    capDiv.appendChild(secLink);
+                }
             });
-          } else {
-            link.addEventListener('click', (e) => {
-              e.preventDefault();
-              expandAncestors(li);
-              const targetId = link.getAttribute('href').slice(1);
-              const target = document.getElementById(targetId);
-              if (target) {
-                const main = document.querySelector('main');
-                const mainRect = main.getBoundingClientRect();
-                const targetRect = target.getBoundingClientRect();
-                const currentMainScroll = main.scrollTop;
-                const offset = (targetRect.top - mainRect.top) + currentMainScroll - 80;
-                main.scrollTo({ top: offset, behavior: 'smooth' });
-              }
+
+            capDetails.appendChild(capSummary);
+            capDetails.appendChild(capDiv);
+            sidebarContainer.appendChild(capDetails);
+        }
+
+        /**
+         * Construye el contenido principal recursivamente.
+         */
+        function buildContent(data) {
+            const contentContainer = document.getElementById('main-content');
+            contentContainer.innerHTML = ''; // Limpiar el loader
+
+            // Crear el título del Capítulo
+            const capId = generateId('cap', data.capitulo);
+            const capDiv = document.createElement('div');
+            capDiv.id = capId;
+            capDiv.className = 'mb-10 pt-4';
+            capDiv.innerHTML = `<h2 class="text-3xl font-bold border-b pb-4 mb-6">Capítulo ${data.capitulo}: ${data.titulo}</h2>`;
+
+            // Recorrer las secciones (Nivel 2)
+            data.secciones.forEach(seccion => {
+                const secId = generateId('sec', seccion.id);
+                const secDiv = document.createElement('div');
+                secDiv.id = secId;
+                // Si la sección no tiene hijos, es un "code-section"
+                const hasChildren = seccion.subsecciones || seccion.apartados;
+                secDiv.className = hasChildren ? 'mb-8 pt-4' : 'code-section mb-8 pb-8 pt-4';
+
+                const secTitle = document.createElement('h3');
+                secTitle.className = 'text-2xl font-semibold text-gray-700 mb-6 border-b pb-3';
+                secTitle.textContent = `${seccion.id}: ${seccion.titulo}`;
+                secDiv.appendChild(secTitle);
+                
+                if (seccion.contenido && typeof seccion.contenido === 'string') {
+                    const secContent = document.createElement('p');
+                    secContent.innerHTML = seccion.contenido;
+                    secDiv.appendChild(secContent);
+                }
+
+                // Recorrer subsecciones (Nivel 3)
+                if (seccion.subsecciones) {
+                    seccion.subsecciones.forEach(subsec => {
+                        const subsecId = generateId('subsec', subsec.id);
+                        const subsecSection = document.createElement('section');
+                        subsecSection.id = subsecId;
+                        subsecSection.className = 'code-section mb-8 pb-8 border-b';
+                        
+                        const subsecTitle = document.createElement('h4');
+                        subsecTitle.className = 'text-xl font-semibold';
+                        subsecTitle.textContent = `${subsec.id}: ${subsec.titulo}`;
+                        subsecSection.appendChild(subsecTitle);
+                        
+                        if (subsec.contenido) {
+                            const subsecContent = document.createElement('p');
+                            subsecContent.innerHTML = subsec.contenido;
+                            subsecSection.appendChild(subsecContent);
+                        }
+                        secDiv.appendChild(subsecSection);
+                    });
+                }
+
+                // Recorrer apartados (Nivel 3)
+                if (seccion.apartados) {
+                    seccion.apartados.forEach(ap => {
+                        const apId = generateId('ap', `${seccion.id}-${ap.id}`);
+                        const apSection = document.createElement('section');
+                        apSection.id = apId;
+                        apSection.className = 'code-section mb-8 pb-8 border-b';
+                        
+                        const apTitle = document.createElement('h4');
+                        apTitle.className = 'text-xl font-semibold';
+                        apTitle.textContent = `${ap.id} ${ap.titulo}`;
+                        apSection.appendChild(apTitle);
+
+                        if (ap.contenido) {
+                            const apContent = document.createElement('div');
+                            apContent.innerHTML = ap.contenido; // Usar innerHTML para el contenido HTML
+                            apSection.appendChild(apContent);
+                        }
+
+                        // Recorrer subapartados (Nivel 4)
+                        if (ap.subapartados) {
+                            ap.subapartados.forEach(subap => {
+                                const subapId = generateId('subap', `${seccion.id}-${ap.id}-${subap.id}`);
+                                const subapSection = document.createElement('section');
+                                subapSection.id = subapId;
+                                subapSection.className = 'code-section mb-4 pb-4 border-b';
+                                
+                                const subapTitle = document.createElement('h5');
+                                subapTitle.className = 'text-lg font-semibold';
+                                subapTitle.textContent = `${subap.id} ${subap.titulo}`;
+                                subapSection.appendChild(subapTitle);
+
+                                if (subap.contenido) {
+                                    const subapContent = document.createElement('p');
+                                    subapContent.innerHTML = subap.contenido;
+                                    subapSection.appendChild(subapContent);
+                                }
+                                apSection.appendChild(subapSection);
+                            });
+                        }
+                        secDiv.appendChild(apSection);
+                    });
+                }
+                capDiv.appendChild(secDiv);
             });
-          }
+            contentContainer.appendChild(capDiv);
+        }
 
-          lista.appendChild(li);
+        /**
+         * Configura todos los event listeners después de construir la página
+         */
+        function setupEventListeners() {
+            const sidebar = document.getElementById('sidebar');
+            const contentPane = document.getElementById('content-pane');
+            const searchBox = document.getElementById('search-box');
+
+            // --- 1. Listener de Búsqueda ---
+            searchBox.addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase();
+                
+                // Filtrar la barra lateral
+                const navLinks = sidebar.querySelectorAll('.nav-link, summary > a');
+                navLinks.forEach(link => {
+                    const text = link.textContent.toLowerCase();
+                    const isMatch = text.includes(query);
+                    
+                    const container = link.closest('.nav-link') || link.closest('summary');
+                    container.style.display = isMatch ? 'block' : 'none';
+
+                    // Si coincide, mostrar sus padres
+                    if (isMatch) {
+                        let parent = container.parentElement;
+                        while (parent && parent.closest('details')) {
+                            const details = parent.closest('details');
+                            details.open = true;
+                            // Asegurarse de que el summary del padre también sea visible
+                            const summary = details.querySelector('summary');
+                            if (summary) summary.style.display = 'block';
+                            parent = details.parentElement;
+                        }
+                    }
+                });
+            });
+
+            // --- 2. Listeners de Clic en la Barra Lateral (con delegación de eventos) ---
+            sidebar.addEventListener('click', function(e) {
+                // Caso A: Clic en un enlace de sección (ej. 1.1.1)
+                const navLink = e.target.closest('.nav-link');
+                if (navLink) {
+                    e.preventDefault(); // Prevenir el salto de ancla por defecto
+                    setActiveState(navLink);
+                    
+                    // Scroll manual instantáneo
+                    const href = navLink.getAttribute('href');
+                    const targetElement = document.querySelector(href);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'auto', // Cambiado de 'smooth' a 'auto'
+                            block: 'start'
+                        });
+                    }
+                    return; 
+                }
+
+                // Caso B: Clic en un enlace de resumen (Capítulo o Sección)
+                const summaryLink = e.target.closest('summary > a');
+                if (summaryLink) {
+                    // 1. Prevenir el comportamiento por defecto (doble toggle/salto brusco)
+                    e.preventDefault();
+                    
+                    // 2. Abrir el <details> padre
+                    const detailsElement = summaryLink.closest('details');
+                    if (!detailsElement) return;
+                    detailsElement.open = true;
+
+                    // 3. Scroll manual del content-pane
+                    const href = summaryLink.getAttribute('href');
+                    const targetElement = document.querySelector(href);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'auto', // Cambiado de 'smooth' a 'auto'
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+
+            // --- 3. Observer de Scroll para resaltar el enlace activo ---
+            const contentSections = document.querySelectorAll('.code-section');
+            const navLinks = sidebar.querySelectorAll('.nav-link');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.id;
+                        const correspondingLink = sidebar.querySelector(`.nav-link[href="#${id}"]`);
+                        
+                        if (correspondingLink) {
+                            setActiveState(correspondingLink);
+                            
+                            // Abrir los <details> padres
+                            let currentElement = correspondingLink.parentElement;
+                            while (currentElement && currentElement.closest('details')) {
+                                const details = currentElement.closest('details');
+                                details.open = true;
+                                currentElement = details.parentElement;
+                            }
+                        }
+                    }
+                });
+            }, {
+                root: contentPane, // El panel de contenido es el viewport
+                rootMargin: '0px 0px -80% 0px', // Activar cuando esté en el 20% superior
+                threshold: 0.1
+            });
+
+            contentSections.forEach(section => {
+                observer.observe(section);
+            });
+        }
+        
+        /**
+         * Funciones auxiliares para el estado activo
+         */
+        function clearActiveStates() {
+            document.querySelectorAll('.nav-link.active').forEach(link => {
+                link.classList.remove('active');
+            });
+        }
+
+        function setActiveState(link) {
+            if (link) {
+                clearActiveStates();
+                link.classList.add('active');
+            }
+        }
+
+        /**
+         * Inicializar la aplicación
+         */
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                // 1. Cargar los datos JSON
+                // CORRECCIÓN: Usar './' para asegurar que la ruta sea relativa al HTML.
+                const response = await fetch('./pot_data.json');
+                if (!response.ok) {
+                    throw new Error(`Error al cargar el archivo: ${response.statusText}`);
+                }
+                const potData = await response.json();
+                
+                // 2. Construir la UI con los datos
+                buildSidebar(potData);
+                buildContent(potData);
+
+                // 3. Configurar los listeners después de que la UI esté lista
+                setupEventListeners();
+
+            } catch (error) {
+                console.error("No se pudo inicializar la aplicación:", error);
+                // Mostrar un error al usuario
+                const sidebarContainer = document.getElementById('sidebar-content');
+                const contentContainer = document.getElementById('main-content');
+                const errorMsg = 'Error al cargar los datos de POT.';
+                if (sidebarContainer) sidebarContainer.innerHTML = `<p class="text-red-500">${errorMsg}</p>`;
+                if (contentContainer) contentContainer.innerHTML = `<p class="text-red-500">${errorMsg}</p>`;
+            }
         });
-        return lista;
-      }
 
-      if (capitulo.secciones) {
-        contenedor.appendChild(crearMenu(capitulo.secciones));
-      }
-    }
-
-    function renderContenidoCompleto(capitulo) {
-      const cont = document.getElementById("contenido");
-      cont.innerHTML = "";
-
-      const capDiv = document.createElement("section");
-      capDiv.id = `capitulo-${capitulo.capitulo}`;
-      const h1 = document.createElement("h1");
-      h1.textContent = `${capitulo.capitulo} ${capitulo.titulo}`;
-      capDiv.appendChild(h1);
-      if (capitulo.contenido) {
-        const p = document.createElement("div");
-        p.innerHTML = capitulo.contenido;
-        capDiv.appendChild(p);
-      }
-
-      function renderNivel(items, nivel, parent) {
-        items.forEach(item => {
-          const div = document.createElement("section");
-          div.id = item.id;
-          const heading = document.createElement(`h${nivel}`);
-          heading.textContent = `${item.id} ${item.titulo}`;
-          div.appendChild(heading);
-
-          if (item.contenido && typeof item.contenido === 'string' && item.contenido.trim() !== '') {
-            const p = document.createElement("div");
-            p.innerHTML = item.contenido;
-            div.appendChild(p);
-          }
-
-          parent.appendChild(div);
-
-          const subniveles = item.subsecciones || item.apartados || item.subapartados || item.articulos;
-          if (Array.isArray(subniveles) && subniveles.length > 0) {
-            renderNivel(subniveles, Math.min(nivel + 1, 6), div);
-          }
-        });
-      }
-
-      if (capitulo.secciones) {
-        renderNivel(capitulo.secciones, 2, capDiv);
-      }
-
-      cont.appendChild(capDiv);
-    }
-
-    cargarJSON();
-  </script>
+    </script>
 </body>
 </html>
