@@ -1,520 +1,276 @@
-<html lang="es" class="h-full">
+<!DOCTYPE html>
+<html lang="en" class="h-full">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>POT Bogotá - Visor de Normas</title>
-    <!-- Ícono de la pestaña (Favicon) -->
+    <title>POT Bogotá - Zoning Code Browser</title>
+    <!-- Tab Icon (Favicon) -->
     <link rel="icon" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3e%3cpath fill='rgb(37, 99, 235)' d='M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 18H6V4h2v9l2.5-1.5L13 13V4h5v16z'/%3e%3c/svg%3e">
-    <!-- Cargar Tailwind CSS -->
+    <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Estilos personalizados */
+        /* Custom Styles */
         html, body {
-            overflow: hidden; /* Prevenir scroll en la página principal */
+            overflow: hidden;
             font-family: 'Inter', sans-serif;
         }
-        /* Estilo para el enlace activo en la barra lateral */
         .nav-link.active {
-            background-color: #eff6ff; /* bg-blue-50 */
-            color: #2563eb; /* text-blue-700 */
-            font-weight: 600; /* semibold */
+            background-color: #eff6ff;
+            color: #2563eb;
+            font-weight: 600;
         }
-        /* Ocultar la barra de scroll por defecto en la barra lateral y el contenido */
         #sidebar::-webkit-scrollbar, #content-pane::-webkit-scrollbar {
-            width: 8px;
+            width: 6px;
         }
         #sidebar::-webkit-scrollbar-thumb, #content-pane::-webkit-scrollbar-thumb {
-            background-color: #cbd5e1; /* slate-300 */
+            background-color: #cbd5e1;
             border-radius: 4px;
         }
-        #sidebar:hover::-webkit-scrollbar-thumb, #content-pane:hover::-webkit-scrollbar-thumb {
-            background-color: #94a3b8; /* slate-400 */
+        /* Source Citation Styles */
+        .source-cite {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            vertical-align: super;
+            margin-left: 2px;
+            font-weight: normal;
         }
-        /* Estilo para el texto de búsqueda */
-        .search-highlight {
-            background-color: #fef08a; /* yellow-200 */
-        }
-        /* Estilos de Prose para el contenido principal (tipografía) */
-        .prose h2 { margin-bottom: 1.5rem; border-bottom-width: 2px; padding-bottom: 0.75rem; }
-        .prose h3 { margin-bottom: 1.25rem; margin-top: 2rem; border-bottom-width: 1px; padding-bottom: 0.5rem; }
-        .prose h4 { margin-bottom: 1rem; margin-top: 1.75rem; }
-        .prose h5 { margin-bottom: 0.75rem; margin-top: 1.5rem; }
-        .prose p, .prose ul { margin-bottom: 1rem; }
-        .prose .code-section { padding-top: 1.5rem; }
-        .prose .code-section:not(:last-child) { border-bottom: 1px solid #e5e7eb; padding-bottom: 1.5rem; }
+        /* Content Typography */
+        .prose h2 { margin-bottom: 1.5rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.75rem; color: #1e3a8a; }
+        .prose h3 { margin-bottom: 1.25rem; margin-top: 2.5rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.5rem; color: #334155; }
+        .prose h4 { margin-bottom: 1rem; margin-top: 2rem; color: #475569; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.6; color: #334155; }
+        .definition-item { margin-bottom: 1.5rem; padding-left: 1rem; border-left: 3px solid #e2e8f0; }
+        .definition-term { font-weight: 700; color: #1e293b; display: block; margin-bottom: 0.25rem; }
     </style>
 </head>
 <body class="h-full bg-gray-100">
 
-    <!-- Contenedor de la aplicación (100% de la altura de la vista) -->
     <div class="h-full flex flex-col">
-        
         <!-- Header -->
-        <header class="bg-white border-b border-gray-200 p-4 shadow-sm flex-shrink-0">
-            <!-- Eliminé 'max-w-7xl' y 'mx-auto' y agregué padding 'px-4 sm:px-6 lg:px-8' -->
+        <header class="bg-white border-b border-gray-200 p-4 shadow-sm flex-shrink-0 z-40">
             <div class="flex justify-start items-center flex-wrap gap-4 md:gap-6 px-4 sm:px-6 lg:px-8">
-                <!-- Botón de Menú (Hamburguesa) - visible en móvil y tablet -->
                 <button id="menu-toggle-btn" class="lg:hidden p-2 -ml-2 text-gray-600 hover:text-gray-800">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                 </button>
-                <h1 class="text-xl font-bold text-gray-800">Visor de Normas (POT Bogotá)</h1>
-                <div class="w-full max-w-xs">
-                    <input type="search" id="search-box" placeholder="Buscar..." class="w-full px-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                <div>
+                    <h1 id="doc-title" class="text-lg font-bold text-gray-800 leading-tight">Loading Manual...</h1>
+                    <p id="doc-subtitle" class="text-xs text-gray-500 uppercase tracking-wider"></p>
+                </div>
+                <div class="w-full max-w-xs ml-auto">
+                    <input type="search" id="search-box" placeholder="Search in manual..." class="w-full px-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
             </div>
         </header>
 
-        <!-- Contenedor principal (Sidebar + Content) -->
         <div class="flex-1 flex overflow-hidden">
-            
-            <!-- Overlay para el sidebar en móvil -->
+            <!-- Mobile Overlay -->
             <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-20 hidden lg:hidden"></div>
 
-            <!-- Sidebar (Navegación) -->
-            <!-- Clases actualizadas para responsive: fixed, transform, y lg:relative -->
+            <!-- Sidebar -->
             <nav id="sidebar" class="z-30 fixed inset-y-0 left-0 w-80 bg-white border-r border-gray-200 transform -translate-x-full transition-transform duration-300 ease-in-out lg:relative lg:translate-x-0 lg:flex-shrink-0 overflow-y-auto">
-                <!-- Encabezado del Sidebar (móvil) con botón de CERRAR -->
                 <div class="flex justify-between items-center p-4 border-b lg:hidden">
-                    <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wide">Tabla de Contenido</h2>
+                    <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wide">Contents</h2>
                     <button id="sidebar-close-btn" class="p-1 rounded-md text-gray-600 hover:bg-gray-100">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                     </button>
                 </div>
-                
-                <!-- Encabezado del Sidebar (desktop) -->
-                <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2 p-4 hidden lg:block">Tabla de Contenido</h2>
-                
-                <!-- El contenido del Sidebar se generará dinámicamente -->
-                <!-- Se ajustó el padding para que no esté en el contenedor sino en los items -->
-                <div id="sidebar-content" class="space-y-1 text-sm p-4 lg:p-0 lg:px-4">
-                    <!-- Loader -->
-                    <p class="text-gray-500">Cargando...</p>
+                <h2 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 p-4 hidden lg:block">Table of Contents</h2>
+                <div id="sidebar-content" class="space-y-1 text-sm px-4 pb-8">
+                    <p class="text-gray-400 italic">Loading structure...</p>
                 </div>
             </nav>
 
-            <!-- Content Pane (Contenido) -->
+            <!-- Main Content -->
             <main id="content-pane" class="flex-1 overflow-y-auto bg-gray-50 p-4 md:p-8">
-                <!-- El contenido principal se generará dinámicamente -->
-                <div id="main-content" class="max-w-4xl mx-auto bg-white p-6 md:p-10 rounded-lg shadow prose max-w-none">
-                    <!-- Loader -->
-                    <p class="text-gray-500">Cargando contenido...</p>
+                <div id="main-content" class="max-w-4xl mx-auto bg-white p-6 md:p-12 rounded-lg shadow-sm prose max-w-none">
+                    <div class="animate-pulse space-y-4">
+                        <div class="h-8 bg-gray-200 rounded w-3/4"></div>
+                        <div class="h-4 bg-gray-200 rounded w-full"></div>
+                        <div class="h-4 bg-gray-200 rounded w-5/6"></div>
+                    </div>
                 </div>
             </main>
-
         </div>
     </div>
 
     <script>
-        // --- INICIO: Datos JSON del POT ---
-        // ¡Ya no está! Ahora lo cargaremos con fetch().
-        // --- FIN: Datos JSON del POT ---
-
-
-        /**
-         * Función para limpiar y generar un ID único para los elementos.
-         * Reemplaza puntos, paréntesis y espacios con guiones.
-         */
-        function generateId(prefix, id) {
-            const cleanId = String(id).toLowerCase()
-                .replace(/\./g, '-') // Reemplaza . con -
-                .replace(/\s+/g, '-') // Reemplaza espacios con -
-                .replace(/[^\w-]+/g, ''); // Remueve caracteres no alfanuméricos
-            return `${prefix}-${cleanId}`;
+        function generateId(prefix, num) {
+            return `${prefix}-${String(num).replace(/[^a-z0-9]/gi, '-')}`;
         }
 
-        /**
-         * Construye la barra lateral (Tabla de Contenidos) recursivamente.
-         */
         function buildSidebar(data) {
-            const sidebarContainer = document.getElementById('sidebar-content');
-            sidebarContainer.innerHTML = ''; // Limpiar el loader
+            const container = document.getElementById('sidebar-content');
+            container.innerHTML = '';
 
-            // Crear el nivel superior (Capítulo)
-            const capId = generateId('cap', data.capitulo);
-            const capDetails = document.createElement('details');
-            capDetails.open = true;
-            
-            const capSummary = document.createElement('summary');
-            capSummary.className = 'font-medium text-gray-700 py-1 hover:text-blue-600';
-            capSummary.innerHTML = `<a href="#${capId}" class="text-current no-underline">Capítulo ${data.capitulo}: ${data.titulo}</a>`;
-            
-            const capDiv = document.createElement('div');
-            capDiv.className = 'pl-4';
-            
-            // Recorrer las secciones (Nivel 2)
-            data.secciones.forEach(seccion => {
-                const secId = generateId('sec', seccion.id);
-                const secDetails = document.createElement('details');
-                const secSummary = document.createElement('summary');
-                secSummary.className = 'font-medium text-gray-600 py-1 hover:text-blue-600';
-                secSummary.innerHTML = `<a href="#${secId}" class="text-current no-underline">${seccion.id}: ${seccion.titulo}</a>`;
+            data.chapters.forEach(chapter => {
+                const capId = `cap-${chapter.number}`;
+                const details = document.createElement('details');
+                details.open = true;
                 
-                const secDiv = document.createElement('div');
-                secDiv.className = 'pl-4';
+                const summary = document.createElement('summary');
+                summary.className = 'font-bold text-gray-800 py-2 cursor-pointer hover:text-blue-600 list-none flex items-center';
+                // Using "Chapter" instead of "Cap"
+                summary.innerHTML = `<span class="mr-2 opacity-50">#</span> <a href="#${capId}" class="no-underline">Chapter ${chapter.number}: ${chapter.title}</a>`;
+                
+                const sectionList = document.createElement('div');
+                sectionList.className = 'pl-4 border-l border-gray-100 ml-1 space-y-1 mt-1';
 
-                let hasChildren = false;
-
-                // Recorrer subsecciones (Nivel 3)
-                if (seccion.subsecciones) {
-                    hasChildren = true;
-                    seccion.subsecciones.forEach(subsec => {
-                        const subsecId = generateId('subsec', subsec.id);
-                        const subsecLink = document.createElement('a');
-                        subsecLink.href = `#${subsecId}`;
-                        subsecLink.className = 'nav-link block py-1 pr-1 pl-2 text-gray-600 hover:bg-blue-50 hover:text-blue-700 rounded-md';
-                        subsecLink.textContent = `${subsec.id}: ${subsec.titulo}`;
-                        secDiv.appendChild(subsecLink);
-                    });
-                }
-
-                // Recorrer apartados (Nivel 3)
-                if (seccion.apartados) {
-                    hasChildren = true;
-                    seccion.apartados.forEach(ap => {
-                        const apId = generateId('ap', `${seccion.id}-${ap.id}`);
-                        const apDetails = document.createElement('details');
-                        const apSummary = document.createElement('summary');
-                        apSummary.className = 'font-medium text-gray-500 py-1 hover:text-blue-600';
-                        apSummary.innerHTML = `<a href="#${apId}" class="text-current no-underline">${ap.id} ${ap.titulo}</a>`;
-                        
-                        const apDiv = document.createElement('div');
-                        apDiv.className = 'pl-4';
-
-                        // Recorrer subapartados (Nivel 4)
-                        if (ap.subapartados) {
-                            ap.subapartados.forEach(subap => {
-                                const subapId = generateId('subap', `${seccion.id}-${ap.id}-${subap.id}`);
-                                const subapLink = document.createElement('a');
-                                subapLink.href = `#${subapId}`;
-                                subapLink.className = 'nav-link block py-1 pr-1 pl-2 text-gray-600 hover:bg-blue-50 hover:text-blue-700 rounded-md';
-                                subapLink.textContent = `${subap.id} ${subap.titulo}`;
-                                apDiv.appendChild(subapLink);
-                            });
-                        }
-                        apDetails.appendChild(apSummary);
-                        apDetails.appendChild(apDiv);
-                        secDiv.appendChild(apDetails);
-                    });
-                }
-
-                if (hasChildren) {
-                    secDetails.appendChild(secSummary);
-                    secDetails.appendChild(secDiv);
-                    capDiv.appendChild(secDetails);
-                } else {
-                    // Si no tiene hijos, es un enlace directo
+                chapter.sections.forEach(section => {
+                    const secId = `sec-${section.number}`;
                     const secLink = document.createElement('a');
                     secLink.href = `#${secId}`;
-                    secLink.className = 'nav-link block py-1 pr-1 pl-2 text-gray-600 hover:bg-blue-50 hover:text-blue-700 rounded-md font-medium';
-                    secLink.textContent = `${seccion.id}: ${seccion.titulo}`;
-                    capDiv.appendChild(secLink);
-                }
-            });
+                    secLink.className = 'nav-link block py-1.5 px-2 text-gray-600 hover:bg-gray-50 rounded transition-colors';
+                    secLink.textContent = `${section.number} ${section.title}`;
+                    sectionList.appendChild(secLink);
+                });
 
-            capDetails.appendChild(capSummary);
-            capDetails.appendChild(capDiv);
-            sidebarContainer.appendChild(capDetails);
+                details.appendChild(summary);
+                details.appendChild(sectionList);
+                container.appendChild(details);
+            });
         }
 
-        /**
-         * Construye el contenido principal recursivamente.
-         */
         function buildContent(data) {
-            const contentContainer = document.getElementById('main-content');
-            contentContainer.innerHTML = ''; // Limpiar el loader
+            const container = document.getElementById('main-content');
+            container.innerHTML = '';
 
-            // Crear el título del Capítulo
-            const capId = generateId('cap', data.capitulo);
-            const capDiv = document.createElement('div');
-            capDiv.id = capId;
-            capDiv.className = 'mb-10 pt-4';
-            capDiv.innerHTML = `<h2 class="text-3xl font-bold border-b pb-4 mb-6">Capítulo ${data.capitulo}: ${data.titulo}</h2>`;
+            // Document Header
+            const info = data.document_info;
+            document.getElementById('doc-title').textContent = info.title;
+            document.getElementById('doc-subtitle').textContent = `${info.decree} | ${info.date}`;
 
-            // Recorrer las secciones (Nivel 2)
-            data.secciones.forEach(seccion => {
-                const secId = generateId('sec', seccion.id);
-                const secDiv = document.createElement('div');
-                secDiv.id = secId;
-                // Si la sección no tiene hijos, es un "code-section"
-                const hasChildren = seccion.subsecciones || seccion.apartados;
-                secDiv.className = hasChildren ? 'mb-8 pt-4' : 'code-section mb-8 pb-8 pt-4';
+            data.chapters.forEach(chapter => {
+                const capDiv = document.createElement('div');
+                capDiv.id = `cap-${chapter.number}`;
+                capDiv.className = 'mb-16';
+                // Using "Chapter" instead of "Capítulo"
+                capDiv.innerHTML = `<h2>Chapter ${chapter.number}: ${chapter.title} <span class="source-cite">${chapter.source_cites || ''}</span></h2>`;
 
-                const secTitle = document.createElement('h3');
-                secTitle.className = 'text-2xl font-semibold text-gray-700 mb-6 border-b pb-3';
-                secTitle.textContent = `${seccion.id}: ${seccion.titulo}`;
-                secDiv.appendChild(secTitle);
-                
-                if (seccion.contenido && typeof seccion.contenido === 'string') {
-                    const secContent = document.createElement('p');
-                    secContent.innerHTML = seccion.contenido;
-                    secDiv.appendChild(secContent);
-                }
+                chapter.sections.forEach(section => {
+                    const secDiv = document.createElement('div');
+                    secDiv.id = `sec-${section.number}`;
+                    secDiv.className = 'mb-12 scroll-mt-24';
+                    
+                    let secHTML = `<h3>${section.number} ${section.title}</h3>`;
+                    if (section.description) secHTML += `<p class="italic text-gray-600 bg-gray-50 p-4 rounded-r border-l-4 border-gray-200">${section.description}</p>`;
+                    
+                    secDiv.innerHTML = secHTML;
 
-                // Recorrer subsecciones (Nivel 3)
-                if (seccion.subsecciones) {
-                    seccion.subsecciones.forEach(subsec => {
-                        const subsecId = generateId('subsec', subsec.id);
-                        const subsecSection = document.createElement('section');
-                        subsecSection.id = subsecId;
-                        subsecSection.className = 'code-section mb-8 pb-8 border-b';
-                        
-                        const subsecTitle = document.createElement('h4');
-                        subsecTitle.className = 'text-xl font-semibold';
-                        subsecTitle.textContent = `${subsec.id}: ${subsec.titulo}`;
-                        subsecSection.appendChild(subsecTitle);
-                        
-                        if (subsec.contenido) {
-                            const subsecContent = document.createElement('p');
-                            subsecContent.innerHTML = subsec.contenido;
-                            subsecSection.appendChild(subsecContent);
-                        }
-                        secDiv.appendChild(subsecSection);
-                    });
-                }
+                    // Handling Definitions
+                    if (section.definitions) {
+                        const defContainer = document.createElement('div');
+                        defContainer.className = 'mt-6 grid gap-4';
+                        section.definitions.forEach(def => {
+                            defContainer.innerHTML += `
+                                <div class="definition-item">
+                                    <span class="definition-term">${def.term}</span>
+                                    <p class="text-sm text-gray-700">${def.definition} <span class="source-cite">${def.source_cites || ''}</span></p>
+                                </div>`;
+                        });
+                        secDiv.appendChild(defContainer);
+                    }
 
-                // Recorrer apartados (Nivel 3)
-                if (seccion.apartados) {
-                    seccion.apartados.forEach(ap => {
-                        const apId = generateId('ap', `${seccion.id}-${ap.id}`);
-                        const apSection = document.createElement('section');
-                        apSection.id = apId;
-                        apSection.className = 'code-section mb-8 pb-8 border-b';
-                        
-                        const apTitle = document.createElement('h4');
-                        apTitle.className = 'text-xl font-semibold';
-                        apTitle.textContent = `${ap.id} ${ap.titulo}`;
-                        apSection.appendChild(apTitle);
+                    // Handling Subsections
+                    if (section.subsections) {
+                        section.subsections.forEach(sub => {
+                            const subId = `sub-${sub.number}`;
+                            const subSection = document.createElement('section');
+                            subSection.id = subId;
+                            subSection.className = 'mt-8 code-section';
+                            subSection.innerHTML = `
+                                <h4>${sub.number} ${sub.title}</h4>
+                                <div>${sub.content} <span class="source-cite">${sub.source_cites || ''}</span></div>
+                            `;
+                            
+                            // Table Placeholder
+                            if (sub.table) {
+                                subSection.innerHTML += `<div class="my-4 p-4 bg-blue-50 text-blue-700 text-xs rounded border border-blue-100 italic">Table: ${sub.table.title || 'Technical Data'} (See original annex)</div>`;
+                            }
 
-                        if (ap.contenido) {
-                            const apContent = document.createElement('div');
-                            apContent.innerHTML = ap.contenido; // Usar innerHTML para el contenido HTML
-                            apSection.appendChild(apContent);
-                        }
+                            secDiv.appendChild(subSection);
+                        });
+                    }
 
-                        // Recorrer subapartados (Nivel 4)
-                        if (ap.subapartados) {
-                            ap.subapartados.forEach(subap => {
-                                const subapId = generateId('subap', `${seccion.id}-${ap.id}-${subap.id}`);
-                                const subapSection = document.createElement('section');
-                                subapSection.id = subapId;
-                                subapSection.className = 'code-section mb-4 pb-4 border-b';
-                                
-                                const subapTitle = document.createElement('h5');
-                                subapTitle.className = 'text-lg font-semibold';
-                                subapTitle.textContent = `${subap.id} ${subap.titulo}`;
-                                subapSection.appendChild(subapTitle);
-
-                                if (subap.contenido) {
-                                    const subapContent = document.createElement('p');
-                                    subapContent.innerHTML = subap.contenido;
-                                    subapSection.appendChild(subapContent);
-                                }
-                                apSection.appendChild(subapSection);
-                            });
-                        }
-                        secDiv.appendChild(apSection);
-                    });
-                }
-                capDiv.appendChild(secDiv);
+                    capDiv.appendChild(secDiv);
+                });
+                container.appendChild(capDiv);
             });
-            contentContainer.appendChild(capDiv);
         }
 
-        /**
-         * Configura todos los event listeners después de construir la página
-         */
         function setupEventListeners() {
             const sidebar = document.getElementById('sidebar');
             const contentPane = document.getElementById('content-pane');
             const searchBox = document.getElementById('search-box');
-            
-            // --- NUEVOS Elementos para Sidebar Móvil ---
-            const menuToggleBtn = document.getElementById('menu-toggle-btn');
-            const sidebarCloseBtn = document.getElementById('sidebar-close-btn');
-            const sidebarOverlay = document.getElementById('sidebar-overlay');
+            const menuBtn = document.getElementById('menu-toggle-btn');
+            const closeBtn = document.getElementById('sidebar-close-btn');
+            const overlay = document.getElementById('sidebar-overlay');
 
-            // --- NUEVAS Funciones de Sidebar Móvil ---
-            function openSidebar() {
-                sidebar.classList.remove('-translate-x-full');
-                sidebar.classList.add('translate-x-0');
-                sidebarOverlay.classList.remove('hidden');
-            }
+            const toggleSidebar = (state) => {
+                sidebar.classList.toggle('-translate-x-full', !state);
+                overlay.classList.toggle('hidden', !state);
+            };
 
-            function closeSidebar() {
-                sidebar.classList.add('-translate-x-full');
-                sidebar.classList.remove('translate-x-0');
-                sidebarOverlay.classList.add('hidden');
-            }
+            menuBtn.addEventListener('click', () => toggleSidebar(true));
+            closeBtn.addEventListener('click', () => toggleSidebar(false));
+            overlay.addEventListener('click', () => toggleSidebar(false));
 
-            // --- NUEVOS Listeners de Sidebar Móvil ---
-            menuToggleBtn.addEventListener('click', openSidebar);
-            sidebarCloseBtn.addEventListener('click', closeSidebar);
-            sidebarOverlay.addEventListener('click', closeSidebar);
-
-
-            // --- 1. Listener de Búsqueda (Sin cambios) ---
-            searchBox.addEventListener('input', (e) => {
-                const query = e.target.value.toLowerCase();
+            sidebar.addEventListener('click', (e) => {
+                const link = e.target.closest('a');
+                if (!link) return;
                 
-                // Filtrar la barra lateral
-                const navLinks = sidebar.querySelectorAll('.nav-link, summary > a');
-                navLinks.forEach(link => {
-                    const text = link.textContent.toLowerCase();
-                    const isMatch = text.includes(query);
-                    
-                    const container = link.closest('.nav-link') || link.closest('summary');
-                    container.style.display = isMatch ? 'block' : 'none';
+                if (window.innerWidth < 1024) toggleSidebar(false);
+                
+                const targetId = link.getAttribute('href').substring(1);
+                const targetEl = document.getElementById(targetId);
+                if (targetEl) {
+                    e.preventDefault();
+                    targetEl.scrollIntoView({ behavior: 'auto', block: 'start' });
+                }
+            });
 
-                    // Si coincide, mostrar sus padres
-                    if (isMatch) {
-                        let parent = container.parentElement;
-                        while (parent && parent.closest('details')) {
-                            const details = parent.closest('details');
-                            details.open = true;
-                            // Asegurarse de que el summary del padre también sea visible
-                            const summary = details.querySelector('summary');
-                            if (summary) summary.style.display = 'block';
-                            parent = details.parentElement;
-                        }
-                    }
+            // Basic Search
+            searchBox.addEventListener('input', (e) => {
+                const q = e.target.value.toLowerCase();
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    const match = link.textContent.toLowerCase().includes(q);
+                    link.style.display = match ? 'block' : 'none';
                 });
             });
 
-            // --- 2. Listeners de Clic en la Barra Lateral (con delegación de eventos) ---
-            sidebar.addEventListener('click', function(e) {
-                // Caso A: Clic en un enlace de sección (ej. 1.1.1)
-                const navLink = e.target.closest('.nav-link');
-                if (navLink) {
-                    e.preventDefault(); // Prevenir el salto de ancla por defecto
-                    setActiveState(navLink);
-                    
-                    // Scroll manual instantáneo
-                    const href = navLink.getAttribute('href');
-                    const targetElement = document.querySelector(href);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'auto', // Cambiado de 'smooth' a 'auto'
-                            block: 'start'
-                        });
-                    }
-                    
-                    // CERRAR sidebar si estamos en móvil
-                    if (window.innerWidth < 1024) { // 1024px es el 'lg' de Tailwind
-                        closeSidebar();
-                    }
-                    return; 
-                }
-
-                // Caso B: Clic en un enlace de resumen (Capítulo o Sección)
-                const summaryLink = e.target.closest('summary > a');
-                if (summaryLink) {
-                    // 1. Prevenir el comportamiento por defecto (doble toggle/salto brusco)
-                    e.preventDefault();
-                    
-                    // 2. Abrir el <details> padre
-                    const detailsElement = summaryLink.closest('details');
-                    if (!detailsElement) return;
-                    detailsElement.open = true;
-
-                    // 3. Scroll manual del content-pane
-                    const href = summaryLink.getAttribute('href');
-                    const targetElement = document.querySelector(href);
-                    
-                    if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'auto', // Cambiado de 'smooth' a 'auto'
-                            block: 'start'
-                        });
-                    }
-                    
-                    // CERRAR sidebar si estamos en móvil
-                    if (window.innerWidth < 1024) {
-                        closeSidebar();
-                    }
-                }
-            });
-
-            // --- 3. Observer de Scroll para resaltar el enlace activo ---
-            const contentSections = document.querySelectorAll('.code-section');
-            const navLinks = sidebar.querySelectorAll('.nav-link');
-            
+            // Scroll Spying
+            const sections = document.querySelectorAll('h3, h4');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        const id = entry.target.id;
-                        const correspondingLink = sidebar.querySelector(`.nav-link[href="#${id}"]`);
-                        
-                        if (correspondingLink) {
-                            setActiveState(correspondingLink);
-                            
-                            // Abrir los <details> padres
-                            let currentElement = correspondingLink.parentElement;
-                            while (currentElement && currentElement.closest('details')) {
-                                const details = currentElement.closest('details');
-                                details.open = true;
-                                currentElement = details.parentElement;
-                            }
-                        }
+                        const id = entry.target.parentElement.id || entry.target.id;
+                        document.querySelectorAll('.nav-link').forEach(l => {
+                            l.classList.toggle('active', l.getAttribute('href') === `#${id}`);
+                        });
                     }
                 });
-            }, {
-                root: contentPane, // El panel de contenido es el viewport
-                rootMargin: '0px 0px -80% 0px', // Activar cuando esté en el 20% superior
-                threshold: 0.1
-            });
+            }, { root: contentPane, rootMargin: '0px 0px -80% 0px' });
 
-            contentSections.forEach(section => {
-                observer.observe(section);
-            });
-        }
-        
-        /**
-         * Funciones auxiliares para el estado activo
-         */
-        function clearActiveStates() {
-            document.querySelectorAll('.nav-link.active').forEach(link => {
-                link.classList.remove('active');
-            });
+            sections.forEach(s => observer.observe(s));
         }
 
-        function setActiveState(link) {
-            if (link) {
-                clearActiveStates();
-                link.classList.add('active');
-            }
-        }
-
-        /**
-         * Inicializar la aplicación
-         */
         document.addEventListener('DOMContentLoaded', async () => {
             try {
-                // 1. Cargar los datos JSON
-                // CORRECCIÓN: Usar './' para asegurar que la ruta sea relativa al HTML.
-                const response = await fetch('./pot_data.json');
-                if (!response.ok) {
-                    throw new Error(`Error al cargar el archivo: ${response.statusText}`);
-                }
-                const potData = await response.json();
+                const res = await fetch('./BASE.json');
+                if (!res.ok) throw new Error('File BASE.json not found');
+                const data = await res.json();
                 
-                // 2. Construir la UI con los datos
-                buildSidebar(potData);
-                buildContent(potData);
-
-                // 3. Configurar los listeners después de que la UI esté lista
+                buildSidebar(data);
+                buildContent(data);
                 setupEventListeners();
-
-            } catch (error) {
-                console.error("No se pudo inicializar la aplicación:", error);
-                // Mostrar un error al usuario
-                const sidebarContainer = document.getElementById('sidebar-content');
-                const contentContainer = document.getElementById('main-content');
-                const errorMsg = 'Error al cargar los datos de POT.';
-                if (sidebarContainer) sidebarContainer.innerHTML = `<p class="text-red-500">${errorMsg}</p>`;
-                if (contentContainer) contentContainer.innerHTML = `<p class="text-red-500">${errorMsg}</p>`;
+            } catch (err) {
+                document.getElementById('main-content').innerHTML = `
+                    <div class="bg-red-50 p-6 rounded-lg text-red-800 border border-red-200">
+                        <h2 class="text-red-800 border-none mb-2">Loading Error</h2>
+                        <p>${err.message}</p>
+                        <p class="text-sm mt-4">Ensure that <strong>BASE.json</strong> is in the same folder as this file and you are using a local server (e.g., VS Code Live Server).</p>
+                    </div>`;
             }
         });
-
     </script>
 </body>
 </html>

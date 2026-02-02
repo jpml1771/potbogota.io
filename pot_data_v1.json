@@ -1,0 +1,2218 @@
+{
+  "document_info": {
+    "title": "ACTUALIZACIÓN ANEXO No. 5: MANUAL DE NORMAS COMUNES A LOS TRATAMIENTOS URBANÍSTICOS",
+    "decree": "DECRETO DISTRITAL 555 DE 2021",
+    "entity": "SECRETARÍA DISTRITAL DE PLANEACIÓN",
+    "date": "noviembre de 2022",
+    "source_cites": ""
+  },
+  "chapters": [
+    {
+      "id": "CAP_1",
+      "number": 1,
+      "title": "NORMAS URBANÍSTICAS COMUNES",
+      "source_cites": "",
+      "sections": [
+        {
+          "number": "1.1",
+          "title": "CONCEPTOS Y DEFINICIONES",
+          "description": "Las definiciones establecidas en el presente documento constituyen complemento de las disposiciones establecidas en el Decreto Distrital 555 de 2021 y normas que lo modifiquen o sustituyan, así como de sus documentos y planos anexos.",
+          "content_type": "definitions",
+          "definitions": [
+            {
+              "term": "Antejardín",
+              "definition": "Área libre de propiedad privada que hace parte de las áreas privadas afectas al uso público, comprendida entre el lindero del predio contra espacio público, y el paramento de construcción reglamentario.",
+              "source_cites": ""
+            },
+            {
+              "term": "Antejardín existente",
+              "definition": "Corresponde al antejardín previsto por las edificaciones existentes de tres (3) o más pisos, a efectos de la aplicación de las normas sobre Empates de antejardines, definidas en este documento.",
+              "source_cites": ""
+            },
+            {
+              "term": "Aislamiento entre edificaciones",
+              "definition": "Separación del plano de fachada de las edificaciones de un mismo proyecto, en uno o varios lotes.",
+              "source_cites": ""
+            },
+            {
+              "term": "Aislamiento lateral",
+              "definition": "Separación del plano de fachada de las edificaciones respecto del lindero lateral del lote.",
+              "source_cites": ""
+            },
+            {
+              "term": "Aislamiento posterior",
+              "definition": "Separación del plano de fachada de las edificaciones respecto del lindero posterior del lote.",
+              "source_cites": ""
+            },
+            {
+              "term": "Área construida en el uso",
+              "definition": "Corresponde al área construida para un uso en particular, descontando muros de fachada, muros perimetrales, ductos, estructura, equipamiento comunal privado, circulaciones comunes y cuartos de acopio. Esta área se usa para efectos del cálculo de equipamiento comunal privado, cuartos de acopio y área mínima habitable de la unidad de vivienda.",
+              "source_cites": ""
+            },
+            {
+              "term": "Área Construida para el cálculo de obligaciones e incentivos urbanísticos por edificabilidad",
+              "definition": "Para efectos del cálculo del índice de construcción efectivo y de las obligaciones urbanísticas, es la parte edificada que corresponde a la suma de la superficie de todos los pisos. Excluye azoteas, hall de cubierta, áreas duras sin cubrir o techar, áreas de instalaciones mecánicas, depósitos (en pisos no habitables y que no colinden con unidades privadas habitables), puntos fijos, el área de los estacionamientos y de circulación vehicular y el área de equipamiento comunal privado ubicada en un piso como máximo, así como el área de estacionamientos y circulación vehicular en semisótanos y sótanos. No se contabilizará en el área construida el área destinada al cumplimiento de la obligación VIS – VIP, con excepción del tratamiento urbanístico de Desarrollo.",
+              "source_cites": ""
+            },
+            {
+              "term": "Área construida para el cálculo de estacionamientos",
+              "definition": "Corresponde a la definida en el artículo 390 del Decreto Distrital 555 de 2021.",
+              "source_cites": ""
+            },
+            {
+              "term": "Área mínima habitable",
+              "definition": "Corresponde al área construida en el uso para las unidades de vivienda, para efectos de la aplicación del artículo 384 del Decreto Distrital 555 de 2021, y de la Circular No. 007 de 2022 de la Secretaría Distrital de Planeación.",
+              "source_cites": ""
+            },
+            {
+              "term": "Área neta urbanizable – ANU",
+              "definition": "Es el área resultante de descontar del área bruta, las áreas para la localización de la infraestructura para el sistema vial principal y de transporte, las redes primarias de servicios públicos domiciliarios y las áreas de conservación y protección de los recursos naturales y paisajísticos. (Ver artículo 2.2.1.1. del Decreto Nacional 1077 de 2015)",
+              "source_cites": ""
+            },
+            {
+              "term": "Área total construida",
+              "definition": "Parte edificada que corresponde a la suma de las superficies de los pisos, excluyendo azoteas y áreas sin cubrir o techar. (Ver artículo 2.2.6.1.1.7 del Decreto Nacional 1077 de 2015)",
+              "source_cites": ""
+            },
+            {
+              "term": "Cubierta",
+              "definition": "Parte superior de un edificio destinada a protegerlo de los agentes atmosféricos.",
+              "source_cites": ""
+            },
+            {
+              "term": "Empate de antejardín",
+              "definition": "Acción de igualar la dimensión del antejardín de la edificación vecina existente.",
+              "source_cites": ""
+            },
+            {
+              "term": "Empate estricto",
+              "definition": "Corresponde al empate volumétrico, en el cual se incluyen, además de los elementos previstos para dicho empate, los ángulos de cubiertas y aleros.",
+              "source_cites": ""
+            },
+            {
+              "term": "Empate volumétrico",
+              "definition": "Adosamiento de la forma arquitectónica proyectada, contra los volúmenes construidos de las edificaciones colindantes en relación con la altura en metros, aislamientos y voladizos. Excluye: ductos, chimeneas, remates de cubiertas, puntos fijos, cerramientos, tanques, equipos técnicos, sobre-recorridos de ascensores y hall de cubierta.",
+              "source_cites": ""
+            },
+            {
+              "term": "Equipamiento Comunal Privado",
+              "definition": "Áreas de propiedad privada destinadas al servicio común de determinado grupo de personas, necesarias para el buen desarrollo de las actividades a las cuales está destinada una edificación o conjunto de edificaciones.",
+              "source_cites": ""
+            },
+            {
+              "term": "Frente de lote",
+              "definition": "Dimensión que presenta un lote o englobe sobre cualquiera de las vías o espacio público que lo delimitan.",
+              "source_cites": ""
+            },
+            {
+              "term": "Grandes superficies",
+              "definition": "Corresponde a usos comerciales y de servicios Tipo 3. (Ver artículo 233 numeral 4 del Decreto Distrital 555 de 2021).",
+              "source_cites": ""
+            },
+            {
+              "term": "Hall de cubierta",
+              "definition": "Área cubierta que corresponde al punto fijo sobre la cubierta. Se permite un área adicional, que no exceda en más de dos veces el área de ascensores y escaleras, en la cual se puede incluir baños para personas en condición de discapacidad, u otras áreas contabilizables como equipamiento comunal privado.",
+              "source_cites": ""
+            },
+            {
+              "term": "Línea de inclinación del terreno",
+              "definition": "Línea recta resultante de la unión entre el punto más alto y el punto más bajo de los límites del paramento propuesto de una edificación sobre el terreno. Esta línea puede corresponder a superficies naturales, o niveladas a través de obras ejecutadas por urbanismo, legalizaciones u obras de infraestructura.",
+              "source_cites": ""
+            },
+            {
+              "term": "Micromovilidad",
+              "definition": "Movilización individual en vehículos pequeños, ligeros, que funcionan por autopropulsión, energía eléctrica, o con una combinación de las dos, que incluye, pero no se limita, a las bicicletas y patinetas. Esta definición podrá ser ajustada por acto administrativo que expida la Secretaría Distrital de Movilidad.",
+              "source_cites": ""
+            },
+            {
+              "term": "Paramento de construcción reglamentario",
+              "definition": "Constituye el plano vertical que delimita la fachada de un inmueble sobre un área pública o privada, el cual se determina en función de las normas de cada tratamiento.",
+              "source_cites": ""
+            },
+            {
+              "term": "Patio",
+              "definition": "Espacio sin cubrir de una edificación, delimitado por sus fachadas internas o muros medianeros propios de la edificación o entre predios vecinos, que garantiza iluminación y ventilación natural a los espacios habitables.",
+              "source_cites": ""
+            },
+            {
+              "term": "Predio urbanizado no edificado",
+              "definition": "Predio señalado con la denominación UNE en los mapas CU-5.4.2. a CU-5.4.33. que cuenta con proceso de urbanización legalmente ejecutado, en el cual no existen edificaciones. (Ver artículo 313 del Decreto Distrital 555 de 2021).",
+              "source_cites": ""
+            },
+            {
+              "term": "Predio",
+              "definition": "Terreno o lote individualizado, de propiedad privada o bien fiscal, identificado con un folio de matrícula inmobiliaria. (Ver artículo 2.2.1.1. del Decreto Nacional 1077 de 2015)",
+              "source_cites": ""
+            },
+            {
+              "term": "Punto fijo",
+              "definition": "Corresponde al área de ascensores y escaleras, así como las circulaciones comunes en cada piso, que no excedan en más de una vez el área correspondiente a ascensores y escaleras en cada piso.",
+              "source_cites": ""
+            },
+            {
+              "term": "Terreno inclinado",
+              "definition": "Corresponde a aquel cuya línea de inclinación del terreno supera una pendiente del 12%. Si uno o más de los paramentos de construcción propuestos de una edificación, se localiza sobre terreno inclinado, aplica esta definición para toda la edificación.",
+              "source_cites": ""
+            },
+            {
+              "term": "Usos activos",
+              "definition": "Destinación prevista en el artículo 272 del Decreto Distrital 555 de 2021. Los usos citados en dicho artículo deben estar permitidos según la norma urbanística aplicable.",
+              "source_cites": ""
+            },
+            {
+              "term": "Usos habitables",
+              "definition": "Residencial, Comercio y Servicios, Industria o Dotacional.",
+              "source_cites": ""
+            },
+            {
+              "term": "Vivienda Bifamiliar",
+              "definition": "Par de edificaciones o unidades habitacionales construidas individualmente con los espacios necesarios para que cada una sea ocupada por una sola familia. Se caracteriza por desarrollarse en un mismo lote. (Ver DTS Libro II Componente Urbano – numeral 8.5.2.)",
+              "source_cites": ""
+            },
+            {
+              "term": "Vivienda Multifamiliar",
+              "definition": "Edificación construida con el objetivo de que varias familias habiten el inmueble, en unidades independientes que cuenten con los espacios necesarios para que cada una sea ocupada por una sola familia. Se caracterizan por desarrollarse en un mismo lote y por compartir áreas comunes como accesos, escaleras y ascensores, entre otros. (Ver DTS Libro II Componente Urbano – numeral 8.5.2.)",
+              "source_cites": ""
+            },
+            {
+              "term": "Vivienda Productiva",
+              "definition": "Es aquella vivienda en suelo urbano o rural en la que se destina un área para el uso comercial, servicios o industria artesanal, reconoce las tradiciones y saberes del hábitat popular como estrategia productiva para que las familias aumenten sus capacidades de ingresos. Este tipo de vivienda contabiliza para el cumplimiento de las obligaciones que generan condiciones de seguridad y relaciones directas de las fachadas con el espacio público. El uso comercial, servicios o industria artesanal, que haga parte de la vivienda productiva, debe encontrarse permitido en la norma urbanística respectiva.",
+              "source_cites": ""
+            },
+            {
+              "term": "Vivienda unifamiliar",
+              "definition": "Edificación construida con los espacios necesarios para ser ocupada en su totalidad por una sola familia. Se caracteriza por desarrollarse individualmente en uno o varios lotes. (Ver DTS Libro II Componente Urbano – numeral 8.5.2.)",
+              "source_cites": ""
+            },
+            {
+              "term": "Voladizo",
+              "definition": "Elemento volumétrico de la fachada de una edificación que sobresale del paramento de construcción reglamentario en pisos diferentes del primero, y se proyecta sobre vías públicas o su antejardín y demás áreas públicas de propiedad privada (APAUP), con la dimensión prevista en la norma urbanística. Se contabiliza en el índice de construcción en los pisos diferentes al primero. No se contabiliza dentro del área ocupada.",
+              "source_cites": ""
+            }
+          ]
+        },
+        {
+          "number": "1.2",
+          "title": "ELEMENTOS DE VOLUMETRÍA",
+          "source_cites": "",
+          "subsections": [
+            {
+              "number": "1.2.1",
+              "title": "ALTURA DE LAS EDIFICACIONES",
+              "source_cites": "",
+              "sub_rules": [
+                {
+                  "letter": "A",
+                  "title": "LIMITANTES GENERALES DE ALTURA",
+                  "rules": [
+                    {
+                      "content": "La altura de las edificaciones, incluyendo cualquier elemento que sobresalga de las cubiertas (ductos, chimeneas, remates de cubiertas, puntos fijos, cerramientos, tanques, equipos técnicos, sobre recorridos de ascensores o hall de cubierta) está limitada por la altura en metros determinada por la Unidad Administrativa Especial de Aeronáutica Civil (AEROCIVIL) en el mapa de SECTORIZACIÓN DE OBSTÁCULOS POR ALTURA DEL ESPACIO AÉREO DE BOGOTÁ – AEROPUERTO INTERNACIONAL EL DORADO Y AEROPUERTO GUAYMARAL (año 2021).",
+                      "source_cites": ""
+                    },
+                    {
+                      "content": "La altura de las edificaciones está limitada por las alturas determinadas mediante los actos administrativos que adopten proyectos de cables aéreos de la Red de Transporte Público de Pasajeros del Sistema de Movilidad. La altura máxima de las edificaciones en estas áreas se limita a tres (3) pisos, hasta que se presenten y adopten los diseños de dichos proyectos, y se verifique la posibilidad de superar esa altura.",
+                      "source_cites": ""
+                    },
+                    {
+                      "content": "Se requiere concepto técnico favorable de la Aeronáutica Civil si, al aplicar las normas de altura máxima, se sobrepasa la altura en metros descrita en el mapa de SECTORIZACIÓN DE OBSTÁCULOS, o si este mapa no cuenta con información de altura, o si la altura señalada es de 0.",
+                      "source_cites": ""
+                    }
+                  ]
+                },
+                {
+                  "letter": "B",
+                  "title": "ALTURA MÁXIMA DE LAS EDIFICACIONES",
+                  "rules": [
+                    {
+                      "content": "La altura máxima de las edificaciones está sujeta a la aplicación de las normas de ocupación, cumplimiento de obligaciones urbanísticas en sitio, el número máximo de pisos permitido cuando éste se especifique en los mapas Nos. CU-5.4.2 a CU-5.4.33., los empates, aislamientos y retrocesos exigidos y las demás normas relacionadas con el aprovechamiento de los predios en edificabilidad.",
+                      "source_cites": ""
+                    },
+                    {
+                      "content": "Para los tratamientos de Consolidación, Conservación, Mejoramiento Integral y Desarrollo en los rangos 4A y 4B la altura máxima se determina en pisos. Para los tratamientos de Renovación Urbana y Desarrollo en los rangos 1, 2, 3, 4C y 4D, la altura máxima es resultante de la aplicación de las normas del tratamiento.",
+                      "source_cites": ""
+                    },
+                    {
+                      "number": "B.1",
+                      "content": "Con excepción de los sótanos, semisótanos y cubiertas, toda placa (o su equivalente) cuenta como piso.",
+                      "source_cites": ""
+                    },
+                    {
+                      "number": "B.2",
+                      "content": "Las variaciones volumétricas, como áreas bajo cubierta inclinada, altillos, mansardas y mezanines, hacen parte de las áreas construidas incluidas en el índice de construcción, y se contabilizan como piso.",
+                      "source_cites": ""
+                    },
+                    {
+                      "number": "B.3",
+                      "content": "No se contabilizan dentro de la altura máxima de las edificaciones los siguientes elementos: ductos, chimeneas, remates de cubiertas, puntos fijos, cerramientos, tanques, equipos técnicos, sobre-recorridos de ascensores, hall de cubierta. Cualquier otro elemento adicional no señalado se contabiliza como piso dentro de la altura máxima.",
+                      "source_cites": ""
+                    },
+                    {
+                      "number": "B.4",
+                      "content": "Con excepción de lo dispuesto para terrenos inclinados, en todos los puntos de corte sobre la línea de inclinación del terreno, la edificación está limitada por la altura máxima permitida.",
+                      "source_cites": ""
+                    },
+                    {
+                      "number": "B.5",
+                      "content": "La altura de la edificación corresponde a la distancia vertical medida desde el punto de cruce del paramento propuesto con la línea de inclinación del terreno, hasta la parte superior de la placa de cubierta o último piso de la edificación.",
+                      "source_cites": ""
+                    },
+                    {
+                      "number": "B.6",
+                      "content": "En predios con frente menor a once (11) metros, que se localicen en tipología aislada, se permite una altura máxima de dos (2) pisos sin exigencia de aislamiento lateral, o la aplicación de las normas de empates de aislamientos laterales.",
+                      "source_cites": ""
+                    },
+                    {
+                      "content": "Las alturas máximas de las edificaciones podrán presentar restricciones adicionales o condiciones diferentes, derivadas de proyectos de infraestructura de la ciudad, o de estudios urbanísticos previstos en el artículo 176 numeral 4 del Decreto Distrital 555 de 2021.",
+                      "source_cites": ""
+                    }
+                  ]
+                },
+                {
+                  "letter": "C",
+                  "title": "ALTURAS EN TERRENOS INCLINADOS",
+                  "rules": [
+                    {
+                      "number": "C.1",
+                      "content": "En terreno inclinado, en todos los puntos de las fachadas frente a espacio público o predios colindantes, la edificación está limitada por la altura máxima permitida, medida desde el límite del paramento de construcción propuesto en su cruce con la línea de inclinación del terreno.",
+                      "source_cites": ""
+                    },
+                    {
+                      "number": "C.2",
+                      "content": "Se establece una franja de ajuste de máximo tres (3,00) metros, paralela a la línea de inclinación del terreno, dentro de la cual, la volumetría de la edificación puede superar la altura máxima. Los volúmenes en la franja de ajuste deben generar retrocesos de las fachadas frente a espacio público, en una dimensión mínima de tres (3,00) metros.",
+                      "source_cites": ""
+                    },
+                    {
+                      "number": "C.3",
+                      "content": "La regulación de alturas en terrenos inclinados no es aplicable en tratamientos con altura máxima resultante, o en empates de alturas que superen la máxima permitida.",
+                      "source_cites": ""
+                    }
+                  ]
+                },
+                {
+                  "letter": "D",
+                  "title": "ALTURAS POR PISO",
+                  "content_type": "table_data",
+                  "table": {
+                    "headers": [
+                      "Uso o área",
+                      "Altura mínima libre por piso en metros",
+                      "Altura máxima libre por piso en metros"
+                    ],
+                    "rows": [
+                      {
+                        "uso": "Residencial",
+                        "min_height": "2,30",
+                        "max_height": "3,80"
+                      },
+                      {
+                        "uso": "Comercio y Servicios",
+                        "min_height": "2,30",
+                        "max_height": "4,20"
+                      },
+                      {
+                        "uso": "Dotacional",
+                        "min_height": "2,30",
+                        "max_height": "La requerida para el uso"
+                      },
+                      {
+                        "uso": "Industrial",
+                        "min_height": "2,30",
+                        "max_height": "La requerida para el uso"
+                      },
+                      {
+                        "uso": "Áreas de estacionamientos en todos los usos",
+                        "min_height": "2,30",
+                        "max_height": "4,20"
+                      },
+                      {
+                        "uso": "Proyectos que se aprueben bajo instrumentos específicos (...) o de infraestructuras de transporte y servicios públicos",
+                        "min_height": "2,30",
+                        "max_height": "Según norma específica"
+                      }
+                    ],
+                    "source_cites": ""
+                  },
+                  "notes": [
+                    {
+                      "content": "Las alturas mínima y máxima libre por piso en metros, corresponde a la medida entre acabados arquitectónicos, libre de obstáculos.",
+                      "source_cites": ""
+                    },
+                    {
+                      "content": "La altura mínima libre por piso en metros aplica para nuevas edificaciones. En actuaciones sobre edificaciones existentes aplica lo dispuesto para otras actuaciones en edificaciones.",
+                      "source_cites": ""
+                    },
+                    {
+                      "content": "Cuando el proyecto supere la altura máxima libre por piso, señalada en la tabla anterior, cada 3,80 m o 4,20 m adicional (según el caso), o fracción de estas dimensiones, se contabilizarán como piso adicional.",
+                      "source_cites": ""
+                    },
+                    {
+                      "content": "En los proyectos en los que se plantea mezcla de usos en un mismo piso o nivel, son aplicables las alturas por piso del uso cuyas normas plantean mayores dimensiones.",
+                      "source_cites": ""
+                    },
+                    {
+                      "content": "Para los predios en los que se establece altura máxima de las edificaciones en pisos, cuando la altura máxima libre por piso en metros se define como “La requerida para el uso” (Dotacional/Industrial), la altura máxima de la edificación está supeditada a la fórmula: (Altura máxima de la edificación = Altura en pisos permitidos X 4,60 metros).",
+                      "source_cites": ""
+                    }
+                  ]
+                },
+                {
+                  "letter": "E",
+                  "title": "EMPATES DE ALTURAS",
+                  "treatments": [
+                    "Mejoramiento Integral",
+                    "Consolidación"
+                  ],
+                  "rules": [
+                    {
+                      "number": "E.1",
+                      "content": "En predios que compartan lindero lateral con edificaciones existentes sin aislamiento lateral y con altura superior a la reglamentaria, se permite prever empate volumétrico con la altura del colindante en una longitud de fachada no mayor a cinco (5) metros, a partir de la cual se debe dar cumplimiento de la altura reglamentaria.",
+                      "source_cites": ""
+                    },
+                    {
+                      "number": "E.2",
+                      "content": "En predios que compartan lindero lateral con edificaciones existentes sin aislamiento lateral y con altura inferior a la reglamentaria, no se exige empate de alturas.",
+                      "source_cites": ""
+                    },
+                    {
+                      "number": "E.3",
+                      "content": "En predios que compartan lindero lateral por ambos costados con edificaciones existentes sin aislamiento lateral y con alturas superiores a la reglamentaria, aplican las siguientes reglas:",
+                      "source_cites": "",
+                      "content_type": "table_data",
+                      "table": {
+                        "headers": [
+                          "Características de las edificaciones colindantes",
+                          "Aplicación"
+                        ],
+                        "rows": [
+                          {
+                            "caracteristica": "Edificaciones colindantes sin aislamiento lateral, con diferentes alturas entre sí.",
+                            "aplicacion": "Aplica la altura existente menor, y el empate volumétrico con la altura mayor, en una longitud de fachada no mayor a cinco (5) metros."
+                          },
+                          {
+                            "caracteristica": "Edificaciones colindantes sin aislamiento lateral, con igual altura entre sí.",
+                            "aplicacion": "Se permite prever la misma dimensión de la altura existente de las edificaciones colindantes."
+                          }
+                        ],
+                        "source_cites": ""
+                      }
+                    },
+                    {
+                      "number": "E.4",
+                      "content": "En el tratamiento de Consolidación, para las edificaciones en las que se aplique el empate de alturas, se exigirán los aislamientos posteriores correspondientes a la altura máxima en pisos definida en los mapas CU-5.4.2 a CU 5.4.33.",
+                      "source_cites": ""
+                    },
+                    {
+                      "number": "E.5",
+                      "content": "En el tratamiento de Mejoramiento Integral para las edificaciones en las que se aplique el empate de alturas, se exigirán los aislamientos posteriores correspondientes a la altura en pisos alcanzada.",
+                      "source_cites": ""
+                    },
+                    {
+                      "number": "E.6",
+                      "content": "Los empates de alturas aquí previstos, están sujetos a las disposiciones específicas relativas a los Bienes de Interés Cultural del Grupo Arquitectónico.",
+                      "source_cites": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "number": "1.2.2",
+              "title": "AISLAMIENTOS",
+              "source_cites": "",
+              "sub_rules": [
+                {
+                  "letter": "A",
+                  "title": "ANTEJARDINES",
+                  "rules": [
+                    {
+                      "number": "A.1",
+                      "title": "Exigencia de antejardines",
+                      "content": "En el tratamiento de Consolidación se exigen antejardines de conformidad con lo establecido en el mapa CU-5.5. En los tratamientos de Desarrollo, de Renovación Urbana y de Mejoramiento Integral no se exigen antejardines, salvo en aplicación de las normas de empates de antejardines.",
+                      "source_cites": ""
+                    },
+                    {
+                      "number": "A.2",
+                      "title": "Dimensionamiento de antejardines (Consolidación)",
+                      "content": "La dimensión mínima permitida está determinada en el mapa CU-5.5.. Si el mapa no la determina, la dimensión mínima corresponde a la señalada en las normas vigentes antes del Decreto Distrital 555 de 2021. Cuando los antejardines exigidos sean iguales o mayores a cinco (5,00) metros, en proyectos que incluyan todo un costado de manzana, se permite reducir dos (2,00) metros de la dimensión exigida.",
+                      "source_cites": ""
+                    },
+                    {
+                      "number": "A.3",
+                      "title": "Empates de antejardines",
+                      "sub_rules": [
+                        {
+                          "number": "A.3.1",
+                          "content": "En el tratamiento de Consolidación no aplican las condiciones de empates de antejardines.",
+                          "source_cites": ""
+                        },
+                        {
+                          "number": "A.3.2",
+                          "title": "Tratamientos de Renovación Urbana, Desarrollo y Mejoramiento Integral",
+                          "rules_list": [
+                            {
+                              "content": "En predios que colinden lateralmente con predios con edificaciones existentes de tres (3) o más pisos, con antejardín, se debe prever empate con la dimensión del antejardín del predio colindante en una longitud de fachada mínima de tres (3) metros.",
+                              "source_cites": ""
+                            },
+                            {
+                              "content": "En predios que, por el mismo costado de manzana, colinden lateralmente por ambos costados con edificaciones existentes de tres (3) o más pisos, con antejardines de diferente dimensión, se debe prever empate con la dimensión del antejardín del predio colindante con mayor dimensión, en una longitud de fachada mínima de tres (3) metros.",
+                              "source_cites": ""
+                            },
+                            {
+                              "content": "En predios que colinden lateralmente por ambos costados con edificaciones existentes de tres (3) o más pisos, con antejardines de igual dimensión, se debe prever la misma dimensión del antejardín existente de los predios colindantes.",
+                              "source_cites": ""
+                            }
+                          ],
+                          "notes": "Los empates de antejardines están sujetos a las disposiciones específicas relativas a los Bienes de Interés Cultural y sus colindantes, usos dotacionales y a la regularización de antejardines (Art. 315 DD 555/2021)."
+                        }
+                      ]
+                    },
+                    {
+                      "number": "A.4",
+                      "title": "Antejardines en nivel diferente del andén",
+                      "content": "Se podrán mantener los antejardines a diferente nivel del andén, en los sectores localizados en terreno inclinado, o cuyo desarrollo constructivo original aprobado en la urbanización así los haya contemplado.",
+                      "source_cites": ""
+                    },
+                    {
+                      "number": "A.5",
+                      "title": "Manejo de antejardines",
+                      "content": "Las fachadas y culatas generadas en aplicación de las normas de empates de antejardines, están sujetas a las directrices para el manejo de espacios privados afectos al uso público, establecidas en el artículo 128 del Decreto Distrital 555 de 2021. Las coberturas verdes corresponden a capas de vegetación natural que cubren la superficie terrestre (arbórea, arbustiva, herbácea y/o jardinería). En Consolidación son aplicables las disposiciones de intervención del antejardín contenidas en el artículo 316.",
+                      "source_cites": ""
+                    }
+                  ]
+                },
+                {
+                  "letter": "B",
+                  "title": "AISLAMIENTOS POSTERIORES",
+                  "rules": [
+                    {
+                      "number": "B.1",
+                      "title": "Exigencia de aislamientos posteriores",
+                      "content": "En el tratamiento de Desarrollo la exigencia se regula por las normas de aislamientos contra predios vecinos. En los demás tratamientos, se exige desde el nivel del terreno, placa superior de semisótano, o nivel de empate. No se exigen contra predios no desarrollables. La dimensión mínima rige para la totalidad del plano de fachada, con excepciones para predios esquineros, ampliaciones en pisos superiores, y avances de fachada permitidos.",
+                      "source_cites": ""
+                    },
+                    {
+                      "number": "B.2",
+                      "title": "Dimensionamiento de aislamientos posteriores",
+                      "content": "Para todos los tratamientos, en edificaciones cuya dimensión de aislamiento posterior supere 4,00 metros, se permiten **avances de fachada hasta en 0,50 metros**. Estos avances podrán utilizar hasta el **30% del área de la fachada** sobre el aislamiento posterior.",
+                      "source_cites": ""
+                    },
+                    {
+                      "number": "B.3",
+                      "title": "Empates de aislamientos posteriores",
+                      "content": "La regulación se establece en las normas específicas de cada tratamiento.",
+                      "source_cites": ""
+                    },
+                    {
+                      "number": "B.4",
+                      "title": "Regulación de aislamientos posteriores en englobes",
+                      "content": "No se exige aislamiento posterior en proyectos que integren predios que colinden posteriormente entre sí; no obstante, se debe resolver el empate volumétrico con los aislamientos posteriores o laterales existentes o exigidos en las edificaciones o predios vecinos, según el respectivo tratamiento, a través de patios.",
+                      "source_cites": ""
+                    },
+                    {
+                      "number": "B.5",
+                      "title": "Manejo de aislamientos posteriores",
+                      "content": "No generar servidumbres de vista a una distancia menor a tres (3,00) metros. Opciones de fachadas (culatas): utilizar materiales de acabados, generar murales y elementos artísticos (con autorización previa), configurar muros verdes.",
+                      "source_cites": ""
+                    }
+                  ]
+                },
+                {
+                  "letter": "C",
+                  "title": "AISLAMIENTOS LATERALES",
+                  "rules": [
+                    {
+                      "number": "C.1",
+                      "title": "Exigencia de aislamientos laterales",
+                      "content": "En Desarrollo se regula por las normas de aislamientos contra predios vecinos. En los demás tratamientos, se exige en función del nivel previsto para cada tratamiento. No se exigen contra predios no desarrollables. La dimensión mínima rige para la totalidad del plano de fachada, con excepciones para ampliaciones en pisos superiores y avances de fachada permitidos.",
+                      "source_cites": ""
+                    },
+                    {
+                      "number": "C.2",
+                      "title": "Dimensionamiento de aislamientos laterales",
+                      "content": "Para todos los tratamientos, en edificaciones cuya dimensión de aislamiento lateral supere 4,00 metros, se permiten **avances de fachada hasta en 0,50 metros**. Estos avances podrán utilizar hasta el **30% del área de la fachada** sobre el aislamiento lateral. La dimensión mínima del aislamiento lateral corresponde a **1/5 de la altura en metros** que alcance la edificación. Esta dimensión mínima no podrá ser inferior a **tres (3,00) metros en MI**, y a **cuatro (4,00) metros en los demás tratamientos**.",
+                      "source_cites": ""
+                    },
+                    {
+                      "number": "C.3",
+                      "title": "Empates de aislamientos laterales",
+                      "content": "La regulación se establece en las normas específicas de cada tratamiento.",
+                      "source_cites": ""
+                    },
+                    {
+                      "number": "C.4",
+                      "title": "Regulación de aislamientos laterales en englobes",
+                      "content": "No se exige aislamiento lateral en proyectos que integren predios que colinden lateralmente entre sí. No obstante, se deben prever empates volumétricos con los aislamientos laterales contra los predios colindantes al englobe. Para Consolidación, sujetos a Art 310 DD 555/2021.",
+                      "source_cites": ""
+                    },
+                    {
+                      "number": "C.5",
+                      "title": "Manejo de aislamientos laterales",
+                      "content": "Misma regulación que B.5 (aislamientos posteriores). No generar servidumbres de vista a una distancia menor a tres (3,00) metros. Opciones de fachadas (culatas): utilizar materiales de acabados, generar murales y elementos artísticos (con autorización previa), configurar muros verdes.",
+                      "source_cites": ""
+                    }
+                  ]
+                },
+                {
+                  "letter": "D",
+                  "title": "AISLAMIENTOS ENTRE EDIFICACIONES",
+                  "rules": [
+                    {
+                      "number": "D.1",
+                      "title": "Exigencia de aislamientos entre edificaciones",
+                      "content": "Aplica a edificaciones aisladas entre sí en un mismo proyecto, en uno o varios lotes. Se exige a partir del nivel en que se proyectan las edificaciones aisladas. Aplica como dimensión mínima para la totalidad del plano de fachada aislada única, con excepciones para ampliaciones y avances de fachada. Norma específica para Desarrollo en cerros.",
+                      "source_cites": ""
+                    },
+                    {
+                      "number": "D.2",
+                      "title": "Dimensionamiento de aislamientos entre edificaciones",
+                      "content": "Para todos los tratamientos, en edificaciones cuya dimensión de aislamiento entre edificaciones supere 6,00 metros, se permiten avances de fachada hasta en 0,50 metros. Estos avances podrán utilizar hasta el 30% del área de la fachada.",
+                      "source_cites": "",
+                      "content_type": "table_data",
+                      "table": {
+                        "headers": [
+                          "Tratamiento",
+                          "Proporción del aislamiento entre edificaciones",
+                          "Dimensión mínima de aislamiento"
+                        ],
+                        "rows": [
+                          {
+                            "tratamiento": "Renovación Urbana, Mejoramiento Integral, Consolidación",
+                            "proporcion": "2/5 de la altura promedio en metros de las edificaciones que se aíslan.",
+                            "min_dimension": "6.00 metros"
+                          },
+                          {
+                            "tratamiento": "Desarrollo Rangos 1, 2, 3, 4A y 4B",
+                            "proporcion": "1/3 de la altura promedio en metros de las edificaciones que se aíslan.",
+                            "min_dimension": "6.00 metros"
+                          },
+                          {
+                            "tratamiento": "Desarrollo Rangos 4C y 4D",
+                            "proporcion": "1/2 de la altura promedio en metros de las edificaciones que se aíslan.",
+                            "min_dimension": "6.00 metros"
+                          }
+                        ],
+                        "source_cites": ""
+                      }
+                    }
+                  ]
+                },
+                {
+                  "letter": "E",
+                  "title": "RETROCESOS DE FACHADA CONTRA ESPACIO PÚBLICO",
+                  "rules": [
+                    {
+                      "number": "E.1.1",
+                      "title": "Retrocesos de fachada contra espacio público en Consolidación, Renovación Urbana y Desarrollo",
+                      "content": "La altura límite de fachada (A) se regula en función de la distancia (D) entre el paramento de construcción propuesto y el lindero del predio separado por espacio público.",
+                      "source_cites": "",
+                      "content_type": "table_data",
+                      "table": {
+                        "headers": [
+                          "Distancia (D) entre paramento propuesto y lindero contra espacio público",
+                          "Altura límite de fachada (A) - Consolidación, Renovación Urbana",
+                          "Altura límite de fachada (A) - Desarrollo"
+                        ],
+                        "rows": [
+                          {
+                            "distancia": "Menor o igual a 30 metros",
+                            "altura_ru_cons": "2,5 veces la distancia (A=2,5D)",
+                            "altura_desarrollo": "2 veces la distancia (A=2D)"
+                          },
+                          {
+                            "distancia": "Mayor a 30 metros",
+                            "altura_ru_cons": "No aplica",
+                            "altura_desarrollo": "No aplica"
+                          }
+                        ],
+                        "source_cites": ""
+                      },
+                      "notes": [
+                        {
+                          "content": "A partir de la altura límite de fachada (A), se exige un único retroceso con dimensión mínima de **1/5 de la altura restante** para alcanzar la altura máxima de la edificación. No se permite retroceso con dimensión inferior a **cuatro (4,00) metros**.",
+                          "source_cites": ""
+                        },
+                        {
+                          "content": "Para proyectos de costado completo o manzana completa, si se plantea el retroceso desde el nivel de acceso, el área libre resultante debe corresponder a áreas privadas afectas al uso público (APAUP), sujetas a las normas de empates de antejardines (cuando aplique).",
+                          "source_cites": ""
+                        }
+                      ]
+                    },
+                    {
+                      "number": "E.1.2",
+                      "title": "Retrocesos contra espacio público en Mejoramiento Integral",
+                      "content": "Corresponden a los definidos en el artículo 338 del Decreto Distrital 555 de 2021.",
+                      "source_cites": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "number": "1.2.3",
+              "title": "PATIOS",
+              "source_cites": "",
+              "sub_rules": [
+                {
+                  "letter": "A",
+                  "title": "Exigencia de patios",
+                  "content": "En el uso residencial, solamente baños, cocinas, depósitos y espacios de servicio (lavanderías, estudios, closets, vestíbulos, pasillos, circulaciones, y similares) podrán ventilarse por ductos. Los demás espacios deben ventilarse e iluminarse directamente al exterior o a través de patios. El patio se exige a partir del nivel en donde se plantea el uso residencial. Aplican excepciones en MI para edificaciones existentes (Art 337 DD 555/2021).",
+                  "source_cites": ""
+                },
+                {
+                  "letter": "B",
+                  "title": "Dimensionamiento de patios",
+                  "content": "RU, Desarrollo, Consolidación, y MI (edificaciones de más de 3 pisos): La dimensión del lado del patio se contabiliza desde el nivel de uso residencial. Las dimensiones deben permitir localizar en su interior un cuadrado, cuyo lado corresponde a **1/3 de la mayor altura** de las edificaciones que enmarcan el patio. El lado mínimo no podrá ser inferior a **tres (3,00) metros**.",
+                  "source_cites": ""
+                },
+                {
+                  "content": "MI (edificaciones de hasta 3 pisos): Se permiten patios con área mínima de **seis (6,00) metros cuadrados**, con un lado de mínimo **2.00 m** a partir del segundo piso (diferente del espacio de la escalera). No se permite generar servidumbres de vista a una distancia menor a tres (3,00) metros.",
+                  "source_cites": ""
+                }
+              ]
+            },
+            {
+              "number": "1.2.4",
+              "title": "VOLADIZOS",
+              "source_cites": "",
+              "sub_rules": [
+                {
+                  "letter": "A",
+                  "title": "Aplicación de voladizos",
+                  "content": "Se permite en función del perfil vial, en pisos diferentes del primero, y sobre áreas existentes de control ambiental de la malla vial arterial. No se permite la proyección sobre cesiones públicas para parques y equipamientos, ni elementos de la Estructura Ecológica Principal.",
+                  "source_cites": ""
+                },
+                {
+                  "letter": "B",
+                  "title": "Dimensionamiento máximo de voladizos",
+                  "content_type": "table_data",
+                  "table": {
+                    "headers": [
+                      "Perfil vial sobre el cual el predio presenta frente",
+                      "Predios con antejardín, otras APAUP, o control ambiental existente",
+                      "Predios sin antejardín"
+                    ],
+                    "rows": [
+                      {
+                        "perfil_vial": "Menor o igual a 6,00 metros",
+                        "con_antejardin": "No se permite",
+                        "sin_antejardin": "No se permite"
+                      },
+                      {
+                        "perfil_vial": "Mayor a 6,00 y hasta 10,00 metros",
+                        "con_antejardin": "0,60 metros",
+                        "sin_antejardin": "0,60 metros"
+                      },
+                      {
+                        "perfil_vial": "Mayor a 10,00 y hasta 15,00 metros",
+                        "con_antejardin": "0,80 metros",
+                        "sin_antejardin": "0,80 metros"
+                      },
+                      {
+                        "perfil_vial": "Mayor a 15,00 y hasta 22,00 metros",
+                        "con_antejardin": "1,00 metro",
+                        "sin_antejardin": "1,00 metro"
+                      },
+                      {
+                        "perfil_vial": "Mayor a 22,00 y malla vial arterial",
+                        "con_antejardin": "1,50 metros",
+                        "sin_antejardin": "1,50 metros"
+                      }
+                    ],
+                    "source_cites": ""
+                  }
+                },
+                {
+                  "letter": "C",
+                  "title": "Empates de voladizos",
+                  "content": "En predios que colinden lateralmente con edificaciones existentes de tres (3) o más pisos, con voladizo diferente al reglamentario, se permite prever empate volumétrico con la altura y dimensión del voladizo existente, en una longitud horizontal de fachada no mayor a **tres (3,00) metros**, a partir de la cual se permite el voladizo reglamentario.",
+                  "source_cites": ""
+                },
+                {
+                  "letter": "D",
+                  "title": "Manejo de voladizos",
+                  "content": "Las fachadas y culatas que se puedan generar están sujetas a las directrices para el manejo de espacios privados afectos al uso público (Art. 128 DD 555 de 2021).",
+                  "source_cites": ""
+                }
+              ]
+            },
+            {
+              "number": "1.2.5",
+              "title": "CUBIERTAS",
+              "source_cites": "",
+              "content": "Se permite su aprovechamiento para agricultura urbana, elementos de captura y almacenamiento de aguas lluvias, jardines, cubiertas verdes, terrazas, zonas de descanso, equipamiento comunal privado con destinación a zonas verdes y/o recreativas. Se permite localizar el hall de cubierta. Están sujetas a las excepciones a la altura máxima de las edificaciones, previstas en Consolidación."
+              
+            },
+            {
+              "number": "1.2.6",
+              "title": "RAMPAS PEATONALES Y ESCALERAS",
+              "source_cites": "",
+              "content_type": "table_data",
+              "table": {
+                "headers": [
+                  "Terreno",
+                  "Sectores con antejardín y APAUP",
+                  "Sectores sin antejardín"
+                ],
+                "rows": [
+                  {
+                    "terreno": "Plano",
+                    "con_antejardin": "Se permiten rampas y/o escaleras al interior del paramento de construcción reglamentario, a excepción de las rampas de acceso para personas en condición de discapacidad, que se pueden localizar desde el lindero del predio.",
+                    "sin_antejardin": "Se permiten rampas y/o escaleras al interior del paramento de construcción reglamentario."
+                  },
+                  {
+                    "terreno": "Inclinado",
+                    "con_antejardin": "Se permiten rampas y/o escaleras con una ocupación máxima del 30% del área del antejardín, a excepción de las rampas de acceso para personas en condición de discapacidad, que pueden superar el porcentaje previsto.",
+                    "sin_antejardin": "Se permiten rampas y/o escaleras al interior del paramento de construcción reglamentario."
+                  }
+                ],
+                "source_cites": ""
+              },
+              "notes": [
+                {
+                  "content": "Las rampas y escaleras deberán ser objeto de cumplimiento de las normas Técnicas Colombianas respectivas, así como las normas NSR correspondientes.",
+                  "source_cites": ""
+                }
+              ]
+            },
+            {
+              "number": "1.2.7",
+              "title": "SÓTANOS Y SEMISÓTANOS",
+              "source_cites": "",
+              "rules": [
+                {
+                  "content": "En predios sujetos a Desarrollo, Renovación Urbana y Consolidación se permiten sótanos y semisótanos. En Mejoramiento Integral se permiten sótanos únicamente en predios mayores a 2.000 m2. En terreno inclinado (MI), solamente se permite plantear semisótanos, previa verificación de la condición de riesgo ante el IDIGER.",
+                  "source_cites": ""
+                }
+              ],
+              "content_type": "table_data",
+              "table": {
+                "headers": [
+                  "SÓTANOS",
+                  "SEMISÓTANOS"
+                ],
+                "rows": [
+                  {
+                    "sotano": "La placa superior del sótano no puede sobresalir del nivel del terreno.",
+                    "semisotano": "La placa superior del semisótano puede sobresalir hasta **1,50 metros** del nivel del terreno."
+                  },
+                  {
+                    "sotano": "Se pueden destinar para estacionamientos, depósitos, cuartos de basura, cuartos de máquinas, áreas de equipamiento comunal privado y otros espacios necesarios para el mantenimiento de la edificación, salvo las excepciones de usos.",
+                    "semisotano": "Se pueden destinar para estacionamientos, depósitos, cuartos de basura, cuartos de máquinas, áreas de equipamiento comunal privado y otros espacios necesarios para el mantenimiento de la edificación, salvo las excepciones de usos."
+                  },
+                  {
+                    "sotano": "Se permite bajo antejardines y APAUP, siempre y cuando se puedan garantizar las acciones de renaturalización y reverdecimiento y la incorporación de las coberturas verdes.",
+                    "semisotano": "Se permite bajo antejardines y APAUP en zonas en donde se permitan antejardines en nivel diferente del andén, siempre y cuando se puedan garantizar las acciones de renaturalización y reverdecimiento y la incorporación de las coberturas verdes."
+                  }
+                ],
+                "source_cites": ""
+              },
+              "notes": [
+                {
+                  "content": "Los antejardines en los cuales se aprueben sótanos o semisótanos privados, quedan excluidos de la posibilidad de ser cedidos como espacio público.",
+                  "source_cites": ""
+                }
+              ]
+            },
+            {
+              "number": "1.2.8",
+              "title": "CERRAMIENTOS",
+              "source_cites": "",
+              "sub_rules": [
+                {
+                  "letter": "A",
+                  "title": "Cerramiento de antejardines",
+                  "content": "No se permite el cerramiento de antejardines. Excepciones: mantener el cerramiento en licencias aprobadas con normas anteriores al DD 555 de 2021; cerramientos provisionales de construcción o para plantas móviles de producción de concreto en obra.",
+                  "source_cites": ""
+                },
+                {
+                  "letter": "B",
+                  "title": "Cerramientos contra zonas verdes y entre zonas libres comunales privadas y espacio público",
+                  "content": "Se permiten cerramientos con altura máxima de **3,00 metros**, con elementos que garanticen como mínimo el **90% de transparencia**.",
+                  "source_cites": ""
+                },
+                {
+                  "letter": "C",
+                  "title": "Cerramientos contra predios colindantes",
+                  "rules_list": [
+                    {
+                      "content": "En predios no construidos, se permite el cerramiento con altura máxima de **3,00 metros** sin obligación de transparencia (excluyendo el área de antejardín reglamentario).",
+                      "source_cites": ""
+                    },
+                    {
+                      "content": "En áreas de aislamientos laterales se permite el cerramiento con una altura máxima de **2,50 metros** a partir del nivel del aislamiento, sin obligación de transparencia.",
+                      "source_cites": ""
+                    },
+                    {
+                      "content": "En áreas de aislamiento posterior, se permite el cerramiento con altura máxima de **3,50 metros** sin obligación de transparencia, salvo que se trate de colindancia contra zonas verdes.",
+                      "source_cites": ""
+                    }
+                  ]
+                },
+                {
+                  "letter": "D",
+                  "title": "Cerramientos en pisos superiores contra vacíos",
+                  "content": "En áreas de cubiertas y pisos superiores contra vacíos (antejardines, aislamientos, patios, vías, parques y/o espacio público), se permite el cerramiento con una altura máxima de **1,80 metros**, con elementos que garanticen como mínimo el **50% de transparencia**. Estos cerramientos no cuentan dentro de la altura máxima de las edificaciones pero sí dentro de las limitantes generales de altura.",
+                  "source_cites": ""
+                },
+                {
+                  "letter": "F",
+                  "title": "Cerramientos temporales",
+                  "content": "Se permite el cerramiento temporal durante la ejecución de obras con altura máxima de **2,50 metros** sin obligación de transparencia, incluyendo el área de antejardín reglamentario.",
+                  "source_cites": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "number": "1.3",
+          "title": "EQUIPAMIENTO COMUNAL PRIVADO (ECP)",
+          "source_cites": "",
+          "subsections": [
+            {
+              "number": "1.3.1",
+              "title": "Elementos del Equipamiento Comunal Privado ECP",
+              "content_type": "list_data",
+              "list_data": {
+                "contabilizable": [
+                  "Antejardines",
+                  "Zonas verdes",
+                  "Plazoletas",
+                  "Áreas de disfrute para la comunidad",
+                  "Áreas de acondicionamiento físico",
+                  "Salones comunales",
+                  "Áreas de estar",
+                  "Áreas de administración y porterías",
+                  "Baños públicos o comunales",
+                  "Depósitos de uso común",
+                  "Estacionamientos para bicicletas u otros vehículos de micromovilidad, para personas en condición de discapacidad, y sus áreas de maniobra (siempre que se destinen con el porcentaje restante de ECP)"
+                ],
+                "no_contabilizable": [
+                  "Áreas de estacionamientos y circulación vehicular",
+                  "Cuartos de bombas o de mantenimiento",
+                  "Subestaciones eléctricas",
+                  "Cuartos de acopio",
+                  "Depósitos privados",
+                  "Áreas de circulación para acceder a las unidades privadas"
+                ]
+              },
+              "source_cites": ""
+            },
+            {
+              "number": "1.3.2",
+              "title": "Exigencia y destinación",
+              "sub_rules": [
+                {
+                  "letter": "A",
+                  "title": "Exigencia de equipamiento comunal privado",
+                  "content_type": "table_data",
+                  "table": {
+                    "headers": [
+                      "Tipo de Proyecto",
+                      "Consolidación, Renovación Urbana y Mejoramiento Integral (Exigencia Mínima)",
+                      "Tratamiento de Desarrollo (Exigencia Mínima)"
+                    ],
+                    "rows": [
+                      {
+                        "proyecto": "Proyectos de vivienda VIS o VIP (Hasta 150 viviendas)",
+                        "trat_c_ru_mi": "6,00 m2 por cada unidad de vivienda.",
+                        "trat_desarrollo": "6,00 m2 por cada unidad de vivienda (por hectárea de área neta urbanizable)."
+                      },
+                      {
+                        "proyecto": "Proyectos de vivienda VIS o VIP (Más de 150 viviendas)",
+                        "trat_c_ru_mi": "8,50 m2 por cada unidad de vivienda, aplicable al número de viviendas que exceda 150 viviendas.",
+                        "trat_desarrollo": "8,50 m2 por cada unidad de vivienda, aplicable al número de viviendas que exceda 150 viviendas (por hectárea de ANU)."
+                      },
+                      {
+                        "proyecto": "Proyectos de vivienda no VIS ni VIP",
+                        "trat_c_ru_mi": "10 m2 por cada 80 m2 de área construida en el uso.",
+                        "trat_desarrollo": "15 m2 por cada 80 m2 de área construida en el uso."
+                      },
+                      {
+                        "proyecto": "Usos diferentes al Residencial",
+                        "trat_c_ru_mi": "10 m2 por cada 120 m2 de área construida en el uso.",
+                        "trat_desarrollo": "10 m2 por cada 120 m2 de área construida en el uso."
+                      }
+                    ],
+                    "source_cites": ""
+                  },
+                  "notes": [
+                    {
+                      "content": "No se exigirá equipamiento comunal privado a los inmuebles con niveles de intervención 1, 2 y 3, regulados por las normas del tratamiento de Conservación.",
+                      "source_cites": ""
+                    }
+                  ]
+                },
+                {
+                  "letter": "B",
+                  "title": "Destinación del equipamiento comunal privado",
+                  "content_type": "table_data",
+                  "table": {
+                    "headers": [
+                      "Porcentaje mínimo del área de ECP exigida",
+                      "Destinación del ECP"
+                    ],
+                    "rows": [
+                      {
+                        "porcentaje": "40%",
+                        "destinacion": "Zonas verdes y recreativas en áreas libres"
+                      },
+                      {
+                        "porcentaje": "20%",
+                        "destinacion": "Servicios comunales en áreas construidas"
+                      },
+                      {
+                        "porcentaje": "Restante",
+                        "destinacion": "Puede destinarse a: estacionamientos para bicicletas u otros vehículos de micro movilidad, para personas en condición de discapacidad, y sus áreas de maniobra."
+                      }
+                    ],
+                    "source_cites": ""
+                  }
+                }
+              ]
+            },
+            {
+              "number": "1.3.3",
+              "title": "Equipamiento comunal privado en conjuntos o agrupaciones bajo el régimen de copropiedad, localizados en el Tratamiento de Consolidación.",
+              "content": "Se permite ampliar el área construida de las zonas comunes existentes (cuarto de basuras, ECP, bicicleteros, cuarto de operadores, porterías), siempre que no superen el **doble del área construida** aprobada en la licencia urbanística de dichas zonas comunes.",
+              "source_cites": ""
+            },
+            {
+              "number": "1.3.4",
+              "title": "Equipamiento comunal privado en conjuntos o agrupaciones bajo el régimen de copropiedad, localizados en el Tratamiento de Mejoramiento Integral y gestionados por Plan Vecinos.",
+              "content": "Para proyectos gestionados a través de Plan Vecinos, se permitirá conservar las áreas de equipamiento comunal privado de **6.00m2 por cada unidad de vivienda**, aún si el proyecto supera las 150 viviendas.",
+              "source_cites": ""
+            }
+          ]
+        },
+        {
+          "number": "1.4",
+          "title": "LOTEO Y SUBDIVISIONES",
+          "content": "La regulación corresponde a la norma específica de cada tratamiento prevista en el Decreto Distrital 555 de 2021 y normas nacionales. Los predios sujetos al tratamiento de Desarrollo no son objeto de subdivisión previa al proceso de urbanización, salvo excepciones. En Mejoramiento Integral, subdivisiones reguladas por Art 340. En Renovación Urbana, no se permiten subdivisiones prediales, salvo las autorizadas a través de Planes Parciales, reurbanización, y normas nacionales.",
+          "source_cites": ""
+        },
+        {
+          "number": "1.5",
+          "title": "ENGLOBES",
+          "source_cites": "",
+          "rules": [
+            {
+              "number": "1.5.1",
+              "content": "Los englobes de predios con normas diferentes de usos y/o edificabilidad, mantendrán las exigencias aplicables a cada predio antes del englobe, con excepción de las normas relativas a los aislamientos (posteriores y laterales).",
+              "source_cites": ""
+            },
+            {
+              "number": "1.5.2",
+              "content": "En los englobes prediales debidamente inscritos antes de la entrada en vigencia del Decreto Distrital 555 de 2021, en los que se presenten dos (2) o más normas urbanísticas, se podrá aplicar cualquiera de las mismas a la totalidad del englobe.",
+              "source_cites": ""
+            },
+            {
+              "number": "1.5.3",
+              "content": "Para los englobes prediales aplican las excepciones sobre altura máxima de las edificaciones, previstas para los tratamientos de Consolidación y Mejoramiento Integral.",
+              "source_cites": ""
+            }
+          ]
+        },
+        {
+          "number": "1.6",
+          "title": "CESIONES PARA ESPACIO PÚBLICO",
+          "source_cites": "",
+          "subsections": [
+            {
+              "number": "1.6.1",
+              "title": "Condiciones generales de localización",
+              "content": "Las condiciones generales de localización son las que se encuentran especificadas en el artículo 268 del Decreto Distrital 555 de 2021.",
+              "source_cites": ""
+            },
+            {
+              "number": "1.6.2",
+              "title": "Condiciones específicas de las cesiones de espacio público para los diferentes tratamientos",
+              "content_type": "table_data",
+              "table": {
+                "headers": [
+                  "Elementos de Regulación",
+                  "Condición"
+                ],
+                "rows": [
+                  {
+                    "elemento": "Elementos para cumplimiento de las cesiones de espacio público",
+                    "condicion": "La cesión exigida en sitio debe estar conformada por parques, plazas y/o plazoletas. Las áreas de control ambiental (ACA) pueden usarse para el cumplimiento de hasta el **25%** del área total de la cesión, aplicando una proporción de **1 a 1.5** (1 m2 de cesión = 1.5 m2 en control ambiental). Si el ACA es insuficiente para cesiones < 400 m2, la diferencia se compensa. El espacio público existente no se contabiliza, pero debe ser intervenido y articulado."
+                  },
+                  {
+                    "elemento": "Dimensiones mínimas",
+                    "condicion": "Proyectos de licenciamiento directo: área mínima de los globos resultantes de cesión en sitio es de **400 m2**. Planes parciales: área mínima de los globos resultantes es de **1.000 m2**."
+                  },
+                  {
+                    "elemento": "Configuración geométrica",
+                    "condicion": "La dimensión mínima de cualquier costado debe ser de **20 metros**. La proporción entre costados debe ser de máximo **1 a 3**. Para polígonos irregulares, se debe inscribir un círculo cuya área corresponda mínimo al **40% del área total** de la cesión. Se debe priorizar la configuración en esquinas de las manzanas."
+                  },
+                  {
+                    "elemento": "Accesibilidad",
+                    "condicion": "Garantizar accesibilidad peatonal en todas las áreas. Generar pasos peatonales seguros a nivel del espacio público, como mínimo cada **100 metros**. Accesibilidad vehicular se exige según el área del polígono (50% de perímetro para > 1 Ha; 40% para 5.000-10.000 m2; 25% para < 5.000 m2). Garantizar acceso peatonal a predios vecinos colindantes."
+                  },
+                  {
+                    "elemento": "Fragmentación de la cesión y globos mínimos",
+                    "condicion": "Planes parciales (ANU/AV 3-12 Ha): el **70%** de la cesión se debe dejar en un solo globo. Planes parciales (ANU/AV > 12 Ha): el **50%** en un solo globo. Globo mínimo de fragmentación en PP: **1000 m2**. Licenciamiento directo: mínimo el **70%** en un solo globo, restante en globos mínimos de **400 m2**."
+                  },
+                  {
+                    "elemento": "Cerramientos",
+                    "condicion": "Se prohíben los cerramientos perimetrales de espacio público peatonal y para el encuentro."
+                  }
+                ],
+                "source_cites": ""
+              }
+            },
+            {
+              "number": "1.6.3",
+              "title": "Condiciones para las cesiones de espacio público en ladera",
+              "content": "Aplica para suelos con pendiente superior al 25% y hasta el 45%.",
+              "rules": [
+                {
+                  "letter": "a",
+                  "content": "La proporción para el cumplimiento será de una relación de **1 a 2** (por 1 m2 de parque a ceder se entregan 2 m2 de suelo con estas características), siempre que no sean suelos de protección.",
+                  "source_cites": ""
+                },
+                {
+                  "letter": "c",
+                  "content": "La configuración geométrica de los globos de cesión podrá ser irregular, pero el lado menor del polígono no podrá ser inferior a **20 metros**.",
+                  "source_cites": ""
+                },
+                {
+                  "letter": "e",
+                  "content": "Deberá adecuarse, conformando terrazas que permitan generar áreas de encuentro al interior, garantizando un mínimo del **20% del área** de las cesiones, adecuadas para la permanencia de los usuarios.",
+                  "source_cites": ""
+                },
+                {
+                  "letter": "h",
+                  "content": "Las áreas de cesión deben entregarse dotadas con coberturas verdes, mobiliario e infraestructura, y con las obras necesarias que aseguren su estabilización geomorfológica, la reducción y mitigación de riesgos, así como el manejo de las aguas superficiales y subsuperficiales.",
+                  "source_cites": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "number": "1.7",
+          "title": "ÁREAS PRIVADAS AFECTAS AL USO PÚBLICO (APAUP)",
+          "source_cites": "",
+          "subsections": [
+            {
+              "number": "1.7.1",
+              "title": "Configuración de APAUP en centros de manzana (Tratamiento RU, Licenciamiento Directo)",
+              "content": "Se podrá obtener el beneficio de pago total de la obligación de cesión de espacio público en sitio, si se genera un porcentaje equivalente al **35% del área total del terreno** en APAUP en el centro de la manzana, garantizando acceso peatonal libre y sin obstáculos.",
+              "source_cites": "",
+              "conditions": [
+                {
+                  "letter": "a",
+                  "content": "La dimensión del frente mínimo de la APAUP sobre las vías circundantes deberá ser de **20 metros**.",
+                  "source_cites": ""
+                },
+                {
+                  "letter": "b",
+                  "content": "Debe estar delimitado mínimo el **20% del perímetro** de la APAUP con accesibilidad vehicular sobre las vías circundantes.",
+                  "source_cites": ""
+                },
+                {
+                  "letter": "c",
+                  "content": "Se deberá conformar un polígono donde en el centro de manzana se inscriba un círculo cuya área corresponda mínimo al **35% del área total de la APAUP**.",
+                  "source_cites": ""
+                },
+                {
+                  "letter": "d",
+                  "content": "No se permite la fragmentación del APAUP, por lo que se debe mantener la continuidad espacial desde el centro de la manzana hacia las vías circundantes.",
+                  "source_cites": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "number": "1.8",
+          "title": "ESTACIONAMIENTOS",
+          "source_cites": "",
+          "rules": [
+            {
+              "content": "Cuando se plantee la provisión de cupos cubiertos superior a los mínimos, máximos y adicionales (Art 389 y 390 DD 555/2021), su área cuenta como área construida para el cumplimiento de obligaciones urbanísticas y no se podrán ubicar en las áreas libres de la edificación.",
+              "source_cites": ""
+            },
+            {
+              "content": "La provisión de estacionamientos asociada a usos urbanos no aplica para el uso de Comercio y Servicios en la categoría de Servicios de Parqueadero.",
+              "source_cites": ""
+            }
+          ],
+          "subsections": [
+            {
+              "number": "1.8.1",
+              "title": "Cupos obligatorios para bicicletas y otros vehículos de micromovilidad",
+              "content_type": "table_data",
+              "table": {
+                "headers": [
+                  "Uso",
+                  "Condición",
+                  "Cupos de Estacionamiento Requeridos"
+                ],
+                "rows": [
+                  {
+                    "uso": "Residencial",
+                    "condicion": "Por cada vivienda de hasta 80 m2",
+                    "cupos": "1 estacionamiento"
+                  },
+                  {
+                    "uso": "Residencial",
+                    "condicion": "Por cada vivienda de más de 80 m2 y hasta 120 m2",
+                    "cupos": "2 estacionamientos"
+                  },
+                  {
+                    "uso": "Residencial",
+                    "condicion": "Por cada vivienda de más de 120 m2",
+                    "cupos": "3 estacionamientos"
+                  },
+                  {
+                    "uso": "No residencial",
+                    "condicion": "Por cada 100 m2 de área construida para el cálculo de estacionamientos",
+                    "cupos": "1 estacionamiento"
+                  }
+                ],
+                "source_cites": ""
+              },
+              "notes": [
+                {
+                  "content": "Las fracciones decimales superiores a **0.5**, que resulten de la aplicación de la exigencia de estacionamientos, se aproximan al entero superior.",
+                  "source_cites": ""
+                },
+                {
+                  "content": "El área construida exigida para estos cupos y su infraestructura complementaria, **no cuenta** como área construida para efecto del cálculo de obligaciones urbanísticas ni en el cálculo de áreas mínima, máxima y adicional para estacionamientos (Art 389).",
+                  "source_cites": ""
+                },
+                {
+                  "content": "Pueden contabilizarse dentro del Equipamiento Comunal Privado (en el porcentaje de destinación restante).",
+                  "source_cites": ""
+                },
+                {
+                  "content": "Deben estar localizados en el piso de acceso, en el primer sótano, semisótano o en hasta un nivel superior (siempre y cuando se cuente con rampas y/o superficies de circulación natural o mecánica).",
+                  "source_cites": ""
+                }
+              ]
+            },
+            {
+              "number": "1.8.2",
+              "title": "Cupos accesibles para personas con discapacidad",
+              "content": "Se debe destinar el **2% del total de cupos habilitados**, a cupos de estacionamientos para personas en condición de discapacidad, con provisión mínima de uno (1). Excepción: usos dotacionales de salud. El área destinada a la provisión de estos cupos y sus áreas de maniobra, **no cuenta** en el cálculo de áreas mínima, máxima y adicional para estacionamientos. Pueden contabilizarse dentro del Equipamiento Comunal Privado (en el porcentaje de destinación restante). Las fracciones decimales que resulten de la aplicación **no generan cupos adicionales**.",
+              "source_cites": ""
+            },
+            {
+              "number": "1.8.3",
+              "title": "Estacionamientos preferenciales para vehículos eléctricos y/o de cero emisiones",
+              "content": "Se debe destinar el **2% del total de cupos habilitados** a cupos preferenciales para vehículos eléctricos y/o de cero emisiones, con provisión mínima de uno (1). El área destinada **no cuenta** en el cálculo de áreas mínima, máxima y adicional para estacionamientos. Puede contabilizarse dentro del Equipamiento Comunal Privado. Si solo se provee un estacionamiento, se debe dar prioridad al estacionamiento para personas en condición de discapacidad.",
+              "source_cites": ""
+            },
+            {
+              "number": "1.8.4",
+              "title": "Estacionamientos exigidos según necesidades de funcionamiento de los usos",
+              "content": "Se deben proveer cupos adicionales para vehículos de carga, buses escolares, coches fúnebres, ambulancias, y vehículos de emergencias. El área destinada a la provisión de estos cupos y sus áreas de maniobra, **no cuentan** como área construida para el cálculo de estacionamientos, obligaciones urbanísticas, ni como equipamiento comunal privado.",
+              "source_cites": ""
+            },
+            {
+              "number": "1.8.6",
+              "title": "Accesos y salidas vehiculares respecto del espacio público",
+              "sub_rules": [
+                {
+                  "letter": "A",
+                  "title": "Localización de accesos y salidas vehiculares",
+                  "content": "Deben plantearse desde la vía con circulación vehicular de menor dimensión de ancho mínimo. Deben localizarse a la mayor distancia posible de las intersecciones viales, en una distancia de **quince (15,00) metros** medida desde la finalización del radio del sardinel.",
+                  "source_cites": ""
+                },
+                {
+                  "content": "Para predios frente a Malla Vial Arterial, se sigue el siguiente orden jerárquico: 1. Por vía vehicular de la malla vial local o intermedia. 2. Por calzada de servicio paralela (si 1 no es posible). 3. En forma directa desde la vía arteria (si 1 y 2 no son posibles).",
+                  "source_cites": ""
+                },
+                {
+                  "content": "Para predios frente a Malla Vial Local o Intermedia, la exigencia de accesos separados depende del número de cupos proyectados y los costados de manzana:",
+                  "content_type": "table_data",
+                  "table": {
+                    "headers": [
+                      "Características del proyecto",
+                      "Cupos de estacionamiento de vehículos motorizados proyectados: Hasta 50 unidades",
+                      "Cupos de estacionamiento de vehículos motorizados proyectados: Más de 50 unidades"
+                    ],
+                    "rows": [
+                      {
+                        "caracteristica": "Proyecto con frente solo a 1 un costado de manzana",
+                        "hasta_50": "Se permite un único acceso vehicular (cumple ambas condiciones).",
+                        "mas_50": "Se exige el acceso y salida vehicular separados."
+                      },
+                      {
+                        "caracteristica": "Proyecto frente a 2 o más costados de manzana",
+                        "hasta_50": "Se permite el acceso y salida vehicular separados.",
+                        "mas_50": "Se exige el acceso y salida vehicular separados."
+                      }
+                    ],
+                    "source_cites": ""
+                  }
+                },
+                {
+                  "letter": "B",
+                  "title": "Dimensionamiento de accesos y salidas vehiculares",
+                  "content": "El ancho mínimo del acceso o salida es de **2,50 metros para usos residenciales** y de **3,00 metros para usos no residenciales**. Proyectos con más de 500 cupos requieren accesos y salidas independientes, con carriles de ancho mínimo de **5,00 metros**.",
+                  "source_cites": ""
+                },
+                {
+                  "letter": "C",
+                  "title": "Características de los accesos y salidas vehiculares",
+                  "content": "Deben garantizar la continuidad para el libre tránsito de los peatones. Los accesos y salidas vehiculares no podrán tener acceso peatonal por el mismo espacio físico. En predios con frente mayor a cinco (5,00) metros, los anchos de accesos y salidas vehiculares y peatonales no pueden superar el **50% del ancho de la fachada**.",
+                  "source_cites": ""
+                }
+              ]
+            },
+            {
+              "number": "1.8.7",
+              "title": "Dimensiones de los estacionamientos",
+              "sub_rules": [
+                {
+                  "letter": "A",
+                  "title": "Estacionamientos de vehículos motorizados",
+                  "content_type": "table_data",
+                  "table": {
+                    "headers": [
+                      "Tipo de estacionamiento",
+                      "Ancho mínimo libre en metros",
+                      "Largo mínimo libre en metros"
+                    ],
+                    "rows": [
+                      {
+                        "tipo": "Para automóviles, camionetas y camperos",
+                        "ancho": "2,40",
+                        "largo": "5,00"
+                      },
+                      {
+                        "tipo": "Para personas en condición de discapacidad (movilidad reducida)",
+                        "ancho": "3,70",
+                        "largo": "5,00"
+                      },
+                      {
+                        "tipo": "Para motocicletas",
+                        "ancho": "1,00",
+                        "largo": "2,50"
+                      }
+                    ],
+                    "source_cites": ""
+                  },
+                  "notes": [
+                    {
+                      "content": "La altura libre mínima en las áreas de estacionamiento debe ser de **2,30 metros**.",
+                      "source_cites": ""
+                    }
+                  ]
+                },
+                {
+                  "letter": "B",
+                  "title": "Estacionamientos para bicicletas",
+                  "content_type": "table_data",
+                  "table": {
+                    "headers": [
+                      "Tipo de parqueo",
+                      "Ancho (metros)",
+                      "Largo (metros)",
+                      "Ancho del área de circulación (metros)"
+                    ],
+                    "rows": [
+                      {
+                        "tipo": "En paralelo con área de circulación central",
+                        "ancho": "0,60",
+                        "largo": "2,00",
+                        "circulacion": "1,75"
+                      },
+                      {
+                        "tipo": "Intercalados con áreas de circulación laterales",
+                        "ancho": "0,60",
+                        "largo": "3,00",
+                        "circulacion": "1,75"
+                      },
+                      {
+                        "tipo": "Intercalados con áreas de circulación central",
+                        "ancho": "0,60",
+                        "largo": "2,00",
+                        "circulacion": "1,75"
+                      },
+                      {
+                        "tipo": "En espiga con área de circulación central",
+                        "ancho": "0,50",
+                        "largo": "1,40",
+                        "circulacion": "1,00"
+                      },
+                      {
+                        "tipo": "Dispuestos en vertical",
+                        "ancho": "0,60",
+                        "largo": "2,00",
+                        "circulacion": "1,75"
+                      }
+                    ],
+                    "source_cites": ""
+                  },
+                  "notes": [
+                    {
+                      "content": "Se permite el planteamiento de parqueo en doble nivel.",
+                      "source_cites": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "number": "1.8.8",
+              "title": "Dimensiones de circulación y áreas de maniobra",
+              "sub_rules": [
+                {
+                  "letter": "A",
+                  "title": "Para automóviles, camionetas y camperos",
+                  "content_type": "table_data",
+                  "table": {
+                    "headers": [
+                      "Estacionamientos",
+                      "Ancho mínimo de la circulación (metros) - Una crujía",
+                      "Ancho mínimo de la circulación (metros) - Doble crujía"
+                    ],
+                    "rows": [
+                      {
+                        "estacionamientos": "entre 90 (perpendicular) y mayor a 45 grados de la circulación",
+                        "una_crujia": "4,50",
+                        "doble_crujia": "5,00"
+                      },
+                      {
+                        "estacionamientos": "entre 45 y mayor a 30 grados de la circulación",
+                        "una_crujia": "4,50",
+                        "doble_crujia": "4,50"
+                      },
+                      {
+                        "estacionamientos": "entre 30 y mayor a 0 grados de la circulación",
+                        "una_crujia": "4,00",
+                        "doble_crujia": "4,00"
+                      },
+                      {
+                        "estacionamientos": "paralelos a la circulación",
+                        "una_crujia": "4,00",
+                        "doble_crujia": "4,00"
+                      }
+                    ],
+                    "source_cites": ""
+                  },
+                  "notes": [
+                    {
+                      "content": "El ancho de la zona de maniobra puede reducirse si se incrementa el ancho de los cupos, pero nunca puede ser inferior a **cuatro (4,00) metros**. El radio de curvatura mínimo en las circulaciones es de **tres (3,00) metros**.",
+                      "source_cites": ""
+                    }
+                  ]
+                },
+                {
+                  "letter": "B",
+                  "title": "Para motocicletas",
+                  "content_type": "table_data",
+                  "table": {
+                    "headers": [
+                      "Estacionamientos",
+                      "Ancho de la circulación (metros)"
+                    ],
+                    "rows": [
+                      {
+                        "estacionamientos": "a 90 (perpendicular) grados de la circulación",
+                        "ancho": "2,50"
+                      },
+                      {
+                        "estacionamientos": "a 60 grados de la circulación",
+                        "ancho": "1,75"
+                      },
+                      {
+                        "estacionamientos": "a 45 grados de la circulación",
+                        "ancho": "1,50"
+                      },
+                      {
+                        "estacionamientos": "menores a 45 grados o paralelos a la circulación",
+                        "ancho": "1,20"
+                      }
+                    ],
+                    "source_cites": ""
+                  }
+                }
+              ]
+            },
+            {
+              "number": "1.8.9",
+              "title": "Rampas vehiculares",
+              "content": "La rampa de acceso debe iniciar su desarrollo a **tres (3,00) metros** hacia el interior del predio. La pendiente máxima es de **20%**. El radio de curvatura mínimo de una rampa vehicular es de **tres (3,00) metros**. La planta inclinada de estacionamientos puede plantarse con una pendiente máxima de **6%**.",
+              "source_cites": ""
+            },
+            {
+              "number": "1.8.10",
+              "title": "Servidumbres de estacionamientos",
+              "content": "Se permiten servidumbres de máximo **un (1) cupo** de estacionamiento. No se permiten estacionamientos en servidumbre para personas en condición de discapacidad. Las servidumbres verticales se permiten a través de duplicadores. Los duplicadores se permiten en áreas de aislamiento posterior siempre que su altura no exceda la placa del nivel siguiente.",
+              "source_cites": ""
+            }
+          ]
+        },
+        {
+          "number": "1.9",
+          "title": "CONDICIONES GENERALES PARA GARANTIZAR EL PROCESO DE URBANIZACIÓN O REURBANIZACIÓN",
+          "source_cites": "",
+          "rules": [
+            {
+              "number": "1.9.1",
+              "content": "Todo proceso de urbanización o reurbanización deberá garantizar la continuidad de la malla vial intermedia y local construida o propuesta en los sectores contiguos al mismo, armonizando las áreas de cesión obligatorias con el espacio público existente.",
+              "source_cites": ""
+            },
+            {
+              "number": "1.9.2",
+              "content": "Las áreas de cesión obligatoria en vías locales e intermedias, podrán ser objeto de compensación económica o material, si el urbanizador demuestra la imposibilidad técnica para su ejecución. Los recursos se destinarán al mantenimiento y conservación de la malla vial arterial y complementaria de la ciudad.",
+              "source_cites": ""
+            },
+            {
+              "number": "1.9.5",
+              "content": "La ejecución de la malla intermedia, local, plazas, plazoletas y alamedas en terrenos en proceso de urbanización o reurbanización deberán ser construidas y cedidas al Distrito por parte del urbanizador responsable, y deberá ajustarse a las determinaciones técnicas establecidas por el IDU o de la entidad competente.",
+              "source_cites": ""
+            }
+          ]
+        },
+        {
+          "number": "1.10",
+          "title": "CONDICIONES DE VENTILACIÓN E ILUMINACIÓN",
+          "source_cites": "",
+          "content": "Todos los espacios del uso residencial deben ventilarse e iluminarse naturalmente a través de fachadas hacia el exterior, aislamientos o patios. Los baños, cocinas, depósitos y espacios de servicio pueden usar ventilación por ductos si la ventilación natural no es posible. El patio se exige a partir del nivel en donde se plantea el uso residencial. Aplican normas específicas para edificaciones en Mejoramiento Integral."
+          
+        },
+        {
+          "number": "1.11",
+          "title": "APLICACIÓN DE NORMAS URBANÍSTICAS EN FUNCIÓN DE ACTUACIONES EN EDIFICACIONES",
+          "source_cites": "",
+          "content_type": "matrix_data",
+          "matrix": {
+            "columns": [
+              "Obra Nueva",
+              "Ampliación",
+              "Modificación",
+              "Adecuación",
+              "Reconocimiento"
+            ],
+            "rows": [
+              {
+                "aspecto_normativo": "Limitantes Generales de Altura",
+                "Obra Nueva": "Aplica norma común",
+                "Ampliación": "Aplica norma común",
+                "Modificación": "Aplica norma común",
+                "Adecuación": "Aplica norma común",
+                "Reconocimiento": "Aplica norma común"
+              },
+              {
+                "aspecto_normativo": "Altura Máxima de las Edificaciones",
+                "Obra Nueva": "Aplica norma común",
+                "Ampliación": "Aplica norma común",
+                "Modificación": "Aplica norma común",
+                "Adecuación": "Aplica norma común",
+                "Reconocimiento": "Aplica la altura existente"
+              },
+              {
+                "aspecto_normativo": "Alturas Por Piso",
+                "Obra Nueva": "Altura mínima libre: 2,30 m. Altura máxima libre: 3,80 o 4,20 m según el uso.",
+                "Ampliación": "En el mismo nivel: La existente. En pisos superiores u otras edificaciones: 2,30 m (Mínima). Máxima: 3,80 o 4,20 m según el uso.",
+                "Modificación": "Altura mínima libre: La existente. Máxima: 3,80 o 4,20 m según el uso.",
+                "Adecuación": "Altura mínima libre: La existente. Máxima: 3,80 o 4,20 m según el uso.",
+                "Reconocimiento": "Altura mínima libre: La existente."
+              },
+              {
+                "aspecto_normativo": "Antejardines",
+                "Obra Nueva": "Aplica norma común",
+                "Ampliación": "Aplica norma común",
+                "Modificación": "Aplica norma común",
+                "Adecuación": "Aplica norma común",
+                "Reconocimiento": "La volumetría existente. Aplica compensación por concepto de espacio público"
+              },
+              {
+                "aspecto_normativo": "Aislamientos Posteriores",
+                "Obra Nueva": "Aplica norma común",
+                "Ampliación": "Aplica a las áreas ampliadas. Mantiene derechos adquiridos de licencias anteriores o reconocimientos.",
+                "Modificación": "Mantiene derechos adquiridos de licencias anteriores o reconocimientos.",
+                "Adecuación": "Mantiene derechos adquiridos de licencias anteriores o reconocimientos.",
+                "Reconocimiento": "La volumetría existente."
+              },
+              {
+                "aspecto_normativo": "Voladizos",
+                "Obra Nueva": "Aplica norma común",
+                "Ampliación": "Aplica a las áreas ampliadas. Mantiene derechos adquiridos.",
+                "Modificación": "Mantiene derechos adquiridos.",
+                "Adecuación": "Mantiene derechos adquiridos.",
+                "Reconocimiento": "La volumetría existente."
+              },
+              {
+                "aspecto_normativo": "Sótanos Y Semisótanos",
+                "Obra Nueva": "Aplica norma común",
+                "Ampliación": "Aplica a las áreas ampliadas. Mantiene derechos adquiridos.",
+                "Modificación": "Mantiene derechos adquiridos.",
+                "Adecuación": "Mantiene derechos adquiridos.",
+                "Reconocimiento": "La volumetría existente."
+              },
+              {
+                "aspecto_normativo": "Equipamiento Comunal Privado",
+                "Obra Nueva": "Aplica norma común",
+                "Ampliación": "Aplica a las áreas ampliadas o al número de unidades de viviendas que se incrementan, según el caso. Si es reúso para vivienda no se exige ECP adicional.",
+                "Modificación": "Mantiene derechos adquiridos. Si es reúso para vivienda no se exige ECP adicional.",
+                "Adecuación": "Mantiene derechos adquiridos. Si es reúso para vivienda no se exige ECP adicional.",
+                "Reconocimiento": "La volumetría existente. Aplica a Vivienda Colectiva y Soluciones Habitacionales con Servicios sujetos a regulación específica."
+              },
+              {
+                "aspecto_normativo": "Estacionamientos",
+                "Obra Nueva": "Aplica norma común",
+                "Ampliación": "Aplica a las áreas ampliadas. Mantiene derechos adquiridos. Si es reúso para vivienda no se exigen estacionamientos adicionales.",
+                "Modificación": "Mantiene derechos adquiridos. Si es reúso para vivienda no se exigen estacionamientos adicionales.",
+                "Adecuación": "Los estacionamientos aprobados previamente que superen el área máxima pueden ser objeto de compensación o destinarse a otras actividades permitidas. Si es reúso para vivienda no se exigen estacionamientos adicionales.",
+                "Reconocimiento": "Los estacionamientos existentes."
+              },
+              {
+                "aspecto_normativo": "Usos",
+                "Obra Nueva": "Los usos permitidos en el DD 555/21.",
+                "Ampliación": "Solo se permite ampliar edificaciones cuyos usos estén permitidos, bajo las condiciones de área y localización. No se permiten ampliaciones del uso residencial en Área de Actividad de Grandes Servicios metropolitanos. No se permite el incremento de unidades de uso cuando éste no esté permitido.",
+                "Modificación": "Los usos permitidos en el DD 555/21.",
+                "Adecuación": "Los usos permitidos en el DD 555/21.",
+                "Reconocimiento": "Solo se permite reconocer edificaciones cuyos usos estén permitidos, bajo las condiciones de área y localización."
+              },
+              {
+                "aspecto_normativo": "Cargas Urbanísticas",
+                "Obra Nueva": "Aplican según lo establecido en el DD 555/21.",
+                "Ampliación": "Aplican para el área ampliada.",
+                "Modificación": "No aplican.",
+                "Adecuación": "No aplican.",
+                "Reconocimiento": "No aplican. Aplican compensaciones."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "CAP_2",
+      "number": 2,
+      "title": "NORMAS ESPECÍFICAS POR TRATAMIENTOS URBANÍSTICOS",
+      "source_cites": "",
+      "sections": [
+        {
+          "number": "2.1",
+          "title": "TRATAMIENTO DE DESARROLLO",
+          "source_cites": "",
+          "subsections": [
+            {
+              "number": "2.1.1",
+              "title": "ORIENTACIÓN DE LAS EDIFICACIONES EN CERROS (RANGOS 4C y 4D)",
+              "content": "La fachada más larga de los edificios deberá estar localizada en el sentido de la pendiente del terreno. Las edificaciones propuestas deben ajustarse a las condiciones topográficas del terreno a través de terrazas o escalonamientos volumétricos.",
+              "source_cites": ""
+            },
+            {
+              "number": "2.1.2",
+              "title": "AISLAMIENTOS",
+              "sub_rules": [
+                {
+                  "letter": "A",
+                  "title": "AISLAMIENTOS CONTRA PREDIOS VECINOS",
+                  "rules": [
+                    {
+                      "number": "A.1",
+                      "title": "Exigencia",
+                      "content": "Se exige a partir del nivel de terreno o de empate con las edificaciones colindantes superiores a tres (3) pisos.",
+                      "source_cites": ""
+                    },
+                    {
+                      "number": "A.2",
+                      "title": "Dimensionamiento",
+                      "content": "La dimensión mínima del aislamiento corresponde a **1/3 de la altura total en metros** de la edificación propuesta. La dimensión mínima es de **cuatro (4,00) metros**.",
+                      "source_cites": ""
+                    },
+                    {
+                      "number": "A.3",
+                      "title": "Empates",
+                      "content": "Se permite el empate volumétrico con edificaciones colindantes existentes superiores a tres (3) pisos. A partir del nivel de empate aplica el aislamiento contra predios vecinos (1/3 de la altura total en metros de la edificación propuesta).",
+                      "source_cites": ""
+                    }
+                  ]
+                },
+                {
+                  "letter": "B",
+                  "title": "AISLAMIENTOS ENTRE EDIFICACIONES",
+                  "rules": [
+                    {
+                      "number": "B.2",
+                      "title": "Dimensionamiento",
+                      "content": "La dimensión del aislamiento mínimo corresponde a **1/3 de la altura promedio en metros** de las edificaciones que se aíslan. La dimensión mínima de aislamiento es de **6,00 metros**.",
+                      "source_cites": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "number": "2.1.3",
+              "title": "LOTEO EN EL TRATAMIENTO DE DESARROLLO",
+              "sub_rules": [
+                {
+                  "letter": "A",
+                  "title": "Sistema de loteo individual para vivienda",
+                  "content_type": "table_data",
+                  "tables": [
+                    {
+                      "title": "Condiciones para loteo individual unifamiliar y bifamiliar",
+                      "headers": [
+                        "Tipo de vivienda",
+                        "Área mínima de lote",
+                        "Frente mínimo de lote",
+                        "Fondo mínimo de lote"
+                      ],
+                      "rows": [
+                        {
+                          "tipo": "Unifamiliar",
+                          "area": "54 m2",
+                          "frente": "4,50 m",
+                          "fondo": "12 m"
+                        },
+                        {
+                          "tipo": "Bifamiliar",
+                          "area": "84 m2",
+                          "frente": "7 m",
+                          "fondo": "12 m"
+                        }
+                      ],
+                      "source_cites": ""
+                    },
+                    {
+                      "title": "Condiciones para loteo mínimo individual multifamiliar",
+                      "headers": [
+                        "Tipología de loteo",
+                        "Frente de lote",
+                        "Fondo máximo de lote"
+                      ],
+                      "rows": [
+                        {
+                          "tipologia": "Contínua",
+                          "frente": "9 a 12 m",
+                          "fondo_max": "30 m"
+                        },
+                        {
+                          "tipologia": "Aislada",
+                          "frente": "18 a 22 m",
+                          "fondo_max": "40 m"
+                        }
+                      ],
+                      "source_cites": ""
+                    }
+                  ]
+                },
+                {
+                  "letter": "B",
+                  "title": "Sistema de agrupación para vivienda (lotes para construcción posterior)",
+                  "content_type": "table_data",
+                  "table": {
+                    "headers": [
+                      "Tipo de vivienda",
+                      "Frente mínimo de lote",
+                      "Fondo mínimo de lote"
+                    ],
+                    "rows": [
+                      {
+                        "tipo": "Unifamiliar",
+                        "frente": "4,50 m",
+                        "fondo": "12 m"
+                      },
+                      {
+                        "tipo": "Bifamiliar",
+                        "frente": "9 m",
+                        "fondo": "12 m"
+                      },
+                      {
+                        "tipo": "Multifamiliar",
+                        "frente": "9 m",
+                        "fondo": "24 m"
+                      }
+                    ],
+                    "source_cites": ""
+                  },
+                  "notes": [
+                    {
+                      "content": "Para usos diferentes al residencial no se exigen dimensiones mínimas de lote.",
+                      "source_cites": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "number": "2.2",
+          "title": "TRATAMIENTO DE RENOVACIÓN URBANA",
+          "source_cites": "",
+          "subsections": [
+            {
+              "number": "2.2.1",
+              "title": "AISLAMIENTOS",
+              "sub_rules": [
+                {
+                  "letter": "A",
+                  "title": "AISLAMIENTOS POSTERIORES",
+                  "rules": [
+                    {
+                      "number": "A.1",
+                      "title": "Exigencia",
+                      "content": "En predios esquineros, el aislamiento posterior se exige como patio en la esquina interior del predio, cuya dimensión menor debe ser igual a la dimensión del aislamiento exigido según la altura. En predios de geometría irregular que no permitan definir el aislamiento posterior, este no se exige, debiendo resolver el empate volumétrico con vecinos a través de patios.",
+                      "source_cites": ""
+                    },
+                    {
+                      "number": "A.2",
+                      "title": "Dimensionamiento",
+                      "content": "Las dimensiones mínimas se establecen en función de la altura en metros que alcancen las edificaciones:",
+                      "source_cites": "",
+                      "content_type": "table_data",
+                      "table": {
+                        "headers": [
+                          "Tratamiento de Renovación Urbana y usos dotacionales: Según altura de la edificación en metros",
+                          "Dimensión mínima del aislamiento posterior en metros"
+                        ],
+                        "rows": [
+                          {
+                            "altura": "Hasta 12 metros",
+                            "aislamiento": "4"
+                          },
+                          {
+                            "altura": "Mayor a 12 y hasta 18 metros",
+                            "aislamiento": "5"
+                          },
+                          {
+                            "altura": "Mayor a 18 y hasta 27 metros",
+                            "aislamiento": "6"
+                          },
+                          {
+                            "altura": "Mayor a 27 y hasta 36 metros",
+                            "aislamiento": "8"
+                          },
+                          {
+                            "altura": "Mayor a 36 y hasta 45 metros",
+                            "aislamiento": "10"
+                          },
+                          {
+                            "altura": "Mayor a 45 y hasta 54 metros",
+                            "aislamiento": "12"
+                          },
+                          {
+                            "altura": "Mayor a 54 y hasta 66 metros",
+                            "aislamiento": "14"
+                          },
+                          {
+                            "altura": "Mayor a 66 y hasta 75 metros",
+                            "aislamiento": "16"
+                          },
+                          {
+                            "altura": "Mayor a 75 y hasta 84 metros",
+                            "aislamiento": "18"
+                          },
+                          {
+                            "altura": "Mayor a 84 metros",
+                            "aislamiento": "20"
+                          }
+                        ],
+                        "source_cites": ""
+                      }
+                    },
+                    {
+                      "number": "A.3",
+                      "title": "Empates",
+                      "content": "Se permite prever empate volumétrico con la altura de edificaciones existentes sin aislamiento posterior, sin superar **11,40 metros** de altura. A partir de este nivel se exige aislamiento posterior reglamentario aplicado a la altura máxima de la edificación propuesta. **No se permiten usos residenciales** en las áreas de empate de aislamientos posteriores.",
+                      "source_cites": ""
+                    }
+                  ]
+                },
+                {
+                  "letter": "B",
+                  "title": "AISLAMIENTOS LATERALES",
+                  "rules": [
+                    {
+                      "number": "B.1",
+                      "title": "Exigencia",
+                      "content": "Se exige aislamiento lateral desde la altura de **11,40 metros**, o desde el nivel de empate con las edificaciones colindantes con altura mayor.",
+                      "source_cites": ""
+                    },
+                    {
+                      "number": "B.3",
+                      "title": "Empates",
+                      "content": "Se permite prever empate volumétrico con la altura de edificaciones existentes sin aislamiento lateral. A partir de cuyo nivel se exige aislamiento lateral reglamentario. Si los predios colindantes tienen aislamiento lateral desde el nivel del terreno, la nueva edificación debe preverlo desde ese mismo nivel.",
+                      "source_cites": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "number": "2.3",
+          "title": "TRATAMIENTO DE MEJORAMIENTO INTEGRAL",
+          "source_cites": "",
+          "subsections": [
+            {
+              "number": "2.3.1",
+              "title": "ALTURA DE LAS EDIFICACIONES",
+              "sub_rules": [
+                {
+                  "letter": "A",
+                  "title": "ALTURA MÁXIMA DE LAS EDIFICACIONES",
+                  "content": "Las alturas base señaladas en los mapas pueden ser superadas bajo el cumplimiento de las condiciones urbanísticas previstas para el tratamiento de Mejoramiento Integral (Art. 338 DD 555/2021). La posibilidad de concretar la altura máxima permitida está condicionada al cumplimiento de las condiciones de área de terreno y perfil vial.",
+                  "source_cites": ""
+                }
+              ]
+            },
+            {
+              "number": "2.3.2",
+              "title": "AISLAMIENTOS",
+              "sub_rules": [
+                {
+                  "letter": "A",
+                  "title": "AISLAMIENTOS POSTERIORES EN MI",
+                  "rules": [
+                    {
+                      "number": "A.1",
+                      "title": "Exigencia",
+                      "content": "Edificaciones de tres (3) pisos o menos: No se exige aislamiento posterior. Se deben garantizar patios de área mínima de **6,00 m2**, con un lado no menor a **2,00 m**. Edificaciones de más de tres (3) pisos: Se exige aislamiento posterior desde el nivel terreno, placa superior de semisótano, o nivel de empate. No se exige aislamiento en predios esquineros, predios con fondo igual o menor de **ocho (8,00) metros**, o predios con geometría irregular; en estos casos se debe resolver el empate volumétrico con vecinos a través de patios.",
+                      "source_cites": ""
+                    },
+                    {
+                      "number": "A.2",
+                      "title": "Dimensionamiento",
+                      "content_type": "table_data",
+                      "table": {
+                        "headers": [
+                          "Altura máxima de las edificaciones. Tratamiento de Mejoramiento Integral (Pisos)",
+                          "Dimensión mínima del aislamiento posterior en metros"
+                        ],
+                        "rows": [
+                          {
+                            "altura": "Hasta 3 pisos",
+                            "aislamiento": "No se exige"
+                          },
+                          {
+                            "altura": "De 4 a 6 pisos",
+                            "aislamiento": "5"
+                          },
+                          {
+                            "altura": "De 7 a 9 pisos",
+                            "aislamiento": "6"
+                          },
+                          {
+                            "altura": "De 10 a 12 pisos",
+                            "aislamiento": "8"
+                          }
+                        ],
+                        "source_cites": ""
+                      }
+                    },
+                    {
+                      "number": "A.3",
+                      "title": "Empates",
+                      "content": "Se permite empate volumétrico con edificaciones existentes de tres (3) o más pisos, sin aislamiento posterior. A partir de cuyo nivel se exige aislamiento posterior reglamentario. Los usos residenciales en áreas de empate deben cumplir con condiciones de ventilación e iluminación.",
+                      "source_cites": ""
+                    }
+                  ]
+                },
+                {
+                  "letter": "B",
+                  "title": "AISLAMIENTOS LATERALES EN MI",
+                  "rules": [
+                    {
+                      "number": "B.1",
+                      "title": "Exigencia",
+                      "content": "Para las edificaciones con altura superior a cinco (5) pisos, se exige aislamiento lateral a partir del **tercer piso**, o del nivel de empate con las edificaciones colindantes con altura mayor a tres (3) pisos.",
+                      "source_cites": ""
+                    },
+                    {
+                      "number": "B.3",
+                      "title": "Empates",
+                      "content": "Se permite prever empate volumétrico con la altura de edificaciones existentes de tres (3) o más pisos, sin aislamiento lateral. A partir de cuyo nivel se exige aislamiento lateral reglamentario.",
+                      "source_cites": ""
+                    }
+                  ]
+                },
+                {
+                  "letter": "C",
+                  "title": "RETROCESOS CONTRA ESPACIO PÚBLICO",
+                  "content": "En proyectos que desarrollen la totalidad del costado de manzana para superar la altura de tres pisos, aplican las condiciones de 'Sobreancho de andenes' dispuestas en el artículo 338 del Decreto Distrital 555 de 2021.",
+                  "source_cites": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "number": "2.4",
+          "title": "TRATAMIENTO DE CONSOLIDACIÓN",
+          "source_cites": "",
+          "subsections": [
+            {
+              "number": "2.4.1",
+              "title": "ALTURA DE LAS EDIFICACIONES",
+              "sub_rules": [
+                {
+                  "letter": "A",
+                  "title": "EXCEPCIONES A LA ALTURA MÁXIMA DE LAS EDIFICACIONES PERTENECIENTES A CONJUNTOS O AGRUPACIONES BAJO EL RÉGIMEN DE COPROPIEDAD",
+                  "content": "La prohibición de construcciones en terrazas, cubiertas, patios, balcones o cualquier área libre de uso privado aplica cuando se haya aprovechado la edificabilidad máxima permitida en las normas vigentes o en las licencias de construcción expedidas (incluyendo ampliaciones previstas en ellas).",
+                  "source_cites": ""
+                },
+                {
+                  "letter": "B",
+                  "title": "ALTURAS EN PREDIOS URBANIZADOS NO EDIFICADOS (UNE)",
+                  "content": "Los predios UNE mantendrán las normas de edificabilidad, equipamiento comunal y estacionamientos señaladas en la licencia de urbanización aplicable por dos (2) años para obtener licencia de construcción. Tras el vencimiento del término, si no se obtiene licencia, el desarrollo del predio se efectuará con fundamento en las normas del tratamiento de Consolidación.",
+                  "source_cites": ""
+                }
+              ]
+            },
+            {
+              "number": "2.4.2",
+              "title": "AISLAMIENTOS",
+              "sub_rules": [
+                {
+                  "letter": "A",
+                  "title": "AISLAMIENTOS POSTERIORES EN CONSOLIDACIÓN",
+                  "rules": [
+                    {
+                      "number": "A.1",
+                      "title": "Exigencia",
+                      "content": "No se exige aislamiento posterior en predios esquineros o medianeros cuyo lindero posterior colinde con el lindero lateral de su vecino, predios con fondo menor ocho (8,00) metros, o predios de geometría irregular. En tipología continua esquinera, el aislamiento posterior exigido corresponde a un patio en la esquina interior del predio. En tipología aislada esquinera, corresponde a un patio con la dimensión del aislamiento lateral exigido.",
+                      "source_cites": ""
+                    },
+                    {
+                      "number": "A.2",
+                      "title": "Dimensionamiento",
+                      "content_type": "table_data",
+                      "table": {
+                        "headers": [
+                          "Altura máxima de las edificaciones. Tratamiento de Consolidación (Pisos)",
+                          "Dimensión mínima del aislamiento posterior en metros"
+                        ],
+                        "rows": [
+                          {
+                            "altura": "Hasta 3 pisos",
+                            "aislamiento": "3"
+                          },
+                          {
+                            "altura": "4 a 6 pisos",
+                            "aislamiento": "5"
+                          },
+                          {
+                            "altura": "7 a 9 pisos",
+                            "aislamiento": "6"
+                          },
+                          {
+                            "altura": "10 a 12 pisos",
+                            "aislamiento": "8"
+                          },
+                          {
+                            "altura": "13 a 15 pisos",
+                            "aislamiento": "10"
+                          },
+                          {
+                            "altura": "16 a 18 pisos",
+                            "aislamiento": "12"
+                          },
+                          {
+                            "altura": "19 a 22 pisos",
+                            "aislamiento": "14"
+                          },
+                          {
+                            "altura": "23 a 25 pisos",
+                            "aislamiento": "16"
+                          },
+                          {
+                            "altura": "26 a 28 pisos",
+                            "aislamiento": "18"
+                          },
+                          {
+                            "altura": "29 pisos o más",
+                            "aislamiento": "20"
+                          }
+                        ],
+                        "source_cites": ""
+                      }
+                    },
+                    {
+                      "number": "A.3",
+                      "title": "Empates",
+                      "content": "Se permite empate volumétrico con edificaciones existentes de tres (3) o más pisos, sin aislamiento posterior. A partir de cuyo nivel se exige aislamiento posterior reglamentario. Los usos residenciales en áreas de empate deben cumplir con condiciones de ventilación e iluminación.",
+                      "source_cites": ""
+                    }
+                  ]
+                },
+                {
+                  "letter": "B",
+                  "title": "AISLAMIENTOS LATERALES EN CONSOLIDACIÓN",
+                  "rules": [
+                    {
+                      "number": "B.1",
+                      "title": "Exigencia",
+                      "content": "Se exige en predios señalados con tipología aislada en los mapas o según lo dispuesto en el artículo 310 parágrafo 3. Se exige desde el **segundo piso**, o el nivel de empate con las edificaciones colindantes.",
+                      "source_cites": ""
+                    },
+                    {
+                      "number": "B.3",
+                      "title": "Empates",
+                      "content": "Se permite empate volumétrico con la altura de edificaciones existentes de tres (3) o más pisos, sin aislamiento lateral. A partir de cuyo nivel se exige aislamiento lateral reglamentario. En predios localizados en tipología aislada, no se exige aislamiento lateral en el lado que colinde con predios en tipología continua.",
+                      "source_cites": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "number": "2.4.3",
+              "title": "SUBDIVISIONES EN EL TRATAMIENTO DE CONSOLIDACIÓN",
+              "content": "No se permiten subdivisiones en sectores identificados como de tipología aislada. En tipología continua aplica la siguiente regulación:",
+              "source_cites": "",
+              "content_type": "table_data",
+              "table": {
+                "headers": [
+                  "Tipología",
+                  "Frente Mínimo (Metros)",
+                  "Área Mínima (Metros Cuadrados)"
+                ],
+                "rows": [
+                  {
+                    "tipologia": "Sectores de origen no planificado (anteriormente MI, ahora Consolidación - Art. 309 Num. 3)",
+                    "frente": "4,50",
+                    "area": "54,00"
+                  },
+                  {
+                    "tipologia": "Otros predios en el tratamiento de Consolidación",
+                    "frente": "6,00",
+                    "area": "60,00"
+                  }
+                ],
+                "source_cites": ""
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CAP_3",
+      "number": 3,
+      "title": "NORMAS ESPECÍFICAS USOS DOTACIONALES",
+      "source_cites": "",
+      "sections": [
+        {
+          "number": "3.1",
+          "title": "ELEMENTOS DE VOLUMETRÍA",
+          "subsections": [
+            {
+              "number": "3.1.1",
+              "title": "ALTURA DE LAS EDIFICACIONES",
+              "sub_rules": [
+                {
+                  "letter": "A",
+                  "title": "ALTURA MÁXIMA DE LAS EDIFICACIONES EN USOS DOTACIONALES",
+                  "rules_list": [
+                    {
+                      "content": "Equipamientos existentes: pueden ser objeto de ampliaciones hasta **5 pisos**, o hasta la altura permitida en el respectivo tratamiento en caso que sea mayor.",
+                      "source_cites": ""
+                    },
+                    {
+                      "content": "Equipamientos nuevos: la altura permitida de la edificación es de **cinco (5) pisos** (salvo que el respectivo tratamiento prevea una altura superior).",
+                      "source_cites": ""
+                    },
+                    {
+                      "content": "La altura máxima de la edificación para uso dotacional, cuando esté limitada por número de pisos, equivaldrá a la siguiente fórmula: **(Altura máxima de la edificación = Altura en pisos X 4,60 m)**.",
+                      "source_cites": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "number": "3.2",
+          "title": "ESTACIONAMIENTOS EN USOS DOTACIONALES",
+          "subsections": [
+            {
+              "number": "3.2.1",
+              "title": "CUPOS ACCESIBLES PARA PERSONAS EN CONDICIÓN DE DISCAPACIDAD EN USOS DOTACIONALES",
+              "content": "En proyectos con usos dotacionales de **salud**, se debe destinar el **4% del total de cupos habilitados** a cupos de estacionamientos para personas en condición de discapacidad, con provisión mínima de uno (1). El área destinada **no cuenta** en el cálculo de áreas mínima, máxima y adicional para estacionamientos (Art 389).",
+              "source_cites": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CAP_4",
+      "number": 4,
+      "title": "OTROS ELEMENTOS DE REGULACIÓN",
+      "source_cites": "",
+      "sections": [
+        {
+          "number": "4.1",
+          "title": "ESTRUCTURAS LIVIANAS",
+          "content": "Las estructuras livianas que incluyen cubiertas de cualquier tipo, configuran **área construida**, la cual debe ser contabilizada en los proyectos aprobados a través de las licencias correspondientes, y sujeta a las normas urbanísticas. En todo caso, deben cumplir con las normas referentes al uso y aprovechamiento del suelo del respectivo municipio o distrito. Las estructuras livianas que incluyan elementos de soporte deben contar con diseño sísmico.",
+          "source_cites": ""
+        },
+        {
+          "number": "4.2",
+          "title": "RELACIÓN DE USOS CON LA MALLA VIAL ARTERIAL",
+          "subsections": [
+            {
+              "number": "4.2.1",
+              "content": "Malla Vial Arterial Construida se entiende como: vías arterias construidas con perfil completo, o vías arterias construidas parcialmente con fundamento en el perfil de calle completa y líneas de demarcación definidas.",
+              "source_cites": ""
+            },
+            {
+              "number": "4.2.2",
+              "content": "Para la aplicación de la condición 5 del artículo 243, la distancia de **100 metros** señalada, corresponde a la medida desde el **eje central de la vía de la malla vial arterial**.",
+              "source_cites": ""
+            },
+            {
+              "number": "4.2.3",
+              "content": "Para la aplicación de la condición 12 del artículo 243, los establecimientos de **más de 100 m2 de área construida** se permiten en predios con frente a vías de la malla vial arterial construida, así como en manzanas comerciales previstas en los proyectos urbanísticos aprobados.",
+              "source_cites": ""
+            }
+          ]
+        },
+        {
+          "number": "4.3",
+          "title": "FACHADAS ACTIVAS",
+          "content": "Aplica para los usos residenciales de categoría multifamiliar y vivienda colectiva. Los porcentajes de fachadas para usos activos se calculan después de descontar las dimensiones mínimas de accesos vehiculares y peatonales. Si la dimensión resultante de la fachada activa resulta **menor a 2,50 metros**, ésta no se exige.",
+          "source_cites": ""
+        },
+        {
+          "number": "4.4",
+          "title": "EXCEPCIONES DE USOS EN SÓTANOS Y SEMISÓTANOS",
+          "content": "Se permite la localización de usos de Comercio y Servicios Tipo 3, Dotacionales tipo 3 e Industria Pesada en sótanos y semisótanos. Las áreas destinadas a estos usos cuentan como área construida, **más no como piso**.",
+          "source_cites": ""
+        },
+        {
+          "number": "4.5",
+          "title": "RECONOCIMIENTOS",
+          "content": "El reconocimiento de edificaciones se regula según lo previsto en el artículo 263 del Decreto Distrital 555 de 2021. Las edificaciones reconocidas pueden ser objeto de sometimiento al régimen de propiedad horizontal y de las demás intervenciones o actuaciones previstas en las normas vigentes, bajo el cumplimiento de las normas urbanísticas respectivas contempladas en el numeral 1.11.",
+          "source_cites": ""
+        },
+        {
+          "number": "4.6",
+          "title": "APLICACIÓN DE ACCIÓN DE MITIGACIÓN DE IMPACTOS URBANÍSTICOS MU1",
+          "content": "Para todos los tratamientos **excepto Desarrollo**, el tamaño del espacio de transición previsto en la acción MU1 se calcula con base en el **5% del área construida en el uso propuesto**.",
+          "source_cites": ""
+        },
+        {
+          "number": "4.7",
+          "title": "EXISTENCIA DE EDIFICACIONES",
+          "content": "Para determinar la existencia de edificaciones se podrá hacer uso de las siguientes fuentes de información: plano de la manzana catastral, información fotográfica existente, información aerofotográfica o satelital existente.",
+          "source_cites": ""
+        }
+      ]
+    },
+    {
+      "id": "CAP_5",
+      "number": 5,
+      "title": "ILUSTRACIONES",
+      "source_cites": ""
+      
+    }
+  ]
+}
