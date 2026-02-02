@@ -1976,7 +1976,7 @@
                     {
                       "number": "A.1",
                       "title": "Exigencia",
-                      "content": "No se exige aislamiento posterior en predios esquineros o medianeros cuyo lindero posterior colinde con el lindero lateral de su vecino, predios con fondo $\le$ ocho (8,00) metros, o predios de geometría irregular [213]. En tipología continua esquinera, el aislamiento posterior exigido corresponde a un patio en la esquina interior del predio [214]. En tipología aislada esquinera, corresponde a un patio con la dimensión del aislamiento lateral exigido [215].",
+                      "content": "No se exige aislamiento posterior en predios esquineros o medianeros cuyo lindero posterior colinde con el lindero lateral de su vecino, predios con fondo igual o menor a ocho (8,00) metros, o predios de geometría irregular [213]. En tipología continua esquinera, el aislamiento posterior exigido corresponde a un patio en la esquina interior del predio [214]. En tipología aislada esquinera, corresponde a un patio con la dimensión del aislamiento lateral exigido [215].",
                       "source_cites": "[213-215]"
                     },
                     {
@@ -2211,8 +2211,7 @@
       "id": "CAP_5",
       "number": 5,
       "title": "ILUSTRACIONES",
-      "source_cites": "[240]"
-      // Note: Chapter 5 contains references to illustrations but no additional regulatory text.
+      "source_cites": "[240]"  
     }
   ]
 }
