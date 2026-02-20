@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador JSON desde HTML - POT Bogotá</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-100 min-h-screen flex flex-col items-center justify-center p-6 font-sans">
+
+    <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-2xl">
+        <h1 class="text-2xl font-bold text-slate-800 mb-2">Convertidor HTML a JSON (Motor Profundo)</h1>
+        <p class="text-slate-600 mb-6 text-sm">Esta herramienta escanea todas las capas del documento Word exportado. Capturará todos los capítulos sin importar cómo Word haya dividido el archivo internamente.</p>
+        
+        <div class="mb-6">
+            <label class="block text-sm font-medium text-slate-700 mb-2">1. Sube tu documento exportado (.html)</label>
+            <input type="file" id="upload" accept=".html,.htm" class="block w-full text-sm text-slate-500
+              file:mr-4 file:py-2 file:px-4
+              file:rounded-full file:border-0
+              file:text-sm file:font-semibold
+              file:bg-blue-50 file:text-blue-700
+              hover:file:bg-blue-100 transition-all cursor-pointer border border-slate-200 rounded-lg p-2" />
+        </div>
+
+        <div id="status" class="hidden mb-6 p-4 rounded-lg bg-blue-50 text-blue-700 text-sm font-medium border border-blue-200">
+            Procesando documento HTML, escaneando todas las secciones...
+        </div>
+
+        <button id="downloadBtn" class="hidden w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-xl transition-colors shadow-lg flex justify-center items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+            Descargar BASE.json Completo
+        </button>
+
+        <div id="log" class="mt-6 text-xs text-slate-500 bg-slate-50 p-4 rounded-lg h-48 overflow-y-auto font-mono border border-slate-200 hidden"></div>
+    </div>
+
+    <script>
+        let generatedJson = null;
+        const logArea = document.getElementById('log');
+
+        function log(msg) {
+            logArea.classList.remove('hidden');
+            logArea.innerHTML += `<div>> ${msg}</div>`;
+            logArea.scrollTop = logArea.scrollHeight;
+        }
+
+        document.getElementById('upload').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            document.getElementById('status').classList.remove('hidden');
+            document.getElementById('downloadBtn').classList.add('hidden');
+            logArea.innerHTML = '';
+            log("Archivo HTML cargado. Iniciando escaneo profundo del DOM...");
+
+            const reader = new FileReader();
+            reader.onload = function(loadEvent) {
+                const htmlString = loadEvent.target.result;
+                processHTML(htmlString);
+            };
+            reader.readAsText(file);
+        });
+
+        function processHTML(htmlString) {
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = htmlString;
+
+            const potJson = {
+                document_info: {
+                    title: "MANUAL DE NORMAS COMUNES A LOS TRATAMIENTOS URBANÍSTICOS",
+                    decree: "DECRETO DISTRITAL 555 DE 2021",
+                    entity: "SECRETARÍA DISTRITAL DE PLANEACIÓN",
+                    date: "Noviembre 2022"
+                },
+                chapters: []
+            };
+
+            let curCap = null;
+            let curSec = null;
+            let curSub = null;
+            let curApar = null;
+
+            let stats = { caps: 0, secs: 0, subs: 0, apartados: 0, tablas: 0 };
+
+            // NUEVO MOTOR: Escanea recursivamente todas las capas invisibles de Word
+            let blocks = [];
+            function traverse(node) {
+                if (node.nodeType !== 1) return; // Solo procesar Elementos HTML
+                const tag = node.tagName.toUpperCase();
+                
+                // Si encontramos un bloque de contenido, lo guardamos y NO bajamos a sus hijos 
+                // (Para capturar toda la tabla o todo el párrafo íntegro de una vez)
+                if (['P', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'TABLE', 'UL', 'OL'].includes(tag)) {
+                    blocks.push(node);
+                } else {
+                    // Si es un "div", "body", "span" agrupador, bajamos una capa más
+                    Array.from(node.children).forEach(traverse);
+                }
+            }
+            
+            traverse(tempDiv);
+            log(`Se encontraron ${blocks.length} bloques de contenido en total.`);
+
+            blocks.forEach((child) => {
+                const text = child.textContent.trim().replace(/\s+/g, ' '); 
+                if (!text && child.tagName !== 'TABLE') return;
+
+                let match;
+
+                // Detectar Capítulos (Acepta números como "5" o romanos como "V")
+                if (match = text.match(/^CAP[ÍI]TULO\s+([0-9IVX]+)[\.\-]?\s+(.*)/i)) {
+                    curCap = { id: `CAP_${match[1]}`, number: match[1], title: match[2].trim(), sections: [] };
+                    potJson.chapters.push(curCap);
+                    curSec = null; curSub = null; curApar = null;
+                    stats.caps++;
+                    log(`Detectado: Capítulo ${match[1]}`);
+                }
+                // Detectar Secciones (Ej: 1.1. CONCEPTOS Y DEFINICIONES)
+                else if (match = text.match(/^(\d+\.\d+)\.?\s+(.*)/)) {
+                    if (!curCap) return;
+                    curSec = { 
+                        number: match[1], 
+                        title: match[2].trim(), 
+                        content: "", 
+                        subsections: [], 
+                        apartados: []
+                    };
+                    curCap.sections.push(curSec);
+                    curSub = null; curApar = null;
+                    stats.secs++;
+                }
+                // Detectar Subsecciones (Ej: 1.2.1. ALTURA DE LAS EDIFICACIONES)
+                else if (match = text.match(/^(\d+\.\d+\.\d+)\.?\s+(.*)/)) {
+                    if (!curSec) return;
+                    curSub = { number: match[1], title: match[2].trim(), content: "", apartados: [] };
+                    curSec.subsections.push(curSub);
+                    curApar = null;
+                    stats.subs++;
+                }
+                // Detectar Apartados (Ej: A. Limitantes o A) Limitantes...)
+                else if (match = text.match(/^([A-Z])[\.\)]\s+(.*)/)) {
+                    curApar = { id: `${match[1]}.`, title: match[2].trim(), content: "" };
+                    if (curSub) curSub.apartados.push(curApar);
+                    else if (curSec) curSec.apartados.push(curApar);
+                    stats.apartados++;
+                }
+                // Si no es un título, es contenido (Párrafos, Listas, TABLAS)
+                else {
+                    // Limpieza de código basura de Word
+                    child.removeAttribute('style');
+                    child.removeAttribute('class');
+                    
+                    if (child.tagName === 'TABLE') {
+                        child.className = "min-w-full text-sm text-left text-slate-500 border-collapse border border-slate-200 my-4";
+                        child.querySelectorAll('th, td, tr, thead, tbody').forEach(cell => {
+                            cell.removeAttribute('style');
+                            cell.removeAttribute('class');
+                            if (cell.tagName === 'TH' || cell.tagName === 'TD') {
+                                cell.className = "border border-slate-200 px-4 py-2";
+                            }
+                        });
+                        stats.tablas++;
+                    }
+
+                    const htmlContent = child.outerHTML;
+
+                    if (curApar) {
+                        curApar.content += htmlContent;
+                    } else if (curSub) {
+                        curSub.content += htmlContent;
+                    } else if (curSec) {
+                        curSec.content += htmlContent;
+                    }
+                }
+            });
+
+            log(`Análisis completado: ${stats.caps} Caps, ${stats.secs} Secs, ${stats.subs} Subs, ${stats.apartados} Aparts.`);
+            log(`Se conservaron ${stats.tablas} tablas intactas con formato HTML.`);
+            
+            generatedJson = potJson;
+            
+            document.getElementById('status').innerText = `¡Éxito! JSON generado (${stats.caps} capítulos detectados).`;
+            document.getElementById('status').classList.replace('bg-blue-50', 'bg-green-50');
+            document.getElementById('status').classList.replace('text-blue-700', 'text-green-700');
+            document.getElementById('downloadBtn').classList.remove('hidden');
+        }
+
+        document.getElementById('downloadBtn').addEventListener('click', () => {
+            if (!generatedJson) return;
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(generatedJson, null, 2));
+            const dlAnchorElem = document.createElement('a');
+            dlAnchorElem.setAttribute("href", dataStr);
+            dlAnchorElem.setAttribute("download", "BASE_FORMATO.json");
+            dlAnchorElem.click();
+            log("Archivo BASE_FORMATO.json descargado.");
+        });
+    </script>
+</body>
+</html>
