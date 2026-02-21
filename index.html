@@ -18,13 +18,13 @@
         /* Estilos principales de jerarquía */
         .prose h2 { margin-bottom: 1.5rem; border-bottom: 2px solid #1e3a8a; padding-bottom: 0.75rem; color: #1e3a8a; font-size: 1.875rem; font-weight: 800; }
         .prose h3 { margin-bottom: 1.25rem; margin-top: 3rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.5rem; color: #334155; font-size: 1.5rem; font-weight: 700; }
-        .prose h4 { margin-bottom: 1rem; margin-top: 2rem; color: #475569; font-size: 1.25rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+        .prose h4 { margin-bottom: 1rem; color: #475569; display: flex; align-items: center; gap: 0.5rem; }
         .prose h5 { margin-bottom: 0.75rem; margin-top: 1.5rem; color: #1e293b; font-size: 1.1rem; font-weight: 700; text-transform: uppercase; }
         
         /* Limpieza y formato del HTML inyectado desde Word */
         .word-content { color: #334155; line-height: 1.7; text-align: justify; }
         .word-content p { margin-bottom: 1rem; }
-        .word-content p:empty { display: none; }
+        .word-content p:empty { display: none; } /* Ocultar párrafos vacíos de Word */
         
         /* Estilizar las anclas de Word como subtítulos/términos de glosario y forzar colores */
         .word-content a[href^="#_Toc"], .word-content a[name^="_Toc"], .word-content .MsoHyperlink > a { 
@@ -50,7 +50,18 @@
         .word-content th, .word-content td { border: 1px solid #e2e8f0; padding: 0.75rem 1rem; text-align: left; }
         .word-content th { background-color: #f8fafc; font-weight: 700; color: #1e293b; }
         .word-content tr:nth-child(even) { background-color: #f8fafc; }
-        .word-content img { max-width: 100%; height: auto; border-radius: 0.5rem; margin: 1.5rem auto; display: block; }
+        
+        /* ESTILOS PARA IMÁGENES EXTRAÍDAS */
+        .word-content img { 
+            max-width: 100%; 
+            height: auto; 
+            border-radius: 0.75rem; 
+            margin: 2rem auto; 
+            display: block;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e2e8f0;
+        }
+
         .word-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
         .word-content ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1rem; }
         .word-content li { margin-bottom: 0.5rem; line-height: 1.6; }
@@ -145,9 +156,11 @@
             // Usamos RegExp pura para evitar bugs visuales en el linter de VS Code
             cleaned = cleaned.replace(new RegExp('<!--[\\s\\S]*?-->', 'g'), ''); 
             
-            // Reemplazo sin barras invertidas conflictivas para evitar errores en el editor
+            // Destruir las etiquetas condicionales de Word que ocultan imágenes en los navegadores
+            cleaned = cleaned.replace(/<!\[if !vml\]>/gi, '');
+            cleaned = cleaned.replace(/<!\[endif\]>/gi, '');
+
             cleaned = cleaned.replace(/PAGEREF _Toc\d+ .h/g, ''); 
-            
             cleaned = cleaned.replace(/<p[^>]*>\s*<\/p>/g, ''); 
             return cleaned;
         }
@@ -179,33 +192,72 @@
                     const secId = generateId('sec', section.number);
                     const sectionTitle = cleanTitle(section.title);
                     
-                    if (section.subsections && section.subsections.length > 0) {
-                        const secDetails = document.createElement('details');
-                        
-                        const secSummary = document.createElement('summary');
-                        secSummary.className = 'section-summary block py-1.5 px-3 text-slate-600 cursor-pointer hover:text-blue-700 hover:bg-blue-50/50 rounded-md transition-all text-[11px] font-semibold leading-tight';
-                        secSummary.innerHTML = `
-                            <a href="#${secId}" class="no-underline text-current flex-1" onclick="event.stopPropagation();">${section.number} ${sectionTitle}</a>
-                            <span class="icon">▶</span>
-                        `;
-                        
-                        const subList = document.createElement('div');
-                        subList.className = 'section-list pl-3 border-l border-slate-100 ml-2 space-y-1 mt-1 mb-1';
-                        
-                        section.subsections.forEach(sub => {
-                            const subId = generateId('sub', sub.number);
-                            const subTitle = cleanTitle(sub.title);
-                            const subLink = document.createElement('a');
-                            subLink.href = `#${subId}`;
-                            subLink.className = 'nav-link block py-1.5 px-3 text-slate-500 hover:text-blue-600 text-[10px] font-medium rounded transition-colors';
-                            subLink.textContent = `${sub.number} ${subTitle}`;
-                            subList.appendChild(subLink);
+                    const secDetails = document.createElement('details');
+                    
+                    const secSummary = document.createElement('summary');
+                    secSummary.className = 'section-summary block py-1.5 px-3 text-slate-600 cursor-pointer hover:text-blue-700 hover:bg-blue-50/50 rounded-md transition-all text-[11px] font-semibold leading-tight';
+                    secSummary.innerHTML = `
+                        <a href="#${secId}" class="no-underline text-current flex-1" onclick="event.stopPropagation();">${section.number} ${sectionTitle}</a>
+                        <span class="icon">▶</span>
+                    `;
+                    
+                    const subList = document.createElement('div');
+                    subList.className = 'section-list border-l border-slate-100 ml-2 space-y-1 mt-1 mb-1';
+                    
+                    // --- FUNCIÓN RECURSIVA PARA NAVEGACIÓN ---
+                    // Se añade "parentPrefix" para evitar colisión de IDs (que todas las "A" sean únicas)
+                    function renderTreeNav(parentNode, items, isApartado, parentPrefix) {
+                        if (!items || items.length === 0) return;
+                        items.forEach(item => {
+                            const rawId = isApartado ? item.id : item.number;
+                            if (!rawId) return;
+                            
+                            // Limpiamos los puntos
+                            const cleanId = rawId.replace(/[\.\)]+$/, '');
+                            const depth = cleanId.split('.').length;
+                            
+                            // Creamos un ID 100% único combinando su padre + su identificador actual
+                            const uniqueStr = isApartado ? `${parentPrefix}-${cleanId}` : cleanId;
+                            const finalId = generateId(isApartado ? 'ap' : 'sub', uniqueStr);
+                            
+                            const link = document.createElement('a');
+                            link.href = `#${finalId}`;
+                            
+                            // Estilo visual basado en la profundidad detectada
+                            if (isApartado) {
+                                // Apartados alfanuméricos (A, A.1, A.1.1...)
+                                let pl = depth === 1 ? "pl-4" : (depth === 2 ? "pl-7" : "pl-10");
+                                link.className = `nav-link block py-1 pr-3 ${pl} text-slate-400 border-l border-blue-100 hover:text-blue-500 text-[9px] font-normal tracking-wide transition-colors`;
+                            } else {
+                                // Subsecciones numéricas (1.1.1, 1.1.1.1...)
+                                let pl = depth === 3 ? "pl-2" : (depth === 4 ? "pl-5" : (depth === 5 ? "pl-8" : "pl-11"));
+                                let fontSize = depth <= 3 ? "text-[10.5px]" : "text-[9.5px]";
+                                let color = depth <= 4 ? "text-slate-500" : "text-slate-400";
+                                link.className = `nav-link block py-1.5 pr-3 ${pl} border-l border-transparent hover:border-slate-200 ${color} hover:text-blue-600 ${fontSize} font-medium rounded transition-colors`;
+                            }
+                            
+                            link.textContent = `${cleanId} ${cleanTitle(item.title)}`;
+                            parentNode.appendChild(link);
+                            
+                            // El prefijo para los hijos de esta rama será nuestro string único actual
+                            const nextPrefix = isApartado ? uniqueStr : cleanId;
+
+                            // Buscamos dinámicamente si este elemento tiene hijos
+                            if (item.subsections && item.subsections.length > 0) renderTreeNav(parentNode, item.subsections, false, nextPrefix);
+                            if (item.apartados && item.apartados.length > 0) renderTreeNav(parentNode, item.apartados, true, nextPrefix);
                         });
-                        
+                    }
+
+                    // Disparamos la recursividad enviando el número de la sección padre (Ej: "1.1")
+                    renderTreeNav(subList, section.subsections, false, section.number);
+                    renderTreeNav(subList, section.apartados, true, section.number);
+                    
+                    if (subList.children.length > 0) {
                         secDetails.appendChild(secSummary);
                         secDetails.appendChild(subList);
                         sectionList.appendChild(secDetails);
                     } else {
+                        // Si no hay subniveles, insertamos el título como enlace simple
                         const link = document.createElement('a');
                         link.href = `#${secId}`;
                         link.className = 'nav-link block py-2 px-3 text-slate-600 hover:text-blue-700 hover:bg-blue-50/50 rounded-md transition-all text-[11px] font-semibold leading-tight';
@@ -232,7 +284,7 @@
             const subtitleParts = [info.decree, info.entity, info.date].filter(p => p && p !== '-');
             document.getElementById('doc-subtitle').textContent = subtitleParts.join(' | ');
 
-            (data.chapters || []).forEach(chapter => {
+            data.chapters.forEach(chapter => {
                 const capDiv = document.createElement('div');
                 capDiv.id = generateId('cap', chapter.number);
                 capDiv.className = 'mb-20';
@@ -245,57 +297,70 @@
                     secDiv.className = 'mb-16 scroll-mt-24';
                     const sectionTitle = cleanTitle(section.title);
                     
-                    let secHTML = `<h3 class="flex items-center gap-3"><span class="bg-slate-800 text-white px-2 py-1 rounded text-sm">${section.number}</span> ${sectionTitle}</h3>`;
+                    // Nivel 2: Sección Base
+                    let secHTML = `<h3 class="flex items-center gap-3"><span class="bg-slate-800 text-white px-2 py-1 rounded text-sm shadow-sm">${section.number}</span> ${sectionTitle}</h3>`;
                     
                     if (section.content) {
                         secHTML += `<div class="word-content">${cleanWordHtml(section.content)}</div>`;
                     }
                     secDiv.innerHTML = secHTML;
 
-                    // Branch 1: Subsections (Hierarchy)
-                    if (section.subsections && section.subsections.length > 0) {
-                        section.subsections.forEach(sub => {
-                            const subSection = document.createElement('section');
-                            subSection.id = generateId('sub', sub.number);
-                            subSection.className = 'mt-10 border-t border-slate-100 pt-8 scroll-mt-24';
-                            const subTitle = cleanTitle(sub.title);
+                    // --- FUNCIÓN RECURSIVA PARA CONTENIDO ---
+                    function renderTreeContent(parentNode, items, isApartado, parentPrefix) {
+                        if (!items || items.length === 0) return;
+                        
+                        items.forEach(item => {
+                            const rawId = isApartado ? item.id : item.number;
+                            if (!rawId) return;
                             
-                            let subHTML = `<h4 class="text-slate-800"><span class="w-1.5 h-6 bg-blue-500 rounded-full inline-block mr-2"></span> ${sub.number} ${subTitle}</h4>`;
+                            const cleanId = rawId.replace(/[\.\)]+$/, '');
+                            const depth = cleanId.split('.').length;
                             
-                            if (sub.content) {
-                                subHTML += `<div class="word-content">${cleanWordHtml(sub.content)}</div>`;
+                            // Creamos el ID 100% único igual que en el sidebar
+                            const uniqueStr = isApartado ? `${parentPrefix}-${cleanId}` : cleanId;
+                            const finalId = generateId(isApartado ? 'ap' : 'sub', uniqueStr);
+                            
+                            // Creamos un contenedor envolvente
+                            const itemDiv = document.createElement(isApartado ? 'div' : 'section');
+                            itemDiv.id = finalId;
+                            
+                            let itemHTML = "";
+                            if (isApartado) {
+                                // Diseño jerárquico para letras (A, A.1, A.1.1)
+                                let apBgClass = depth === 1 ? "bg-blue-600" : (depth === 2 ? "bg-blue-500" : "bg-blue-400");
+                                let apMlClass = depth === 1 ? "ml-0" : (depth === 2 ? "ml-4" : "ml-8");
+                                let apTitleClass = depth === 1 ? "text-sm text-slate-800" : "text-xs text-slate-700";
+                                
+                                itemDiv.className = `mt-6 pl-4 border-l-2 border-blue-200 scroll-mt-24 ${apMlClass}`;
+                                itemHTML = `<h5 class="font-bold ${apTitleClass} mb-3 uppercase tracking-wide flex items-center gap-2"><span class="${apBgClass} text-white px-2 py-0.5 rounded text-xs shadow-sm">${cleanId}</span> ${cleanTitle(item.title)}</h5>`;
+                            } else {
+                                // Diseño jerárquico para números (1.1.1, 1.1.1.1, 1.1.1.1.1)
+                                let bgClass = depth === 3 ? "bg-slate-700" : (depth === 4 ? "bg-slate-600" : "bg-slate-500");
+                                let textClass = depth === 3 ? "text-slate-800 text-lg" : (depth === 4 ? "text-slate-700 text-base" : "text-slate-600 text-sm");
+                                
+                                let wrapperClass = depth === 3 ? "mt-10 border-t border-slate-100 pt-8" : `mt-6 border-l-2 border-slate-200 pl-${(depth-2)*2} ml-${(depth-3)*2} pt-2`;
+                                
+                                itemDiv.className = `${wrapperClass} scroll-mt-24`;
+                                itemHTML = `<h4 class="${textClass} flex items-center gap-3 font-bold mb-4"><span class="${bgClass} text-white px-2 py-1 rounded text-sm shadow-sm">${cleanId}</span> ${cleanTitle(item.title)}</h4>`;
                             }
-
-                            // Nested Apartados within Subsections
-                            if (sub.apartados && sub.apartados.length > 0) {
-                                sub.apartados.forEach(ap => {
-                                    const apTitle = cleanTitle(ap.title);
-                                    subHTML += `
-                                        <div class="mt-8 pl-6 border-l-2 border-slate-200">
-                                            <h5>${ap.id || ''} ${apTitle || ''}</h5>
-                                            <div class="word-content">${cleanWordHtml(ap.content)}</div>
-                                        </div>`;
-                                });
+                            
+                            if (item.content) {
+                                itemHTML += `<div class="word-content">${cleanWordHtml(item.content)}</div>`;
                             }
+                            
+                            itemDiv.innerHTML = itemHTML;
+                            parentNode.appendChild(itemDiv);
+                            
+                            const nextPrefix = isApartado ? uniqueStr : cleanId;
 
-                            subSection.innerHTML = subHTML;
-                            secDiv.appendChild(subSection);
+                            // Entramos recursivamente
+                            if (item.subsections && item.subsections.length > 0) renderTreeContent(itemDiv, item.subsections, false, nextPrefix);
+                            if (item.apartados && item.apartados.length > 0) renderTreeContent(itemDiv, item.apartados, true, nextPrefix);
                         });
                     }
 
-                    // Branch 2: Apartados at Section Level
-                    if (section.apartados && section.apartados.length > 0) {
-                        section.apartados.forEach(ap => {
-                            const apTitle = cleanTitle(ap.title);
-                            const apDiv = document.createElement('div');
-                            apDiv.className = 'mt-8 pl-6 border-l-2 border-slate-200';
-                            apDiv.innerHTML = `
-                                <h5>${ap.id || ''} ${apTitle || ''}</h5>
-                                <div class="word-content">${cleanWordHtml(ap.content)}</div>
-                            `;
-                            secDiv.appendChild(apDiv);
-                        });
-                    }
+                    renderTreeContent(secDiv, section.subsections, false, section.number);
+                    renderTreeContent(secDiv, section.apartados, true, section.number);
 
                     capDiv.appendChild(secDiv);
                 });
@@ -355,7 +420,7 @@
                 }
             });
 
-            // Scroll Spying (sincronizar el scroll con la barra lateral)
+            // Scroll Spying (sincronizar el scroll con la barra lateral incluyendo apartados)
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -376,7 +441,8 @@
                 });
             }, { root: contentPane, rootMargin: '-10% 0px -80% 0px' });
 
-            document.querySelectorAll('div[id^="sec-"], section[id^="sub-"]').forEach(el => observer.observe(el));
+            // Ahora el IntersectionObserver monitorea los IDs únicos
+            document.querySelectorAll('div[id^="sec-"], section[id^="sub-"], div[id^="ap-"], section[id^="ap-"]').forEach(el => observer.observe(el));
         }
 
         document.addEventListener('DOMContentLoaded', async () => {

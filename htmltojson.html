@@ -9,8 +9,8 @@
 <body class="bg-slate-100 min-h-screen flex flex-col items-center justify-center p-6 font-sans">
 
     <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-2xl">
-        <h1 class="text-2xl font-bold text-slate-800 mb-2">Convertidor HTML a JSON (Motor Profundo)</h1>
-        <p class="text-slate-600 mb-6 text-sm">Esta herramienta escanea todas las capas del documento Word exportado. Capturará todos los capítulos sin importar cómo Word haya dividido el archivo internamente.</p>
+        <h1 class="text-2xl font-bold text-slate-800 mb-2">Convertidor HTML a JSON (Parche Imágenes)</h1>
+        <p class="text-slate-600 mb-6 text-sm">Esta versión incluye un rescatador de imágenes. Ahora preserva los párrafos que contienen diagramas y mapas exportados desde Word.</p>
         
         <div class="mb-6">
             <label class="block text-sm font-medium text-slate-700 mb-2">1. Sube tu documento exportado (.html)</label>
@@ -30,7 +30,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
             </svg>
-            Descargar BASE.json Completo
+            Descargar BASE_FORMATO_v1.json
         </button>
 
         <div id="log" class="mt-6 text-xs text-slate-500 bg-slate-50 p-4 rounded-lg h-48 overflow-y-auto font-mono border border-slate-200 hidden"></div>
@@ -82,20 +82,16 @@
             let curSub = null;
             let curApar = null;
 
-            let stats = { caps: 0, secs: 0, subs: 0, apartados: 0, tablas: 0 };
+            let stats = { caps: 0, secs: 0, subs: 0, apartados: 0, tablas: 0, imagenes: 0, saltados: 0 };
 
-            // NUEVO MOTOR: Escanea recursivamente todas las capas invisibles de Word
+            // Motor Profundo
             let blocks = [];
             function traverse(node) {
-                if (node.nodeType !== 1) return; // Solo procesar Elementos HTML
+                if (node.nodeType !== 1) return;
                 const tag = node.tagName.toUpperCase();
-                
-                // Si encontramos un bloque de contenido, lo guardamos y NO bajamos a sus hijos 
-                // (Para capturar toda la tabla o todo el párrafo íntegro de una vez)
                 if (['P', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'TABLE', 'UL', 'OL'].includes(tag)) {
                     blocks.push(node);
                 } else {
-                    // Si es un "div", "body", "span" agrupador, bajamos una capa más
                     Array.from(node.children).forEach(traverse);
                 }
             }
@@ -104,51 +100,101 @@
             log(`Se encontraron ${blocks.length} bloques de contenido en total.`);
 
             blocks.forEach((child) => {
+                if (child.className && typeof child.className === 'string' && child.className.includes('MsoToc')) {
+                    stats.saltados++;
+                    return;
+                }
+
                 const text = child.textContent.trim().replace(/\s+/g, ' '); 
-                if (!text && child.tagName !== 'TABLE') return;
+                
+                // NUEVO: Verificamos si hay imágenes en el bloque (incluso ocultas en el código de Word)
+                const hasImage = child.innerHTML.toLowerCase().includes('<img') || child.innerHTML.toLowerCase().includes('v:imagedata');
+                
+                // Si no tiene texto, ni es tabla, NI tiene imagen, lo ignoramos.
+                if (!text && child.tagName !== 'TABLE' && !hasImage) return;
 
-                let match;
+                if (hasImage) stats.imagenes++;
 
-                // Detectar Capítulos (Acepta números como "5" o romanos como "V")
-                if (match = text.match(/^CAP[ÍI]TULO\s+([0-9IVX]+)[\.\-]?\s+(.*)/i)) {
-                    curCap = { id: `CAP_${match[1]}`, number: match[1], title: match[2].trim(), sections: [] };
+                const upperText = text.toUpperCase();
+                if (upperText === 'CONTENIDO' || upperText === 'CONTENIDO:' || upperText === 'TABLA DE CONTENIDO') {
+                    stats.saltados++;
+                    return;
+                }
+
+                const matchCap = text.match(/^(?:(?:[0-9IVX]+\.?\s*)?CAP[ÍI]TULO\s+([0-9IVX]+)|([0-9IVX]+)\.)[\.\-]?\s+(.*)/i);
+                const matchNum = text.match(/^(?:(?:CAP|ART[ÍI]CULO)[^\d]*\d+\.?\s*)?((?:\d+\s*\.\s*)+\d+)\.?\s*(.*)/i);
+                const matchApar = text.match(/^([A-Z](?:\.\d+)+[\.\)]?|[A-Z][\.\)])\s+(.*)/);
+
+                let isCap = false;
+                let capNum = null;
+                let capTitle = "";
+
+                if (matchCap) {
+                    capNum = matchCap[1] || matchCap[2];
+                    capTitle = matchCap[3];
+                    if (!matchCap[1]) {
+                        const isAllUppercase = (capTitle.toUpperCase() === capTitle);
+                        if (isAllUppercase) isCap = true;
+                    } else {
+                        isCap = true;
+                    }
+                }
+
+                if (isCap) {
+                    const safeNum = capNum.replace(/\./g, '\\.');
+                    const regexDup = new RegExp(`^${safeNum}[\\.\\s\\-]+`, 'i');
+                    capTitle = capTitle.replace(regexDup, '').trim();
+
+                    curCap = { id: `CAP_${capNum}`, number: capNum, title: capTitle, sections: [] };
                     potJson.chapters.push(curCap);
                     curSec = null; curSub = null; curApar = null;
                     stats.caps++;
-                    log(`Detectado: Capítulo ${match[1]}`);
+                    log(`Detectado: Capítulo ${capNum}`);
                 }
-                // Detectar Secciones (Ej: 1.1. CONCEPTOS Y DEFINICIONES)
-                else if (match = text.match(/^(\d+\.\d+)\.?\s+(.*)/)) {
-                    if (!curCap) return;
-                    curSec = { 
-                        number: match[1], 
-                        title: match[2].trim(), 
-                        content: "", 
-                        subsections: [], 
-                        apartados: []
-                    };
-                    curCap.sections.push(curSec);
-                    curSub = null; curApar = null;
-                    stats.secs++;
+                else if (matchNum) {
+                    let rawNum = matchNum[1].replace(/\s+/g, '');
+                    let title = matchNum[2].trim();
+                    const depth = rawNum.split('.').length;
+
+                    const safeNum = rawNum.replace(/\./g, '\\.');
+                    const regexDup = new RegExp(`^${safeNum}[\\.\\s\\-]+`, 'i');
+                    title = title.replace(regexDup, '');
+
+                    if (depth === 2) {
+                        if (!curCap) {
+                            curCap = { id: `CAP_0`, number: "0", title: "General", sections: [] };
+                            potJson.chapters.push(curCap);
+                        }
+                        curSec = { number: rawNum, title: title, content: "", subsections: [], apartados: [] };
+                        curCap.sections.push(curSec);
+                        curSub = null; curApar = null;
+                        stats.secs++;
+                    } 
+                    else if (depth >= 3) {
+                        if (!curCap) {
+                            curCap = { id: `CAP_0`, number: "0", title: "General", sections: [] };
+                            potJson.chapters.push(curCap);
+                        }
+                        if (!curSec) {
+                            curSec = { number: "0.0", title: "General", content: "", subsections: [], apartados: [] };
+                            curCap.sections.push(curSec);
+                        }
+                        curSub = { number: rawNum, title: title, content: "", apartados: [] };
+                        curSec.subsections.push(curSub);
+                        curApar = null;
+                        stats.subs++;
+                    }
                 }
-                // Detectar Subsecciones (Ej: 1.2.1. ALTURA DE LAS EDIFICACIONES)
-                else if (match = text.match(/^(\d+\.\d+\.\d+)\.?\s+(.*)/)) {
-                    if (!curSec) return;
-                    curSub = { number: match[1], title: match[2].trim(), content: "", apartados: [] };
-                    curSec.subsections.push(curSub);
-                    curApar = null;
-                    stats.subs++;
-                }
-                // Detectar Apartados (Ej: A. Limitantes o A) Limitantes...)
-                else if (match = text.match(/^([A-Z])[\.\)]\s+(.*)/)) {
-                    curApar = { id: `${match[1]}.`, title: match[2].trim(), content: "" };
+                else if (matchApar) {
+                    let num = matchApar[1].replace(/[\.\)]$/, '');
+                    let title = matchApar[2].trim();
+                    curApar = { id: num, title: title, content: "" };
+                    
                     if (curSub) curSub.apartados.push(curApar);
                     else if (curSec) curSec.apartados.push(curApar);
                     stats.apartados++;
                 }
-                // Si no es un título, es contenido (Párrafos, Listas, TABLAS)
                 else {
-                    // Limpieza de código basura de Word
                     child.removeAttribute('style');
                     child.removeAttribute('class');
                     
@@ -176,8 +222,8 @@
                 }
             });
 
-            log(`Análisis completado: ${stats.caps} Caps, ${stats.secs} Secs, ${stats.subs} Subs, ${stats.apartados} Aparts.`);
-            log(`Se conservaron ${stats.tablas} tablas intactas con formato HTML.`);
+            log(`Análisis completado: ${stats.caps} Caps, ${stats.secs} Secs, ${stats.subs} Niveles Profundos, ${stats.apartados} Apartados.`);
+            log(`Se rescataron y preservaron ${stats.imagenes} bloques con imágenes.`);
             
             generatedJson = potJson;
             
@@ -192,9 +238,9 @@
             const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(generatedJson, null, 2));
             const dlAnchorElem = document.createElement('a');
             dlAnchorElem.setAttribute("href", dataStr);
-            dlAnchorElem.setAttribute("download", "BASE_FORMATO.json");
+            dlAnchorElem.setAttribute("download", "BASE_FORMATO_v1.json");
             dlAnchorElem.click();
-            log("Archivo BASE_FORMATO.json descargado.");
+            log("Archivo BASE_FORMATO_v1.json descargado limpiamente.");
         });
     </script>
 </body>
