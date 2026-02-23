@@ -193,7 +193,6 @@
 
             <!-- Main Content Area - Totalmente expandido -->
             <main id="content-pane" class="flex-1 overflow-y-auto bg-white p-6 md:p-10 lg:p-14 scroll-smooth">
-                <!-- Se eliminó el mx-auto y max-w para que ocupe todo el ancho -->
                 <div id="main-content" class="w-full text-slate-700 leading-relaxed">
                 </div>
             </main>
@@ -245,15 +244,12 @@
             const doc = parser.parseFromString(cleaned, 'text/html');
 
             // --- PURGADOR DE METADATOS Y FUENTES ---
-            // Eliminar el bloque de propiedades del documento (Author, Revision, etc.) que Word oculta en <xml>
             doc.querySelectorAll('xml').forEach(el => el.remove());
 
             doc.body.querySelectorAll('*').forEach(el => {
-                // Elimina el atributo <font face="...">
                 if (el.tagName.toLowerCase() === 'font') {
                     el.removeAttribute('face');
                 }
-                // Elimina estilos en línea que fuercen una tipografía, interlineado o justificación diferente
                 if (el.style) {
                     if (el.style.fontFamily) el.style.fontFamily = '';
                     if (el.style.lineHeight) el.style.lineHeight = '';
