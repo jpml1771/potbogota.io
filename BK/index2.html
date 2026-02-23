@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visor de Normas Urbanísticas - Bogotá</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html, body { overflow: hidden; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .nav-link.active { background-color: #eff6ff; color: #2563eb; font-weight: 600; border-right: 4px solid #2563eb; }
+        #sidebar::-webkit-scrollbar, #content-pane::-webkit-scrollbar { width: 6px; }
+        #sidebar::-webkit-scrollbar-thumb, #content-pane::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 4px; }
+        
+        /* Estilos principales de jerarquía */
+        .prose h2 { margin-bottom: 1.5rem; border-bottom: 2px solid #1e3a8a; padding-bottom: 0.75rem; color: #1e3a8a; font-size: 1.875rem; font-weight: 800; }
+        .prose h3 { margin-bottom: 1.25rem; margin-top: 3rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.5rem; color: #334155; font-size: 1.5rem; font-weight: 700; }
+        .prose h4 { margin-bottom: 1rem; margin-top: 2rem; color: #475569; font-size: 1.25rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+        .prose h5 { margin-bottom: 0.75rem; margin-top: 1.5rem; color: #1e293b; font-size: 1.1rem; font-weight: 700; text-transform: uppercase; }
+        
+        /* Limpieza y formato del HTML inyectado desde Word */
+        .word-content { color: #334155; line-height: 1.7; text-align: justify; }
+        .word-content p { margin-bottom: 1rem; }
+        .word-content p:empty { display: none; } /* Ocultar párrafos vacíos de Word */
+        
+        /* Estilizar las anclas de Word como subtítulos/términos de glosario y forzar colores */
+        .word-content a[href^="#_Toc"], .word-content a[name^="_Toc"], .word-content .MsoHyperlink > a { 
+            display: block; 
+            margin-top: 1.5rem; 
+            margin-bottom: 0.25rem; 
+            font-weight: 800; 
+            color: #1e293b !important; 
+            text-decoration: none !important; 
+            pointer-events: none; 
+            font-size: 1.05rem;
+        }
+        
+        /* Ocultar elementos de índice (PAGEREF), tabuladores punteados y spans invisibles de Word */
+        .word-content span[style*="mso-hide:screen"],
+        .word-content span[style*="display:none"],
+        .word-content span[style*="display: none"],
+        .word-content span[style*="mso-tab-count:1 dotted"] {
+            display: none !important;
+        }
+
+        .word-content table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 0.875rem; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .word-content th, .word-content td { border: 1px solid #e2e8f0; padding: 0.75rem 1rem; text-align: left; }
+        .word-content th { background-color: #f8fafc; font-weight: 700; color: #1e293b; }
+        .word-content tr:nth-child(even) { background-color: #f8fafc; }
+        .word-content img { max-width: 100%; height: auto; border-radius: 0.5rem; margin: 1.5rem auto; display: block; }
+        .word-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+        .word-content ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1rem; }
+        .word-content li { margin-bottom: 0.5rem; line-height: 1.6; }
+        
+        /* Estilos de Sidebar (Ajustados para acordeón) */
+        summary { list-style: none; cursor: pointer; outline: none; user-select: none; }
+        summary::-webkit-details-marker { display: none; }
+        
+        .chapter-summary { display: flex; align-items: center; justify-content: space-between; }
+        .chapter-summary .icon { transition: transform 0.2s ease; font-size: 0.8em; color: #94a3b8; }
+        details[open] > .chapter-summary .icon { transform: rotate(90deg); }
+        
+        .section-summary { display: flex; align-items: center; justify-content: space-between; }
+        .section-summary .icon { transition: transform 0.2s ease; font-size: 0.7em; color: #cbd5e1; }
+        details[open] > .section-summary .icon { transform: rotate(90deg); }
+        
+        details[open] > .section-list { display: block; }
+        .section-list { display: none; }
+    </style>
+</head>
+<body class="h-full bg-slate-100">
+    <div class="flex h-full flex-col">
+        <!-- Header -->
+        <header class="bg-white border-b border-slate-200 py-3 px-6 shadow-sm z-40 flex-shrink-0">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-6">
+                    <div class="bg-blue-700 text-white p-2 rounded-lg shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 id="doc-title" class="text-lg font-extrabold text-slate-800 leading-tight">Cargando Manual...</h1>
+                        <p id="doc-subtitle" class="text-[10px] text-blue-600 font-bold tracking-widest uppercase"></p>
+                    </div>
+                </div>
+                <div class="w-full max-w-xl">
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">
+                            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                        </span>
+                        <input type="search" id="search" placeholder="Buscar por número o palabra clave..." class="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-sm" />
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="flex flex-1 overflow-hidden">
+            <!-- Sidebar -->
+            <nav id="sidebar" class="w-80 flex-shrink-0 overflow-y-auto bg-white border-r border-slate-200">
+                <div class="p-4 border-b border-slate-50 bg-slate-50/50 sticky top-0 z-10">
+                    <h3 class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Tabla de Contenido</h3>
+                </div>
+                <div id="sidebar-content" class="p-2 space-y-1 pb-10"></div>
+            </nav>
+
+            <!-- Main Content -->
+            <main id="content-pane" class="flex-1 overflow-y-auto bg-slate-50 p-6 md:p-10 scroll-smooth">
+                <div id="main-content" class="max-w-4xl mx-auto bg-white p-8 md:p-16 rounded-2xl shadow-xl prose prose-slate max-w-none">
+                    <div class="flex items-center justify-center h-64">
+                        <div class="text-center">
+                            <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-700 mb-4"></div>
+                            <p class="text-slate-500 font-medium">Cargando la base de datos completa (BASE.json)...</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Generador de IDs únicos seguros
+        function generateId(prefix, num) {
+            return `${prefix}-${String(num).replace(/[^a-z0-9]/gi, '-')}`;
+        }
+
+        // LIMPIEZA 1: Elimina puntos del índice de Word
+        function cleanTitle(title) {
+            if (!title) return '';
+            return title.replace(/\.+[\s\d]*$/, '').trim();
+        }
+
+        // LIMPIEZA 2: Rescate de imágenes y borrado de código basura
+        function cleanWordHtml(htmlString) {
+            if (!htmlString) return '';
+            let cleaned = htmlString;
+            
+            // Usamos new RegExp en lugar de literales de expresión regular (/.../) para evitar 
+            // que los editores como VS Code confundan "<!--" con un comentario HTML dentro del script.
+            cleaned = cleaned.replace(new RegExp('<!--\\[if !vml\\]>([\\s\\S]*?)<!\\[endif\\]-->', 'gi'), '$1');
+            cleaned = cleaned.replace(new RegExp('<!\\[if !vml\\]>([\\s\\S]*?)<!\\[endif\\]>', 'gi'), '$1');
+            
+            cleaned = cleaned.replace(/<o:p>&nbsp;<\/o:p>/g, ''); 
+            cleaned = cleaned.replace(/<o:p>[^<]*<\/o:p>/g, ''); 
+            
+            cleaned = cleaned.replace(new RegExp('<!--[\\s\\S]*?-->', 'g'), ''); 
+            cleaned = cleaned.replace(/PAGEREF _Toc\d+ \\h/g, ''); 
+            cleaned = cleaned.replace(/<p[^>]*>\s*<\/p>/g, ''); 
+            return cleaned;
+        }
+
+        // MOTOR RECURSIVO PARA LA BARRA LATERAL (Navegación)
+        function renderTreeNav(parentNode, items, isApartado, parentPrefix, parentDepth) {
+            if (!items || !Array.isArray(items) || items.length === 0) return;
+            
+            items.forEach(item => {
+                const rawId = isApartado ? item.id : item.number;
+                if (!rawId) return;
+                
+                const cleanId = String(rawId).replace(/[\.\)]+$/, '');
+                const depth = cleanId.split('.').length;
+                
+                const uniqueStr = isApartado ? `${parentPrefix}-${cleanId}` : cleanId;
+                const finalId = generateId(isApartado ? 'ap' : 'sub', uniqueStr);
+                
+                const link = document.createElement('a');
+                link.href = `#${finalId}`;
+                
+                // Clases literales aseguradas para Tailwind CSS
+                if (isApartado) {
+                    let totalDepth = parentDepth + depth;
+                    let pl = "pl-6";
+                    if (totalDepth === 4) pl = "pl-6";
+                    else if (totalDepth === 5) pl = "pl-9";
+                    else if (totalDepth === 6) pl = "pl-12";
+                    else if (totalDepth >= 7) pl = "pl-16";
+                    
+                    link.className = `nav-link block py-1 pr-3 ${pl} text-slate-400 border-l border-blue-100 hover:text-blue-500 text-[9px] font-normal tracking-wide transition-colors`;
+                } else {
+                    let pl = depth === 3 ? "pl-2" : (depth === 4 ? "pl-5" : (depth === 5 ? "pl-8" : "pl-11"));
+                    let fontSize = depth <= 3 ? "text-[10.5px]" : "text-[9.5px]";
+                    let color = depth <= 4 ? "text-slate-500" : "text-slate-400";
+                    link.className = `nav-link block py-1.5 pr-3 ${pl} border-l border-transparent hover:border-slate-200 ${color} hover:text-blue-600 ${fontSize} font-medium rounded transition-colors`;
+                }
+                
+                link.textContent = `${cleanId} ${cleanTitle(item.title)}`;
+                parentNode.appendChild(link);
+                
+                const nextPrefix = isApartado ? uniqueStr : cleanId;
+                const currentDepth = isApartado ? (parentDepth + depth) : depth;
+
+                // Llamado recursivo a sí mismo si hay niveles inferiores
+                if (item.subsections && item.subsections.length > 0) {
+                    renderTreeNav(parentNode, item.subsections, false, nextPrefix, currentDepth);
+                }
+                if (item.apartados && item.apartados.length > 0) {
+                    renderTreeNav(parentNode, item.apartados, true, nextPrefix, currentDepth);
+                }
+            });
+        }
+
+        function renderSidebar(data) {
+            const container = document.getElementById('sidebar-content');
+            container.innerHTML = '';
+            if (!data || !data.chapters) return;
+            
+            data.chapters.forEach((chapter, index) => {
+                const capId = generateId('cap', chapter.number);
+                const chapterTitle = cleanTitle(chapter.title);
+                
+                const chapterDetails = document.createElement('details');
+                if(index === 0) chapterDetails.open = true;
+                
+                const chapterSummary = document.createElement('summary');
+                chapterSummary.className = 'chapter-summary font-extrabold text-slate-700 py-3 px-2 hover:bg-slate-50 transition-colors rounded-lg text-xs tracking-tight';
+                chapterSummary.innerHTML = `
+                    <a href="#${capId}" class="no-underline text-current uppercase flex-1" onclick="event.stopPropagation();">${chapter.number}. ${chapterTitle}</a>
+                    <span class="icon">▶</span>
+                `;
+                
+                const sectionList = document.createElement('div');
+                sectionList.className = 'section-list pl-4 border-l-2 border-slate-100 ml-3 space-y-1 mt-1 mb-2';
+
+                (chapter.sections || []).forEach(section => {
+                    const secId = generateId('sec', section.number);
+                    const sectionTitle = cleanTitle(section.title);
+                    
+                    const hasSubsections = section.subsections && section.subsections.length > 0;
+                    const hasApartados = section.apartados && section.apartados.length > 0;
+
+                    if (hasSubsections || hasApartados) {
+                        const sectionDetails = document.createElement('details');
+                        const sectionSummary = document.createElement('summary');
+                        sectionSummary.className = 'section-summary block py-1.5 px-3 text-slate-600 hover:text-blue-700 hover:bg-blue-50/50 rounded-md transition-all text-[11px] font-semibold leading-tight';
+                        sectionSummary.innerHTML = `
+                            <a href="#${secId}" class="no-underline text-current flex-1" onclick="event.stopPropagation();">${section.number} ${sectionTitle}</a>
+                            <span class="icon">▶</span>
+                        `;
+                        
+                        const subSectionList = document.createElement('div');
+                        subSectionList.className = 'section-list border-l border-slate-100 ml-2 space-y-1 mt-1 mb-1';
+                        
+                        // INICIAMOS LA RECURSIVIDAD DESDE EL NIVEL 2 (SECCIONES)
+                        renderTreeNav(subSectionList, section.subsections, false, section.number, 2);
+                        renderTreeNav(subSectionList, section.apartados, true, section.number, 2);
+                        
+                        sectionDetails.appendChild(sectionSummary);
+                        sectionDetails.appendChild(subSectionList);
+                        sectionList.appendChild(sectionDetails);
+                    } else {
+                        const link = document.createElement('a');
+                        link.href = `#${secId}`;
+                        link.className = 'nav-link block py-2 px-3 text-slate-600 hover:text-blue-700 hover:bg-blue-50/50 rounded-md transition-all text-[11px] font-semibold leading-tight';
+                        link.textContent = `${section.number} ${sectionTitle}`;
+                        sectionList.appendChild(link);
+                    }
+                });
+
+                chapterDetails.appendChild(chapterSummary);
+                chapterDetails.appendChild(sectionList);
+                container.appendChild(chapterDetails);
+            });
+        }
+
+        // MOTOR RECURSIVO PARA EL CONTENIDO CENTRAL (Cajas de color y márgenes)
+        function renderTreeContent(parentNode, items, isApartado, parentPrefix, parentDepth) {
+            if (!items || !Array.isArray(items) || items.length === 0) return;
+            
+            items.forEach(item => {
+                const rawId = isApartado ? item.id : item.number;
+                if (!rawId) return;
+                
+                const cleanId = String(rawId).replace(/[\.\)]+$/, '');
+                const depth = cleanId.split('.').length;
+                
+                const uniqueStr = isApartado ? `${parentPrefix}-${cleanId}` : cleanId;
+                const finalId = generateId(isApartado ? 'ap' : 'sub', uniqueStr);
+                
+                const itemDiv = document.createElement(isApartado ? 'div' : 'section');
+                itemDiv.id = finalId;
+                
+                let itemHTML = "";
+                
+                // Clases literales aseguradas para Tailwind CSS
+                if (isApartado) {
+                    let apBgClass = depth === 1 ? "bg-blue-600" : (depth === 2 ? "bg-blue-500" : "bg-blue-400");
+                    let apMlClass = depth === 1 ? "ml-0" : (depth === 2 ? "ml-4" : "ml-8");
+                    let apTitleClass = depth === 1 ? "text-sm text-slate-800" : "text-xs text-slate-700";
+                    
+                    itemDiv.className = `mt-6 pl-4 border-l-2 border-blue-200 scroll-mt-24 ${apMlClass}`;
+                    itemHTML = `<h5 class="font-bold ${apTitleClass} mb-3 uppercase tracking-wide flex items-center gap-2"><span class="${apBgClass} text-white px-2 py-0.5 rounded text-xs shadow-sm">${cleanId}</span> ${cleanTitle(item.title)}</h5>`;
+                } else {
+                    let bgClass = depth === 3 ? "bg-slate-700" : (depth === 4 ? "bg-slate-600" : "bg-slate-500");
+                    let textClass = depth === 3 ? "text-slate-800 text-lg" : (depth === 4 ? "text-slate-700 text-base" : "text-slate-600 text-sm");
+                    
+                    let wrapperClass = depth === 3 ? "mt-10 border-t border-slate-100 pt-8" : 
+                                       depth === 4 ? "mt-8 border-l-2 border-slate-200 pl-4 ml-2 pt-2" : 
+                                       depth === 5 ? "mt-6 border-l-2 border-slate-200 pl-6 ml-4 pt-1" : 
+                                       "mt-4 border-l-2 border-slate-200 pl-8 ml-6 pt-1";
+                    
+                    itemDiv.className = `${wrapperClass} scroll-mt-24`;
+                    itemHTML = `<h4 class="${textClass} flex items-center gap-3 font-bold mb-4"><span class="${bgClass} text-white px-2 py-1 rounded text-sm shadow-sm">${cleanId}</span> ${cleanTitle(item.title)}</h4>`;
+                }
+                
+                // Si la sección tiene formato de Diccionario/Definiciones
+                if (item.content_type === "definitions" && item.definitions && item.definitions.length > 0) {
+                    let defHTML = "<dl class='mt-6 space-y-4'>";
+                    item.definitions.forEach(def => {
+                        defHTML += `<div class='bg-slate-50 p-4 rounded-lg border border-slate-100'><dt class='font-bold text-blue-800 text-sm mb-1'>${def.term}</dt><dd class='text-sm text-slate-600'>${cleanWordHtml(def.definition)}</dd></div>`;
+                    });
+                    defHTML += "</dl>";
+                    itemHTML += defHTML;
+                } else if (item.content) {
+                    itemHTML += `<div class="word-content">${cleanWordHtml(item.content)}</div>`;
+                }
+                
+                itemDiv.innerHTML = itemHTML;
+                parentNode.appendChild(itemDiv);
+                
+                const nextPrefix = isApartado ? uniqueStr : cleanId;
+                const currentDepth = isApartado ? (parentDepth + depth) : depth;
+
+                // Llamado recursivo a sí mismo
+                if (item.subsections && item.subsections.length > 0) {
+                    renderTreeContent(itemDiv, item.subsections, false, nextPrefix, currentDepth);
+                }
+                if (item.apartados && item.apartados.length > 0) {
+                    renderTreeContent(itemDiv, item.apartados, true, nextPrefix, currentDepth);
+                }
+            });
+        }
+
+        function renderContent(data) {
+            const container = document.getElementById('main-content');
+            container.innerHTML = '';
+
+            const info = data.document_info || {};
+            document.getElementById('doc-title').textContent = info.title || "Manual de Normas";
+            document.getElementById('doc-subtitle').textContent = `${info.decree || 'Documento'} • ${info.date || ''}`;
+
+            (data.chapters || []).forEach(chapter => {
+                const capDiv = document.createElement('div');
+                capDiv.id = generateId('cap', chapter.number);
+                capDiv.className = 'mb-20';
+                capDiv.innerHTML = `<h2>Capítulo ${chapter.number}: ${cleanTitle(chapter.title)}</h2>`;
+
+                (chapter.sections || []).forEach(section => {
+                    const secDiv = document.createElement('div');
+                    secDiv.id = generateId('sec', section.number);
+                    secDiv.className = 'mb-16 scroll-mt-24';
+                    
+                    let html = `<h3 class="flex items-center gap-3"><span class="bg-slate-800 text-white px-2 py-1 rounded text-sm shadow-md">${section.number}</span> ${cleanTitle(section.title)}</h3>`;
+                    
+                    // Soporte de diccionario a nivel de sección general
+                    if (section.content_type === "definitions" && section.definitions && section.definitions.length > 0) {
+                        let defHTML = "<dl class='mt-6 space-y-4'>";
+                        section.definitions.forEach(def => {
+                            defHTML += `<div class='bg-slate-50 p-4 rounded-lg border border-slate-100'><dt class='font-bold text-blue-800 text-sm mb-1'>${def.term}</dt><dd class='text-sm text-slate-600'>${cleanWordHtml(def.definition)}</dd></div>`;
+                        });
+                        defHTML += "</dl>";
+                        html += defHTML;
+                    } else if (section.content) {
+                        html += `<div class="word-content">${cleanWordHtml(section.content)}</div>`;
+                    }
+                    secDiv.innerHTML = html;
+
+                    // INICIAMOS LA RECURSIVIDAD DESDE EL NIVEL 2 (SECCIONES)
+                    renderTreeContent(secDiv, section.subsections, false, section.number, 2);
+                    renderTreeContent(secDiv, section.apartados, true, section.number, 2);
+
+                    capDiv.appendChild(secDiv);
+                });
+                container.appendChild(capDiv);
+            });
+        }
+
+        async function init() {
+            try {
+                const res = await fetch('./BASE.json');
+                if (!res.ok) throw new Error('No se pudo cargar BASE.json');
+                const data = await res.json();
+                
+                renderSidebar(data);
+                renderContent(data);
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const id = entry.target.id;
+                            document.querySelectorAll('.nav-link').forEach(l => {
+                                const isActive = l.getAttribute('href') === `#${id}`;
+                                l.classList.toggle('active', isActive);
+                                
+                                if (isActive) {
+                                    let parentDetails = l.closest('details');
+                                    while(parentDetails) {
+                                        parentDetails.open = true;
+                                        parentDetails = parentDetails.parentElement.closest('details');
+                                    }
+                                }
+                            });
+                        }
+                    });
+                }, { 
+                    root: document.getElementById('content-pane'), 
+                    rootMargin: '-10% 0px -80% 0px' 
+                });
+
+                document.querySelectorAll('div[id^="sec-"], section[id^="sub-"], div[id^="ap-"]').forEach(el => observer.observe(el));
+            } catch (e) {
+                console.error("Fallo en la carga:", e);
+                document.getElementById('main-content').innerHTML = `
+                    <div class="text-center p-12 bg-red-50 rounded-2xl border border-red-100 shadow-inner">
+                        <p class="text-red-700 font-bold text-xl mb-2">Archivo No Encontrado</p>
+                        <p class="text-red-600 text-sm">Asegúrate de que el archivo <strong>BASE.json</strong> esté en la misma carpeta que este visor.</p>
+                        
+                        <div class="mt-6 bg-white p-4 rounded-lg border border-red-200 shadow-sm text-left">
+                            <label class="block text-sm font-bold text-slate-700 mb-3 text-center">Alternativamente, súbelo de forma manual aquí:</label>
+                            <input type="file" id="fallback-upload" accept=".json" class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-bold file:bg-blue-600 file:text-white hover:file:bg-blue-700 transition-all cursor-pointer border border-slate-200 rounded-lg p-2">
+                        </div>
+                    </div>`;
+
+                document.getElementById('fallback-upload')?.addEventListener('change', function(event) {
+                    const file = event.target.files[0];
+                    if (!file) return;
+                    
+                    document.getElementById('main-content').innerHTML = `
+                        <div class="flex items-center justify-center h-64">
+                            <div class="text-center">
+                                <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-700 mb-4"></div>
+                                <p class="text-slate-500 font-medium">Renderizando información...</p>
+                            </div>
+                        </div>`;
+
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        try {
+                            const data = JSON.parse(e.target.result);
+                            renderSidebar(data);
+                            renderContent(data);
+                        } catch (parseErr) {
+                            document.getElementById('main-content').innerHTML = `
+                                <div class="bg-red-50 p-6 rounded-lg text-red-800 border border-red-200">
+                                    <h2 class="text-red-800 font-bold mb-2">Error de formato</h2>
+                                    <p>El archivo no es un JSON válido.</p>
+                                </div>`;
+                        }
+                    };
+                    reader.readAsText(file);
+                });
+            }
+        }
+
+        document.getElementById('search').addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            const navLinks = document.querySelectorAll('.nav-link, summary');
+            
+            navLinks.forEach(link => {
+                const match = link.textContent.toLowerCase().includes(term);
+                if (link.tagName.toLowerCase() === 'a' && link.classList.contains('nav-link')) {
+                   link.style.display = match || term === '' ? 'block' : 'none';
+                }
+            });
+
+            if (term !== '') {
+                document.querySelectorAll('details').forEach(details => details.open = true);
+            }
+        });
+
+        init();
+    </script>
+</body>
+</html>

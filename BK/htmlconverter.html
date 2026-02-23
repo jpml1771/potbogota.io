@@ -9,26 +9,21 @@
 <body class="bg-slate-100 min-h-screen flex flex-col items-center justify-center p-6 font-sans">
 
     <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-2xl">
-        <h1 class="text-2xl font-bold text-slate-800 mb-2">Convertidor HTML a JSON (Árbol Profundo)</h1>
-        <p class="text-slate-600 mb-6 text-sm">Escanea tu documento exportado como <b>Página Web (.html)</b> desde Word. Incorpora un motor de anidamiento exacto para jerarquías infinitas y rescate de imágenes.</p>
+        <h1 class="text-2xl font-bold text-slate-800 mb-2">Convertidor HTML a JSON (Definitivo)</h1>
+        <p class="text-slate-600 mb-6 text-sm">Esta herramienta escanea documentos exportados como <b>Página Web (.html)</b> desde Word. Rescata imágenes, tablas y procesa niveles infinitos (ej. 1.1.1.1 o A.1.1).</p>
         
-        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
-            <p class="text-sm text-blue-800 font-medium">💡 Tip para Word:</p>
-            <p class="text-xs text-blue-700 mt-1">Si tus subsecciones (ej. 1.1.1) no aparecen, asegúrate de que en Word no estén usando "Numeración Automática". Escríbelas como texto normal antes de exportar a HTML.</p>
-        </div>
-
         <div class="mb-6">
             <label class="block text-sm font-medium text-slate-700 mb-2">1. Sube tu documento exportado (.html)</label>
             <input type="file" id="upload" accept=".html,.htm" class="block w-full text-sm text-slate-500
               file:mr-4 file:py-2 file:px-4
-              file:rounded-md file:border-0
+              file:rounded-full file:border-0
               file:text-sm file:font-semibold
-              file:bg-blue-600 file:text-white
-              hover:file:bg-blue-700 transition-all cursor-pointer border border-slate-200 rounded-lg p-2" />
+              file:bg-blue-50 file:text-blue-700
+              hover:file:bg-blue-100 transition-all cursor-pointer border border-slate-200 rounded-lg p-2" />
         </div>
 
         <div id="status" class="hidden mb-6 p-4 rounded-lg bg-blue-50 text-blue-700 text-sm font-medium border border-blue-200">
-            Procesando documento HTML, escaneando estructura de árbol...
+            Procesando documento HTML, escaneando secciones y rescatando imágenes...
         </div>
 
         <button id="downloadBtn" class="hidden w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-xl transition-colors shadow-lg flex justify-center items-center gap-2">
@@ -82,18 +77,18 @@
                 chapters: []
             };
 
-            // TRUE TREE BUILDER - Rutas de anidamiento infinito
-            let numPath = { 1: null, 2: null, 3: null, 4: null, 5: null, 6: null, 7: null, 8: null };
-            let aparPath = { 1: null, 2: null, 3: null, 4: null, 5: null };
-            let activeNode = null;
+            let curCap = null;
+            let curSec = null;
+            let curSub = null;
+            let curApar = null;
 
-            let stats = { caps: 0, secs: 0, subs: 0, apartados: 0, imagenes: 0, saltados: 0 };
+            let stats = { caps: 0, secs: 0, subs: 0, apartados: 0, tablas: 0, imagenes: 0, saltados: 0 };
 
+            // Recorre recursivamente buscando contenedores reales de contenido
             let blocks = [];
             function traverse(node) {
                 if (node.nodeType !== 1) return;
                 const tag = node.tagName.toUpperCase();
-                // Si encontramos un bloque válido, lo extraemos. 
                 if (['P', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'TABLE', 'UL', 'OL'].includes(tag)) {
                     blocks.push(node);
                 } else {
@@ -105,14 +100,18 @@
             log(`Se encontraron ${blocks.length} bloques de contenido en total.`);
 
             blocks.forEach((child) => {
+                // Filtramos la Tabla de Contenido de Word
                 if (child.className && typeof child.className === 'string' && child.className.includes('MsoToc')) {
                     stats.saltados++;
                     return;
                 }
 
                 const text = child.textContent.trim().replace(/\s+/g, ' '); 
+                
+                // Detecta si hay una imagen, aún si Word la ocultó en código "v:imagedata"
                 const hasImage = child.innerHTML.toLowerCase().includes('<img') || child.innerHTML.toLowerCase().includes('v:imagedata');
                 
+                // Ignorar si está vacío Y no tiene imagen Y no es una tabla
                 if (!text && child.tagName !== 'TABLE' && !hasImage) return;
 
                 if (hasImage) stats.imagenes++;
@@ -123,30 +122,39 @@
                     return;
                 }
 
-                // Regex Ultra-Tolerantes (Ignoran viñetas ocultas o espacios extraños)
-                const matchCap = text.match(/^(?:[\u2022\-\*\>]\s*)?(?:(?:CAP[ÍI]TULO)\s+([0-9IVX]+)|([0-9IVX]+)\.)[\.\-]?\s+(.*)/i);
-                const matchNum = text.match(/^(?:[\u2022\-\*\>]\s*)?(?:(?:CAP|ART[ÍI]CULO)[^\d]*\d+\.?\s*)?((?:\d+\s*[\.\-]\s*)+\d+)\.?\s*(.*)/i);
-                const matchApar = text.match(/^(?:[\u2022\-\*\>]\s*)?([A-Za-z]{1,2}(?:\s*[\.\-]\s*\d+)+[\.\)]?|[A-Za-z]{1,2}[\.\)])\s+(.*)/);
+                // Expresiones regulares ultra-tolerantes a espacios extra (ej. "A . 1", "1 - 1")
+                const matchCap = text.match(/^(?:(?:[0-9IVX]+\.?\s*)?CAP[ÍI]TULO\s+([0-9IVX]+)|([0-9IVX]+)\.)[\.\-]?\s+(.*)/i);
+                const matchNum = text.match(/^(?:(?:CAP|ART[ÍI]CULO)[^\d]*\d+\.?\s*)?((?:\d+\s*[\.\-]\s*)+\d+)\.?\s*(.*)/i);
+                const matchApar = text.match(/^([A-Za-z]{1,2}(?:\s*[\.\-]\s*\d+)+[\.\)]?|[A-Za-z]{1,2}[\.\)])\s+(.*)/);
+
+                let isCap = false;
+                let capNum = null;
+                let capTitle = "";
 
                 if (matchCap) {
-                    let capNum = matchCap[1] || matchCap[2];
-                    let capTitle = matchCap[3];
-                    
+                    capNum = matchCap[1] || matchCap[2];
+                    capTitle = matchCap[3];
+                    if (!matchCap[1]) {
+                        const isAllUppercase = (capTitle.toUpperCase() === capTitle);
+                        if (isAllUppercase) isCap = true;
+                    } else {
+                        isCap = true;
+                    }
+                }
+
+                if (isCap) {
                     const safeNum = capNum.replace(/\./g, '\\.');
                     const regexDup = new RegExp(`^${safeNum}[\\.\\s\\-]+`, 'i');
                     capTitle = capTitle.replace(regexDup, '').trim();
 
-                    let node = { id: `CAP_${capNum}`, number: capNum, title: capTitle, sections: [] };
-                    potJson.chapters.push(node);
-                    
-                    numPath = { 1: node, 2: null, 3: null, 4: null, 5: null, 6: null };
-                    aparPath = { 1: null, 2: null, 3: null, 4: null };
-                    activeNode = node;
-                    
+                    curCap = { id: `CAP_${capNum}`, number: capNum, title: capTitle, sections: [] };
+                    potJson.chapters.push(curCap);
+                    curSec = null; curSub = null; curApar = null;
                     stats.caps++;
-                    log(`Estructurando: Capítulo ${capNum}`);
+                    log(`Detectado: Capítulo ${capNum}`);
                 }
                 else if (matchNum) {
+                    // Normaliza espacios en los números
                     let rawNum = matchNum[1].replace(/\s*[\.\-]\s*/g, '.');
                     let title = matchNum[2].trim();
                     const depth = rawNum.split('.').length;
@@ -155,81 +163,48 @@
                     const regexDup = new RegExp(`^${safeNum}[\\.\\s\\-]+`, 'i');
                     title = title.replace(regexDup, '');
 
-                    let node = { number: rawNum, title: title, content: "", subsections: [], apartados: [] };
-
                     if (depth === 2) {
-                        if (!numPath[1]) {
-                            let cap = { id: `CAP_0`, number: "0", title: "General", sections: [] };
-                            potJson.chapters.push(cap);
-                            numPath[1] = cap;
+                        if (!curCap) {
+                            curCap = { id: `CAP_0`, number: "0", title: "General", sections: [] };
+                            potJson.chapters.push(curCap);
                         }
-                        numPath[1].sections.push(node);
+                        curSec = { number: rawNum, title: title, content: "", subsections: [], apartados: [] };
+                        curCap.sections.push(curSec);
+                        curSub = null; curApar = null;
                         stats.secs++;
                     } 
                     else if (depth >= 3) {
-                        // Buscar el padre más cercano en el árbol
-                        let pDepth = depth - 1;
-                        while(pDepth >= 2 && !numPath[pDepth]) pDepth--;
-                        
-                        if (numPath[pDepth]) {
-                            numPath[pDepth].subsections.push(node);
-                        } else if (numPath[1]) {
-                            // Si falta la sección madre, crear un puente genérico
-                            let dummy = { number: "0.0", title: "General", content: "", subsections: [], apartados: [] };
-                            numPath[1].sections.push(dummy);
-                            numPath[2] = dummy;
-                            numPath[2].subsections.push(node);
+                        if (!curCap) {
+                            curCap = { id: `CAP_0`, number: "0", title: "General", sections: [] };
+                            potJson.chapters.push(curCap);
                         }
+                        if (!curSec) {
+                            curSec = { number: "0.0", title: "General", content: "", subsections: [], apartados: [] };
+                            curCap.sections.push(curSec);
+                        }
+                        curSub = { number: rawNum, title: title, content: "", apartados: [] };
+                        curSec.subsections.push(curSub); // El Visor se encarga de indentar esto según su profundidad
+                        curApar = null;
                         stats.subs++;
-                        log(`Detectada Subsección Nivel ${depth}: ${rawNum}`);
+                        log(`Detectada Subsección: ${rawNum}`);
                     }
-                    
-                    // Actualizar el camino activo y borrar inferiores
-                    numPath[depth] = node;
-                    for (let i = depth + 1; i <= 8; i++) numPath[i] = null;
-                    aparPath = { 1: null, 2: null, 3: null, 4: null };
-                    activeNode = node;
                 }
                 else if (matchApar) {
                     let rawAparNum = matchApar[1].replace(/[\.\)]$/, '').trim(); 
                     let num = rawAparNum.replace(/\s*[\.\-]\s*/g, '.');
                     let title = matchApar[2].trim();
-                    const aDepth = num.split('.').length;
                     
-                    let node = { id: num, title: title, content: "", apartados: [] };
-
-                    if (aDepth === 1) {
-                        // Enganchar al nodo numérico más profundo disponible
-                        let numParent = null;
-                        for (let i = 8; i >= 2; i--) {
-                            if (numPath[i]) { numParent = numPath[i]; break; }
-                        }
-                        if (numParent) numParent.apartados.push(node);
-                    } else {
-                        // Enganchar al apartado padre
-                        let pDepth = aDepth - 1;
-                        while(pDepth >= 1 && !aparPath[pDepth]) pDepth--;
-                        if (aparPath[pDepth]) {
-                            aparPath[pDepth].apartados.push(node);
-                        } else {
-                            // Si falla, colgarlo del numérico
-                            let numParent = null;
-                            for (let i = 8; i >= 2; i--) {
-                                if (numPath[i]) { numParent = numPath[i]; break; }
-                            }
-                            if (numParent) numParent.apartados.push(node);
-                        }
-                    }
+                    curApar = { id: num, title: title, content: "" };
                     
-                    aparPath[aDepth] = node;
-                    for (let i = aDepth + 1; i <= 5; i++) aparPath[i] = null;
-                    activeNode = node;
-                    
+                    if (curSub) curSub.apartados.push(curApar);
+                    else if (curSec) curSec.apartados.push(curApar);
                     stats.apartados++;
                     log(`Detectado Apartado: ${num}`);
                 }
                 else {
-                    // Limpieza de tablas
+                    child.removeAttribute('style');
+                    child.removeAttribute('class');
+                    
                     if (child.tagName === 'TABLE') {
                         child.className = "min-w-full text-sm text-left text-slate-500 border-collapse border border-slate-200 my-4";
                         child.querySelectorAll('th, td, tr, thead, tbody').forEach(cell => {
@@ -239,26 +214,27 @@
                                 cell.className = "border border-slate-200 px-4 py-2";
                             }
                         });
-                    } else {
-                        child.removeAttribute('style');
-                        child.removeAttribute('class');
+                        stats.tablas++;
                     }
 
                     const htmlContent = child.outerHTML;
 
-                    // Adjuntar al nodo activo de forma segura
-                    if (activeNode && activeNode.content !== undefined) {
-                        activeNode.content += htmlContent;
+                    if (curApar) {
+                        curApar.content += htmlContent;
+                    } else if (curSub) {
+                        curSub.content += htmlContent;
+                    } else if (curSec) {
+                        curSec.content += htmlContent;
                     }
                 }
             });
 
-            log(`Análisis completado: ${stats.caps} Caps, ${stats.secs} Secs, ${stats.subs} Subniveles anidados, ${stats.apartados} Apartados.`);
-            log(`Imágenes rescatadas: ${stats.imagenes}`);
+            log(`Análisis completado: ${stats.caps} Caps, ${stats.secs} Secs, ${stats.subs} Subniveles, ${stats.apartados} Apartados.`);
+            log(`Se rescataron y preservaron ${stats.imagenes} bloques con imágenes.`);
             
             generatedJson = potJson;
             
-            document.getElementById('status').innerText = "¡Árbol estructurado y JSON generado con éxito!";
+            document.getElementById('status').innerText = "¡Éxito! JSON generado y listo para usarse en el Visor.";
             document.getElementById('status').classList.replace('bg-blue-50', 'bg-green-50');
             document.getElementById('status').classList.replace('text-blue-700', 'text-green-700');
             document.getElementById('downloadBtn').classList.remove('hidden');
@@ -271,7 +247,7 @@
             dlAnchorElem.setAttribute("href", dataStr);
             dlAnchorElem.setAttribute("download", "BASE.json");
             dlAnchorElem.click();
-            log("Archivo BASE.json descargado.");
+            log("Archivo BASE.json descargado limpiamente.");
         });
     </script>
 </body>
