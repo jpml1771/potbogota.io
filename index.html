@@ -18,6 +18,8 @@
             scroll-behavior: smooth; 
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            -webkit-text-size-adjust: 100%; /* Previene que móviles "estiren" o inflen el texto */
+            text-size-adjust: 100%;
         }
         
         /* Scrollbars elegantes */
@@ -57,6 +59,7 @@
             max-width: 100%; 
             overflow-wrap: break-word; 
             word-wrap: break-word; 
+            hyphens: auto; /* Ayuda a cortar palabras largas suavemente en móviles sin estirar el texto */
         }
         
         #main-content span { line-height: inherit !important; }
@@ -102,7 +105,15 @@
         /* MEDIA QUERIES PARA MÓVILES (Mobile Optimization) */
         @media (max-width: 767px) {
             #main-content { font-size: 0.95rem; } /* Letra un poco más pequeña */
-            #main-content p { line-height: 1.6 !important; margin-bottom: 1rem !important; }
+            
+            /* Fuerza a matar la justificación y los espacios estirados de Word en móviles */
+            #main-content p, #main-content li, #main-content td, #main-content div:not(#portada):not(#portada div) { 
+                line-height: 1.6 !important; 
+                margin-bottom: 1rem !important; 
+                text-align: left !important; 
+                letter-spacing: normal !important;
+                word-spacing: normal !important;
+            }
             
             /* Los títulos de capítulo apilan la etiqueta "CAPÍTULO X" sobre el texto */
             .visor-chapter-title { flex-direction: column !important; gap: 0.5rem !important; margin-top: 2.5rem !important; }
@@ -246,16 +257,16 @@
             let cleaned = rawHtml.replace(new RegExp('<!--\\[if [^\\]]+\\]>([\\s\\S]*?)<!\\[endif\\]-->', 'gi'), '$1');
             cleaned = cleaned.replace(new RegExp('<!\\[if [^\\]]+\\]>([\\s\\S]*?)<!\\[endif\\]>', 'gi'), '$1');
             cleaned = cleaned.replace(/<o:p>&nbsp;<\/o:p>/g, ''); 
-            cleaned = cleaned.replace(/<o:p>[^<]*<\/o:p>/g, ''); 
-            
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(cleaned, 'text/html');
-
+            // --- PURGADOR DE METADATOS Y FUENTES ---
             doc.querySelectorAll('xml').forEach(el => el.remove());
 
             doc.body.querySelectorAll('*').forEach(el => {
                 if (el.tagName.toLowerCase() === 'font') {
                     el.removeAttribute('face');
+                }
+                // Anular atributos de justificación forzada (align="justify") ocultos en etiquetas de Word
+                if (el.hasAttribute('align') && el.getAttribute('align').toLowerCase() === 'justify') {
+                    el.removeAttribute('align');
                 }
                 if (el.style) {
                     if (el.style.fontFamily) el.style.fontFamily = '';
