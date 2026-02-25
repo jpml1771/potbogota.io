@@ -153,8 +153,10 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                 </svg>
             </div>
-            <h1 class="text-2xl md:text-3xl font-extrabold text-slate-800 mb-2">Carga Local Requerida</h1>
-            <p class="text-slate-500 mb-8 text-sm max-w-md mx-auto">Parece que estás abriendo el archivo localmente sin un servidor. Por favor, sube manualmente tu archivo <b>.html</b> exportado de Word para visualizarlo.</p>
+            <h1 class="text-2xl md:text-3xl font-extrabold text-slate-800 mb-2">Carga Manual Requerida</h1>
+            <p id="upload-help-text" class="text-slate-500 mb-8 text-sm max-w-md mx-auto leading-relaxed">
+                Parece que estás abriendo el archivo localmente sin un servidor. Por favor, sube manualmente tu archivo <b>.html</b> exportado de Word para visualizarlo.
+            </p>
             
             <div class="relative w-full">
                 <input type="file" id="upload-html" accept=".html,.htm" class="block w-full text-sm text-slate-500
@@ -221,20 +223,33 @@
     </div>
 
     <script>
+        // =======================================================================================
+        // CONFIGURACIÓN: Escribe aquí el nombre exacto de tu archivo HTML exportado desde Word.
+        // Debe estar subido en la misma carpeta que este archivo en tu servidor web.
+        // =======================================================================================
+        const ARCHIVO_WORD_HTML = 'anexo_no._5_manual_comunes_tramientos_urbanisticos_.html';
+
         // CARGA AUTOMÁTICA AL ABRIR LA PÁGINA
         document.addEventListener('DOMContentLoaded', async () => {
             try {
-                const fileName = './anexo_no._5_manual_comunes_tramientos_urbanisticos_.html';
-                const response = await fetch(fileName);
-                if (!response.ok) throw new Error('No se pudo cargar el archivo automáticamente.');
+                const response = await fetch(ARCHIVO_WORD_HTML);
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                 
                 const htmlText = await response.text();
                 processAndRender(htmlText);
                 
             } catch (error) {
-                console.warn('Carga automática bloqueada. Mostrando subida manual.', error);
+                console.warn('Carga automática bloqueada o archivo no encontrado.', error);
                 document.getElementById('loading-screen').classList.add('hidden');
                 document.getElementById('upload-screen').classList.remove('hidden');
+                
+                // Mensaje inteligente: Diferencia entre abrirlo localmente (sin servidor) y un error en la web real
+                const isLocalFile = window.location.protocol.startsWith('file');
+                const helpTextEl = document.getElementById('upload-help-text');
+                
+                if (!isLocalFile) {
+                    helpTextEl.innerHTML = `No se encontró el archivo automático en el servidor.<br><br>Asegúrate de haber subido el archivo exportado de Word en la misma carpeta, y que se llame exactamente:<br><b class="text-blue-700 bg-blue-50 px-3 py-2 rounded-lg mt-3 inline-block shadow-sm border border-blue-100">${ARCHIVO_WORD_HTML}</b><br><br>O súbelo temporalmente aquí abajo:`;
+                }
             }
         });
 
@@ -258,6 +273,10 @@
             cleaned = cleaned.replace(new RegExp('<!\\[if [^\\]]+\\]>([\\s\\S]*?)<!\\[endif\\]>', 'gi'), '$1');
             cleaned = cleaned.replace(/<o:p>&nbsp;<\/o:p>/g, ''); 
             // --- PURGADOR DE METADATOS Y FUENTES ---
+            
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(cleaned, 'text/html');
+            
             doc.querySelectorAll('xml').forEach(el => el.remove());
 
             doc.body.querySelectorAll('*').forEach(el => {
