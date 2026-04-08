@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Visor de Normas Urbanísticas - Bogotá (Directo)</title>
+    <title>Visor de Normas Urbanísticas - Bogotá D.C.</title>
     
     <!-- Importar la fuente 'Inter' desde Google Fonts para un look premium estilo UpCodes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,7 @@
             scroll-behavior: smooth; 
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            -webkit-text-size-adjust: 100%; /* Previene que móviles "estiren" o inflen el texto */
+            -webkit-text-size-adjust: 100%; 
             text-size-adjust: 100%;
         }
         
@@ -59,7 +59,7 @@
             max-width: 100%; 
             overflow-wrap: break-word; 
             word-wrap: break-word; 
-            hyphens: auto; /* Ayuda a cortar palabras largas suavemente en móviles sin estirar el texto */
+            hyphens: auto; 
         }
         
         #main-content span { line-height: inherit !important; }
@@ -102,11 +102,9 @@
         #main-content .MsoToc { display: none !important; }
         #main-content span[style*="mso-hide:screen"], #main-content span[style*="display:none"] { display: none !important; }
 
-        /* MEDIA QUERIES PARA MÓVILES (Mobile Optimization) */
+        /* MEDIA QUERIES PARA MÓVILES */
         @media (max-width: 767px) {
-            #main-content { font-size: 0.95rem; } /* Letra un poco más pequeña */
-            
-            /* Fuerza a matar la justificación y los espacios estirados de Word en móviles */
+            #main-content { font-size: 0.95rem; }
             #main-content p, #main-content li, #main-content td, #main-content div:not(#portada):not(#portada div) { 
                 line-height: 1.6 !important; 
                 margin-bottom: 1rem !important; 
@@ -114,17 +112,13 @@
                 letter-spacing: normal !important;
                 word-spacing: normal !important;
             }
-            
-            /* Los títulos de capítulo apilan la etiqueta "CAPÍTULO X" sobre el texto */
             .visor-chapter-title { flex-direction: column !important; gap: 0.5rem !important; margin-top: 2.5rem !important; }
             .visor-section-title { margin-top: 2rem !important; }
-            
-            /* Ajustes de indentación de listas en móviles */
             #main-content ul, #main-content ol { padding-left: 1.5rem; }
             .visor-depth-5, .visor-depth-6 { padding-left: 0 !important; }
         }
 
-        /* Animaciones del Sidebar */
+        /* Animaciones del Sidebar y Acordeones */
         summary { list-style: none; cursor: pointer; outline: none; user-select: none; }
         summary::-webkit-details-marker { display: none; }
         .chapter-summary { display: flex; align-items: center; justify-content: space-between; }
@@ -134,18 +128,18 @@
         .section-list { display: none; }
     </style>
 </head>
-<body class="h-full bg-white text-slate-800">
+<body class="h-full bg-white text-slate-800 flex flex-col">
 
-    <!-- PANTALLA DE CARGA AUTOMÁTICA -->
+    <!-- PANTALLA DE CARGA -->
     <div id="loading-screen" class="fixed inset-0 bg-slate-50 z-50 flex items-center justify-center p-6">
         <div class="text-center">
             <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-blue-200 border-t-blue-700 mb-4"></div>
-            <h2 class="text-xl font-bold text-slate-800">Cargando Normativa...</h2>
-            <p class="text-slate-500 text-sm mt-2">Preparando el documento interactivo</p>
+            <h2 class="text-xl font-bold text-slate-800">Construyendo Documento Unificado...</h2>
+            <p class="text-slate-500 text-sm mt-2">Combinando POT Principal y Anexos</p>
         </div>
     </div>
 
-    <!-- PANTALLA DE INICIO (Carga Manual como Plan B) -->
+    <!-- PANTALLA DE CARGA MANUAL (Fallback Integrado) -->
     <div id="upload-screen" class="fixed inset-0 bg-slate-50 z-50 flex items-center justify-center p-6 hidden">
         <div class="bg-white p-6 md:p-12 rounded-2xl shadow-xl w-full max-w-2xl text-center mx-4">
             <div class="bg-amber-100 text-amber-700 p-4 rounded-full inline-block mb-4 shadow-sm">
@@ -153,11 +147,11 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                 </svg>
             </div>
-            <h1 class="text-2xl md:text-3xl font-extrabold text-slate-800 mb-2">Carga Manual Requerida</h1>
-            <p id="upload-help-text" class="text-slate-500 mb-8 text-sm max-w-md mx-auto leading-relaxed">
-                Parece que estás abriendo el archivo localmente sin un servidor. Por favor, sube manualmente tu archivo <b>.html</b> exportado de Word para visualizarlo.
+            <h1 class="text-2xl md:text-3xl font-extrabold text-slate-800 mb-2">Archivo Secundario Requerido</h1>
+            <p class="text-slate-500 mb-8 text-sm max-w-md mx-auto leading-relaxed">
+                Parece que estás abriendo el visor localmente. Para completar el documento unificado, por favor sube manualmente el siguiente archivo:
+                <br><b id="upload-filename-target" class="text-blue-700 bg-blue-50 px-3 py-2 rounded-lg mt-3 inline-block shadow-sm border border-blue-100"></b>
             </p>
-            
             <div class="relative w-full">
                 <input type="file" id="upload-html" accept=".html,.htm" class="block w-full text-sm text-slate-500
                     file:mr-4 file:py-3 file:px-6
@@ -167,6 +161,7 @@
                     file:shadow-md file:cursor-pointer
                     hover:file:bg-blue-700 transition-all border border-slate-200 rounded-full p-2 bg-slate-50 cursor-pointer" />
             </div>
+            <button id="cancel-upload-btn" class="mt-4 text-slate-500 text-sm hover:text-slate-700 underline">Omitir este anexo y continuar</button>
         </div>
     </div>
 
@@ -175,23 +170,26 @@
         
         <!-- Header -->
         <header class="bg-white border-b border-slate-200 py-3 px-4 md:px-6 shadow-sm z-40 flex-shrink-0">
-            <div class="flex flex-wrap md:flex-nowrap justify-between items-center gap-3">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-3">
+                
+                <!-- Logo & Menu -->
                 <div class="flex items-center gap-3 w-full md:w-auto">
-                    <!-- Botón táctil más grande en móviles (p-2) -->
                     <button id="menu-btn" class="md:hidden text-slate-600 p-2 -ml-2 rounded-lg hover:bg-slate-100 hover:text-blue-600 transition-colors">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                     </button>
                     <div>
-                        <h1 class="text-base md:text-lg font-extrabold text-slate-800 leading-tight tracking-tight">POT Bogotá</h1>
-                        <p class="text-[9px] md:text-[10px] text-blue-600 font-bold tracking-widest uppercase">Normas Urbanísticas</p>
+                        <h1 class="text-base md:text-lg font-extrabold text-slate-800 leading-tight tracking-tight">Visor Normativo</h1>
+                        <p class="text-[9px] md:text-[10px] text-blue-600 font-bold tracking-widest uppercase">Bogotá D.C.</p>
                     </div>
                 </div>
-                <div class="w-full md:w-auto md:flex-1 md:max-w-md ml-auto mt-2 md:mt-0 order-last md:order-none">
+
+                <!-- Buscador -->
+                <div class="w-full md:w-auto md:max-w-md flex-1 ml-auto mt-1 md:mt-0">
                     <div class="relative">
                         <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">
                             <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                         </span>
-                        <input type="search" id="search" placeholder="Buscar en el menú..." class="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:bg-white outline-none text-sm transition-all shadow-inner" />
+                        <input type="search" id="search" placeholder="Buscar en todo el documento..." class="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:bg-white outline-none text-sm transition-all shadow-inner" />
                     </div>
                 </div>
             </div>
@@ -201,22 +199,22 @@
             <!-- Sidebar Mobile Overlay -->
             <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-40 hidden md:hidden"></div>
 
-            <!-- Sidebar Nav Pane - CORRECCIÓN A md:relative -->
+            <!-- Sidebar Nav Pane Unificado -->
             <nav id="sidebar" class="fixed md:relative z-50 md:z-30 inset-y-0 left-0 w-4/5 max-w-[320px] md:w-80 flex-shrink-0 overflow-y-auto bg-slate-50 border-r border-slate-200 transform -translate-x-full md:translate-x-0 transition-transform duration-300 shadow-2xl md:shadow-none h-full">
-                <div class="p-4 border-b border-slate-200 bg-slate-50/90 backdrop-blur sticky top-0 z-10 flex justify-between items-center">
-                    <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider">Contenido</h3>
-                    <!-- Botón de cerrar más accesible en móviles -->
+                <div class="p-4 border-b border-slate-200 bg-slate-50/90 backdrop-blur sticky top-0 z-20 flex justify-between items-center">
+                    <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider">Índice del Documento</h3>
                     <button id="close-menu-btn" class="md:hidden text-slate-400 p-2 -mr-2 rounded-lg hover:bg-slate-200 hover:text-slate-700 transition-colors">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                     </button>
                 </div>
-                <div id="sidebar-content" class="p-3 space-y-1 pb-24"></div>
+                <!-- El contenido de la barra unificada se inyecta aquí -->
+                <div id="sidebar-content" class="p-3 space-y-1 pb-24 relative"></div>
             </nav>
 
             <!-- Main Content Area -->
-            <!-- Reducido el padding en móviles (p-4) y restaurado en desktop (md:p-10) -->
             <main id="content-pane" class="flex-1 overflow-y-auto bg-white p-4 md:p-10 lg:p-14 scroll-smooth w-full">
                 <div id="main-content" class="w-full text-slate-700 leading-relaxed">
+                    <!-- El contenido unificado se concatenará aquí secuencialmente -->
                 </div>
             </main>
         </div>
@@ -224,69 +222,169 @@
 
     <script>
         // =======================================================================================
-        // CONFIGURACIÓN: Escribe aquí el nombre exacto de tu archivo HTML exportado desde Word.
-        // Debe estar subido en la misma carpeta que este archivo en tu servidor web.
+        // BIBLIOTECA DE DOCUMENTOS (Ordenados secuencialmente para el Documento Unificado)
         // =======================================================================================
-        const ARCHIVO_WORD_HTML = 'anexo_no._5_manual_comunes_tramientos_urbanisticos_.html';
-
-        // CARGA AUTOMÁTICA AL ABRIR LA PÁGINA
-        document.addEventListener('DOMContentLoaded', async () => {
-            try {
-                const response = await fetch(ARCHIVO_WORD_HTML);
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                
-                const htmlText = await response.text();
-                processAndRender(htmlText);
-                
-            } catch (error) {
-                console.warn('Carga automática bloqueada o archivo no encontrado.', error);
-                document.getElementById('loading-screen').classList.add('hidden');
-                document.getElementById('upload-screen').classList.remove('hidden');
-                
-                // Mensaje inteligente: Diferencia entre abrirlo localmente (sin servidor) y un error en la web real
-                const isLocalFile = window.location.protocol.startsWith('file');
-                const helpTextEl = document.getElementById('upload-help-text');
-                
-                if (!isLocalFile) {
-                    helpTextEl.innerHTML = `No se encontró el archivo automático en el servidor.<br><br>Asegúrate de haber subido el archivo exportado de Word en la misma carpeta, y que se llame exactamente:<br><b class="text-blue-700 bg-blue-50 px-3 py-2 rounded-lg mt-3 inline-block shadow-sm border border-blue-100">${ARCHIVO_WORD_HTML}</b><br><br>O súbelo temporalmente aquí abajo:`;
+        const BIBLIOTECA = [
+            {
+                key: "pot",
+                label: "📄 POT Principal (Decreto 555)",
+                fileName: "pot_bogota_principal.html",
+                isPlaceholder: true, // Indica si debemos inyectar texto falso si no existe el archivo real
+                portada: {
+                    entidad: "ALCALDÍA MAYOR DE BOGOTÁ",
+                    decreto: "DECRETO DISTRITAL 555 DE 2021",
+                    subtitulo: "“Por el cual se adopta la revisión general del Plan de Ordenamiento territorial de Bogotá, D.C.”",
+                    tituloPrincipal: "PLAN DE ORDENAMIENTO TERRITORIAL",
+                    tituloSecundario: "DOCUMENTO PRINCIPAL"
+                },
+                mockHtml: `
+                    <p>CAPÍTULO 1. DISPOSICIONES GENERALES Y PRINCIPIOS</p>
+                    <p>1.1. Objeto del Plan de Ordenamiento Territorial.</p>
+                    <p>El presente Plan de Ordenamiento Territorial tiene por objeto establecer el modelo de ocupación del territorio del Distrito Capital, promoviendo un desarrollo equilibrado, sostenible y competitivo a largo plazo, en armonía con su entorno regional.</p>
+                    <p>1.2. Ámbito de Aplicación.</p>
+                    <p>Las normas urbanísticas contenidas en el presente Decreto se aplicarán a la totalidad de la jurisdicción territorial del Distrito Capital de Bogotá, abarcando sus suelos urbano, de expansión urbana y rural.</p>
+                    <p>1.3. Vigencia.</p>
+                    <p>El Plan tendrá una vigencia correspondiente a tres (3) periodos constitucionales de las administraciones distritales.</p>
+                    
+                    <p>CAPÍTULO 2. ESTRUCTURA ECOLÓGICA PRINCIPAL (EEP)</p>
+                    <p>2.1. Definición y Propósito.</p>
+                    <p>La Estructura Ecológica Principal es la red de ecosistemas naturales, seminaturales y artificiales, espacios públicos y elementos del paisaje que sostienen la biodiversidad y proveen servicios ecosistémicos esenciales para la ciudad.</p>
+                    <p>2.2. Componentes de la EEP.</p>
+                    <p>La conforman los Cerros Orientales, el sistema de Páramos, la cuenca del Río Bogotá, la red de humedales y los corredores ecológicos viales.</p>
+                    
+                    <p>CAPÍTULO 3. TRATAMIENTOS URBANÍSTICOS</p>
+                    <p>3.1. Definición.</p>
+                    <p>Son las determinaciones del POT que establecen los parámetros para orientar la intervención, ocupación y aprovechamiento del suelo, en función de las características y dinámicas de cada zona.</p>
+                    <p>3.2. Clasificación de Tratamientos.</p>
+                    <p>Se dividen en Desarrollo, Consolidación, Renovación Urbana, Mejoramiento Integral y Conservación. <i>Nota: Para el detalle específico de normas comunes a los tratamientos, referirse a los Anexos del Decreto.</i></p>
+                `
+            },
+            {
+                key: "anexo5",
+                label: "ANEXO No. 5 DEL DECRETO DISTRITAL 555 DE 2021",
+                fileName: "anexo_no._5_manual_comunes_tramientos_urbanisticos_.html",
+                isPlaceholder: false,
+                portada: {
+                    entidad: "SECRETARÍA DISTRITAL DE PLANEACIÓN",
+                    decreto: "ANEXO No. 5 DEL DECRETO DISTRITAL 555 DE 2021",
+                    subtitulo: "Documento adjunto y complementario a la normativa general del POT.",
+                    tituloPrincipal: "MANUAL DE NORMAS COMUNES A LOS TRATAMIENTOS URBANÍSTICOS",
+                    tituloSecundario: "ACTUALIZACIÓN"
                 }
             }
+        ];
+
+        let masterToc = []; // Aquí guardaremos el índice gigante que combina todos los documentos
+        let missingDocIndex = -1; // Rastrea qué archivo interrumpió el proceso
+        const container = document.getElementById('main-content');
+
+        // INICIALIZACIÓN
+        document.addEventListener('DOMContentLoaded', async () => {
+            container.innerHTML = '';
+            masterToc = [];
+            await loadDocumentsSequence(0);
         });
 
-        // PLAN B: CARGA MANUAL
+        // CARGA SECUENCIAL DE DOCUMENTOS
+        async function loadDocumentsSequence(startIndex) {
+            showLoading();
+
+            for (let i = startIndex; i < BIBLIOTECA.length; i++) {
+                const docConfig = BIBLIOTECA[i];
+                let rawHtml = '';
+
+                if (docConfig.isPlaceholder) {
+                    rawHtml = docConfig.mockHtml;
+                } else {
+                    try {
+                        const response = await fetch(docConfig.fileName);
+                        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                        rawHtml = await response.text();
+                    } catch (error) {
+                        console.warn(`No se pudo cargar de internet: ${docConfig.fileName}`);
+                        missingDocIndex = i;
+                        showUploadScreen(docConfig.fileName);
+                        return; // Se pausa el bucle, esperando la subida manual
+                    }
+                }
+                
+                // Si llegamos aquí, el HTML existe (ya sea mock o descargado)
+                processDocumentToDOM(rawHtml, docConfig);
+            }
+
+            // Si el bucle termina exitosamente, finalizamos la carga
+            finalizeLoading();
+        }
+
+        // CONTROL DE CARGA MANUAL (Cuando un archivo falla en servidor local)
         document.getElementById('upload-html').addEventListener('change', function(event) {
             const file = event.target.files[0];
-            if (!file) return;
+            if (!file || missingDocIndex === -1) return;
 
-            document.getElementById('upload-screen').classList.add('hidden');
-            document.getElementById('loading-screen').classList.remove('hidden');
+            hideUploadScreen();
+            showLoading();
 
             const reader = new FileReader();
             reader.onload = function(e) {
-                processAndRender(e.target.result);
+                const docConfig = BIBLIOTECA[missingDocIndex];
+                processDocumentToDOM(e.target.result, docConfig);
+                
+                // Reanudar la secuencia a partir del siguiente documento
+                loadDocumentsSequence(missingDocIndex + 1);
             };
             reader.readAsText(file);
         });
 
-        function processAndRender(rawHtml) {
+        document.getElementById('cancel-upload-btn').addEventListener('click', () => {
+            hideUploadScreen();
+            showLoading();
+            // Si el usuario salta el archivo, reanuda con el que siga
+            loadDocumentsSequence(missingDocIndex + 1);
+        });
+
+        // UI HELPERS
+        function showLoading() {
+            document.getElementById('upload-screen').classList.add('hidden');
+            document.getElementById('app-screen').classList.add('hidden');
+            document.getElementById('loading-screen').classList.remove('hidden');
+        }
+
+        function showUploadScreen(fileName) {
+            document.getElementById('loading-screen').classList.add('hidden');
+            document.getElementById('app-screen').classList.add('hidden');
+            document.getElementById('upload-screen').classList.remove('hidden');
+            document.getElementById('upload-filename-target').innerText = fileName;
+        }
+
+        function hideUploadScreen() {
+            document.getElementById('upload-screen').classList.add('hidden');
+        }
+
+        function finalizeLoading() {
+            buildUnifiedSidebar();
+            document.getElementById('loading-screen').classList.add('hidden');
+            document.getElementById('upload-screen').classList.add('hidden');
+            document.getElementById('app-screen').classList.remove('hidden');
+            
+            // Scroll to top
+            container.scrollTo(0,0);
+            initScrollSpy();
+        }
+
+        // PROCESAMIENTO Y RENDERIZADO DEL HTML DE CADA DOCUMENTO AL DOM UNIFICADO
+        function processDocumentToDOM(rawHtml, docConfig) {
             let cleaned = rawHtml.replace(new RegExp('<!--\\[if [^\\]]+\\]>([\\s\\S]*?)<!\\[endif\\]-->', 'gi'), '$1');
             cleaned = cleaned.replace(new RegExp('<!\\[if [^\\]]+\\]>([\\s\\S]*?)<!\\[endif\\]>', 'gi'), '$1');
             cleaned = cleaned.replace(/<o:p>&nbsp;<\/o:p>/g, ''); 
-            // --- PURGADOR DE METADATOS Y FUENTES ---
             
             const parser = new DOMParser();
             const doc = parser.parseFromString(cleaned, 'text/html');
             
+            // --- PURGADOR ---
             doc.querySelectorAll('xml').forEach(el => el.remove());
-
             doc.body.querySelectorAll('*').forEach(el => {
-                if (el.tagName.toLowerCase() === 'font') {
-                    el.removeAttribute('face');
-                }
-                // Anular atributos de justificación forzada (align="justify") ocultos en etiquetas de Word
-                if (el.hasAttribute('align') && el.getAttribute('align').toLowerCase() === 'justify') {
-                    el.removeAttribute('align');
-                }
+                if (el.tagName.toLowerCase() === 'font') el.removeAttribute('face');
+                if (el.hasAttribute('align') && el.getAttribute('align').toLowerCase() === 'justify') el.removeAttribute('align');
                 if (el.style) {
                     if (el.style.fontFamily) el.style.fontFamily = '';
                     if (el.style.lineHeight) el.style.lineHeight = '';
@@ -294,8 +392,7 @@
                 }
             });
 
-            // --- PROTECCIÓN DE TABLAS PARA MÓVILES ---
-            // Envuelve cada tabla en un div con overflow para permitir hacer "swipe" horizontal
+            // --- PROTECCIÓN DE TABLAS ---
             doc.body.querySelectorAll('table').forEach(table => {
                 const wrapper = document.createElement('div');
                 wrapper.className = 'table-wrapper w-full overflow-x-auto mb-8 rounded-lg border border-slate-200 shadow-sm bg-white';
@@ -305,7 +402,7 @@
 
             const toc = [];
             let currentChapter = null;
-            let currentContextId = 'doc'; 
+            let currentContextId = docConfig.key; 
 
             const blocks = Array.from(doc.body.querySelectorAll('p, h1, h2, h3, h4, h5, h6'));
 
@@ -325,14 +422,13 @@
                 if (capMatch) {
                     const num = capMatch[1] || capMatch[2];
                     const titleText = capMatch[3] || '';
-                    const id = 'cap-' + num;
-                    
+                    // Prefix ID con docConfig.key para evitar choques entre Capítulos 1 de documentos distintos
+                    const id = `${docConfig.key}-cap-${num}`;
                     currentContextId = id; 
 
                     el.removeAttribute('style');
                     el.id = id;
-                    el.className = 'visor-chapter-title';
-                    
+                    el.className = 'visor-chapter-title scroll-mt-20';
                     el.innerHTML = `<span class="bg-slate-900 text-white px-3.5 py-1.5 rounded shadow-sm text-sm font-bold tracking-widest uppercase flex-shrink-0 mt-0.5">CAPÍTULO ${num}</span> <span class="flex-1">${titleText}</span>`;
 
                     currentChapter = { id: id, title: `CAPÍTULO ${num}. ${titleText}`, sections: [] };
@@ -340,19 +436,18 @@
                 } 
                 else if (secMatch) {
                     if (!currentChapter) {
-                        currentChapter = { id: 'cap-0', title: 'General', sections: [] };
+                        currentChapter = { id: `${docConfig.key}-cap-0`, title: 'General', sections: [] };
                         toc.push(currentChapter);
                     }
                     const num = secMatch[1].replace(/\s*[\.\-\,]\s*/g, '.');
                     const titleText = secMatch[2] || '';
                     const depth = num.split('.').length;
-                    const id = 'sec-' + num.replace(/\./g, '-');
-                    
+                    const id = `${docConfig.key}-sec-${num.replace(/\./g, '-')}`;
                     currentContextId = id; 
 
                     el.removeAttribute('style');
                     el.id = id;
-                    el.className = `visor-section-title visor-depth-${depth}`;
+                    el.className = `visor-section-title visor-depth-${depth} scroll-mt-20`;
                     
                     let bgClass = depth === 2 ? 'bg-slate-800' : (depth === 3 ? 'bg-slate-600' : (depth === 4 ? 'bg-slate-500' : 'bg-slate-400'));
                     let sizeClass = depth === 2 ? 'text-sm px-2.5 py-1' : (depth === 3 ? 'text-sm px-2.5 py-0.5' : 'text-xs px-2 py-0.5');
@@ -364,12 +459,11 @@
                 else if (aparMatch && currentChapter) {
                     const num = aparMatch[1];
                     const titleText = aparMatch[2] || '';
-                    
-                    const id = currentContextId + '-ap-' + num; 
+                    const id = `${currentContextId}-ap-${num}`; 
                     
                     el.removeAttribute('style');
                     el.id = id;
-                    el.className = `visor-section-title visor-depth-5`;
+                    el.className = `visor-section-title visor-depth-5 scroll-mt-20`;
                     el.innerHTML = `<span class="bg-blue-50 border border-blue-200 text-blue-800 px-2 py-0.5 rounded shadow-sm text-sm flex-shrink-0 mt-0.5 font-bold">${num}.</span><span class="flex-1">${titleText}</span>`;
                     
                     currentChapter.sections.push({ id: id, title: `${num}. ${titleText}`, depth: 5, type: 'apar' });
@@ -377,106 +471,183 @@
                 else if (aparSubMatch && currentChapter) {
                     const num = aparSubMatch[1].replace(/\s*[\.\-]\s*/g, '.');
                     const titleText = aparSubMatch[2] || '';
-                    
-                    const id = currentContextId + '-ap-' + num.replace(/\./g, '-'); 
+                    const id = `${currentContextId}-ap-${num.replace(/\./g, '-')}`; 
                     
                     el.removeAttribute('style');
                     el.id = id;
-                    el.className = `visor-section-title visor-depth-6`;
+                    el.className = `visor-section-title visor-depth-6 scroll-mt-20`;
                     el.innerHTML = `<span class="bg-blue-50 border border-blue-100 text-blue-700 px-2 py-0.5 rounded shadow-sm text-xs flex-shrink-0 mt-0.5 font-bold">${num}</span><span class="flex-1">${titleText}</span>`;
                     
                     currentChapter.sections.push({ id: id, title: `${num} ${titleText}`, depth: 6, type: 'aparSub' });
                 }
             });
 
-            const container = document.getElementById('main-content');
-            
-            // PORTADA ADAPTADA PARA MÓVILES (Padding y texto fluido)
-            container.innerHTML = `
-                <div id="portada" class="mb-12 md:mb-16 pb-12 md:pb-16 border-b-2 border-slate-100 flex flex-col items-center justify-center text-center mt-4 md:mt-16">
-                    <div class="w-16 h-1 bg-blue-600 mb-6 md:mb-8 rounded-full"></div>
-                    
-                    <div class="bg-slate-50 p-6 md:p-12 rounded-2xl md:rounded-3xl border border-slate-200 shadow-sm max-w-4xl w-full mb-8 md:mb-12 flex flex-col items-center text-center mx-2 md:mx-0">
-                        <p class="text-xs md:text-base font-bold text-blue-600 tracking-widest uppercase mb-3 md:mb-4">SECRETARÍA DISTRITAL DE PLANEACIÓN</p>
-                        <h2 class="text-xl md:text-3xl font-extrabold text-slate-800 mb-4 md:mb-6">DECRETO DISTRITAL 555 DE 2021</h2>
-                        <p class="text-base md:text-xl text-slate-500 italic max-w-3xl leading-relaxed px-2 md:px-4">“Por el cual se adopta la revisión general del Plan de Ordenamiento territorial de Bogotá, D.C.”</p>
-                    </div>
+            // Almacenamos el TOC parcial en el Índice Maestro
+            masterToc.push({ config: docConfig, chapters: toc });
 
-                    <h1 class="text-xl md:text-3xl lg:text-4xl font-black text-slate-900 leading-tight mb-3 md:mb-4 tracking-tight px-4">ACTUALIZACIÓN ANEXO No. 5:</h1>
-                    <h3 class="text-sm md:text-lg font-bold text-slate-700 leading-snug max-w-4xl px-6">MANUAL DE NORMAS COMUNES A LOS TRATAMIENTOS URBANÍSTICOS</h3>
-                </div>
-            `;
-            
-            const styles = doc.head.querySelectorAll('style');
-            styles.forEach(style => container.appendChild(style.cloneNode(true)));
+            const isMain = docConfig.key === "pot";
+            let docWrapper;
+            let contentTarget;
 
-            while (doc.body.firstChild) {
-                container.appendChild(doc.body.firstChild);
+            // CREACIÓN DEL CONTENEDOR (ACORDEÓN PARA LOS ANEXOS)
+            if (isMain) {
+                docWrapper = document.createElement('div');
+                docWrapper.className = 'document-section main-document';
+                contentTarget = docWrapper;
+            } else {
+                docWrapper = document.createElement('details');
+                docWrapper.className = 'document-section appendix-document group mt-16 scroll-mt-6';
+                docWrapper.innerHTML = `
+                    <summary class="cursor-pointer bg-slate-50 p-6 md:p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col md:flex-row items-center justify-between hover:bg-slate-100 transition-all list-none outline-none">
+                        <div class="flex items-center gap-4 text-left w-full md:w-auto pr-4">
+                            <div class="bg-blue-100 text-blue-600 p-3 rounded-xl flex-shrink-0">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                            </div>
+                            <div>
+                                <h2 class="text-xl md:text-2xl font-bold text-slate-800 leading-tight">${docConfig.label}</h2>
+                                <p class="text-sm text-slate-500 mt-1">Haz clic para expandir y visualizar el contenido completo de este anexo.</p>
+                            </div>
+                        </div>
+                        <div class="mt-4 md:mt-0 text-slate-400 group-open:rotate-180 transition-transform duration-300 flex-shrink-0 self-end md:self-auto">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </summary>
+                    <div class="appendix-content mt-8 border-t-[3px] border-slate-100 pt-8"></div>
+                `;
+                contentTarget = docWrapper.querySelector('.appendix-content');
             }
 
-            buildSidebar(toc);
+            // CONSTRUIR Y AÑADIR PORTADA AL CONTENEDOR ESPECÍFICO
+            const portadaDiv = document.createElement('div');
+            const topMargin = isMain ? "mt-4 md:mt-16" : "mt-2";
+            
+            portadaDiv.className = `mb-12 md:mb-16 pb-12 md:pb-16 border-b-2 border-slate-100 flex flex-col items-center justify-center text-center ${topMargin}`;
+            portadaDiv.innerHTML = `
+                <div class="w-16 h-1 ${isMain ? 'bg-blue-600' : 'bg-slate-400'} mb-6 md:mb-8 rounded-full"></div>
+                
+                <div class="bg-slate-50 p-6 md:p-12 rounded-2xl md:rounded-3xl border border-slate-200 shadow-sm max-w-4xl w-full mb-8 md:mb-12 flex flex-col items-center text-center mx-2 md:mx-0">
+                    <p class="text-xs md:text-base font-bold ${isMain ? 'text-blue-600' : 'text-slate-500'} tracking-widest uppercase mb-3 md:mb-4">${docConfig.portada.entidad}</p>
+                    <h2 class="text-xl md:text-3xl font-extrabold text-slate-800 mb-4 md:mb-6">${docConfig.portada.decreto}</h2>
+                    <p class="text-base md:text-xl text-slate-500 italic max-w-3xl leading-relaxed px-2 md:px-4">${docConfig.portada.subtitulo}</p>
+                </div>
 
-            document.getElementById('loading-screen').classList.add('hidden');
-            document.getElementById('app-screen').classList.remove('hidden');
+                <h1 class="text-xl md:text-3xl ${isMain ? 'lg:text-4xl' : 'lg:text-3xl text-slate-700'} font-black text-slate-900 leading-tight mb-3 md:mb-4 tracking-tight px-4">${docConfig.portada.tituloPrincipal}</h1>
+                <h3 class="text-sm md:text-lg font-bold text-slate-600 leading-snug max-w-4xl px-6">${docConfig.portada.tituloSecundario}</h3>
+            `;
+            
+            contentTarget.appendChild(portadaDiv);
 
-            initScrollSpy();
+            // Añadir Estilos y el Contenido de Word
+            const styles = doc.head.querySelectorAll('style');
+            styles.forEach(style => contentTarget.appendChild(style.cloneNode(true)));
+            
+            while (doc.body.firstChild) {
+                contentTarget.appendChild(doc.body.firstChild);
+            }
+
+            // Inyectar todo al DOM principal
+            container.appendChild(docWrapper);
         }
 
-        function buildSidebar(tocData) {
-            const container = document.getElementById('sidebar-content');
-            container.innerHTML = '';
+        // CONSTRUCTOR DE BARRA LATERAL UNIFICADA
+        function buildUnifiedSidebar() {
+            const sidebarContainer = document.getElementById('sidebar-content');
+            sidebarContainer.innerHTML = '';
 
-            if (tocData.length === 0) {
-                container.innerHTML = '<p class="text-sm text-slate-500 p-4">No se detectaron capítulos. Revisa el formato del documento.</p>';
+            if (masterToc.length === 0) {
+                sidebarContainer.innerHTML = '<p class="text-sm text-slate-500 p-4">No se detectó contenido estructural válido.</p>';
                 return;
             }
 
-            tocData.forEach((chapter, index) => {
-                const details = document.createElement('details');
-                if (index === 0) details.open = true;
+            masterToc.forEach((docToc, docIndex) => {
+                const isMain = docToc.config.key === "pot";
+                let targetContainer = sidebarContainer;
 
-                const summary = document.createElement('summary');
-                // Títulos de capítulo en el menú un poco más grandes para facilitar el tacto
-                summary.className = 'chapter-summary font-bold text-slate-800 py-3 md:py-3 px-3 hover:bg-slate-100 transition-colors rounded-lg text-[15px] md:text-sm tracking-tight mb-1';
-                
-                summary.innerHTML = `<a href="#${chapter.id}" class="nav-link text-current visited:text-current flex-1" onclick="event.stopPropagation();">${chapter.title}</a><span class="icon text-slate-400">▶</span>`;
-                
-                const list = document.createElement('div');
-                list.className = 'section-list pl-1 mt-1 mb-3';
-
-                chapter.sections.forEach(sec => {
-                    const link = document.createElement('a');
-                    link.href = `#${sec.id}`;
+                // Para el documento principal, se pone un título fijo. 
+                // Para los Anexos, se crea una sección colapsable (details)
+                if (isMain) {
+                    const groupHeader = document.createElement('div');
+                    groupHeader.className = "px-3 pt-6 pb-2 mt-2 text-[11px] font-black text-slate-400 uppercase tracking-widest border-b border-slate-200 sticky top-0 bg-slate-50/95 backdrop-blur z-10 shadow-sm";
+                    groupHeader.textContent = docToc.config.label;
+                    sidebarContainer.appendChild(groupHeader);
+                } else {
+                    const docDetails = document.createElement('details');
+                    docDetails.className = 'mt-6 mb-2 border border-slate-200 rounded-xl bg-white shadow-sm overflow-hidden group/doc';
                     
-                    let padding, size, border, color, hover;
+                    const docSummary = document.createElement('summary');
+                    docSummary.className = 'chapter-summary font-bold text-slate-700 py-3.5 px-3 hover:bg-slate-50 transition-colors text-[11px] tracking-tight cursor-pointer flex items-center justify-between list-none outline-none';
+                    docSummary.innerHTML = `
+                        <span class="flex-1 flex items-center gap-2 leading-tight pr-2">
+                            <svg class="w-4 h-4 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                            ${docToc.config.label}
+                        </span>
+                        <span class="icon text-slate-400 text-xs transition-transform duration-200">▶</span>
+                    `;
+                    
+                    docDetails.appendChild(docSummary);
+                    
+                    const innerContainer = document.createElement('div');
+                    innerContainer.className = 'section-list bg-slate-50/50 p-2 border-t border-slate-100';
+                    
+                    docDetails.appendChild(innerContainer);
+                    sidebarContainer.appendChild(docDetails);
+                    
+                    targetContainer = innerContainer;
+                }
 
-                    if (sec.type === 'sec') {
-                        padding = sec.depth === 2 ? 'pl-4' : (sec.depth === 3 ? 'pl-8' : (sec.depth === 4 ? 'pl-11' : 'pl-14'));
-                        size = sec.depth === 2 ? 'text-[14px] md:text-[13px] font-semibold' : (sec.depth === 3 ? 'text-[13px] md:text-xs font-medium' : 'text-[12px] md:text-[11px]');
-                        border = sec.depth === 2 ? 'border-l-2 border-transparent hover:border-blue-500' : 'border-l border-slate-200 hover:border-slate-300';
-                        color = sec.depth === 2 ? 'text-slate-700 visited:text-slate-700' : 'text-slate-500 visited:text-slate-500';
-                        hover = 'hover:text-blue-700 hover:bg-slate-100/50';
-                    } else {
-                        padding = sec.type === 'apar' ? 'pl-14' : 'pl-16';
-                        size = 'text-[12px] md:text-[11px] font-medium tracking-wide';
-                        border = 'border-l border-blue-100';
-                        color = 'text-blue-600 visited:text-blue-600';
-                        hover = 'hover:text-blue-800 hover:bg-blue-50/50';
-                    }
+                if (docToc.chapters.length === 0) {
+                    const empty = document.createElement('p');
+                    empty.className = "text-xs text-slate-400 italic px-3 py-4";
+                    empty.textContent = "Sin capítulos detectados";
+                    targetContainer.appendChild(empty);
+                    return;
+                }
 
-                    // Aumento del padding Y (py-2.5) en móviles para evitar que los dedos se equivoquen de link
-                    link.className = `nav-link block py-2.5 md:py-2 pr-2 ${padding} ${size} ${color} ${border} ${hover} rounded-r-md transition-colors leading-tight`;
-                    link.textContent = sec.title;
-                    list.appendChild(link);
+                docToc.chapters.forEach((chapter, index) => {
+                    const details = document.createElement('details');
+                    // Dejamos abierto solo el primer capítulo del POT Principal
+                    if (isMain && index === 0) details.open = true;
+
+                    const summary = document.createElement('summary');
+                    summary.className = 'chapter-summary font-bold text-slate-800 py-3 md:py-3 px-3 hover:bg-slate-100 transition-colors rounded-lg text-[15px] md:text-sm tracking-tight mb-1';
+                    summary.innerHTML = `<a href="#${chapter.id}" class="nav-link text-current visited:text-current flex-1" onclick="event.stopPropagation();">${chapter.title}</a><span class="icon text-slate-400">▶</span>`;
+                    
+                    const list = document.createElement('div');
+                    list.className = 'section-list pl-1 mt-1 mb-3';
+
+                    chapter.sections.forEach(sec => {
+                        const link = document.createElement('a');
+                        link.href = `#${sec.id}`;
+                        
+                        let padding, size, border, color, hover;
+
+                        if (sec.type === 'sec') {
+                            padding = sec.depth === 2 ? 'pl-4' : (sec.depth === 3 ? 'pl-8' : (sec.depth === 4 ? 'pl-11' : 'pl-14'));
+                            size = sec.depth === 2 ? 'text-[14px] md:text-[13px] font-semibold' : (sec.depth === 3 ? 'text-[13px] md:text-xs font-medium' : 'text-[12px] md:text-[11px]');
+                            border = sec.depth === 2 ? 'border-l-2 border-transparent hover:border-blue-500' : 'border-l border-slate-200 hover:border-slate-300';
+                            color = sec.depth === 2 ? 'text-slate-700 visited:text-slate-700' : 'text-slate-500 visited:text-slate-500';
+                            hover = 'hover:text-blue-700 hover:bg-slate-100/50';
+                        } else {
+                            padding = sec.type === 'apar' ? 'pl-14' : 'pl-16';
+                            size = 'text-[12px] md:text-[11px] font-medium tracking-wide';
+                            border = 'border-l border-blue-100';
+                            color = 'text-blue-600 visited:text-blue-600';
+                            hover = 'hover:text-blue-800 hover:bg-blue-50/50';
+                        }
+
+                        link.className = `nav-link block py-2.5 md:py-2 pr-2 ${padding} ${size} ${color} ${border} ${hover} rounded-r-md transition-colors leading-tight`;
+                        link.textContent = sec.title;
+                        list.appendChild(link);
+                    });
+
+                    details.appendChild(summary);
+                    details.appendChild(list);
+                    targetContainer.appendChild(details);
                 });
-
-                details.appendChild(summary);
-                details.appendChild(list);
-                container.appendChild(details);
             });
         }
 
-        // CONTROLADORES DE INTERFAZ MÓVIL
+        // CONTROLADORES DE INTERFAZ
         const sidebar = document.getElementById('sidebar');
         const overlay = document.getElementById('sidebar-overlay');
         const menuBtn = document.getElementById('menu-btn');
@@ -502,15 +673,23 @@
                 const contentPane = document.getElementById('content-pane');
                 
                 if (targetEl && contentPane) {
+                    // Lógica para abrir el anexo en caso de que esté cerrado
+                    const contentDetails = targetEl.closest('details.appendix-document');
+                    if (contentDetails && !contentDetails.open) {
+                        contentDetails.open = true;
+                    }
+
+                    // Calculo inmediato del Scroll
                     const paneTop = contentPane.getBoundingClientRect().top;
                     const targetTop = targetEl.getBoundingClientRect().top;
-                    const offset = targetTop - paneTop + contentPane.scrollTop - 40; 
+                    const offset = targetTop - paneTop + contentPane.scrollTop - 80; 
                     
                     contentPane.scrollTo({ top: offset, behavior: 'smooth' });
                 }
             }
         });
 
+        // BUSCADOR UNIFICADO MANTIENE LAS CATEGORÍAS
         document.getElementById('search').addEventListener('input', (e) => {
             const term = e.target.value.toLowerCase();
             document.querySelectorAll('.nav-link').forEach(link => {
@@ -520,7 +699,8 @@
             if (term !== '') document.querySelectorAll('details').forEach(d => d.open = true);
         });
 
-        // SCROLL SPY
+        // SCROLL SPY ADAPTADO A MÚLTIPLES DOCUMENTOS E IGNORANDO LOS CERRADOS
+        let scrollSpyTimer;
         function initScrollSpy() {
             const contentPane = document.getElementById('content-pane');
             const headings = Array.from(document.querySelectorAll('.visor-chapter-title, .visor-section-title'));
@@ -531,26 +711,32 @@
             let debounceTimer;
             let lastActiveId = null; 
             
-            contentPane.addEventListener('scroll', () => {
+            const newContentPane = contentPane.cloneNode(true);
+            contentPane.parentNode.replaceChild(newContentPane, contentPane);
+            
+            newContentPane.addEventListener('scroll', () => {
                 if (debounceTimer) clearTimeout(debounceTimer);
                 
                 debounceTimer = setTimeout(() => {
-                    let currentActiveId = headings[0].id;
-                    const paneTop = contentPane.getBoundingClientRect().top;
+                    let currentActiveId = null;
+                    const paneTop = newContentPane.getBoundingClientRect().top;
 
                     for (let i = 0; i < headings.length; i++) {
+                        // Ignorar los headings que están ocultos dentro de un Anexo Cerrado
+                        if (headings[i].offsetParent === null) continue;
+
                         const rect = headings[i].getBoundingClientRect();
-                        if (rect.top - paneTop <= 150) { 
+                        if (rect.top - paneTop <= 250) { 
                             currentActiveId = headings[i].id;
                         } else {
                             break;
                         }
                     }
 
-                    if (currentActiveId === lastActiveId) return;
+                    if (currentActiveId === lastActiveId || !currentActiveId) return;
                     lastActiveId = currentActiveId;
 
-                    navLinks.forEach(link => {
+                    document.querySelectorAll('.nav-link').forEach(link => {
                         const isActive = link.getAttribute('href') === `#${currentActiveId}`;
                         link.classList.toggle('active', isActive);
                         
@@ -573,7 +759,7 @@
                 }, 50);
             });
             
-            contentPane.dispatchEvent(new Event('scroll'));
+            newContentPane.dispatchEvent(new Event('scroll'));
         }
     </script>
 </body>
