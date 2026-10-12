@@ -186,10 +186,6 @@
         .header-books .libro-filter-pill:hover { color: #263442; border-bottom-color: #a8b0b6; }
         .header-books .libro-filter-pill.active { color: #263442; font-weight: 700; border-bottom-color: #263442; }
         .site-header button:focus-visible, .site-header a:focus-visible { outline: 2px solid #263442; outline-offset: 4px; }
-        .annex-filter { padding: 12px 14px; border-bottom: 1px solid #e2e8f0; color: #475569; font: 12px/1.5 Arial, sans-serif; }
-        .annex-filter label { display: flex; align-items: flex-start; gap: 8px; cursor: pointer; }
-        .annex-filter input { margin-top: 3px; accent-color: #263442; }
-        .annex-filter p { margin: 5px 0 0 21px; font-size: 11px; color: #64748b; }
         @media (max-width: 1100px) {
             .header-main { grid-template-columns: minmax(0, 1fr) minmax(180px, 340px) minmax(0, 1fr); gap: 20px; }
             .header-actions { gap: 12px; }
@@ -301,11 +297,6 @@
                 </button>
             </div>
 
-            <div class="annex-filter">
-                <label for="filter-anexo5-btn"><input type="checkbox" id="filter-anexo5-btn"><span>Solo menciones al Manual / Anexo 5</span></label>
-                <p>16 artículos identificados por coincidencia de texto.</p>
-            </div>
-
             <!-- Lista de Artículos -->
             <div id="articles-nav-list" class="flex-1 overflow-y-auto divide-y divide-slate-100">
                 <div class="p-8 text-center text-slate-400 text-sm">
@@ -402,7 +393,6 @@
         let potArticlesMap = {};    // Mapa completo cacheado: id -> art
         let activeFilterLibro = 'all';
         let searchQuery = '';
-        let onlyAnexo5 = false;
         let fullDatabase = null;    // decreto_555_completo.json
 
         // INICIALIZACIÓN
@@ -449,7 +439,6 @@
             container.innerHTML = '';
 
             const filtered = items.filter(item => {
-                if (onlyAnexo5 && !item.menciona_anexo_5) return false;
                 if (activeFilterLibro !== 'all') {
                     // Match con el libro correspondiente
                     const libroMap = {
@@ -529,7 +518,6 @@
 
             // Filtrar artículos a renderizar según los filtros activos
             const filtered = fullDatabase.filter(art => {
-                if (onlyAnexo5 && !art.menciona_anexo_5) return false;
                 if (activeFilterLibro !== 'all') {
                     if (art.jerarquia.libro_id !== activeFilterLibro) return false;
                 }
@@ -644,9 +632,8 @@
             let el = document.getElementById(targetId);
             if (!el) {
                 // Si hay filtros que ocultan el artículo, resetear filtros para mostrarlo
-                if (activeFilterLibro !== 'all' || onlyAnexo5 || searchQuery) {
+                if (activeFilterLibro !== 'all' || searchQuery) {
                     activeFilterLibro = 'all';
-                    onlyAnexo5 = false;
                     searchQuery = '';
                     document.getElementById('global-search').value = '';
                     document.querySelectorAll('.libro-filter-pill').forEach(b => {
@@ -656,7 +643,6 @@
                     document.querySelector('.libro-filter-pill[data-libro="all"]').classList.add('active');
                     document.querySelector('.libro-filter-pill[data-libro="all"]').setAttribute('aria-pressed', 'true');
                     document.getElementById('clear-search-btn').classList.add('hidden');
-                    document.getElementById('filter-anexo5-btn').checked = false;
                     renderSidebar(potIndex);
                 }
 
@@ -864,10 +850,8 @@
                     activeFilterLibro = pill.dataset.libro;
                     // Cada Libro (o Todos) abre su contenido completo.
                     searchQuery = '';
-                    onlyAnexo5 = false;
                     searchInput.value = '';
                     clearBtn.classList.add('hidden');
-                    anexoBtn.checked = false;
                     renderSidebar(potIndex);
                     renderArticles();
                     document.getElementById('content-pane').scrollTop = 0;
@@ -878,14 +862,6 @@
                         highlightSidebarItem(firstArticle.id);
                     }
                 });
-            });
-
-            // Filtro Anexo 5
-            const anexoBtn = document.getElementById('filter-anexo5-btn');
-            anexoBtn.addEventListener('change', () => {
-                onlyAnexo5 = anexoBtn.checked;
-                renderSidebar(potIndex);
-                renderArticles();
             });
 
             // Botón Anterior / Siguiente en barra sticky
