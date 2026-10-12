@@ -328,13 +328,7 @@
                     <!-- Se inyectan aquí con JavaScript -->
                 </div>
 
-                <!-- Paginación / Cargar más -->
-                <div id="load-more-container" class="py-6 text-center">
-                    <button id="load-more-btn" class="px-6 py-2.5 bg-white hover:bg-slate-50 text-slate-700 border border-slate-300 font-semibold text-sm rounded-xl shadow-sm transition-all inline-flex items-center gap-2">
-                        <span>Cargar más artículos</span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                </div>
+
 
             </div>
         </main>
@@ -377,9 +371,6 @@
         let activeFilterLibro = 'all';
         let searchQuery = '';
         let onlyAnexo5 = false;
-        let renderedArticleIds = new Set();
-        let currentLoadedIndex = 0;
-        const CHUNK_SIZE = 25;      // Renderiza de a 25 artículos para mantener 60 FPS
         let fullDatabase = null;    // decreto_555_completo.json
 
         // INICIALIZACIÓN
@@ -406,8 +397,8 @@
                     potArticlesMap[art.numero] = art;
                 });
 
-                // Renderizar lote inicial
-                renderArticlesBatch(true);
+                // Mostrar todos los artículos de la selección
+                renderArticles();
 
             } catch (err) {
                 console.error("Error cargando base del POT:", err);
@@ -497,16 +488,12 @@
             container.appendChild(fragment);
         }
 
-        // RENDERIZADO POR LOTES DE ARTÍCULOS EN EL CONTENEDOR
-        function renderArticlesBatch(reset = false, batchSize = CHUNK_SIZE) {
+        // RENDERIZADO COMPLETO DE LOS ARTÍCULOS SELECCIONADOS
+        function renderArticles() {
             if (!fullDatabase) return;
 
             const feed = document.getElementById('articles-feed');
-            if (reset) {
-                feed.innerHTML = '';
-                renderedArticleIds.clear();
-                currentLoadedIndex = 0;
-            }
+            feed.innerHTML = '';
 
             // Filtrar artículos a renderizar según los filtros activos
             const filtered = fullDatabase.filter(art => {
@@ -524,28 +511,9 @@
                 return true;
             });
 
-            const nextBatch = filtered.slice(currentLoadedIndex, currentLoadedIndex + batchSize);
-            currentLoadedIndex += nextBatch.length;
-
             const fragment = document.createDocumentFragment();
-
-            nextBatch.forEach(art => {
-                if (renderedArticleIds.has(art.id)) return;
-                renderedArticleIds.add(art.id);
-
-                const card = createArticleCard(art);
-                fragment.appendChild(card);
-            });
-
+            filtered.forEach(art => fragment.appendChild(createArticleCard(art)));
             feed.appendChild(fragment);
-
-            // Control botón "Cargar más"
-            const loadMoreBtn = document.getElementById('load-more-btn');
-            if (currentLoadedIndex >= filtered.length) {
-                loadMoreBtn.classList.add('hidden');
-            } else {
-                loadMoreBtn.classList.remove('hidden');
-            }
 
             // Configurar interactividad de chips dentro de los artículos recién insertados
             attachChipEvents();
@@ -659,7 +627,7 @@
                 // Renderizar hasta incluir el artículo
                 const targetIndex = fullDatabase.findIndex(a => a.numero === artNum);
                 if (targetIndex !== -1) {
-                    renderArticlesBatch(true, Math.max(CHUNK_SIZE, targetIndex + 1));
+                    renderArticles();
                     el = document.getElementById(targetId);
                 }
             }
@@ -796,7 +764,7 @@
                     searchQuery = e.target.value.trim();
                     clearBtn.classList.toggle('hidden', searchQuery === '');
                     renderSidebar(potIndex);
-                    renderArticlesBatch(true);
+                    renderArticles();
                 }, 250);
             });
 
@@ -805,7 +773,7 @@
                 searchQuery = '';
                 clearBtn.classList.add('hidden');
                 renderSidebar(potIndex);
-                renderArticlesBatch(true);
+                renderArticles();
             });
 
             // Filtros por Libro (Pills)
@@ -818,9 +786,23 @@
                     pill.classList.add('active', 'bg-sky-600', 'text-white');
                     pill.classList.remove('bg-slate-800', 'text-slate-300');
 
+                    clearTimeout(searchDebounce);
                     activeFilterLibro = pill.dataset.libro;
+                    // Cada Libro (o Todos) abre su contenido completo.
+                    searchQuery = '';
+                    onlyAnexo5 = false;
+                    searchInput.value = '';
+                    clearBtn.classList.add('hidden');
+                    anexoBtn.classList.remove('bg-amber-500', 'text-slate-900');
                     renderSidebar(potIndex);
-                    renderArticlesBatch(true);
+                    renderArticles();
+                    document.getElementById('content-pane').scrollTop = 0;
+                    const firstArticle = fullDatabase?.find(art =>
+                        activeFilterLibro === 'all' || art.jerarquia.libro_id === activeFilterLibro);
+                    if (firstArticle) {
+                        updateBreadcrumbs(firstArticle.numero);
+                        highlightSidebarItem(firstArticle.id);
+                    }
                 });
             });
 
@@ -831,12 +813,7 @@
                 anexoBtn.classList.toggle('bg-amber-500', onlyAnexo5);
                 anexoBtn.classList.toggle('text-slate-900', onlyAnexo5);
                 renderSidebar(potIndex);
-                renderArticlesBatch(true);
-            });
-
-            // Botón Cargar Más
-            document.getElementById('load-more-btn').addEventListener('click', () => {
-                renderArticlesBatch(false);
+                renderArticles();
             });
 
             // Botón Anterior / Siguiente en barra sticky
