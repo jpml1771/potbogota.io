@@ -733,12 +733,39 @@
         }
 
         function highlightSidebarItem(targetId) {
-            document.querySelectorAll('.art-nav-item').forEach(item => item.classList.remove('active'));
             const activeNav = document.getElementById(`nav-${targetId}`);
-            if (activeNav) {
-                activeNav.classList.add('active');
-                activeNav.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            if (!activeNav || activeNav.classList.contains('active')) return;
+
+            document.querySelectorAll('.art-nav-item.active').forEach(item => item.classList.remove('active'));
+            activeNav.classList.add('active');
+
+            // Desplazar solamente la lista lateral, sin mover el contenido principal.
+            const navList = document.getElementById('articles-nav-list');
+            const listRect = navList.getBoundingClientRect();
+            const itemRect = activeNav.getBoundingClientRect();
+            const padding = 12;
+            if (itemRect.top < listRect.top + padding) {
+                navList.scrollBy({ top: itemRect.top - listRect.top - padding, behavior: 'smooth' });
+            } else if (itemRect.bottom > listRect.bottom - padding) {
+                navList.scrollBy({ top: itemRect.bottom - listRect.bottom + padding, behavior: 'smooth' });
             }
+        }
+
+        // El artículo activo es el que cruza la línea de lectura bajo la barra fija.
+        function syncNavigationToScroll() {
+            const cards = document.querySelectorAll('.pot-article-card');
+            if (!cards.length) return;
+            const pane = document.getElementById('content-pane');
+            const bar = document.getElementById('sticky-breadcrumb-bar');
+            const readingLine = Math.max(pane.getBoundingClientRect().top,
+                bar.getBoundingClientRect().bottom) + 24;
+            let current = cards[0];
+            for (const card of cards) {
+                if (card.getBoundingClientRect().top > readingLine) break;
+                current = card;
+            }
+            updateBreadcrumbs(Number(current.dataset.numero));
+            highlightSidebarItem(current.id);
         }
 
         // ROUTING INICIAL POR HASH
@@ -861,26 +888,18 @@
                 if (e.target.id === 'preview-modal') closeQuickPreview();
             });
 
-            // ScrollSpy para actualizar breadcrumbs al desplazarse
+            // Seguir la lectura incluso dentro de artículos extensos.
             const contentPane = document.getElementById('content-pane');
-            let scrollSpyTimer;
+            let scrollSpyFrame = null;
             contentPane.addEventListener('scroll', () => {
-                clearTimeout(scrollSpyTimer);
-                scrollSpyTimer = setTimeout(() => {
-                    const cards = document.querySelectorAll('.pot-article-card');
-                    const paneTop = contentPane.getBoundingClientRect().top;
-                    
-                    for (let i = 0; i < cards.length; i++) {
-                        const rect = cards[i].getBoundingClientRect();
-                        if (rect.top - paneTop >= -100 && rect.top - paneTop <= 250) {
-                            const num = parseInt(cards[i].dataset.numero, 10);
-                            updateBreadcrumbs(num);
-                            highlightSidebarItem(cards[i].id);
-                            break;
-                        }
-                    }
-                }, 100);
-            });
+                if (scrollSpyFrame !== null) return;
+                scrollSpyFrame = requestAnimationFrame(() => {
+                    scrollSpyFrame = null;
+                    syncNavigationToScroll();
+                });
+            }, { passive: true });
+            window.addEventListener('resize', syncNavigationToScroll);
+
         }
 
         function toggleMobileSidebar(show) {
