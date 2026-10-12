@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>POT Bogotá Digital - Decreto Distrital 555 de 2021</title>
     
-    <!-- Fuente Cormorant Garamond de Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
-    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -17,8 +12,8 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['"Cormorant Garamond"', 'Garamond', 'Georgia', 'serif'],
-                        serif: ['"Cormorant Garamond"', 'Garamond', 'Georgia', 'serif'],
+                        sans: ['Arial', 'Helvetica', 'sans-serif'],
+                        serif: ['Georgia', '"Times New Roman"', 'serif'],
                     },
                     colors: {
                         pot: {
@@ -43,12 +38,26 @@
     <style>
         html, body { 
             overflow: hidden; 
-            font-family: 'Cormorant Garamond', Garamond, Georgia, serif; 
+            font-family: Arial, Helvetica, sans-serif; 
             font-size: 17px;
             scroll-behavior: smooth; 
             -webkit-font-smoothing: antialiased;
         }
         
+
+        :root { --article-font-size: 18px; }
+        .article-content, #preview-body {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: var(--article-font-size);
+            line-height: 1.65;
+        }
+        .article-content p, #preview-body p { line-height: inherit; }
+        .pot-article-card h2, #preview-title {
+            font-family: Georgia, 'Times New Roman', serif;
+        }
+        .pot-table { font-family: Arial, Helvetica, sans-serif; font-size: 16px; }
+        .art-nav-item > div:last-child { font-size: 15px; line-height: 1.4; }
+
         /* Scrollbars refinadas estilo NYC Planning */
         #sidebar-nav::-webkit-scrollbar, #content-pane::-webkit-scrollbar, .table-wrapper::-webkit-scrollbar { 
             width: 6px; 
@@ -863,17 +872,17 @@
             });
 
             // Tamaño de letra A+ / A-
-            let currentFontSize = 15;
+            let currentFontSize = 18;
             document.getElementById('font-increase').addEventListener('click', () => {
-                if (currentFontSize < 20) {
+                if (currentFontSize < 24) {
                     currentFontSize += 1;
-                    document.querySelectorAll('.article-content').forEach(el => el.style.fontSize = `${currentFontSize}px`);
+                    document.documentElement.style.setProperty('--article-font-size', `${currentFontSize}px`);
                 }
             });
             document.getElementById('font-decrease').addEventListener('click', () => {
-                if (currentFontSize > 13) {
+                if (currentFontSize > 16) {
                     currentFontSize -= 1;
-                    document.querySelectorAll('.article-content').forEach(el => el.style.fontSize = `${currentFontSize}px`);
+                    document.documentElement.style.setProperty('--article-font-size', `${currentFontSize}px`);
                 }
             });
 
