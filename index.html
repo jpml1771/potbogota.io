@@ -180,8 +180,6 @@
         .header-actions a { font-size: 12px; line-height: 1.5; text-decoration: none; }
         .header-actions a span { display: block; color: #626b73; }
         .header-actions a:hover { text-decoration: underline; text-underline-offset: 3px; }
-        .header-type-controls { display: flex; gap: 4px; border-left: 1px solid #d5d9dd; padding-left: 16px; }
-        .header-type-controls button { padding: 8px; font-size: 14px; }
         .header-menu { padding: 8px 0; }
         .header-books { display: flex; overflow-x: auto; gap: 24px; padding: 0 32px; }
         .header-books .libro-filter-pill { flex-shrink: 0; background: transparent; color: #626b73; border: 0; border-bottom: 2px solid transparent; border-radius: 0; padding: 12px 0 11px; font: 13px/1.4 Arial, sans-serif; white-space: nowrap; }
@@ -203,7 +201,6 @@
             .header-subtitle { font-size: 11px; }
             .header-actions { margin-left: auto; }
             .header-actions a { font-size: 11px; }
-            .header-type-controls { display: none; }
             .header-search { flex-basis: 100%; max-width: none; order: 3; }
             .header-books { padding: 0 16px; gap: 22px; }
         }
@@ -249,10 +246,6 @@
             </div>
             <div class="header-actions">
                 <a href="BK/anexo5_visor_previo/index_anexo5.html" target="_blank" rel="noopener" title="Abrir el Manual de Normas Comunes a los Tratamientos Urbanísticos en otra pestaña">Manual de normas comunes <span>· Anexo 5 ↗</span></a>
-                <div class="header-type-controls" role="group" aria-label="Tamaño del texto">
-                    <button id="font-decrease" title="Reducir tamaño de letra" aria-label="Reducir tamaño de letra">A−</button>
-                    <button id="font-increase" title="Aumentar tamaño de letra" aria-label="Aumentar tamaño de letra">A+</button>
-                </div>
             </div>
         </div>
         <nav id="libro-pills-bar" class="header-books" aria-label="Libros del POT">
@@ -878,21 +871,6 @@
                 if (match) {
                     const curNum = parseInt(match[0], 10);
                     if (curNum < 608) navigateToArticle(curNum + 1);
-                }
-            });
-
-            // Tamaño de letra A+ / A-
-            let currentFontSize = 18;
-            document.getElementById('font-increase').addEventListener('click', () => {
-                if (currentFontSize < 24) {
-                    currentFontSize += 1;
-                    document.documentElement.style.setProperty('--article-font-size', `${currentFontSize}px`);
-                }
-            });
-            document.getElementById('font-decrease').addEventListener('click', () => {
-                if (currentFontSize > 16) {
-                    currentFontSize -= 1;
-                    document.documentElement.style.setProperty('--article-font-size', `${currentFontSize}px`);
                 }
             });
 
