@@ -1,318 +1,183 @@
-"""
-Extractor y normalizador completo del Decreto Distrital 555 de 2021 (POT de Bogotá)
-Desde la versión oficial de SISJUR (Secretaría Jurídica Distrital)
-Genera:
-  - data/decreto_555_completo.json (Los 608 artículos con texto limpio, tablas, notas y citas)
-  - data/decreto_555_indice.json (Índice ligero para búsqueda instantánea en cliente)
-  - data/decreto_555_arbol.json (Estructura jerárquica Libros > Títulos > Capítulos > Artículos)
-"""
+"""Restore the official POT hierarchy while preserving existing article wording.
 
-import os
-import re
+python extract_pot_decreto_555.py --source sisjur_pot_555.html
+python extract_pot_decreto_555.py --download
+"""
+import argparse
+from collections import Counter
+from datetime import datetime, timezone
+import hashlib
 import json
-import html as html_lib
+from pathlib import Path
+import re
+from urllib.request import urlopen
+from lxml import html
+
+SOURCE_URL = "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=119582"
+LEVELS = ("libro", "titulo", "capitulo", "subcapitulo", "seccion", "subseccion")
+LABEL_LEVEL = dict(zip(("LIBRO", "TÍTULO", "CAPÍTULO", "SUBCAPÍTULO", "SECCIÓN", "SUBSECCIÓN"), LEVELS))
+BLOCK_TAGS = {"p", "h1", "h2", "h3", "h4", "h5", "h6"}
+HEADING = re.compile(r"^(LIBRO|TÍTULO|CAPÍTULO|SUBCAPÍTULO|SECCIÓN|SUBSECCIÓN)\s+(ÚNICO|\d+|[IVXLCDM]+)(?:\s*\(sic\))?", re.I)
+ARTICLE = re.compile(r"^Art[íi]culo\s*(\d+)([A-Z]?)\s*[.:\-)]", re.I)
+
+
+def clean_text(element):
+    return " ".join(element.text_content().split())
+
+
+def parse_structure(source):
+    """Read real heading blocks, never character windows around HTML anchors."""
+    document = html.fromstring(source)
+    blocks = document.xpath("//p|//h1|//h2|//h3|//h4|//h5|//h6")
+    positions = {block: i for i, block in enumerate(blocks)}
+    heading_blocks, aliases, warnings = {}, {}, []
+    for anchor in document.xpath('//span[contains(concat(" ", normalize-space(@class), " "), " ancla ")]'):
+        source_id = anchor.get("id", "")
+        if not re.match(r"^L\.\d+(?:\.|$)", source_id):
+            continue
+        block = anchor.getparent()
+        while block is not None and block.tag not in BLOCK_TAGS:
+            block = block.getparent()
+        if block is None:
+            raise ValueError(f"No heading block for {source_id}")
+        i = positions[block]
+        while not clean_text(block):
+            i += 1
+            if i >= len(blocks):
+                raise ValueError(f"Empty heading at {source_id}")
+            block = blocks[i]
+        label_text = re.sub(r"^[a-z]\.\s*", "", clean_text(block), flags=re.I)
+        label_text = re.sub(r"^L\s+IBRO", "LIBRO", label_text, flags=re.I)
+        match = HEADING.match(label_text)
+        if not match:
+            raise ValueError(f"Unrecognized heading {source_id}: {label_text!r}")
+        label, level = match.group(0), LABEL_LEVEL[match.group(1).upper()]
+        if block in heading_blocks:
+            canonical = heading_blocks[block]
+            aliases[source_id] = canonical["id"]
+            canonical["aliases"].append(source_id)
+            continue
+        title = label_text[match.end():].strip(" .")
+        if not title:
+            for following in blocks[i + 1:]:
+                text = clean_text(following)
+                if not text:
+                    continue
+                if HEADING.match(text) or ARTICLE.match(text) or text.lower().startswith("ver "):
+                    raise ValueError(f"Missing heading title at {source_id}")
+                title = re.sub(r"^[a-z]\.\s*", "", text, flags=re.I)
+                break
+        if not title or "<" in title or "style=" in title:
+            raise ValueError(f"Invalid title for {source_id}: {title!r}")
+        heading_blocks[block] = {"id": source_id, "tipo": level, "etiqueta": label,
+            "titulo": title, "nombre": f"{label} — {title}", "aliases": [],
+            "children": [], "articulos": [], "position": i}
+
+    article_positions, expected = [], 1
+    for i, block in enumerate(blocks):
+        match = ARTICLE.match(clean_text(block))
+        if not match:
+            continue
+        if match.group(2):
+            warnings.append(f"Source contains article label {match.group(1)}{match.group(2)}; retained in baseline text for separate content review.")
+        elif int(match.group(1)) == expected:
+            article_positions.append((i, expected))
+            expected += 1
+    if expected != 609:
+        raise ValueError(f"Expected baseline headings 1–608, found 1–{expected - 1}")
+    events = [(node["position"], 0, node) for node in heading_blocks.values()]
+    events += [(position, 1, number) for position, number in article_positions]
+    stack, roots, paths, nodes = {}, [], {}, {}
+    for _, kind, value in sorted(events, key=lambda event: (event[0], event[1])):
+        if kind == 0:
+            node = value
+            depth = LEVELS.index(node["tipo"])
+            for level in LEVELS[depth:]:
+                stack.pop(level, None)
+            parent = next((stack[level] for level in reversed(LEVELS[:depth]) if level in stack), None)
+            node["parent_id"] = parent["id"] if parent else None
+            if parent:
+                parent["children"].append(node)
+            elif node["tipo"] == "libro":
+                roots.append(node)
+            else:
+                raise ValueError(f"Orphan heading: {node['id']}")
+            nodes[node["id"]] = node
+            stack[node["tipo"]] = node
+        else:
+            path = [stack[level]["id"] for level in LEVELS if level in stack]
+            if not path or nodes[path[0]]["tipo"] != "libro":
+                raise ValueError(f"Article {value} has no book")
+            paths[value] = path
+            nodes[path[-1]]["articulos"].append(value)
+    if [node["id"] for node in roots] != [f"L.{i}" for i in range(1, 9)]:
+        raise ValueError("The source must contain all eight official books in order")
+    for node in nodes.values():
+        node.pop("position")
+    return roots, nodes, paths, aliases, warnings
+
+
+def restore_hierarchy(source, baseline):
+    roots, nodes, paths, aliases, warnings = parse_structure(source)
+    articles = baseline["articulos"]
+    if [a["numero"] for a in articles] != list(range(1, 609)):
+        raise ValueError("Baseline must contain exactly articles 1–608 in order")
+    for article in articles:
+        path = paths[article["numero"]]
+        hierarchy = {f"{level}_{suffix}": None for level in LEVELS for suffix in ("id", "nombre")}
+        for node_id in path:
+            node = nodes[node_id]
+            hierarchy[f"{node['tipo']}_id"] = node_id
+            hierarchy[f"{node['tipo']}_nombre"] = node["nombre"]
+        hierarchy["ruta"] = path
+        article["jerarquia"] = hierarchy
+    index = [{"numero": a["numero"], "id": a["id"], "titulo": a["titulo"],
+              "libro": a["jerarquia"]["libro_nombre"], "libro_id": a["jerarquia"]["libro_id"],
+              "ruta": a["jerarquia"]["ruta"], "menciona_anexo_5": a["menciona_anexo_5"],
+              "citas": a["citas_articulos"]} for a in articles]
+    counts = Counter(a["jerarquia"]["libro_id"] for a in articles)
+    if [counts[f"L.{i}"] for i in range(1, 9)] != [1, 100, 290, 86, 7, 80, 7, 37]:
+        raise ValueError(f"Unexpected article/book assignments: {dict(counts)}")
+    baseline["meta"].update({"total_articulos": len(articles), "total_libros": len(roots),
+                             "fuente_url": SOURCE_URL, "jerarquia_version": 2})
+    tree = {"version": 2, "libros": roots, "aliases": aliases, "advertencias": warnings}
+    return baseline, index, tree
+
 
 def main():
-    repo_dir = r'd:\OneDrive\08_ETOM\07_POT\POT_DIGITAL\potbogota.io'
-    scratch_dir = r'C:\Users\Juam Pablo\.gemini\antigravity-ide\brain\4f33cac9-4194-420a-bc56-4938b3b19d50\scratch'
-    html_path = os.path.join(scratch_dir, 'sisjur_pot_555.html')
-    data_dir = os.path.join(repo_dir, 'data')
-    os.makedirs(data_dir, exist_ok=True)
+    parser = argparse.ArgumentParser(description=__doc__)
+    group = parser.add_mutually_exclusive_group(required=True)
+    group.add_argument("--source", type=Path, help="Saved official SISJUR HTML")
+    group.add_argument("--download", action="store_true", help="Download the official source")
+    parser.add_argument("--encoding", default="windows-1252")
+    parser.add_argument("--data-dir", type=Path, default=Path(__file__).resolve().parent / "data")
+    parser.add_argument("--output-dir", type=Path, help="Optional staging directory")
+    args = parser.parse_args()
+    if args.download:
+        with urlopen(SOURCE_URL, timeout=60) as response:
+            raw = response.read()
+    else:
+        raw = args.source.read_bytes()
+    baseline = json.loads((args.data_dir / "decreto_555_completo.json").read_text(encoding="utf-8"))
+    complete, index, tree = restore_hierarchy(raw.decode(args.encoding), baseline)
+    tree["fuente"] = {"url": SOURCE_URL, "sha256": hashlib.sha256(raw).hexdigest(),
+                       "verificado_utc": datetime.now(timezone.utc).isoformat()}
+    output = args.output_dir or args.data_dir
+    output.mkdir(parents=True, exist_ok=True)
+    (output / "decreto_555_completo.json").write_text(json.dumps(complete, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    for filename, data in [("decreto_555_indice.json", index), ("decreto_555_arbol.json", tree)]:
+        (output / filename).write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    books_dir = output / "libros"
+    books_dir.mkdir(exist_ok=True)
+    for number, book in enumerate(tree["libros"], 1):
+        articles = [a for a in complete["articulos"] if a["jerarquia"]["libro_id"] == book["id"]]
+        snapshot = {"libro_id": book["id"], "nombre": book["nombre"],
+                    "total_articulos": len(articles), "articulos": articles}
+        (books_dir / f"l_{number}.json").write_text(json.dumps(snapshot, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    print(f"Restored {len(index)} articles, {len(tree['libros'])} books; article wording unchanged.")
+    for warning in tree["advertencias"]:
+        print(f"Review: {warning}")
 
-    print(f"Leyendo archivo fuente: {html_path}...")
-    with open(html_path, 'r', encoding='windows-1252', errors='replace') as f:
-        html = f.read()
 
-    print(f"Archivo cargado: {len(html)} caracteres. Parseando estructura...")
-
-    # 1. Parsear anclas estructurales (Libros, Títulos, Capítulos, etc.)
-    ancla_pattern = re.compile(r'<span[^>]*class="ancla"[^>]*id="([^"]+)"[^>]*></span>', re.I)
-    
-    # Nombres amigables conocidos para los Libros
-    libros_nombres = {
-        'L.1': 'Libro I - Estructura y Adopción del Plan',
-        'L.2': 'Libro II - Componente General',
-        'L.3': 'Libro III - Componente Urbano',
-        'L.4': 'Libro IV - Componente Rural',
-        'L.5': 'Libro V - Instrumentos de Planeación',
-        'L.6': 'Libro VI - Instrumentos de Gestión, Financiación y Gobernanza'
-    }
-
-    structures = []
-    for m in ancla_pattern.finditer(html):
-        aid = m.group(1)
-        if any(aid.startswith(p) for p in ['L.1', 'L.2', 'L.3', 'L.4', 'L.5', 'L.6']):
-            start = max(0, m.start() - 250)
-            end = min(len(html), m.end() + 350)
-            snippet = html[start:end]
-            clean = re.sub(r'<[^>]+>', ' ', snippet)
-            clean = ' '.join(clean.split())
-            clean = html_lib.unescape(clean)
-
-            # Intentar obtener título limpio
-            title = clean
-            # Normalizar nombre
-            if aid in libros_nombres:
-                nombre = libros_nombres[aid]
-            else:
-                nombre = clean[:120]
-
-            structures.append({
-                'id': aid,
-                'pos': m.start(),
-                'raw_text': clean,
-                'nombre': nombre
-            })
-
-    structures.sort(key=lambda s: s['pos'])
-    print(f"Estructuras encontradas: {len(structures)}")
-
-    def get_hierarchy_at(pos):
-        cur_libro = None
-        cur_titulo = None
-        cur_capitulo = None
-        cur_subcap = None
-        cur_seccion = None
-
-        for s in structures:
-            if s['pos'] > pos:
-                break
-            aid = s['id']
-            parts = aid.split('.')
-            if len(parts) == 2 and parts[0] == 'L':
-                cur_libro = s
-                cur_titulo = None
-                cur_capitulo = None
-                cur_subcap = None
-                cur_seccion = None
-            elif 'T' in parts:
-                if 'C' not in parts:
-                    cur_titulo = s
-                    cur_capitulo = None
-                    cur_subcap = None
-                    cur_seccion = None
-            if 'C' in parts and 'SC' not in parts and 'S' not in parts:
-                cur_capitulo = s
-                cur_subcap = None
-                cur_seccion = None
-            if 'SC' in parts and 'S' not in parts:
-                cur_subcap = s
-                cur_seccion = None
-            if 'S' in parts:
-                cur_seccion = s
-
-        return {
-            'libro_id': cur_libro['id'] if cur_libro else 'L.1',
-            'libro_nombre': libros_nombres.get(cur_libro['id'] if cur_libro else 'L.1', 'Libro I'),
-            'titulo_id': cur_titulo['id'] if cur_titulo else None,
-            'titulo_nombre': cur_titulo['nombre'] if cur_titulo else None,
-            'capitulo_id': cur_capitulo['id'] if cur_capitulo else None,
-            'capitulo_nombre': cur_capitulo['nombre'] if cur_capitulo else None,
-            'subcapitulo_id': cur_subcap['id'] if cur_subcap else None,
-            'seccion_id': cur_seccion['id'] if cur_seccion else None,
-        }
-
-    # 2. Localizar los 608 artículos secuenciales
-    art_pattern = re.compile(
-        r'(?:Art[íi]culo|ART[ÍI]CULO)'
-        r'(?:<[^>]+>|\s|&nbsp;)*?'
-        r'(?:<span[^>]*class="ancla"[^>]*id="(\d+)"[^>]*></span>)?'
-        r'(?:<[^>]+>|\s|&nbsp;)*?'
-        r'(\d+)'
-        r'(?:<[^>]+>|\s|&nbsp;)*?'
-        r'[\.:\-\)]',
-        re.I
-    )
-
-    articles_pos = []
-    expected_num = 1
-    for m in art_pattern.finditer(html):
-        num = int(m.group(2))
-        if num == expected_num:
-            articles_pos.append({
-                'num': num,
-                'start': m.start(),
-                'match_end': m.end()
-            })
-            expected_num += 1
-            if expected_num > 608:
-                break
-
-    print(f"Artículos detectados secuencialmente: {len(articles_pos)} de 608")
-    if len(articles_pos) != 608:
-        raise ValueError(f"Se esperaban 608 artículos, pero se detectaron {len(articles_pos)}")
-
-    for i in range(len(articles_pos)):
-        cur = articles_pos[i]
-        if i + 1 < len(articles_pos):
-            cur['end'] = articles_pos[i + 1]['start']
-        else:
-            cur['end'] = len(html)
-
-    # 3. Procesar y limpiar cada artículo
-    todos_articulos = []
-    indice_articulos = []
-
-    for art_info in articles_pos:
-        num = art_info['num']
-        raw = html[art_info['match_end']:art_info['end']]
-        
-        # Jerarquía activa
-        hier = get_hierarchy_at(art_info['start'])
-
-        # Nota reglamentaria si existe
-        nota_reg = None
-        nota_url = None
-        note_m = re.search(r'<a\s+href="([^"]+)">\s*((?:Reglamentado|Modificado|Adicionado)[^<]+)\s*</a>', raw[:1200], re.I)
-        if note_m:
-            nota_url = note_m.group(1).strip()
-            nota_reg = note_m.group(2).strip()
-
-        # Extraer título
-        first_b = re.search(r'<b[^>]*>(.*?)</b>', raw[:1200], re.DOTALL | re.I)
-        title = ""
-        title_end_pos = 0
-        if first_b:
-            t_raw = re.sub(r'<[^>]+>', ' ', first_b.group(1)).strip()
-            t_clean = ' '.join(t_raw.split())
-            t_clean = html_lib.unescape(t_clean).strip(' .\t\r\n')
-            if len(t_clean) <= 1:
-                second_b = re.search(r'<b[^>]*>(.*?)</b>', raw[first_b.end():1500], re.DOTALL | re.I)
-                if second_b:
-                    t_raw = re.sub(r'<[^>]+>', ' ', second_b.group(1)).strip()
-                    t_clean = ' '.join(t_raw.split())
-                    t_clean = html_lib.unescape(t_clean).strip(' .\t\r\n')
-                    title = t_clean
-                    title_end_pos = first_b.end() + second_b.end()
-            else:
-                title = t_clean
-                title_end_pos = first_b.end()
-
-        # Limpiar cuerpo del artículo
-        body_raw = raw[title_end_pos:] if title_end_pos > 0 else raw
-
-        # Quitar basura de Word y SISJUR
-        cleaned = re.sub(r'<\?xml[^>]*>', '', body_raw)
-        cleaned = re.sub(r'<!--\[if[^\]]*\]>.*?<!\[endif\]-->', '', cleaned, flags=re.DOTALL)
-        cleaned = re.sub(r'<!\[if[^\]]*\]>.*?<!\[endif\]>', '', cleaned, flags=re.DOTALL)
-        cleaned = re.sub(r'<o:p>.*?</o:p>', '', cleaned, flags=re.DOTALL)
-        cleaned = re.sub(r'<span[^>]*class="ancla"[^>]*></span>', '', cleaned)
-        cleaned = re.sub(r'class="Mso\w+"', '', cleaned)
-        cleaned = re.sub(r'style="[^"]*"', '', cleaned)
-        cleaned = re.sub(r'lang="[^"]*"', '', cleaned)
-        cleaned = re.sub(r'align="[^"]*"', '', cleaned)
-        cleaned = re.sub(r'face="[^"]*"', '', cleaned)
-        cleaned = re.sub(r'<font[^>]*>', '', cleaned)
-        cleaned = re.sub(r'</font>', '', cleaned)
-        cleaned = re.sub(r'<span\s*>\s*</span>', '', cleaned)
-
-        # Quitar párrafos vacíos sucesivos
-        cleaned = re.sub(r'<p\s*>\s*(&nbsp;|\s)*</p>', '', cleaned)
-
-        # Arreglar tablas
-        cleaned = re.sub(r'<table[^>]*>', '<div class="table-wrapper my-4 overflow-x-auto"><table class="pot-table min-w-full text-sm border border-slate-200">', cleaned)
-        cleaned = re.sub(r'</table>', '</table></div>', cleaned)
-        cleaned = re.sub(r'<td[^>]*>', '<td class="border border-slate-200 px-3 py-2 text-left align-top">', cleaned)
-        cleaned = re.sub(r'<th[^>]*>', '<th class="border border-slate-200 bg-slate-100 font-bold px-3 py-2 text-left">', cleaned)
-
-        # Convertir párrafos a limpios
-        cleaned = re.sub(r'<p\s*>', '<p class="mb-3 leading-relaxed text-slate-700">', cleaned)
-
-        # Detectar citas a otros artículos
-        # Ej: "artículo 384", "artículos 190 y 191"
-        citas = []
-        for ref_m in re.finditer(r'art[íi]culos?\s+(\d+)', cleaned, re.I):
-            ref_num = int(ref_m.group(1))
-            if 1 <= ref_num <= 608 and ref_num != num:
-                citas.append(ref_num)
-        citas = sorted(list(set(citas)))
-
-        # Detectar si cita al Anexo 5 / Manual de Normas Comunes
-        menciona_anexo_5 = bool(re.search(r'Anexo\s+(?:No\.?\s*)?5|Manual\s+de\s+Normas\s+Comunes', cleaned, re.I))
-
-        # Texto plano para búsqueda ultra rápida
-        texto_plano = re.sub(r'<[^>]+>', ' ', f"{title} {cleaned}")
-        texto_plano = ' '.join(texto_plano.split())
-        texto_plano = html_lib.unescape(texto_plano)
-
-        art_doc = {
-            'numero': num,
-            'id': f"art-{num}",
-            'titulo': title,
-            'nota_reglamentaria': nota_reg,
-            'nota_url': nota_url,
-            'jerarquia': hier,
-            'contenido_html': cleaned.strip(),
-            'citas_articulos': citas,
-            'menciona_anexo_5': menciona_anexo_5,
-            'texto_plano': texto_plano
-        }
-
-        todos_articulos.append(art_doc)
-
-        # Entrada para el índice ligero
-        indice_articulos.append({
-            'numero': num,
-            'id': f"art-{num}",
-            'titulo': title,
-            'libro': hier['libro_nombre'],
-            'menciona_anexo_5': menciona_anexo_5,
-            'citas': citas
-        })
-
-    # 4. Guardar los archivos generados
-    completo_path = os.path.join(data_dir, 'decreto_555_completo.json')
-    indice_path = os.path.join(data_dir, 'decreto_555_indice.json')
-    arbol_path = os.path.join(data_dir, 'decreto_555_arbol.json')
-
-    print(f"Guardando {completo_path}...")
-    with open(completo_path, 'w', encoding='utf-8') as f:
-        json.dump({
-            'meta': {
-                'titulo': 'Plan de Ordenamiento Territorial de Bogotá D.C. - Decreto Distrital 555 de 2021',
-                'fuente_oficial': 'Alcaldía Mayor de Bogotá D.C. - Secretaría Jurídica Distrital (SISJUR)',
-                'total_articulos': len(todos_articulos)
-            },
-            'articulos': todos_articulos
-        }, f, ensure_ascii=False, indent=2)
-
-    print(f"Guardando {indice_path}...")
-    with open(indice_path, 'w', encoding='utf-8') as f:
-        json.dump(indice_articulos, f, ensure_ascii=False, indent=2)
-
-    # 5. Generar árbol para el menú lateral
-    # Agrupado por Libro -> Capítulo -> Artículos
-    libros_dict = {}
-    for a in todos_articulos:
-        l_id = a['jerarquia']['libro_id']
-        l_name = a['jerarquia']['libro_nombre']
-        if l_id not in libros_dict:
-            libros_dict[l_id] = {
-                'id': l_id,
-                'nombre': l_name,
-                'articulos': []
-            }
-        libros_dict[l_id]['articulos'].append({
-            'numero': a['numero'],
-            'id': a['id'],
-            'titulo': a['titulo'],
-            'menciona_anexo_5': a['menciona_anexo_5']
-        })
-
-    print(f"Guardando {arbol_path}...")
-    with open(arbol_path, 'w', encoding='utf-8') as f:
-        json.dump(list(libros_dict.values()), f, ensure_ascii=False, indent=2)
-
-    # Resumen final
-    anexo_citas_total = sum(1 for a in todos_articulos if a['menciona_anexo_5'])
-    tamanio_mb = os.path.getsize(completo_path) / (1024 * 1024)
-    print("\n" + "="*50)
-    print("¡EXTRACCIÓN EXITOSA DEL DECRETO 555 DE 2021!")
-    print(f"- Total artículos procesados: {len(todos_articulos)} (1 al 608)")
-    print(f"- Artículos que citan al Anexo 5: {anexo_citas_total}")
-    print(f"- Tamaño del JSON completo limpio: {tamanio_mb:.2f} MB (antes 4.58 MB de HTML sucio)")
-    print(f"- Tamaño del índice ligero: {os.path.getsize(indice_path)/1024:.1f} KB")
-    print("="*50)
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

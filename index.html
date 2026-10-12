@@ -274,6 +274,22 @@
         }
         #articles-nav-list::-webkit-scrollbar-track, #content-pane::-webkit-scrollbar-track { background: transparent; }
 
+
+        .pot-nav-group { border-top: 1px solid rgba(38, 52, 66, .09); }
+        .pot-nav-heading { padding: 12px 10px; color: #263442; font-size: 12px; cursor: pointer; }
+        .pot-nav-heading a { display: inline; text-decoration: none; }
+        .pot-nav-heading a:hover .nav-heading-title { text-decoration: underline; }
+        .nav-heading-label { font-weight: 700; }
+        .nav-heading-title { display: block; margin-top: 4px; font-size: 12px; line-height: 1.5; }
+        .pot-nav-children { margin-left: 9px; border-left: 1px solid rgba(38, 52, 66, .12); }
+        .nav-article-title { margin-top: 4px; font-size: 13px; line-height: 1.5; }
+        .pot-structure-heading { padding: 28px 0 16px; scroll-margin-top: 76px; border-top: 1px solid #cbd5e1; }
+        .pot-structure-heading .structure-label { margin-bottom: 8px; font-size: 12px; font-weight: 700; color: #626b73; }
+        .pot-structure-heading h2 { font-size: 20px; font-weight: 700; line-height: 1.4; color: #263442; }
+        .pot-structure-heading.level-libro h2 { font-size: 26px; }
+        .pot-structure-heading.level-seccion h2, .pot-structure-heading.level-subseccion h2 { font-size: 18px; }
+        #breadcrumb-libro { overflow: hidden; text-overflow: ellipsis; }
+
     </style>
 </head>
 <body class="h-full bg-slate-100 text-slate-800 flex flex-col antialiased">
@@ -311,8 +327,10 @@
             <button data-libro="L.2" class="libro-filter-pill" aria-pressed="false">II · General</button>
             <button data-libro="L.3" class="libro-filter-pill" aria-pressed="false">III · Urbano</button>
             <button data-libro="L.4" class="libro-filter-pill" aria-pressed="false">IV · Rural</button>
-            <button data-libro="L.5" class="libro-filter-pill" aria-pressed="false">V · Planeación</button>
-            <button data-libro="L.6" class="libro-filter-pill" aria-pressed="false">VI · Gestión</button>
+            <button data-libro="L.5" class="libro-filter-pill" aria-pressed="false">V · Actuaciones</button>
+            <button data-libro="L.6" class="libro-filter-pill" aria-pressed="false">VI · Instrumentos</button>
+            <button data-libro="L.7" class="libro-filter-pill" aria-pressed="false">VII · Programas</button>
+            <button data-libro="L.8" class="libro-filter-pill" aria-pressed="false">VIII · Disposiciones</button>
         </nav>
     </header>
 
@@ -382,7 +400,7 @@
                     <h2 class="document-title">Plan de Ordenamiento Territorial</h2>
                     <p class="document-decree">Decreto Distrital 555 de 2021</p>
                     <p class="document-description">“Por el cual se adopta la revisión general del Plan de Ordenamiento Territorial de Bogotá D.C. — Bogotá Reverdece 2022-2035”</p>
-                    <p class="document-details">608 artículos <span aria-hidden="true">·</span> 6 libros</p>
+                    <p class="document-details">608 artículos <span aria-hidden="true">·</span> 8 libros</p>
                 </div>
 
                 <!-- ZONA DE RENDERIZADO DINÁMICO DE ARTÍCULOS -->
@@ -428,6 +446,8 @@
     <!-- JAVASCRIPT DE LA APLICACIÓN -->
     <script>
         // ESTADO GLOBAL DE LA APLICACIÓN
+        let potTree = [];
+        let potStructureMap = {};
         let potIndex = [];          // decreto_555_indice.json (608 articulos)
         let potArticlesMap = {};    // Mapa completo cacheado: id -> art
         let activeFilterLibro = 'all';
@@ -447,6 +467,15 @@
                 // 1. Cargar índice ligero primero (142 KB) para interactividad instantánea
                 const indexResp = await fetch('data/decreto_555_indice.json');
                 potIndex = await indexResp.json();
+                const treeResp = await fetch('data/decreto_555_arbol.json');
+                if (!treeResp.ok) throw new Error('No se pudo cargar la estructura del POT');
+                const treeJson = await treeResp.json();
+                potTree = treeJson.libros;
+                const register = node => {
+                    potStructureMap[node.id] = node;
+                    node.children.forEach(register);
+                };
+                potTree.forEach(register);
                 renderSidebar(potIndex);
 
                 // 2. Cargar base completa en background
@@ -459,6 +488,7 @@
                 });
 
                 // Mostrar todos los artículos de la selección
+                renderSidebar(potIndex);
                 renderArticles();
 
             } catch (err) {
@@ -472,80 +502,83 @@
             }
         }
 
-        // RENDERIZADO DEL SIDEBAR (ÍNDICE ESTILO NYC ZR)
+        function matchesArticleFilters(item) {
+            const article = potArticlesMap[item.numero] || item;
+            const book = article.jerarquia?.libro_id || item.libro_id;
+            if (activeFilterLibro !== 'all' && book !== activeFilterLibro) return false;
+            if (!searchQuery) return true;
+            const query = searchQuery.toLocaleLowerCase('es');
+            return String(item.numero) === query || article.titulo.toLocaleLowerCase('es').includes(query) ||
+                (article.texto_plano || '').toLocaleLowerCase('es').includes(query);
+        }
+
         function renderSidebar(items) {
             const container = document.getElementById('articles-nav-list');
             container.innerHTML = '';
-
-            const filtered = items.filter(item => {
-                if (activeFilterLibro !== 'all') {
-                    // Match con el libro correspondiente
-                    const libroMap = {
-                        'L.1': [1],
-                        'L.2': [2, 101],
-                        'L.3': [102, 391],
-                        'L.4': [392, 477],
-                        'L.5': [478, 484],
-                        'L.6': [485, 608]
-                    };
-                    const range = libroMap[activeFilterLibro];
-                    if (range) {
-                        if (range.length === 1 && item.numero !== range[0]) return false;
-                        if (range.length === 2 && (item.numero < range[0] || item.numero > range[1])) return false;
-                    }
-                }
-                if (searchQuery) {
-                    const q = searchQuery.toLowerCase();
-                    const matchNum = item.numero.toString() === q;
-                    const matchText = item.titulo.toLowerCase().includes(q);
-                    return matchNum || matchText;
-                }
-                return true;
-            });
-
-            document.getElementById('search-results-counter').textContent = `Mostrando ${filtered.length} de 608 artículos`;
-
-            if (filtered.length === 0) {
-                container.innerHTML = `
-                    <div class="p-8 text-center text-slate-400 text-xs">
-                        <p class="font-medium">No se encontraron artículos con ese criterio.</p>
-                    </div>
-                `;
+            const filtered = items.filter(matchesArticleFilters);
+            const selected = new Map(filtered.map(article => [article.numero, article]));
+            document.getElementById('search-results-counter').textContent = `Mostrando ${filtered.length} de ${potIndex.length} artículos`;
+            if (!filtered.length) {
+                container.innerHTML = '<p class="p-6 text-xs text-slate-500">No se encontraron artículos con ese criterio.</p>';
                 return;
             }
-
-            const fragment = document.createDocumentFragment();
-
-            filtered.forEach(art => {
-                const a = document.createElement('a');
-                a.href = `#${art.id}`;
-                a.id = `nav-${art.id}`;
-                a.className = 'art-nav-item block p-3 text-left hover:bg-slate-50 border-l-2 border-transparent transition-all group';
-                
-                let anexoBadge = art.menciona_anexo_5 ? `
-                    <span class="inline-block w-2 h-2 rounded-full bg-amber-500 ml-1.5" title="Cita Anexo 5"></span>
-                ` : '';
-
-                a.innerHTML = `
-                    <div class="flex items-center justify-between">
-                        <span class="text-xs font-mono font-bold text-sky-700 group-hover:text-sky-900">ART. ${art.numero}</span>
-                        ${anexoBadge}
-                    </div>
-                    <div class="text-[13px] font-medium text-slate-700 group-hover:text-slate-900 leading-snug line-clamp-2 mt-0.5">
-                        ${art.titulo}
-                    </div>
-                `;
-
-                a.addEventListener('click', (e) => {
-                    e.preventDefault();
+            const hasResults = node => node.articulos.some(number => selected.has(number)) || node.children.some(hasResults);
+            const appendArticle = (number, parent) => {
+                const art = selected.get(number);
+                if (!art) return;
+                const link = document.createElement('a');
+                link.href = `#${art.id}`;
+                link.id = `nav-${art.id}`;
+                link.className = 'art-nav-item block p-3 border-l-2 border-transparent hover:bg-slate-50';
+                const label = document.createElement('span');
+                label.className = 'block text-xs font-bold text-sky-700';
+                label.textContent = `ART. ${art.numero}`;
+                const title = document.createElement('span');
+                title.className = 'nav-article-title block text-slate-700';
+                title.textContent = art.titulo;
+                link.append(label, title);
+                link.addEventListener('click', event => {
+                    event.preventDefault();
                     if (window.innerWidth < 768) toggleMobileSidebar(false);
                     navigateToArticle(art.numero);
                 });
-
-                fragment.appendChild(a);
-            });
-
-            container.appendChild(fragment);
+                parent.appendChild(link);
+            };
+            const appendNode = (node, parent, depth = 0) => {
+                if (!hasResults(node)) return;
+                const group = document.createElement('details');
+                group.id = `nav-group-${node.id}`;
+                group.className = 'pot-nav-group';
+                group.open = Boolean(searchQuery) || activeFilterLibro !== 'all' || node.tipo === 'libro';
+                const summary = document.createElement('summary');
+                summary.className = 'pot-nav-heading';
+                const link = document.createElement('a');
+                link.href = `#${node.id}`;
+                link.title = node.nombre;
+                const label = document.createElement('span');
+                label.className = 'nav-heading-label';
+                label.textContent = node.etiqueta;
+                const title = document.createElement('span');
+                title.className = 'nav-heading-title';
+                title.textContent = node.titulo;
+                link.append(label, title);
+                link.addEventListener('click', event => {
+                    event.preventDefault();
+                    group.open = true;
+                    if (window.innerWidth < 768) toggleMobileSidebar(false);
+                    navigateToHeading(node.id);
+                });
+                summary.appendChild(link);
+                group.appendChild(summary);
+                const children = document.createElement('div');
+                children.className = 'pot-nav-children';
+                // Articles directly under a parent precede its nested divisions.
+                node.articulos.forEach(number => appendArticle(number, children));
+                node.children.forEach(child => appendNode(child, children, depth + 1));
+                group.appendChild(children);
+                parent.appendChild(group);
+            };
+            potTree.forEach(node => appendNode(node, container));
         }
 
         // RENDERIZADO COMPLETO DE LOS ARTÍCULOS SELECCIONADOS
@@ -555,23 +588,29 @@
             const feed = document.getElementById('articles-feed');
             feed.innerHTML = '';
 
-            // Filtrar artículos a renderizar según los filtros activos
-            const filtered = fullDatabase.filter(art => {
-                if (activeFilterLibro !== 'all') {
-                    if (art.jerarquia.libro_id !== activeFilterLibro) return false;
-                }
-                if (searchQuery) {
-                    const q = searchQuery.toLowerCase();
-                    const matchNum = art.numero.toString() === q;
-                    const matchTitle = art.titulo.toLowerCase().includes(q);
-                    const matchBody = art.texto_plano.toLowerCase().includes(q);
-                    return matchNum || matchTitle || matchBody;
-                }
-                return true;
-            });
-
+            const filtered = fullDatabase.filter(matchesArticleFilters);
             const fragment = document.createDocumentFragment();
-            filtered.forEach(art => fragment.appendChild(createArticleCard(art)));
+            let previousPath = [];
+            filtered.forEach(art => {
+                const path = art.jerarquia.ruta;
+                let shared = 0;
+                while (shared < path.length && path[shared] === previousPath[shared]) shared++;
+                path.slice(shared).forEach(id => {
+                    const node = potStructureMap[id];
+                    const heading = document.createElement('section');
+                    heading.id = id;
+                    heading.className = `pot-structure-heading level-${node.tipo}`;
+                    const label = document.createElement('p');
+                    label.className = 'structure-label';
+                    label.textContent = node.etiqueta;
+                    const title = document.createElement('h2');
+                    title.textContent = node.titulo;
+                    heading.append(label, title);
+                    fragment.appendChild(heading);
+                });
+                fragment.appendChild(createArticleCard(art));
+                previousPath = path;
+            });
             feed.appendChild(fragment);
 
             // Configurar interactividad de chips dentro de los artículos recién insertados
@@ -631,7 +670,7 @@
             `;
 
             // Texto procesado con chips para menciones de artículos
-            let formattedContent = art.contenido_html;
+            let formattedContent = removeLegacyStructuralHeadings(art.contenido_html);
             
             // Reemplazar citas del estilo "artículo X" por chips clicables
             formattedContent = formattedContent.replace(/art[íi]culos?\s+(\d+)/gi, (match, refNum) => {
@@ -659,6 +698,32 @@
             `;
 
             return articleEl;
+        }
+
+        // The legacy extraction attached the next division's headings to the
+        // preceding article. Hide only exact known structural heading blocks;
+        // the stored article HTML and normative prose remain unchanged.
+        function removeLegacyStructuralHeadings(content) {
+            const normalize = text => text.replace(/\s+/g, ' ').trim().replace(/^[a-z]\.\s*/i, '');
+            const known = new Set(Object.values(potStructureMap).flatMap(node => [normalize(node.etiqueta), normalize(node.titulo)]));
+            const template = document.createElement('template');
+            template.innerHTML = content;
+            template.content.querySelectorAll('h1, h2, h3, h4, h5, h6, p').forEach(block => {
+                if (!block.closest('table, li, blockquote') && known.has(normalize(block.textContent))) block.remove();
+            });
+            return template.innerHTML;
+        }
+
+        function navigateToHeading(id) {
+            let heading = document.getElementById(id);
+            if (!heading) return;
+            heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            history.pushState(null, '', `#${id}`);
+            const article = fullDatabase.find(art => matchesArticleFilters(art) && art.jerarquia.ruta.includes(id));
+            if (article) {
+                updateBreadcrumbs(article.numero);
+                highlightSidebarItem(article.id);
+            }
         }
 
         // NAVEGACIÓN Y SALTO A ARTÍCULO
@@ -788,14 +853,22 @@
         function updateBreadcrumbs(artNum) {
             const art = potArticlesMap[artNum];
             if (!art) return;
-            document.getElementById('breadcrumb-libro').textContent = art.jerarquia.libro_nombre || 'POT';
+            const context = art.jerarquia.ruta.map(id => potStructureMap[id].etiqueta).join(' › ');
+            document.getElementById('breadcrumb-libro').textContent = context;
+            document.getElementById('breadcrumb-libro').title = art.jerarquia.ruta.map(id => potStructureMap[id].nombre).join(' › ');
             document.getElementById('breadcrumb-art').textContent = `Artículo ${art.numero}`;
             document.getElementById('nav-counter').textContent = `${art.numero} / 608`;
         }
 
         function highlightSidebarItem(targetId) {
             const activeNav = document.getElementById(`nav-${targetId}`);
-            if (!activeNav || activeNav.classList.contains('active')) return;
+            if (!activeNav) return;
+            let parent = activeNav.parentElement;
+            while (parent && parent.id !== 'articles-nav-list') {
+                if (parent.tagName === 'DETAILS') parent.open = true;
+                parent = parent.parentElement;
+            }
+            if (activeNav.classList.contains('active')) return;
 
             document.querySelectorAll('.art-nav-item.active').forEach(item => item.classList.remove('active'));
             activeNav.classList.add('active');
@@ -831,16 +904,14 @@
 
         // ROUTING INICIAL POR HASH
         function handleInitialRoute() {
-            if (window.location.hash) {
-                const num = parseInt(window.location.hash.replace('#art-', ''), 10);
-                if (num && !isNaN(num)) {
-                    setTimeout(() => navigateToArticle(num), 300);
-                }
-            }
+            const id = decodeURIComponent(window.location.hash.slice(1));
+            if (/^art-\d+$/.test(id)) navigateToArticle(Number(id.slice(4)));
+            else if (potStructureMap[id]) navigateToHeading(id);
         }
 
         // CONFIGURACIÓN DE EVENT LISTENERS
         function setupEventListeners() {
+            window.addEventListener('hashchange', handleInitialRoute);
             const annexMenu = document.getElementById('annex-menu');
             document.addEventListener('click', (event) => {
                 if (!annexMenu.contains(event.target) || event.target.closest('a')) annexMenu.open = false;
@@ -868,6 +939,7 @@
             });
 
             clearBtn.addEventListener('click', () => {
+                clearTimeout(searchDebounce);
                 searchInput.value = '';
                 searchQuery = '';
                 clearBtn.classList.add('hidden');

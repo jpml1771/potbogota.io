@@ -1,3686 +1,1859 @@
-[
-  {
-    "id": "L.1",
-    "nombre": "Libro I - Estructura y Adopción del Plan",
-    "articulos": [
-      {
-        "numero": 1,
-        "id": "art-1",
-        "titulo": "Adopción de la revisión general del Plan de Ordenamiento Territorial de Bogotá D.C",
-        "menciona_anexo_5": false
-      }
-    ]
+{
+  "version": 2,
+  "libros": [
+    {
+      "id": "L.1",
+      "tipo": "libro",
+      "etiqueta": "LIBRO I",
+      "titulo": "ADOPCIÓN DE LA REVISIÓN GENERAL DEL PLAN DE ORDENAMIENTO TERRITORIAL DE BOGOTÁ D.C.",
+      "nombre": "LIBRO I — ADOPCIÓN DE LA REVISIÓN GENERAL DEL PLAN DE ORDENAMIENTO TERRITORIAL DE BOGOTÁ D.C.",
+      "aliases": [],
+      "children": [],
+      "articulos": [
+        1
+      ],
+      "parent_id": null
+    },
+    {
+      "id": "L.2",
+      "tipo": "libro",
+      "etiqueta": "LIBRO II",
+      "titulo": "COMPONENTE GENERAL",
+      "nombre": "LIBRO II — COMPONENTE GENERAL",
+      "aliases": [],
+      "children": [
+        {
+          "id": "L.2.T.1",
+          "tipo": "titulo",
+          "etiqueta": "TÍTULO 1",
+          "titulo": "CONTENIDO ESTRATÉGICO DEL PLAN",
+          "nombre": "TÍTULO 1 — CONTENIDO ESTRATÉGICO DEL PLAN",
+          "aliases": [],
+          "children": [
+            {
+              "id": "L.2.T.1.C.U",
+              "tipo": "capitulo",
+              "etiqueta": "CAPÍTULO ÚNICO",
+              "titulo": "DESAFÍOS, POLÍTICAS, PRINCIPIOS RECTORES, ESTRATEGIAS Y OBJETIVOS DE LARGO PLAZO DEL ORDENAMIENTO TERRITORIAL",
+              "nombre": "CAPÍTULO ÚNICO — DESAFÍOS, POLÍTICAS, PRINCIPIOS RECTORES, ESTRATEGIAS Y OBJETIVOS DE LARGO PLAZO DEL ORDENAMIENTO TERRITORIAL",
+              "aliases": [
+                "L.2.T.1.C.1"
+              ],
+              "children": [],
+              "articulos": [
+                2,
+                3,
+                4,
+                5
+              ],
+              "parent_id": "L.2.T.1"
+            }
+          ],
+          "articulos": [],
+          "parent_id": "L.2"
+        },
+        {
+          "id": "L.2.T.2",
+          "tipo": "titulo",
+          "etiqueta": "TÍTULO 2",
+          "titulo": "CONTENIDO ESTRUCTURAL DEL PLAN",
+          "nombre": "TÍTULO 2 — CONTENIDO ESTRUCTURAL DEL PLAN",
+          "aliases": [],
+          "children": [
+            {
+              "id": "L.2.T.2.C.1",
+              "tipo": "capitulo",
+              "etiqueta": "CAPÍTULO 1",
+              "titulo": "MODELO DE OCUPACIÓN TERRITORIAL Y CLASES DE SUELO",
+              "nombre": "CAPÍTULO 1 — MODELO DE OCUPACIÓN TERRITORIAL Y CLASES DE SUELO",
+              "aliases": [],
+              "children": [],
+              "articulos": [
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14
+              ],
+              "parent_id": "L.2.T.2"
+            },
+            {
+              "id": "L.2.T.2.C.2",
+              "tipo": "capitulo",
+              "etiqueta": "CAPÍTULO 2",
+              "titulo": "GESTIÓN INTEGRAL DEL RIESGO DE DESASTRES Y CAMBIO CLIMÁTICO",
+              "nombre": "CAPÍTULO 2 — GESTIÓN INTEGRAL DEL RIESGO DE DESASTRES Y CAMBIO CLIMÁTICO",
+              "aliases": [],
+              "children": [
+                {
+                  "id": "L.2.T.2.C.2.S.1",
+                  "tipo": "seccion",
+                  "etiqueta": "SECCIÓN 1",
+                  "titulo": "INCORPORACIÓN DE LA GESTIÓN DEL RIESGO DE DESASTRES Y EL CAMBIO CLIMÁTICO EN EL ORDENAMIENTO",
+                  "nombre": "SECCIÓN 1 — INCORPORACIÓN DE LA GESTIÓN DEL RIESGO DE DESASTRES Y EL CAMBIO CLIMÁTICO EN EL ORDENAMIENTO",
+                  "aliases": [],
+                  "children": [],
+                  "articulos": [
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    30,
+                    31
+                  ],
+                  "parent_id": "L.2.T.2.C.2"
+                },
+                {
+                  "id": "L.2.T.2.C.2.S.2",
+                  "tipo": "seccion",
+                  "etiqueta": "SECCIÓN 2",
+                  "titulo": "SUELOS DE PROTECCIÓN POR RIESGO",
+                  "nombre": "SECCIÓN 2 — SUELOS DE PROTECCIÓN POR RIESGO",
+                  "aliases": [],
+                  "children": [],
+                  "articulos": [
+                    32,
+                    33,
+                    34,
+                    35
+                  ],
+                  "parent_id": "L.2.T.2.C.2"
+                }
+              ],
+              "articulos": [],
+              "parent_id": "L.2.T.2"
+            },
+            {
+              "id": "L.2.T.2.C.3",
+              "tipo": "capitulo",
+              "etiqueta": "CAPÍTULO 3",
+              "titulo": "MINERÍA EN EL DISTRITO",
+              "nombre": "CAPÍTULO 3 — MINERÍA EN EL DISTRITO",
+              "aliases": [],
+              "children": [],
+              "articulos": [
+                36,
+                37,
+                38,
+                39
+              ],
+              "parent_id": "L.2.T.2"
+            },
+            {
+              "id": "L.2.T.2.C.4",
+              "tipo": "capitulo",
+              "etiqueta": "CAPÍTULO 4",
+              "titulo": "ESTRUCTURAS TERRITORIALES",
+              "nombre": "CAPÍTULO 4 — ESTRUCTURAS TERRITORIALES",
+              "aliases": [],
+              "children": [
+                {
+                  "id": "L.2.T.2.C.4.SC.1",
+                  "tipo": "subcapitulo",
+                  "etiqueta": "SUBCAPÍTULO 1",
+                  "titulo": "ESTRUCTURA ECOLÓGICA PRINCIPAL - EEP",
+                  "nombre": "SUBCAPÍTULO 1 — ESTRUCTURA ECOLÓGICA PRINCIPAL - EEP",
+                  "aliases": [],
+                  "children": [
+                    {
+                      "id": "L.2.T.2.C.4.SC.1.S.1",
+                      "tipo": "seccion",
+                      "etiqueta": "SECCIÓN 1",
+                      "titulo": "DEFINICIONES DE LOS USOS DE LA ESTRUCTURA ECOLÓGICA PRINCIPAL",
+                      "nombre": "SECCIÓN 1 — DEFINICIONES DE LOS USOS DE LA ESTRUCTURA ECOLÓGICA PRINCIPAL",
+                      "aliases": [],
+                      "children": [],
+                      "articulos": [
+                        43
+                      ],
+                      "parent_id": "L.2.T.2.C.4.SC.1"
+                    },
+                    {
+                      "id": "L.2.T.2.C.4.SC.1.S.2",
+                      "tipo": "seccion",
+                      "etiqueta": "SECCIÓN 2",
+                      "titulo": "COMPONENTES, CATEGORÍAS Y ELEMENTOS DE LA ESTRUCTURA ECOLÓGICA PRINCIPAL - EEP- Y RÉGIMEN DE USOS",
+                      "nombre": "SECCIÓN 2 — COMPONENTES, CATEGORÍAS Y ELEMENTOS DE LA ESTRUCTURA ECOLÓGICA PRINCIPAL - EEP- Y RÉGIMEN DE USOS",
+                      "aliases": [],
+                      "children": [
+                        {
+                          "id": "L.2.T.2.C.4.SC.1.S.2.SS.1",
+                          "tipo": "subseccion",
+                          "etiqueta": "SUBSECCIÓN 1",
+                          "titulo": "COMPONENTE ÁREAS PROTEGIDAS DEL SISTEMA NACIONAL DE ÁREAS PROTEGIDAS -SINAP",
+                          "nombre": "SUBSECCIÓN 1 — COMPONENTE ÁREAS PROTEGIDAS DEL SISTEMA NACIONAL DE ÁREAS PROTEGIDAS -SINAP",
+                          "aliases": [],
+                          "children": [],
+                          "articulos": [
+                            44,
+                            45,
+                            46
+                          ],
+                          "parent_id": "L.2.T.2.C.4.SC.1.S.2"
+                        },
+                        {
+                          "id": "L.2.T.2.C.4.SC.1.S.2.SS.2",
+                          "tipo": "subseccion",
+                          "etiqueta": "SUBSECCIÓN 2",
+                          "titulo": "COMPONENTE ZONAS DE CONSERVACIÓN",
+                          "nombre": "SUBSECCIÓN 2 — COMPONENTE ZONAS DE CONSERVACIÓN",
+                          "aliases": [],
+                          "children": [],
+                          "articulos": [
+                            47,
+                            48,
+                            49,
+                            50,
+                            51,
+                            52,
+                            53,
+                            54,
+                            55,
+                            56,
+                            57
+                          ],
+                          "parent_id": "L.2.T.2.C.4.SC.1.S.2"
+                        },
+                        {
+                          "id": "L.2.T.2.C.4.SC.1.S.2.SS.3",
+                          "tipo": "subseccion",
+                          "etiqueta": "SUBSECCIÓN 3",
+                          "titulo": "COMPONENTE DE ÁREAS DE ESPECIAL IMPORTANCIA ECOSISTÉMICA",
+                          "nombre": "SUBSECCIÓN 3 — COMPONENTE DE ÁREAS DE ESPECIAL IMPORTANCIA ECOSISTÉMICA",
+                          "aliases": [],
+                          "children": [],
+                          "articulos": [
+                            58,
+                            59,
+                            60,
+                            61,
+                            62,
+                            63,
+                            64,
+                            65
+                          ],
+                          "parent_id": "L.2.T.2.C.4.SC.1.S.2"
+                        },
+                        {
+                          "id": "L.2.T.2.C.4.SC.1.S.2.SS.4",
+                          "tipo": "subseccion",
+                          "etiqueta": "SUBSECCIÓN 4",
+                          "titulo": "ÁREAS COMPLEMENTARIAS PARA LA CONSERVACIÓN",
+                          "nombre": "SUBSECCIÓN 4 — ÁREAS COMPLEMENTARIAS PARA LA CONSERVACIÓN",
+                          "aliases": [],
+                          "children": [],
+                          "articulos": [
+                            66,
+                            67,
+                            68,
+                            69,
+                            70,
+                            71,
+                            72
+                          ],
+                          "parent_id": "L.2.T.2.C.4.SC.1.S.2"
+                        },
+                        {
+                          "id": "L.2.T.2.C.4.SC.1.S.2.SS.5",
+                          "tipo": "subseccion",
+                          "etiqueta": "SUBSECCIÓN 5",
+                          "titulo": "DISPOSICIONES GENERALES DE LA ESTRUCTURA ECOLÓGICA PRINCIPAL",
+                          "nombre": "SUBSECCIÓN 5 — DISPOSICIONES GENERALES DE LA ESTRUCTURA ECOLÓGICA PRINCIPAL",
+                          "aliases": [],
+                          "children": [],
+                          "articulos": [
+                            73,
+                            74,
+                            75,
+                            76,
+                            77,
+                            78,
+                            79
+                          ],
+                          "parent_id": "L.2.T.2.C.4.SC.1.S.2"
+                        }
+                      ],
+                      "articulos": [],
+                      "parent_id": "L.2.T.2.C.4.SC.1"
+                    }
+                  ],
+                  "articulos": [
+                    41,
+                    42
+                  ],
+                  "parent_id": "L.2.T.2.C.4"
+                },
+                {
+                  "id": "L.2.T.2.C.4.SC.2",
+                  "tipo": "subcapitulo",
+                  "etiqueta": "SUBCAPÍTULO 2",
+                  "titulo": "ESTRUCTURA INTEGRADORA DE PATRIMONIOS - EIP",
+                  "nombre": "SUBCAPÍTULO 2 — ESTRUCTURA INTEGRADORA DE PATRIMONIOS - EIP",
+                  "aliases": [],
+                  "children": [],
+                  "articulos": [
+                    80,
+                    81,
+                    82,
+                    83,
+                    84,
+                    85,
+                    86,
+                    87
+                  ],
+                  "parent_id": "L.2.T.2.C.4"
+                },
+                {
+                  "id": "L.2.T.2.C.4.SC.3",
+                  "tipo": "subcapitulo",
+                  "etiqueta": "SUBCAPÍTULO 3",
+                  "titulo": "ESTRUCTURA FUNCIONAL Y DEL CUIDADO - EFC",
+                  "nombre": "SUBCAPÍTULO 3 — ESTRUCTURA FUNCIONAL Y DEL CUIDADO - EFC",
+                  "aliases": [],
+                  "children": [
+                    {
+                      "id": "L.2.T.2.C.4.SC.3.S.1",
+                      "tipo": "seccion",
+                      "etiqueta": "SECCIÓN 1",
+                      "titulo": "SISTEMA DE ESPACIO PÚBLICO PEATONAL PARA EL ENCUENTRO",
+                      "nombre": "SECCIÓN 1 — SISTEMA DE ESPACIO PÚBLICO PEATONAL PARA EL ENCUENTRO",
+                      "aliases": [],
+                      "children": [],
+                      "articulos": [
+                        89,
+                        90,
+                        91
+                      ],
+                      "parent_id": "L.2.T.2.C.4.SC.3"
+                    },
+                    {
+                      "id": "L.2.T.2.C.4.SC.3.S.2",
+                      "tipo": "seccion",
+                      "etiqueta": "SECCIÓN 2",
+                      "titulo": "SISTEMA DE MOVILIDAD",
+                      "nombre": "SECCIÓN 2 — SISTEMA DE MOVILIDAD",
+                      "aliases": [],
+                      "children": [],
+                      "articulos": [
+                        92,
+                        93
+                      ],
+                      "parent_id": "L.2.T.2.C.4.SC.3"
+                    },
+                    {
+                      "id": "L.2.T.2.C.4.SC.3.S.3",
+                      "tipo": "seccion",
+                      "etiqueta": "SECCIÓN 3",
+                      "titulo": "SISTEMA DEL CUIDADO Y DE SERVICIOS SOCIALES",
+                      "nombre": "SECCIÓN 3 — SISTEMA DEL CUIDADO Y DE SERVICIOS SOCIALES",
+                      "aliases": [],
+                      "children": [],
+                      "articulos": [
+                        94,
+                        95,
+                        96,
+                        97
+                      ],
+                      "parent_id": "L.2.T.2.C.4.SC.3"
+                    },
+                    {
+                      "id": "L.2.T.2.C.4.SC.3.S.4",
+                      "tipo": "seccion",
+                      "etiqueta": "SECCIÓN 4",
+                      "titulo": "SISTEMAS DE SERVICIOS PÚBLICOS",
+                      "nombre": "SECCIÓN 4 — SISTEMAS DE SERVICIOS PÚBLICOS",
+                      "aliases": [],
+                      "children": [],
+                      "articulos": [
+                        98,
+                        99
+                      ],
+                      "parent_id": "L.2.T.2.C.4.SC.3"
+                    }
+                  ],
+                  "articulos": [
+                    88
+                  ],
+                  "parent_id": "L.2.T.2.C.4"
+                },
+                {
+                  "id": "L.2.T.2.C.4.SC.4",
+                  "tipo": "subcapitulo",
+                  "etiqueta": "SUBCAPÍTULO 4",
+                  "titulo": "ESTRUCTURA SOCIOECONÓMICA, CREATIVA Y DE INNOVACIÓN - ESECI",
+                  "nombre": "SUBCAPÍTULO 4 — ESTRUCTURA SOCIOECONÓMICA, CREATIVA Y DE INNOVACIÓN - ESECI",
+                  "aliases": [],
+                  "children": [],
+                  "articulos": [
+                    100,
+                    101
+                  ],
+                  "parent_id": "L.2.T.2.C.4"
+                }
+              ],
+              "articulos": [
+                40
+              ],
+              "parent_id": "L.2.T.2"
+            }
+          ],
+          "articulos": [],
+          "parent_id": "L.2"
+        }
+      ],
+      "articulos": [],
+      "parent_id": null
+    },
+    {
+      "id": "L.3",
+      "tipo": "libro",
+      "etiqueta": "LIBRO III",
+      "titulo": "COMPONENTE URBANO",
+      "nombre": "LIBRO III — COMPONENTE URBANO",
+      "aliases": [],
+      "children": [
+        {
+          "id": "L.3.C.1",
+          "tipo": "capitulo",
+          "etiqueta": "CAPÍTULO 1",
+          "titulo": "POLÍTICA, PRINCIPIOS RECTORES, ESTRATEGIAS Y OBJETIVOS DEL ORDENAMIENTO URBANO",
+          "nombre": "CAPÍTULO 1 — POLÍTICA, PRINCIPIOS RECTORES, ESTRATEGIAS Y OBJETIVOS DEL ORDENAMIENTO URBANO",
+          "aliases": [],
+          "children": [],
+          "articulos": [
+            102,
+            103
+          ],
+          "parent_id": "L.3"
+        },
+        {
+          "id": "L.3.C.2",
+          "tipo": "capitulo",
+          "etiqueta": "CAPÍTULO 2",
+          "titulo": "INCORPORACIÓN DE LA GESTIÓN DEL RIESGO DE DESASTRES EN EL COMPONENTE URBANO",
+          "nombre": "CAPÍTULO 2 — INCORPORACIÓN DE LA GESTIÓN DEL RIESGO DE DESASTRES EN EL COMPONENTE URBANO",
+          "aliases": [],
+          "children": [],
+          "articulos": [
+            104,
+            105,
+            106,
+            107,
+            108,
+            109,
+            110,
+            111,
+            112,
+            113,
+            114,
+            115,
+            116
+          ],
+          "parent_id": "L.3"
+        },
+        {
+          "id": "L.3.C.3",
+          "tipo": "capitulo",
+          "etiqueta": "CAPÍTULO 3",
+          "titulo": "ECOURBANISMO Y CONSTRUCCIÓN SOSTENIBLE",
+          "nombre": "CAPÍTULO 3 — ECOURBANISMO Y CONSTRUCCIÓN SOSTENIBLE",
+          "aliases": [],
+          "children": [],
+          "articulos": [
+            117,
+            118,
+            119,
+            120
+          ],
+          "parent_id": "L.3"
+        },
+        {
+          "id": "L.3.C.4",
+          "tipo": "capitulo",
+          "etiqueta": "CAPÍTULO 4",
+          "titulo": "ESTRUCTURA FUNCIONAL Y DEL CUIDADO",
+          "nombre": "CAPÍTULO 4 — ESTRUCTURA FUNCIONAL Y DEL CUIDADO",
+          "aliases": [],
+          "children": [
+            {
+              "id": "L.3.C.4.SC.1",
+              "tipo": "subcapitulo",
+              "etiqueta": "SUBCAPÍTULO 1",
+              "titulo": "SISTEMA DE ESPACIO PÚBLICO PEATONAL PARA EL ENCUENTRO",
+              "nombre": "SUBCAPÍTULO 1 — SISTEMA DE ESPACIO PÚBLICO PEATONAL PARA EL ENCUENTRO",
+              "aliases": [],
+              "children": [
+                {
+                  "id": "L.3.C.4.SC.1.S.1",
+                  "tipo": "seccion",
+                  "etiqueta": "SECCIÓN 1",
+                  "titulo": "NORMAS URBANÍSTICAS GENERALES PARA EL SISTEMA DE ESPACIO PÚBLICO PEATONAL PARA EL ENCUENTRO",
+                  "nombre": "SECCIÓN 1 — NORMAS URBANÍSTICAS GENERALES PARA EL SISTEMA DE ESPACIO PÚBLICO PEATONAL PARA EL ENCUENTRO",
+                  "aliases": [],
+                  "children": [],
+                  "articulos": [
+                    121,
+                    122,
+                    123,
+                    124,
+                    125,
+                    126,
+                    127,
+                    128,
+                    129,
+                    130,
+                    131,
+                    132
+                  ],
+                  "parent_id": "L.3.C.4.SC.1"
+                },
+                {
+                  "id": "L.3.C.4.SC.1.S.2",
+                  "tipo": "seccion",
+                  "etiqueta": "SECCIÓN 2",
+                  "titulo": "NORMAS URBANÍSTICAS GENERALES PARA LOS ELEMENTOS COMPLEMENTARIOS",
+                  "nombre": "SECCIÓN 2 — NORMAS URBANÍSTICAS GENERALES PARA LOS ELEMENTOS COMPLEMENTARIOS",
+                  "aliases": [],
+                  "children": [],
+                  "articulos": [
+                    133,
+                    134,
+                    135
+                  ],
+                  "parent_id": "L.3.C.4.SC.1"
+                },
+                {
+                  "id": "L.3.C.4.SC.1.S.3",
+                  "tipo": "seccion",
+                  "etiqueta": "SECCIÓN 3",
+                  "titulo": "DISPOSICIONES GENERALES PARA LA GESTIÓN, Y ADMINISTRACIÓN DEL SISTEMA DE ESPACIO PÚBLICO PEATONAL PARA EL ENCUENTRO",
+                  "nombre": "SECCIÓN 3 — DISPOSICIONES GENERALES PARA LA GESTIÓN, Y ADMINISTRACIÓN DEL SISTEMA DE ESPACIO PÚBLICO PEATONAL PARA EL ENCUENTRO",
+                  "aliases": [],
+                  "children": [],
+                  "articulos": [
+                    136,
+                    137,
+                    138,
+                    139,
+                    140,
+                    141,
+                    142,
+                    143,
+                    144,
+                    145,
+                    146,
+                    147,
+                    148,
+                    149
+                  ],
+                  "parent_id": "L.3.C.4.SC.1"
+                }
+              ],
+              "articulos": [],
+              "parent_id": "L.3.C.4"
+            },
+            {
+              "id": "L.3.C.4.SC.2",
+              "tipo": "subcapitulo",
+              "etiqueta": "SUBCAPÍTULO 2",
+              "titulo": "SISTEMA DE MOVILIDAD",
+              "nombre": "SUBCAPÍTULO 2 — SISTEMA DE MOVILIDAD",
+              "aliases": [],
+              "children": [
+                {
+                  "id": "L.3.C.4.SC.2.S.1",
+                  "tipo": "seccion",
+                  "etiqueta": "SECCIÓN 1",
+                  "titulo": "ESPACIO PÚBLICO PARA LA MOVILIDAD",
+                  "nombre": "SECCIÓN 1 — ESPACIO PÚBLICO PARA LA MOVILIDAD",
+                  "aliases": [],
+                  "children": [],
+                  "articulos": [
+                    150,
+                    151,
+                    152,
+                    153,
+                    154,
+                    155,
+                    156
+                  ],
+                  "parent_id": "L.3.C.4.SC.2"
+                },
+                {
+                  "id": "L.3.C.4.SC.2.S.2",
+                  "tipo": "seccion",
+                  "etiqueta": "SECCIÓN 2",
+                  "titulo": "RED DE TRANSPORTE PÚBLICO URBANO DE PASAJEROS",
+                  "nombre": "SECCIÓN 2 — RED DE TRANSPORTE PÚBLICO URBANO DE PASAJEROS",
+                  "aliases": [],
+                  "children": [],
+                  "articulos": [
+                    157,
+                    158,
+                    159,
+                    160,
+                    161,
+                    162,
+                    163,
+                    164,
+                    165,
+                    166
+                  ],
+                  "parent_id": "L.3.C.4.SC.2"
+                },
+                {
+                  "id": "L.3.C.4.SC.2.S.3",
+                  "tipo": "seccion",
+                  "etiqueta": "SECCIÓN 3",
+                  "titulo": "RED DE TRANSPORTE AÉREA EN EL ÁREA URBANA",
+                  "nombre": "SECCIÓN 3 — RED DE TRANSPORTE AÉREA EN EL ÁREA URBANA",
+                  "aliases": [],
+                  "children": [],
+                  "articulos": [
+                    167
+                  ],
+                  "parent_id": "L.3.C.4.SC.2"
+                },
+                {
+                  "id": "L.3.C.4.SC.2.S.4",
+                  "tipo": "seccion",
+                  "etiqueta": "SECCIÓN 4",
+                  "titulo": "RED DE TRANSPORTE DE CARGA Y PARA LA ACTIVIDAD LOGÍSTICA",
+                  "nombre": "SECCIÓN 4 — RED DE TRANSPORTE DE CARGA Y PARA LA ACTIVIDAD LOGÍSTICA",
+                  "aliases": [],
+                  "children": [],
+                  "articulos": [
+                    168
+                  ],
+                  "parent_id": "L.3.C.4.SC.2"
+                }
+              ],
+              "articulos": [],
+              "parent_id": "L.3.C.4"
+            },
+            {
+              "id": "L.3.C.4.SC.3",
+              "tipo": "subcapitulo",
+              "etiqueta": "SUBCAPÍTULO 3",
+              "titulo": "SISTEMA DEL CUIDADO Y DE SERVICIOS SOCIALES",
+              "nombre": "SUBCAPÍTULO 3 — SISTEMA DEL CUIDADO Y DE SERVICIOS SOCIALES",
+              "aliases": [],
+              "children": [],
+              "articulos": [
+                169,
+                170,
+                171,
+                172,
+                173,
+                174,
+                175,
+                176,
+                177,
+                178
+              ],
+              "parent_id": "L.3.C.4"
+            },
+            {
+              "id": "L.3.C.4.SC.4",
+              "tipo": "subcapitulo",
+              "etiqueta": "SUBCAPÍTULO 4",
+              "titulo": "SISTEMAS GENERALES DE SERVICIOS PÚBLICOS",
+              "nombre": "SUBCAPÍTULO 4 — SISTEMAS GENERALES DE SERVICIOS PÚBLICOS",
+              "aliases": [],
+              "children": [
+                {
+                  "id": "L.3.C.4.SC.4.S.1",
+                  "tipo": "seccion",
+                  "etiqueta": "SECCIÓN 1",
+                  "titulo": "SISTEMA DE ACUEDUCTO",
+                  "nombre": "SECCIÓN 1 — SISTEMA DE ACUEDUCTO",
+                  "aliases": [],
+                  "children": [],
+                  "articulos": [
+                    179
+                  ],
+                  "parent_id": "L.3.C.4.SC.4"
+                },
+                {
+                  "id": "L.3.C.4.SC.4.S.2",
+                  "tipo": "seccion",
+                  "etiqueta": "SECCIÓN 2",
+                  "titulo": "SISTEMA DE ALCANTARILLADO Y TRATAMIENTO DE AGUAS",
+                  "nombre": "SECCIÓN 2 — SISTEMA DE ALCANTARILLADO Y TRATAMIENTO DE AGUAS",
+                  "aliases": [],
+                  "children": [],
+                  "articulos": [
+                    180,
+                    181,
+                    182,
+                    183
+                  ],
+                  "parent_id": "L.3.C.4.SC.4"
+                },
+                {
+                  "id": "L.3.C.4.SC.4.S.3",
+                  "tipo": "seccion",
+                  "etiqueta": "SECCIÓN 3",
+                  "titulo": "SISTEMA DE DRENAJE PLUVIAL SOSTENIBLE",
+                  "nombre": "SECCIÓN 3 — SISTEMA DE DRENAJE PLUVIAL SOSTENIBLE",
+                  "aliases": [],
+                  "children": [],
+                  "articulos": [
+                    184,
+                    185,
+                    186
+                  ],
+                  "parent_id": "L.3.C.4.SC.4"
+                },
+                {
+                  "id": "L.3.C.4.SC.4.S.4",
+                  "tipo": "seccion",
+                  "etiqueta": "SECCIÓN 4",
+                  "titulo": "SISTEMA DE INFRAESTRUCTURAS PARA LA GESTIÓN INTEGRAL DE RESIDUOS",
+                  "nombre": "SECCIÓN 4 — SISTEMA DE INFRAESTRUCTURAS PARA LA GESTIÓN INTEGRAL DE RESIDUOS",
+                  "aliases": [],
+                  "children": [],
+                  "articulos": [
+                    187,
+                    188,
+                    189,
+                    190,
+                    191,
+                    192,
+                    193,
+                    194,
+                    195,
+                    196,
+                    197,
+                    198,
+                    199,
+                    200,
+                    201,
+                    202,
+                    203,
+                    204,
+                    205,
+                    206,
+                    207,
+                    208,
+                    209,
+                    210
+                  ],
+                  "parent_id": "L.3.C.4.SC.4"
+                },
+                {
+                  "id": "L.3.C.4.SC.4.S.5",
+                  "tipo": "seccion",
+                  "etiqueta": "SECCIÓN 5",
+                  "titulo": "SISTEMA DE ENERGÍA ELÉCTRICA ALUMBRADO PÚBLICO Y FUENTES NO CONVENCIONALES DE ENERGÍA RENOVABLE - FNCER",
+                  "nombre": "SECCIÓN 5 — SISTEMA DE ENERGÍA ELÉCTRICA ALUMBRADO PÚBLICO Y FUENTES NO CONVENCIONALES DE ENERGÍA RENOVABLE - FNCER",
+                  "aliases": [],
+                  "children": [],
+                  "articulos": [
+                    211,
+                    212,
+                    213
+                  ],
+                  "parent_id": "L.3.C.4.SC.4"
+                },
+                {
+                  "id": "L.3.C.4.SC.4.S.6",
+                  "tipo": "seccion",
+                  "etiqueta": "SECCIÓN 6",
+                  "titulo": "SISTEMA DE GAS NATURAL Y SISTEMAS ALTERNATIVOS DE GAS",
+                  "nombre": "SECCIÓN 6 — SISTEMA DE GAS NATURAL Y SISTEMAS ALTERNATIVOS DE GAS",
+                  "aliases": [],
+                  "children": [],
+                  "articulos": [
+                    214
+                  ],
+                  "parent_id": "L.3.C.4.SC.4"
+                },
+                {
+                  "id": "L.3.C.4.SC.4.S.7",
+                  "tipo": "seccion",
+                  "etiqueta": "SECCIÓN 7",
+                  "titulo": "SISTEMA DE LAS TECNOLOGÍAS DE LA INFORMACIÓN Y LAS COMUNICACIONES",
+                  "nombre": "SECCIÓN 7 — SISTEMA DE LAS TECNOLOGÍAS DE LA INFORMACIÓN Y LAS COMUNICACIONES",
+                  "aliases": [],
+                  "children": [],
+                  "articulos": [
+                    215,
+                    216,
+                    217,
+                    218,
+                    219,
+                    220
+                  ],
+                  "parent_id": "L.3.C.4.SC.4"
+                },
+                {
+                  "id": "L.3.C.4.SC.4.S.8",
+                  "tipo": "seccion",
+                  "etiqueta": "SECCIÓN 8",
+                  "titulo": "DISPOSICIONES COMUNES APLICABLES A LOS SISTEMAS DE SERVICIOS PÚBLICOS",
+                  "nombre": "SECCIÓN 8 — DISPOSICIONES COMUNES APLICABLES A LOS SISTEMAS DE SERVICIOS PÚBLICOS",
+                  "aliases": [],
+                  "children": [],
+                  "articulos": [
+                    221,
+                    222,
+                    223,
+                    224
+                  ],
+                  "parent_id": "L.3.C.4.SC.4"
+                },
+                {
+                  "id": "L.3.C.4.SC.4.S.9",
+                  "tipo": "seccion",
+                  "etiqueta": "SECCIÓN 9",
+                  "titulo": "DISPOSICIONES COMUNES APLICABLES A LA ESTRUCTURA FUNCIONAL Y DEL CUIDADO",
+                  "nombre": "SECCIÓN 9 — DISPOSICIONES COMUNES APLICABLES A LA ESTRUCTURA FUNCIONAL Y DEL CUIDADO",
+                  "aliases": [],
+                  "children": [],
+                  "articulos": [
+                    225,
+                    226,
+                    227,
+                    228,
+                    229,
+                    230,
+                    231,
+                    232
+                  ],
+                  "parent_id": "L.3.C.4.SC.4"
+                }
+              ],
+              "articulos": [],
+              "parent_id": "L.3.C.4"
+            }
+          ],
+          "articulos": [],
+          "parent_id": "L.3"
+        },
+        {
+          "id": "L.3.C.5",
+          "tipo": "capitulo",
+          "etiqueta": "CAPÍTULO 5",
+          "titulo": "NORMAS URBANÍSTICAS",
+          "nombre": "CAPÍTULO 5 — NORMAS URBANÍSTICAS",
+          "aliases": [],
+          "children": [
+            {
+              "id": "L.3.C.5.SC.1",
+              "tipo": "subcapitulo",
+              "etiqueta": "SUBCAPÍTULO 1",
+              "titulo": "USOS DEL SUELO Y ÁREAS DE ACTIVIDAD",
+              "nombre": "SUBCAPÍTULO 1 — USOS DEL SUELO Y ÁREAS DE ACTIVIDAD",
+              "aliases": [],
+              "children": [],
+              "articulos": [
+                233,
+                234,
+                235,
+                236,
+                237,
+                238,
+                239,
+                240,
+                241,
+                242,
+                243,
+                244,
+                245,
+                246,
+                247,
+                248,
+                249,
+                250,
+                251,
+                252,
+                253,
+                254
+              ],
+              "parent_id": "L.3.C.5"
+            },
+            {
+              "id": "L.3.C.5.SC.2",
+              "tipo": "subcapitulo",
+              "etiqueta": "SUBCAPÍTULO 2",
+              "titulo": "TRATAMIENTOS URBANÍSTICOS",
+              "nombre": "SUBCAPÍTULO 2 — TRATAMIENTOS URBANÍSTICOS",
+              "aliases": [],
+              "children": [
+                {
+                  "id": "L.3.C.5.SC.2.S.1",
+                  "tipo": "seccion",
+                  "etiqueta": "SECCIÓN 1",
+                  "titulo": "DEFINICIÓN Y OBJETIVOS",
+                  "nombre": "SECCIÓN 1 — DEFINICIÓN Y OBJETIVOS",
+                  "aliases": [],
+                  "children": [],
+                  "articulos": [
+                    255
+                  ],
+                  "parent_id": "L.3.C.5.SC.2"
+                },
+                {
+                  "id": "L.3.C.5.SC.2.S.2",
+                  "tipo": "seccion",
+                  "etiqueta": "SECCIÓN 2",
+                  "titulo": "CONDICIONES GENERALES APLICABLES A TODOS LOS TRATAMIENTOS URBANÍSTICOS",
+                  "nombre": "SECCIÓN 2 — CONDICIONES GENERALES APLICABLES A TODOS LOS TRATAMIENTOS URBANÍSTICOS",
+                  "aliases": [],
+                  "children": [],
+                  "articulos": [
+                    256,
+                    257,
+                    258,
+                    259,
+                    260,
+                    261,
+                    262,
+                    263,
+                    264,
+                    265,
+                    266,
+                    267,
+                    268,
+                    269,
+                    270,
+                    271,
+                    272
+                  ],
+                  "parent_id": "L.3.C.5.SC.2"
+                },
+                {
+                  "id": "L.3.C.5.SC.2.S.3",
+                  "tipo": "seccion",
+                  "etiqueta": "SECCIÓN 3",
+                  "titulo": "TRATAMIENTO URBANÍSTICO DE DESARROLLO",
+                  "nombre": "SECCIÓN 3 — TRATAMIENTO URBANÍSTICO DE DESARROLLO",
+                  "aliases": [],
+                  "children": [],
+                  "articulos": [
+                    273,
+                    274,
+                    275,
+                    276,
+                    277,
+                    278,
+                    279,
+                    280,
+                    281,
+                    282,
+                    283,
+                    284,
+                    285,
+                    286,
+                    287,
+                    288,
+                    289,
+                    290,
+                    291,
+                    292,
+                    293,
+                    294,
+                    295,
+                    296,
+                    297,
+                    298,
+                    299,
+                    300
+                  ],
+                  "parent_id": "L.3.C.5.SC.2"
+                },
+                {
+                  "id": "L.3.C.5.SC.2.S.4",
+                  "tipo": "seccion",
+                  "etiqueta": "SECCIÓN 4",
+                  "titulo": "TRATAMIENTO URBANÍSTICO DE RENOVACIÓN URBANA",
+                  "nombre": "SECCIÓN 4 — TRATAMIENTO URBANÍSTICO DE RENOVACIÓN URBANA",
+                  "aliases": [],
+                  "children": [],
+                  "articulos": [
+                    301,
+                    302,
+                    303,
+                    304,
+                    305,
+                    306,
+                    307
+                  ],
+                  "parent_id": "L.3.C.5.SC.2"
+                },
+                {
+                  "id": "L.3.C.5.SC.2.S.5",
+                  "tipo": "seccion",
+                  "etiqueta": "SECCIÓN 5",
+                  "titulo": "TRATAMIENTO URBANÍSTICO DE CONSOLIDACIÓN",
+                  "nombre": "SECCIÓN 5 — TRATAMIENTO URBANÍSTICO DE CONSOLIDACIÓN",
+                  "aliases": [],
+                  "children": [],
+                  "articulos": [
+                    308,
+                    309,
+                    310,
+                    311,
+                    312,
+                    313,
+                    314,
+                    315,
+                    316
+                  ],
+                  "parent_id": "L.3.C.5.SC.2"
+                },
+                {
+                  "id": "L.3.C.5.SC.2.S.6",
+                  "tipo": "seccion",
+                  "etiqueta": "SECCIÓN 6",
+                  "titulo": "OBLIGACIONES URBANÍSTICAS EN LOS TRATAMIENTOS DE RENOVACIÓN URBANA Y DE CONSOLIDACIÓN",
+                  "nombre": "SECCIÓN 6 — OBLIGACIONES URBANÍSTICAS EN LOS TRATAMIENTOS DE RENOVACIÓN URBANA Y DE CONSOLIDACIÓN",
+                  "aliases": [],
+                  "children": [],
+                  "articulos": [
+                    317,
+                    318,
+                    319,
+                    320,
+                    321,
+                    322,
+                    323,
+                    324,
+                    325,
+                    326,
+                    327,
+                    328,
+                    329,
+                    330,
+                    331
+                  ],
+                  "parent_id": "L.3.C.5.SC.2"
+                },
+                {
+                  "id": "L.3.C.5.SC.2.S.7",
+                  "tipo": "seccion",
+                  "etiqueta": "SECCIÓN 7",
+                  "titulo": "TRATAMIENTO URBANÍSTICO DE MEJORAMIENTO INTEGRAL",
+                  "nombre": "SECCIÓN 7 — TRATAMIENTO URBANÍSTICO DE MEJORAMIENTO INTEGRAL",
+                  "aliases": [],
+                  "children": [],
+                  "articulos": [
+                    332,
+                    333,
+                    334,
+                    335,
+                    336,
+                    337,
+                    338,
+                    339,
+                    340,
+                    341,
+                    342
+                  ],
+                  "parent_id": "L.3.C.5.SC.2"
+                },
+                {
+                  "id": "L.3.C.5.SC.2.S.8",
+                  "tipo": "seccion",
+                  "etiqueta": "SECCIÓN 8",
+                  "titulo": "TRATAMIENTO URBANÍSTICO DE CONSERVACIÓN",
+                  "nombre": "SECCIÓN 8 — TRATAMIENTO URBANÍSTICO DE CONSERVACIÓN",
+                  "aliases": [],
+                  "children": [
+                    {
+                      "id": "L.3.C.5.SC.2.S.8.SS.1",
+                      "tipo": "subseccion",
+                      "etiqueta": "SUBSECCIÓN 1",
+                      "titulo": "DERECHOS DE CONSTRUCCIÓN Y DESARROLLO PARA BIENES DE INTERÉS CULTURAL EN ÁREAS GENERADORAS",
+                      "nombre": "SUBSECCIÓN 1 — DERECHOS DE CONSTRUCCIÓN Y DESARROLLO PARA BIENES DE INTERÉS CULTURAL EN ÁREAS GENERADORAS",
+                      "aliases": [],
+                      "children": [],
+                      "articulos": [
+                        349
+                      ],
+                      "parent_id": "L.3.C.5.SC.2.S.8"
+                    },
+                    {
+                      "id": "L.3.C.5.SC.2.S.8.SS.2",
+                      "tipo": "subseccion",
+                      "etiqueta": "SUBSECCIÓN 2",
+                      "titulo": "NORMAS GENERALES AL TRATAMIENTO DE CONSERVACIÓN",
+                      "nombre": "SUBSECCIÓN 2 — NORMAS GENERALES AL TRATAMIENTO DE CONSERVACIÓN",
+                      "aliases": [],
+                      "children": [],
+                      "articulos": [
+                        350,
+                        351,
+                        352,
+                        353,
+                        354,
+                        355,
+                        356,
+                        357,
+                        358,
+                        359,
+                        360,
+                        361,
+                        362,
+                        363
+                      ],
+                      "parent_id": "L.3.C.5.SC.2.S.8"
+                    },
+                    {
+                      "id": "L.3.C.5.SC.2.S.8.SS.3",
+                      "tipo": "subseccion",
+                      "etiqueta": "SUBSECCIÓN 3",
+                      "titulo": "NORMAS DE LOS PREDIOS NIVEL 4 Y COLINDANTES CON BIENES DE INTERÉS CULTURAL",
+                      "nombre": "SUBSECCIÓN 3 — NORMAS DE LOS PREDIOS NIVEL 4 Y COLINDANTES CON BIENES DE INTERÉS CULTURAL",
+                      "aliases": [],
+                      "children": [],
+                      "articulos": [
+                        364,
+                        365,
+                        366,
+                        367,
+                        368
+                      ],
+                      "parent_id": "L.3.C.5.SC.2.S.8"
+                    },
+                    {
+                      "id": "L.3.C.5.SC.2.S.8.SS.4",
+                      "tipo": "subseccion",
+                      "etiqueta": "SUBSECCIÓN 4",
+                      "titulo": "NORMAS PARA LOS PREDIOS DE RESTITUCIÓN PARCIAL O TOTAL",
+                      "nombre": "SUBSECCIÓN 4 — NORMAS PARA LOS PREDIOS DE RESTITUCIÓN PARCIAL O TOTAL",
+                      "aliases": [],
+                      "children": [],
+                      "articulos": [
+                        369
+                      ],
+                      "parent_id": "L.3.C.5.SC.2.S.8"
+                    }
+                  ],
+                  "articulos": [
+                    343,
+                    344,
+                    345,
+                    346,
+                    347,
+                    348
+                  ],
+                  "parent_id": "L.3.C.5.SC.2"
+                }
+              ],
+              "articulos": [],
+              "parent_id": "L.3.C.5"
+            },
+            {
+              "id": "L.3.C.5.SC.3",
+              "tipo": "subcapitulo",
+              "etiqueta": "SUBCAPÍTULO 3",
+              "titulo": "PROTECCIÓN A MORADORES Y A ACTIVIDADES PRODUCTIVAS",
+              "nombre": "SUBCAPÍTULO 3 — PROTECCIÓN A MORADORES Y A ACTIVIDADES PRODUCTIVAS",
+              "aliases": [],
+              "children": [],
+              "articulos": [
+                370,
+                371,
+                372,
+                373,
+                374,
+                375,
+                376,
+                377
+              ],
+              "parent_id": "L.3.C.5"
+            },
+            {
+              "id": "L.3.C.5.SC.4",
+              "tipo": "subcapitulo",
+              "etiqueta": "SUBCAPÍTULO 4",
+              "titulo": "ZONAS DE RESERVA",
+              "nombre": "SUBCAPÍTULO 4 — ZONAS DE RESERVA",
+              "aliases": [],
+              "children": [],
+              "articulos": [
+                378,
+                379,
+                380,
+                381,
+                382,
+                383
+              ],
+              "parent_id": "L.3.C.5"
+            },
+            {
+              "id": "L.3.C.5.SC.5",
+              "tipo": "subcapitulo",
+              "etiqueta": "SUBCAPÍTULO 5",
+              "titulo": "ESTÁNDARES DE CALIDAD DEL HÁBITAT",
+              "nombre": "SUBCAPÍTULO 5 — ESTÁNDARES DE CALIDAD DEL HÁBITAT",
+              "aliases": [],
+              "children": [],
+              "articulos": [
+                384,
+                385,
+                386,
+                387,
+                388
+              ],
+              "parent_id": "L.3.C.5"
+            },
+            {
+              "id": "L.3.C.5.SC.6",
+              "tipo": "subcapitulo",
+              "etiqueta": "SUBCAPÍTULO 6",
+              "titulo": "NORMAS COMUNES SOBRE ESTACIONAMIENTOS",
+              "nombre": "SUBCAPÍTULO 6 — NORMAS COMUNES SOBRE ESTACIONAMIENTOS",
+              "aliases": [],
+              "children": [],
+              "articulos": [
+                389,
+                390,
+                391
+              ],
+              "parent_id": "L.3.C.5"
+            }
+          ],
+          "articulos": [],
+          "parent_id": "L.3"
+        }
+      ],
+      "articulos": [],
+      "parent_id": null
+    },
+    {
+      "id": "L.4",
+      "tipo": "libro",
+      "etiqueta": "LIBRO IV",
+      "titulo": "COMPONENTE RURAL",
+      "nombre": "LIBRO IV — COMPONENTE RURAL",
+      "aliases": [],
+      "children": [
+        {
+          "id": "L.4.C.1",
+          "tipo": "capitulo",
+          "etiqueta": "CAPÍTULO 1",
+          "titulo": "POLÍTICA, PRINCIPIOS RECTORES Y OBJETIVOS DEL ORDENAMIENTO RURAL",
+          "nombre": "CAPÍTULO 1 — POLÍTICA, PRINCIPIOS RECTORES Y OBJETIVOS DEL ORDENAMIENTO RURAL",
+          "aliases": [],
+          "children": [],
+          "articulos": [
+            392,
+            393,
+            394,
+            395,
+            396,
+            397,
+            398
+          ],
+          "parent_id": "L.4"
+        },
+        {
+          "id": "L.4.C.2",
+          "tipo": "capitulo",
+          "etiqueta": "CAPÍTULO 2",
+          "titulo": "INCORPORACIÓN DE LA GESTIÓN DEL RIESGO DE DESASTRES EN EL COMPONENTE RURAL",
+          "nombre": "CAPÍTULO 2 — INCORPORACIÓN DE LA GESTIÓN DEL RIESGO DE DESASTRES EN EL COMPONENTE RURAL",
+          "aliases": [],
+          "children": [],
+          "articulos": [
+            399,
+            400,
+            401,
+            402,
+            403,
+            404,
+            405,
+            406,
+            407,
+            408,
+            409,
+            410,
+            411
+          ],
+          "parent_id": "L.4"
+        },
+        {
+          "id": "L.4.C.3",
+          "tipo": "capitulo",
+          "etiqueta": "CAPÍTULO 3",
+          "titulo": "ESTRUCTURA FUNCIONAL Y DEL CUIDADO",
+          "nombre": "CAPÍTULO 3 — ESTRUCTURA FUNCIONAL Y DEL CUIDADO",
+          "aliases": [],
+          "children": [
+            {
+              "id": "L.4.C.3.SC.1",
+              "tipo": "subcapitulo",
+              "etiqueta": "SUBCAPÍTULO 1",
+              "titulo": "SISTEMA DE ESPACIO PÚBLICO RURAL PEATONAL Y PARA EL ENCUENTRO",
+              "nombre": "SUBCAPÍTULO 1 — SISTEMA DE ESPACIO PÚBLICO RURAL PEATONAL Y PARA EL ENCUENTRO",
+              "aliases": [],
+              "children": [],
+              "articulos": [
+                412,
+                413,
+                414,
+                415,
+                416
+              ],
+              "parent_id": "L.4.C.3"
+            },
+            {
+              "id": "L.4.C.3.SC.2",
+              "tipo": "subcapitulo",
+              "etiqueta": "SUBCAPÍTULO 2",
+              "titulo": "SISTEMA DE MOVILIDAD RURAL",
+              "nombre": "SUBCAPÍTULO 2 — SISTEMA DE MOVILIDAD RURAL",
+              "aliases": [],
+              "children": [],
+              "articulos": [
+                417,
+                418,
+                419,
+                420,
+                421,
+                422,
+                423,
+                424,
+                425,
+                426,
+                427,
+                428
+              ],
+              "parent_id": "L.4.C.3"
+            },
+            {
+              "id": "L.4.C.3.SC.3",
+              "tipo": "subcapitulo",
+              "etiqueta": "SUBCAPÍTULO 3",
+              "titulo": "SISTEMA DEL CUIDADO Y DE SERVICIOS SOCIALES",
+              "nombre": "SUBCAPÍTULO 3 — SISTEMA DEL CUIDADO Y DE SERVICIOS SOCIALES",
+              "aliases": [],
+              "children": [],
+              "articulos": [
+                429,
+                430,
+                431,
+                432
+              ],
+              "parent_id": "L.4.C.3"
+            },
+            {
+              "id": "L.4.C.3.SC.4",
+              "tipo": "subcapitulo",
+              "etiqueta": "SUBCAPÍTULO 4",
+              "titulo": "SISTEMAS DE SERVICIOS PÚBLICOS",
+              "nombre": "SUBCAPÍTULO 4 — SISTEMAS DE SERVICIOS PÚBLICOS",
+              "aliases": [],
+              "children": [],
+              "articulos": [
+                433,
+                434,
+                435,
+                436,
+                437,
+                438,
+                439,
+                440,
+                441,
+                442,
+                443,
+                444
+              ],
+              "parent_id": "L.4.C.3"
+            }
+          ],
+          "articulos": [],
+          "parent_id": "L.4"
+        },
+        {
+          "id": "L.4.C.4",
+          "tipo": "capitulo",
+          "etiqueta": "CAPÍTULO 4",
+          "titulo": "CATEGORÍAS DEL SUELO RURAL",
+          "nombre": "CAPÍTULO 4 — CATEGORÍAS DEL SUELO RURAL",
+          "aliases": [],
+          "children": [
+            {
+              "id": "L.4.C.4.SC.1",
+              "tipo": "subcapitulo",
+              "etiqueta": "SUBCAPÍTULO 1",
+              "titulo": "CATEGORÍA DE PROTECCIÓN EN SUELO RURAL",
+              "nombre": "SUBCAPÍTULO 1 — CATEGORÍA DE PROTECCIÓN EN SUELO RURAL",
+              "aliases": [],
+              "children": [],
+              "articulos": [
+                446,
+                447,
+                448,
+                449,
+                450,
+                451
+              ],
+              "parent_id": "L.4.C.4"
+            },
+            {
+              "id": "L.4.C.4.SC.2",
+              "tipo": "subcapitulo",
+              "etiqueta": "SUBCAPÍTULO 2",
+              "titulo": "SUELO RURAL DE DESARROLLO RESTRINGIDO",
+              "nombre": "SUBCAPÍTULO 2 — SUELO RURAL DE DESARROLLO RESTRINGIDO",
+              "aliases": [],
+              "children": [],
+              "articulos": [
+                452,
+                453,
+                454,
+                455
+              ],
+              "parent_id": "L.4.C.4"
+            }
+          ],
+          "articulos": [
+            445
+          ],
+          "parent_id": "L.4"
+        },
+        {
+          "id": "L.4.C.5",
+          "tipo": "capitulo",
+          "etiqueta": "CAPÍTULO 5",
+          "titulo": "NORMAS DE USO DEL SUELO RURAL",
+          "nombre": "CAPÍTULO 5 — NORMAS DE USO DEL SUELO RURAL",
+          "aliases": [],
+          "children": [
+            {
+              "id": "L.4.C.5.SC.1",
+              "tipo": "subcapitulo",
+              "etiqueta": "SUBCAPÍTULO 1",
+              "titulo": "USOS DEL SUELO Y CONDICIONES PARA EL DESARROLLO DE LOS USOS",
+              "nombre": "SUBCAPÍTULO 1 — USOS DEL SUELO Y CONDICIONES PARA EL DESARROLLO DE LOS USOS",
+              "aliases": [],
+              "children": [],
+              "articulos": [
+                456,
+                457,
+                458,
+                459
+              ],
+              "parent_id": "L.4.C.5"
+            },
+            {
+              "id": "L.4.C.5.SC.2",
+              "tipo": "subcapitulo",
+              "etiqueta": "SUBCAPÍTULO 2",
+              "titulo": "USOS, EDIFICABILIDAD Y VOLUMETRÍA DE CENTROS POBLADOS",
+              "nombre": "SUBCAPÍTULO 2 — USOS, EDIFICABILIDAD Y VOLUMETRÍA DE CENTROS POBLADOS",
+              "aliases": [],
+              "children": [],
+              "articulos": [
+                460,
+                461,
+                462
+              ],
+              "parent_id": "L.4.C.5"
+            },
+            {
+              "id": "L.4.C.5.SC.3",
+              "tipo": "subcapitulo",
+              "etiqueta": "SUBCAPÍTULO 3",
+              "titulo": "USOS, EDIFICABILIDAD Y VOLUMETRÍA DE NODOS DE EQUIPAMIENTOS Y EQUIPAMIENTOS AISLADOS",
+              "nombre": "SUBCAPÍTULO 3 — USOS, EDIFICABILIDAD Y VOLUMETRÍA DE NODOS DE EQUIPAMIENTOS Y EQUIPAMIENTOS AISLADOS",
+              "aliases": [],
+              "children": [],
+              "articulos": [
+                463,
+                464,
+                465
+              ],
+              "parent_id": "L.4.C.5"
+            },
+            {
+              "id": "L.4.C.5.SC.4",
+              "tipo": "subcapitulo",
+              "etiqueta": "SUBCAPÍTULO 4",
+              "titulo": "USOS, EDIFICABILIDAD Y VOLUMETRÍA DE LA VIVIENDA RURAL CAMPESTRE",
+              "nombre": "SUBCAPÍTULO 4 — USOS, EDIFICABILIDAD Y VOLUMETRÍA DE LA VIVIENDA RURAL CAMPESTRE",
+              "aliases": [],
+              "children": [],
+              "articulos": [
+                466,
+                467
+              ],
+              "parent_id": "L.4.C.5"
+            },
+            {
+              "id": "L.4.C.5.SC.5",
+              "tipo": "subcapitulo",
+              "etiqueta": "SUBCAPÍTULO 5",
+              "titulo": "NORMAS COMUNES APLICABLES EN ÁREAS DE DESARROLLO RESTRINGIDO",
+              "nombre": "SUBCAPÍTULO 5 — NORMAS COMUNES APLICABLES EN ÁREAS DE DESARROLLO RESTRINGIDO",
+              "aliases": [],
+              "children": [],
+              "articulos": [
+                468,
+                469,
+                470,
+                471
+              ],
+              "parent_id": "L.4.C.5"
+            },
+            {
+              "id": "L.4.C.5.SC.6",
+              "tipo": "subcapitulo",
+              "etiqueta": "SUBCAPÍTULO 6",
+              "titulo": "EDIFICABILIDAD Y VOLUMETRÍA DE LA VIVIENDA RURAL DISPERSA",
+              "nombre": "SUBCAPÍTULO 6 — EDIFICABILIDAD Y VOLUMETRÍA DE LA VIVIENDA RURAL DISPERSA",
+              "aliases": [],
+              "children": [],
+              "articulos": [
+                472
+              ],
+              "parent_id": "L.4.C.5"
+            },
+            {
+              "id": "L.4.C.5.SC.7",
+              "tipo": "subcapitulo",
+              "etiqueta": "SUBCAPÍTULO 7",
+              "titulo": "RÉGIMEN DE USOS DE LAS ÁREAS PARA LA PRODUCCIÓN AGRÍCOLA Y GANADERA Y DE EXPLOTACIÓN DE RECURSOS NATURALES",
+              "nombre": "SUBCAPÍTULO 7 — RÉGIMEN DE USOS DE LAS ÁREAS PARA LA PRODUCCIÓN AGRÍCOLA Y GANADERA Y DE EXPLOTACIÓN DE RECURSOS NATURALES",
+              "aliases": [],
+              "children": [],
+              "articulos": [
+                473,
+                474,
+                475,
+                476,
+                477
+              ],
+              "parent_id": "L.4.C.5"
+            }
+          ],
+          "articulos": [],
+          "parent_id": "L.4"
+        }
+      ],
+      "articulos": [],
+      "parent_id": null
+    },
+    {
+      "id": "L.5",
+      "tipo": "libro",
+      "etiqueta": "LIBRO V",
+      "titulo": "ACTUACIONES ESTRATÉGICAS",
+      "nombre": "LIBRO V — ACTUACIONES ESTRATÉGICAS",
+      "aliases": [],
+      "children": [],
+      "articulos": [
+        478,
+        479,
+        480,
+        481,
+        482,
+        483,
+        484
+      ],
+      "parent_id": null
+    },
+    {
+      "id": "L.6",
+      "tipo": "libro",
+      "etiqueta": "LIBRO VI",
+      "titulo": "INSTRUMENTOS DE PLANEACIÓN, GESTIÓN Y FINANCIACIÓN",
+      "nombre": "LIBRO VI — INSTRUMENTOS DE PLANEACIÓN, GESTIÓN Y FINANCIACIÓN",
+      "aliases": [],
+      "children": [
+        {
+          "id": "L.6.T.1",
+          "tipo": "titulo",
+          "etiqueta": "TÍTULO I",
+          "titulo": "INSTRUMENTOS DE PLANEACIÓN",
+          "nombre": "TÍTULO I — INSTRUMENTOS DE PLANEACIÓN",
+          "aliases": [],
+          "children": [
+            {
+              "id": "L.6.T.1.C.1",
+              "tipo": "capitulo",
+              "etiqueta": "CAPÍTULO 1",
+              "titulo": "INSTRUMENTOS QUE CONCRETAN EL MODELO DE OCUPACIÓN TERRITORIAL",
+              "nombre": "CAPÍTULO 1 — INSTRUMENTOS QUE CONCRETAN EL MODELO DE OCUPACIÓN TERRITORIAL",
+              "aliases": [],
+              "children": [],
+              "articulos": [
+                486,
+                487,
+                488,
+                489,
+                490,
+                491
+              ],
+              "parent_id": "L.6.T.1"
+            },
+            {
+              "id": "L.6.T.1.C.2",
+              "tipo": "capitulo",
+              "etiqueta": "CAPÍTULO 2",
+              "titulo": "INSTRUMENTOS QUE PRECISAN Y ARTICULAN LAS DECISIONES DE ORDENAMIENTO",
+              "nombre": "CAPÍTULO 2 — INSTRUMENTOS QUE PRECISAN Y ARTICULAN LAS DECISIONES DE ORDENAMIENTO",
+              "aliases": [],
+              "children": [],
+              "articulos": [
+                492,
+                493,
+                494,
+                495,
+                496,
+                497,
+                498,
+                499,
+                500,
+                501,
+                502,
+                503,
+                504,
+                505,
+                506,
+                507
+              ],
+              "parent_id": "L.6.T.1"
+            },
+            {
+              "id": "L.6.T.1.C.2.sic",
+              "tipo": "capitulo",
+              "etiqueta": "CAPÍTULO II (sic)",
+              "titulo": "INSTRUMENTOS DE FINANCIACIÓN Y DE GESTIÓN DEL SUELO PARA EL DESARROLLO TERRITORIAL",
+              "nombre": "CAPÍTULO II (sic) — INSTRUMENTOS DE FINANCIACIÓN Y DE GESTIÓN DEL SUELO PARA EL DESARROLLO TERRITORIAL",
+              "aliases": [],
+              "children": [],
+              "articulos": [
+                508,
+                509,
+                510,
+                511,
+                512,
+                513,
+                514,
+                515,
+                516,
+                517,
+                518,
+                519,
+                520,
+                521,
+                522,
+                523,
+                524,
+                525,
+                526,
+                527,
+                528,
+                529,
+                530,
+                531,
+                532,
+                533,
+                534,
+                535,
+                536,
+                537,
+                538,
+                539,
+                540,
+                541,
+                542,
+                543,
+                544,
+                545,
+                546,
+                547,
+                548,
+                549,
+                550,
+                551,
+                552,
+                553
+              ],
+              "parent_id": "L.6.T.1"
+            }
+          ],
+          "articulos": [
+            485
+          ],
+          "parent_id": "L.6"
+        },
+        {
+          "id": "L.6.T.2",
+          "tipo": "titulo",
+          "etiqueta": "TÍTULO II",
+          "titulo": "ESTRATEGIA DE FINANCIACIÓN DEL PLAN DE ORDENAMIENTO TERRITORIAL",
+          "nombre": "TÍTULO II — ESTRATEGIA DE FINANCIACIÓN DEL PLAN DE ORDENAMIENTO TERRITORIAL",
+          "aliases": [],
+          "children": [],
+          "articulos": [
+            554,
+            555,
+            556,
+            557
+          ],
+          "parent_id": "L.6"
+        },
+        {
+          "id": "L.6.T.3",
+          "tipo": "titulo",
+          "etiqueta": "TÍTULO III",
+          "titulo": "INCENTIVOS",
+          "nombre": "TÍTULO III — INCENTIVOS",
+          "aliases": [],
+          "children": [],
+          "articulos": [
+            558,
+            559,
+            560,
+            561,
+            562,
+            563,
+            564
+          ],
+          "parent_id": "L.6"
+        }
+      ],
+      "articulos": [],
+      "parent_id": null
+    },
+    {
+      "id": "L.7",
+      "tipo": "libro",
+      "etiqueta": "LIBRO VII",
+      "titulo": "CONTENIDO PROGRAMÁTICO",
+      "nombre": "LIBRO VII — CONTENIDO PROGRAMÁTICO",
+      "aliases": [],
+      "children": [],
+      "articulos": [
+        565,
+        566,
+        567,
+        568,
+        569,
+        570,
+        571
+      ],
+      "parent_id": null
+    },
+    {
+      "id": "L.8",
+      "tipo": "libro",
+      "etiqueta": "LIBRO VIII",
+      "titulo": "DISPOSICIONES GENERALES",
+      "nombre": "LIBRO VIII — DISPOSICIONES GENERALES",
+      "aliases": [],
+      "children": [
+        {
+          "id": "L.8.C.1",
+          "tipo": "capitulo",
+          "etiqueta": "CAPÍTULO 1",
+          "titulo": "NORMAS GENERALES",
+          "nombre": "CAPÍTULO 1 — NORMAS GENERALES",
+          "aliases": [],
+          "children": [],
+          "articulos": [
+            572,
+            573,
+            574,
+            575,
+            576
+          ],
+          "parent_id": "L.8"
+        },
+        {
+          "id": "L.8.C.2",
+          "tipo": "capitulo",
+          "etiqueta": "CAPÍTULO 2",
+          "titulo": "MODELO DE GOBERNANZA DEL PLAN DE ORDENAMIENTO TERRITORIAL",
+          "nombre": "CAPÍTULO 2 — MODELO DE GOBERNANZA DEL PLAN DE ORDENAMIENTO TERRITORIAL",
+          "aliases": [],
+          "children": [],
+          "articulos": [
+            577,
+            578,
+            579,
+            580,
+            581,
+            582,
+            583,
+            584,
+            585,
+            586,
+            587,
+            588,
+            589,
+            590,
+            591,
+            592
+          ],
+          "parent_id": "L.8"
+        },
+        {
+          "id": "L.8.C.3",
+          "tipo": "capitulo",
+          "etiqueta": "CAPÍTULO 3",
+          "titulo": "TRANSICIÓN, DOCUMENTOS Y VIGENCIAS DEL PLAN DE ORDENAMIENTO TERRITORIAL",
+          "nombre": "CAPÍTULO 3 — TRANSICIÓN, DOCUMENTOS Y VIGENCIAS DEL PLAN DE ORDENAMIENTO TERRITORIAL",
+          "aliases": [],
+          "children": [],
+          "articulos": [
+            593,
+            594,
+            595,
+            596,
+            597,
+            598,
+            599,
+            600,
+            601,
+            602,
+            603,
+            604,
+            605,
+            606,
+            607,
+            608
+          ],
+          "parent_id": "L.8"
+        }
+      ],
+      "articulos": [],
+      "parent_id": null
+    }
+  ],
+  "aliases": {
+    "L.2.T.1.C.1": "L.2.T.1.C.U"
   },
-  {
-    "id": "L.2",
-    "nombre": "Libro II - Componente General",
-    "articulos": [
-      {
-        "numero": 2,
-        "id": "art-2",
-        "titulo": "Desafíos del ordenamiento territorial del Distrito Capital",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 3,
-        "id": "art-3",
-        "titulo": "Políticas de largo plazo del ordenamiento territorial del Distrito Capital",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 4,
-        "id": "art-4",
-        "titulo": "rincipios rectores del ordenamiento territorial",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 5,
-        "id": "art-5",
-        "titulo": "Objetivos de ordenamiento territorial",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 6,
-        "id": "art-6",
-        "titulo": "Modelo de Ocupación Territorial –MOT- multiescalar",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 7,
-        "id": "art-7",
-        "titulo": "Elementos Regionales del Modelo de Ocupación del Territorio",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 8,
-        "id": "art-8",
-        "titulo": "Elementos Distritales del Modelo de Ocupación del Territorio",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 9,
-        "id": "art-9",
-        "titulo": "Elementos Locales del Modelo de Ocupación Territorial",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 10,
-        "id": "art-10",
-        "titulo": "Delimitación de localidades. ",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 11,
-        "id": "art-11",
-        "titulo": "Conectores ecosistémicos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 12,
-        "id": "art-12",
-        "titulo": "Clasificación del suelo",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 13,
-        "id": "art-13",
-        "titulo": "Principios orientadores de la definición del Modelo de Ocupación Territorial -MOT",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 14,
-        "id": "art-14",
-        "titulo": "Acciones que concretan el Modelo de Ocupación Territorial -MOT",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 15,
-        "id": "art-15",
-        "titulo": "Estrategias para la gestión del riesgo de desastres y el cambio climático",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 16,
-        "id": "art-16",
-        "titulo": "Gestión del Cambio Climático",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 17,
-        "id": "art-17",
-        "titulo": "Medidas Territoriales para la Mitigación y Adaptación al Cambio Climático",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 18,
-        "id": "art-18",
-        "titulo": "Amenaza por movimientos en masa, inundación, avenidas torrenciales y/o crecientes súbitas e incendios forestales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 19,
-        "id": "art-19",
-        "titulo": "Actualización periódica de los mapas normativos de amenaza",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 20,
-        "id": "art-20",
-        "titulo": "Áreas con condición de amenaza",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 21,
-        "id": "art-21",
-        "titulo": "Áreas con condición de riesgo",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 22,
-        "id": "art-22",
-        "titulo": "Procesos de urbanización, parcelación y/o construcción en áreas con condición de amenaza y riesgo por movimientos en masa e inundación",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 23,
-        "id": "art-23",
-        "titulo": "Términos de referencia para la realización de los estudios detallados de amenaza y riesgo por inundación",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 24,
-        "id": "art-24",
-        "titulo": "Obligatoriedad de estudios de riesgo para la ocupación y uso de áreas con condición de riesgo por movimientos en masa e inundación",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 25,
-        "id": "art-25",
-        "titulo": "Responsabilidad de la funcionalidad de las obras de reducción del riesgo",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 26,
-        "id": "art-26",
-        "titulo": "Obligatoriedad de los planes de gestión de riesgo para los desarrollos urbanísticos en zonas de amenaza alta y media por inundación",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 27,
-        "id": "art-27",
-        "titulo": "Obligatoriedad de análisis de riesgos para la construcción de infraestructuras",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 28,
-        "id": "art-28",
-        "titulo": "Sistema de protección contra inundaciones",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 29,
-        "id": "art-29",
-        "titulo": "Microzonificación sísmica",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 30,
-        "id": "art-30",
-        "titulo": "Gestión del Riesgo por Fenómenos de Origen Tecnológico",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 31,
-        "id": "art-31",
-        "titulo": "Sistemas de monitoreo y registro de eventos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 32,
-        "id": "art-32",
-        "titulo": "Suelo de protección por riesgo",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 33,
-        "id": "art-33",
-        "titulo": "Manejo de áreas de Resiliencia Climática y protección por riesgo",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 34,
-        "id": "art-34",
-        "titulo": "Administración de predios en alto riesgo no mitigable desocupados en procesos de reasentamiento de familias",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 35,
-        "id": "art-35",
-        "titulo": "Suelo de protección por riesgo como espacio público",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 36,
-        "id": "art-36",
-        "titulo": "Actividad minera en el Distrito Capital",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 37,
-        "id": "art-37",
-        "titulo": "Obligatoriedad de estudios detallados de riesgo para el proceso de urbanización en áreas afectadas por minería",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 38,
-        "id": "art-38",
-        "titulo": "Recuperación del suelo afectado por minería por fuera de las zonas compatibles",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 39,
-        "id": "art-39",
-        "titulo": "Armonización de instrumentos para usos post minería",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 40,
-        "id": "art-40",
-        "titulo": "Estructuras Territoriales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 41,
-        "id": "art-41",
-        "titulo": "Definición de la Estructura Ecológica Principal - EEP",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 42,
-        "id": "art-42",
-        "titulo": "Estrategias de la Estructura Ecológica Principal",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 43,
-        "id": "art-43",
-        "titulo": "Definición de los usos de la Estructura Ecológica Principal",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 44,
-        "id": "art-44",
-        "titulo": "Componente de Áreas Protegidas del Sistema Nacional de Áreas Protegidas -SINAP",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 45,
-        "id": "art-45",
-        "titulo": "Áreas Protegidas Públicas del Sistema Nacional de Áreas Protegidas -SINAP",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 46,
-        "id": "art-46",
-        "titulo": "Áreas Protegidas Privadas del Sistema Nacional de Áreas Protegidas -SINAP. ",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 47,
-        "id": "art-47",
-        "titulo": "Componente de Zonas de Conservación",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 48,
-        "id": "art-48",
-        "titulo": "Áreas de conservación in situ. ",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 49,
-        "id": "art-49",
-        "titulo": "Reserva Forestal Protectora Productora de la Cuenca Alta del Río Bogotá",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 50,
-        "id": "art-50",
-        "titulo": "Reserva Forestal Regional Productora del Norte de Bogotá D.C., “ Thomas van der Hammen\"",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 51,
-        "id": "art-51",
-        "titulo": "Sistema Distrital de áreas protegidas",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 52,
-        "id": "art-52",
-        "titulo": "Paisajes Sostenibles",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 53,
-        "id": "art-53",
-        "titulo": "Gestión de los paisajes sostenibles",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 54,
-        "id": "art-54",
-        "titulo": "Parques Distritales Ecológicos de Montaña",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 55,
-        "id": "art-55",
-        "titulo": "Reservas Distritales de Humedal",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 56,
-        "id": "art-56",
-        "titulo": "Régimen de usos de las Reservas Distritales de Humedal",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 57,
-        "id": "art-57",
-        "titulo": "Administración de las Reservas Distritales de Humedal",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 58,
-        "id": "art-58",
-        "titulo": "Componente de Áreas de Especial Importancia Ecosistémica",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 59,
-        "id": "art-59",
-        "titulo": "Complejo de Páramos Cruz Verde - Sumapaz. ",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 60,
-        "id": "art-60",
-        "titulo": "Sistema hídrico",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 61,
-        "id": "art-61",
-        "titulo": "Armonización de definiciones y conceptos en el marco del acotamiento de cuerpos hídricos. ",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 62,
-        "id": "art-62",
-        "titulo": "Cuerpos Hídricos Naturales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 63,
-        "id": "art-63",
-        "titulo": "Cuerpos Hídricos Artificiales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 64,
-        "id": "art-64",
-        "titulo": "Lineamientos para los cuerpos hídricos artificiales en suelo rural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 65,
-        "id": "art-65",
-        "titulo": "Criterios para el acotamiento de rondas hídricas. ",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 66,
-        "id": "art-66",
-        "titulo": "Áreas Complementarias para la Conservación",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 67,
-        "id": "art-67",
-        "titulo": "Parques contemplativos y de la Red Estructurante que hacen parte de la Estructura Ecológica Principal y Parques de Borde",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 68,
-        "id": "art-68",
-        "titulo": "Parques de Borde",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 69,
-        "id": "art-69",
-        "titulo": "Zonificación de los parques de borde",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 70,
-        "id": "art-70",
-        "titulo": "Derechos adquiridos en el Área de Ocupación Público Prioritaria y el Área de Consolidación del Borde Urbano de la Franja de Adecuación",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 71,
-        "id": "art-71",
-        "titulo": "Áreas de Resiliencia Climática y protección por riesgo",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 72,
-        "id": "art-72",
-        "titulo": "Subzona de manejo y uso de importancia ambiental del POMCA Río Bogotá",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 73,
-        "id": "art-73",
-        "titulo": "Áreas públicas producto de compensación o cesión en áreas de la Estructura Ecológica Principal",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 74,
-        "id": "art-74",
-        "titulo": "Condicionamientos y lineamientos de los usos de la Estructura Ecológica Principal",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 75,
-        "id": "art-75",
-        "titulo": "Equipamientos en la Zona de Articulación y Restablecimiento de la red de parques del Río Bogotá",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 76,
-        "id": "art-76",
-        "titulo": "Condiciones de implantación de Equipamientos en la Zona de Articulación y Restablecimiento de la red de parques del Río Bogotá",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 77,
-        "id": "art-77",
-        "titulo": "Acciones de mitigación de impactos urbanísticos de los Equipamientos en la Zona de Articulación y Restablecimiento de la red de parques del Río Bogotá",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 78,
-        "id": "art-78",
-        "titulo": "Gobernanza y participación en los parques de borde",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 79,
-        "id": "art-79",
-        "titulo": "Adquisición de predios de las áreas de importancia ecosistémica",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 80,
-        "id": "art-80",
-        "titulo": "Definición de la Estructura Integradora de Patrimonios - EIP",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 81,
-        "id": "art-81",
-        "titulo": "Estrategias en relación con la Estructura Integradora de Patrimonios",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 82,
-        "id": "art-82",
-        "titulo": "Régimen de autorizaciones en componentes de la Estructura Integradora de Patrimonios",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 83,
-        "id": "art-83",
-        "titulo": "Plan Especial de Manejo y Protección del Centro Histórico - PEMP -CH",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 84,
-        "id": "art-84",
-        "titulo": "Incorporación de medidas de protección para áreas con potencial arqueológico en el POT",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 85,
-        "id": "art-85",
-        "titulo": "Incorporación de medidas de protección del paisaje urbano y rural patrimonial bogotano",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 86,
-        "id": "art-86",
-        "titulo": "Incorporación de medidas vinculadas a la protección del patrimonio cultural y natural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 87,
-        "id": "art-87",
-        "titulo": "Sistema de Información del Patrimonio",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 88,
-        "id": "art-88",
-        "titulo": "Definición de la Estructura Funcional y del Cuidado",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 89,
-        "id": "art-89",
-        "titulo": "Política Distrital de Espacio Público y objetivos del Sistema de Espacio Público Peatonal para el Encuentro",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 90,
-        "id": "art-90",
-        "titulo": "Componentes del Sistema Distrital de Espacio Público Peatonal para el Encuentro",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 91,
-        "id": "art-91",
-        "titulo": "Estrategias del Sistema de Espacio Público Peatonal para el Encuentro",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 92,
-        "id": "art-92",
-        "titulo": "Sistema de Movilidad",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 93,
-        "id": "art-93",
-        "titulo": "Estrategias del Sistema de Movilidad",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 94,
-        "id": "art-94",
-        "titulo": "Sistema del Cuidado y de Servicios Sociales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 95,
-        "id": "art-95",
-        "titulo": "Principios y estrategias del Sistema del Cuidado y de Servicios Sociales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 96,
-        "id": "art-96",
-        "titulo": "Equipamientos de urgencia para el apoyo a la atención oportuna de emergencias",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 97,
-        "id": "art-97",
-        "titulo": "Uso por contingencia de equipamientos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 98,
-        "id": "art-98",
-        "titulo": "Sistemas de Servicios Públicos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 99,
-        "id": "art-99",
-        "titulo": "Estrategias del Sistema de Servicios Públicos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 100,
-        "id": "art-100",
-        "titulo": "Estructura Socioeconómica, creativa y de innovación",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 101,
-        "id": "art-101",
-        "titulo": "Estrategias de la Estructura Socioeconómica, creativa y de innovación",
-        "menciona_anexo_5": false
-      }
-    ]
-  },
-  {
-    "id": "L.3",
-    "nombre": "Libro III - Componente Urbano",
-    "articulos": [
-      {
-        "numero": 102,
-        "id": "art-102",
-        "titulo": "Política de ordenamiento urbano del Distrito Capital",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 103,
-        "id": "art-103",
-        "titulo": "Principios rectores del ordenamiento en el componente urbano",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 104,
-        "id": "art-104",
-        "titulo": "Amenaza por movimientos en masa suelo urbano y de expansión",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 105,
-        "id": "art-105",
-        "titulo": "Amenaza por inundación en Suelo Urbano y de Expansión Urbana",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 106,
-        "id": "art-106",
-        "titulo": "Amenaza por inundación por encharcamiento",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 107,
-        "id": "art-107",
-        "titulo": "Amenaza por avenidas torrenciales y/o crecientes súbitas",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 108,
-        "id": "art-108",
-        "titulo": "Amenaza por incendios forestales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 109,
-        "id": "art-109",
-        "titulo": "Áreas con condición de amenaza",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 110,
-        "id": "art-110",
-        "titulo": "Áreas con condición de riesgo",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 111,
-        "id": "art-111",
-        "titulo": "Priorización de estudios detallados de riesgo por Movimientos en Masa",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 112,
-        "id": "art-112",
-        "titulo": "Priorización de estudios detallados de riesgo por Avenidas Torrenciales y/o Crecientes Súbitas en Suelo Urbano y Expansión Urbana",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 113,
-        "id": "art-113",
-        "titulo": "Priorización de estudios detallados de riesgo por inundación",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 114,
-        "id": "art-114",
-        "titulo": "Lineamientos para la reducción del riesgo por incendio forestal",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 115,
-        "id": "art-115",
-        "titulo": "Condicionamientos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 116,
-        "id": "art-116",
-        "titulo": "Suelo de protección por riesgo",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 117,
-        "id": "art-117",
-        "titulo": "Política Distrital de",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 118,
-        "id": "art-118",
-        "titulo": "Estrategias para la transformación de entornos construidos con prácticas sostenibles de urbanismo, construcción y la adecuación de espacios públicos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 119,
-        "id": "art-119",
-        "titulo": "Actuaciones Estratégicas para el desarrollo sostenible",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 120,
-        "id": "art-120",
-        "titulo": "Zonas Urbanas por un Mejor Aire",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 121,
-        "id": "art-121",
-        "titulo": "Cobertura de espacio público",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 122,
-        "id": "art-122",
-        "titulo": "Criterios de diseño para el sistema de espacio público peatonal y para el encuentro",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 123,
-        "id": "art-123",
-        "titulo": "Tipologías de parques estructurante y de proximidad",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 124,
-        "id": "art-124",
-        "titulo": "Zonas verdes",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 125,
-        "id": "art-125",
-        "titulo": "Servicios conexos y actividades en el sistema de espacio público peatonal y para el encuentro",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 126,
-        "id": "art-126",
-        "titulo": "Índices de diseño para los elementos del Sistema de espacio público peatonal y para el encuentro",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 127,
-        "id": "art-127",
-        "titulo": "Proyecto específico",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 128,
-        "id": "art-128",
-        "titulo": "Directrices para el manejo de espacios privados afectos al uso público",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 129,
-        "id": "art-129",
-        "titulo": "Directrices para la renaturalización y el reverdecimiento",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 130,
-        "id": "art-130",
-        "titulo": "Consolidación de bosques urbanos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 131,
-        "id": "art-131",
-        "titulo": "Proyectos priorizados del Sistema Urbano de Espacio Público Peatonal para el Encuentro",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 132,
-        "id": "art-132",
-        "titulo": "Adecuación y mantenimiento de andenes",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 133,
-        "id": "art-133",
-        "titulo": "Directrices de localización y diseño del mobiliario",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 134,
-        "id": "art-134",
-        "titulo": "Directrices de localización y diseño de los elementos de señalización",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 135,
-        "id": "art-135",
-        "titulo": "Directrices de localización y diseño de monumentos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 136,
-        "id": "art-136",
-        "titulo": "Disposiciones para la gestión del espacio público peatonal y para el encuentro",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 137,
-        "id": "art-137",
-        "titulo": "Acciones de recuperación de zonas de interés patrimonial y cultural y de espacios vacíos, residuales y culatas",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 138,
-        "id": "art-138",
-        "titulo": "Implementación de procesos pedagógicos para el fomento de la construcción colectiva de ciudadanía y de Cultura Ciudadana",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 139,
-        "id": "art-139",
-        "titulo": "Saneamiento del espacio público y actualización de la cartografía",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 140,
-        "id": "art-140",
-        "titulo": "Señalamiento de espacios públicos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 141,
-        "id": "art-141",
-        "titulo": "Sustitución de zonas de uso público",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 142,
-        "id": "art-142",
-        "titulo": "Cambio de uso de las zonas o bienes de uso público",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 143,
-        "id": "art-143",
-        "titulo": "Delimitación de cesiones públicas señaladas como zonas verdes y/o comunales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 144,
-        "id": "art-144",
-        "titulo": "Modificación de planos urbanísticos de urbanizaciones desarrolladas",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 145,
-        "id": "art-145",
-        "titulo": "Intervención y Ocupación del Espacio Público",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 146,
-        "id": "art-146",
-        "titulo": "Aprovechamiento económico en el espacio público",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 147,
-        "id": "art-147",
-        "titulo": "Marco regulatorio del aprovechamiento económico del Espacio Público",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 148,
-        "id": "art-148",
-        "titulo": "Instancia de coordinación institucional en materia de espacio público",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 149,
-        "id": "art-149",
-        "titulo": "Entrega anticipada de cesiones urbanísticas",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 150,
-        "id": "art-150",
-        "titulo": "Red de infraestructura peatonal",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 151,
-        "id": "art-151",
-        "titulo": "Red de cicloinfraestructura",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 152,
-        "id": "art-152",
-        "titulo": "Red vial",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 153,
-        "id": "art-153",
-        "titulo": "Lineamientos generales para la intervención en el espacio público para la movilidad",
-        "menciona_anexo_5": true
-      },
-      {
-        "numero": 154,
-        "id": "art-154",
-        "titulo": "Estrategia de Calles Completas y franjas funcionales de la Red Vial",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 155,
-        "id": "art-155",
-        "titulo": "Anchos de referencia para las franjas funcionales de las calles del espacio público para la movilidad",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 156,
-        "id": "art-156",
-        "titulo": "Cualificación del Sistema Vial",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 157,
-        "id": "art-157",
-        "titulo": "Red de transporte público urbano de pasajeros",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 158,
-        "id": "art-158",
-        "titulo": "Corredores verdes de transporte público de alta capacidad",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 159,
-        "id": "art-159",
-        "titulo": "Corredores verdes de transporte público de media capacidad y corredores de baja capacidad",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 160,
-        "id": "art-160",
-        "titulo": "Condiciones para conformar y consolidar Corredores Verdes",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 161,
-        "id": "art-161",
-        "titulo": "Infraestructura de soporte a la red de transporte público de pasajeros",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 162,
-        "id": "art-162",
-        "titulo": "Condiciones de implantación para la infraestructura de soporte a la operación del transporte",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 163,
-        "id": "art-163",
-        "titulo": "Proyectos de renovación urbana para la movilidad sostenible",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 164,
-        "id": "art-164",
-        "titulo": "Delimitación del Proyecto de renovación urbana para la movilidad sostenible",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 165,
-        "id": "art-165",
-        "titulo": "Definición de servicios conexos y usos del suelo para desarrollar en las Infraestructuras y en los proyectos estructurantes del sistema de movilidad y los sistemas de servicios públicos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 166,
-        "id": "art-166",
-        "titulo": "Potenciales constructivos para el desarrollo de servicios conexos y usos del suelo para desarrollar en las Infraestructuras y en los proyectos de renovación urbana para la movilidad sostenible, y los sistemas de servicios públicos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 167,
-        "id": "art-167",
-        "titulo": "Red de transporte aéreo en el área urbana",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 168,
-        "id": "art-168",
-        "titulo": "Red de transporte de carga y para la actividad logística",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 169,
-        "id": "art-169",
-        "titulo": "Articulación del Sistema del Cuidado y de servicios sociales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 170,
-        "id": "art-170",
-        "titulo": "Redes de cuidado",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 171,
-        "id": "art-171",
-        "titulo": "Estrategia de articulación de Redes del Cuidado",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 172,
-        "id": "art-172",
-        "titulo": "Tipos de equipamientos según su área construida",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 173,
-        "id": "art-173",
-        "titulo": "Condiciones de localización e implantación de equipamientos. ",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 174,
-        "id": "art-174",
-        "titulo": "Estándares de calidad espacial",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 175,
-        "id": "art-175",
-        "titulo": "Permanencia y desarrollo del suelo dotacional",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 176,
-        "id": "art-176",
-        "titulo": "Condiciones de edificabilidad y volumetría",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 177,
-        "id": "art-177",
-        "titulo": "Condiciones de mezcla de uso en predios en edificaciones con uso dotacional",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 178,
-        "id": "art-178",
-        "titulo": "Condiciones",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 179,
-        "id": "art-179",
-        "titulo": "Sistema de acueducto",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 180,
-        "id": "art-180",
-        "titulo": "Sistema",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 181,
-        "id": "art-181",
-        "titulo": "Saneamiento del Río Bogotá",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 182,
-        "id": "art-182",
-        "titulo": "Financiación de infraestructura para la prestación de los servicios públicos de agua potable y saneamiento básico",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 183,
-        "id": "art-183",
-        "titulo": "Promoción del uso racional del agua",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 184,
-        "id": "art-184",
-        "titulo": "Sistema",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 185,
-        "id": "art-185",
-        "titulo": "Sistemas Urbanos de Drenaje Sostenible – SUDS",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 186,
-        "id": "art-186",
-        "titulo": "Competencias relacionadas con elementos que conforman los Sistemas Urbanos de Drenaje Sostenible – SUDS",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 187,
-        "id": "art-187",
-        "titulo": "Sistema de Infraestructuras para la Gestión Integral de Residuos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 188,
-        "id": "art-188",
-        "titulo": "Acciones de mitigación de impactos para la implantación de infraestructuras para la Gestión Integral de Residuos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 189,
-        "id": "art-189",
-        "titulo": "Diseño de los conductos verticales de residuos – shuts, en nuevas edificaciones",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 190,
-        "id": "art-190",
-        "titulo": "Acopio de residuos sólidos en toda edificación nueva",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 191,
-        "id": "art-191",
-        "titulo": "Acopio de residuos posconsumo, de manejo diferenciado o gestionados en modelos de responsabilidad extendida del productor, fabricante o similares",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 192,
-        "id": "art-192",
-        "titulo": "Identificación y localización de áreas potenciales para la disposición final de residuos sólidos ordinarios no aprovechables",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 193,
-        "id": "art-193",
-        "titulo": "Plan de clausura y posclausura de las zonas operadas",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 194,
-        "id": "art-194",
-        "titulo": "Tratamiento de Lixiviados",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 195,
-        "id": "art-195",
-        "titulo": "Plantas de tratamiento y aprovechamiento de biogás",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 196,
-        "id": "art-196",
-        "titulo": "Plantas de tratamiento térmico",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 197,
-        "id": "art-197",
-        "titulo": "Plantas de almacenamiento, tratamiento, aprovechamiento y/o valorización de residuos orgánicos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 198,
-        "id": "art-198",
-        "titulo": "Parques Ecoeficientes de Tratamiento y Aprovechamiento",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 199,
-        "id": "art-199",
-        "titulo": "Estaciones de Clasificación y Aprovechamiento -ECA",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 200,
-        "id": "art-200",
-        "titulo": "Centros Especializados de aprovechamiento",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 201,
-        "id": "art-201",
-        "titulo": "Estaciones de transferencia",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 202,
-        "id": "art-202",
-        "titulo": "Cuartelillos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 203,
-        "id": "art-203",
-        "titulo": "Puntos Limpios",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 204,
-        "id": "art-204",
-        "titulo": "Plantas de tratamiento y aprovechamiento de RCD",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 205,
-        "id": "art-205",
-        "titulo": "Áreas de disposición final de RCD",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 206,
-        "id": "art-206",
-        "titulo": "Puntos Verdes",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 207,
-        "id": "art-207",
-        "titulo": "Plantas o parques de almacenamiento, tratamiento o valorización de residuos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 208,
-        "id": "art-208",
-        "titulo": "Puntos de la Tierra",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 209,
-        "id": "art-209",
-        "titulo": "Áreas para el tratamiento, aprovechamiento y disposición de lodos y biosólidos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 210,
-        "id": "art-210",
-        "titulo": "Lineamientos para el manejo de residuos peligrosos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 211,
-        "id": "art-211",
-        "titulo": "Sistema de energía eléctrica alumbrado público y FNCER",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 212,
-        "id": "art-212",
-        "titulo": "Estaciones de recarga de vehículos eléctricos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 213,
-        "id": "art-213",
-        "titulo": "Preinstalaciones para la recarga de vehículos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 214,
-        "id": "art-214",
-        "titulo": "Sistemas de gas natural y sistemas alternativos de gas",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 215,
-        "id": "art-215",
-        "titulo": "Sistemas de las tecnologías de la información y las comunicaciones",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 216,
-        "id": "art-216",
-        "titulo": "Principios orientadores del Sistema de las Tecnologías de la Información y las Comunicaciones",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 217,
-        "id": "art-217",
-        "titulo": "Condiciones de ubicación de las estaciones de telecomunicaciones radioeléctricas. ",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 218,
-        "id": "art-218",
-        "titulo": "Autorización de instalación de estaciones radioeléctricas. ",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 219,
-        "id": "art-219",
-        "titulo": "Normalización y regularización de estaciones radioeléctricas",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 220,
-        "id": "art-220",
-        "titulo": "Fomento de redes neutrales para el cierre de la brecha digital",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 221,
-        "id": "art-221",
-        "titulo": "Condiciones urbanísticas y arquitectónicas para la infraestructura y mobiliario de servicios públicos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 222,
-        "id": "art-222",
-        "titulo": "Infraestructura de soporte de redes secas a cargo de entidades distritales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 223,
-        "id": "art-223",
-        "titulo": "Mecanismos de entrega de información para los Servicios Públicos Domiciliarios y las Tecnologías de la información y las Comunicaciones",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 224,
-        "id": "art-224",
-        "titulo": "Multifuncionalidad y aprovechamiento de las infraestructuras de servicios públicos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 225,
-        "id": "art-225",
-        "titulo": "Explotación económica de las infraestructuras de la estructura funcional y del cuidado",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 226,
-        "id": "art-226",
-        "titulo": "Condiciones generales para la aplicación de las normas urbanísticas en los componentes de la Estructura Funcional y de Cuidado",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 227,
-        "id": "art-227",
-        "titulo": "Zonas bajo puentes",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 228,
-        "id": "art-228",
-        "titulo": "Sótanos en el espacio público",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 229,
-        "id": "art-229",
-        "titulo": "Uso de inmuebles de entidades del Distrito Capital",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 230,
-        "id": "art-230",
-        "titulo": "Predios remanentes de obra pública",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 231,
-        "id": "art-231",
-        "titulo": "Estrategia de intervención de Manzanas del Cuidado",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 232,
-        "id": "art-232",
-        "titulo": "Ámbitos integrales de cuidado",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 233,
-        "id": "art-233",
-        "titulo": "Usos permitidos en Bogotá",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 234,
-        "id": "art-234",
-        "titulo": "Clasificación de usos comerciales y de servicios",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 235,
-        "id": "art-235",
-        "titulo": "Clasificación de usos industriales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 236,
-        "id": "art-236",
-        "titulo": "Parques Industriales Ecoeficientes -PIE-",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 237,
-        "id": "art-237",
-        "titulo": "Implantación de Parques Industriales Ecoeficientes - PIE",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 238,
-        "id": "art-238",
-        "titulo": "Calificación de usos industriales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 239,
-        "id": "art-239",
-        "titulo": "Licenciamiento urbanístico y actos de reconocimiento de usos industriales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 240,
-        "id": "art-240",
-        "titulo": "Áreas de Actividad del suelo urbano y de expansión urbana",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 241,
-        "id": "art-241",
-        "titulo": "Sectores de protección de características singulares",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 242,
-        "id": "art-242",
-        "titulo": "Usos principales, complementarios y restringidos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 243,
-        "id": "art-243",
-        "titulo": "Usos del suelo permitidos por área de actividad",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 244,
-        "id": "art-244",
-        "titulo": "Acciones de mitigación",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 245,
-        "id": "art-245",
-        "titulo": "Acciones de mitigación de impactos ambientales (MA)",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 246,
-        "id": "art-246",
-        "titulo": "Aplicación de las acciones de mitigación de impactos ambientales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 247,
-        "id": "art-247",
-        "titulo": "Suelos contaminados",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 248,
-        "id": "art-248",
-        "titulo": "Acciones de mitigación de impactos urbanísticos (MU)",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 249,
-        "id": "art-249",
-        "titulo": "Aplicación de las acciones de mitigación de impactos urbanísticos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 250,
-        "id": "art-250",
-        "titulo": "Acciones de mitigación a la movilidad - Estudios de movilidad",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 251,
-        "id": "art-251",
-        "titulo": "Plantas de Concreto",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 252,
-        "id": "art-252",
-        "titulo": "Condiciones de localización",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 253,
-        "id": "art-253",
-        "titulo": "Condiciones de implantación de las plantas de producción de concreto en obra",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 254,
-        "id": "art-254",
-        "titulo": "Permiso de Ubicación de las plantas de producción de concreto en obra",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 255,
-        "id": "art-255",
-        "titulo": "Definición y objetivos de los tratamientos urbanísticos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 256,
-        "id": "art-256",
-        "titulo": "Normas urbanísticas comunes a los tratamientos urbanísticos",
-        "menciona_anexo_5": true
-      },
-      {
-        "numero": 257,
-        "id": "art-257",
-        "titulo": "Edificabilidad máxima permitida en los tratamientos urbanísticos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 258,
-        "id": "art-258",
-        "titulo": "Dimensión del antejardín",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 259,
-        "id": "art-259",
-        "titulo": "Retrocesos existentes sobre espacio público",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 260,
-        "id": "art-260",
-        "titulo": "Altura máxima de las edificaciones",
-        "menciona_anexo_5": true
-      },
-      {
-        "numero": 261,
-        "id": "art-261",
-        "titulo": "Condiciones para la configuración de manzanas en los diferentes tratamientos urbanísticos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 262,
-        "id": "art-262",
-        "titulo": "Condiciones para la obtención de licencias de construcción",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 263,
-        "id": "art-263",
-        "titulo": " ",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 264,
-        "id": "art-264",
-        "titulo": "Sectores",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 265,
-        "id": "art-265",
-        "titulo": "Obligaciones urbanísticas",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 266,
-        "id": "art-266",
-        "titulo": "Definiciones para determinación de las obligaciones e incentivos urbanísticos por edificabilidad",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 267,
-        "id": "art-267",
-        "titulo": "Trámite para el cumplimiento de obligaciones urbanísticas por mayor edificabilidad mediante la entrega de zonas de cesión en sitio",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 268,
-        "id": "art-268",
-        "titulo": "Condiciones generales de localización de las cesiones de espacio público para todos los tratamientos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 269,
-        "id": "art-269",
-        "titulo": "Alternativas para hacer efectiva la forma de cumplimiento de los porcentajes obligatorios para cesión de espacio público",
-        "menciona_anexo_5": true
-      },
-      {
-        "numero": 270,
-        "id": "art-270",
-        "titulo": "Procedimiento para la ejecución de obras de adecuación o implementación de espacio público en sitio en Unidades de Planeamiento Local",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 271,
-        "id": "art-271",
-        "titulo": "Reúso de edificaciones",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 272,
-        "id": "art-272",
-        "titulo": "Obligaciones para generar condiciones de seguridad y relaciones directas de las fachadas con el espacio público",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 273,
-        "id": "art-273",
-        "titulo": "Tratamiento urbanístico de desarrollo",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 274,
-        "id": "art-274",
-        "titulo": "Ámbito de aplicación del tratamiento urbanístico de desarrollo",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 275,
-        "id": "art-275",
-        "titulo": "Exclusión de la aplicación del tratamiento urbanístico de desarrollo",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 276,
-        "id": "art-276",
-        "titulo": "Actuaciones en el tratamiento de desarrollo",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 277,
-        "id": "art-277",
-        "titulo": "Actuaciones urbanísticas en el tratamiento de Desarrollo",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 278,
-        "id": "art-278",
-        "titulo": "Delimitación de planes parciales de desarrollo.  ",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 279,
-        "id": "art-279",
-        "titulo": "Delimitación preliminar de Planes Parciales de Desarrollo",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 280,
-        "id": "art-280",
-        "titulo": "Condiciones para el proceso de urbanización de proyectos en el tratamiento de desarrollo",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 281,
-        "id": "art-281",
-        "titulo": "Edificabilidad y altura máxima en el tratamiento urbanístico de desarrollo",
-        "menciona_anexo_5": true
-      },
-      {
-        "numero": 282,
-        "id": "art-282",
-        "titulo": "Lineamientos urbanísticos para proyectos en Tratamiento de Desarrollo en los rangos de edificabilidad 4C y 4D",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 283,
-        "id": "art-283",
-        "titulo": "Normas aplicables a los predios urbanizables no urbanizados aislados con área neta urbanizable igual o menor a 1.000 m2",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 284,
-        "id": "art-284",
-        "titulo": "Obligaciones Urbanísticas aplicables al tratamiento de desarrollo",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 285,
-        "id": "art-285",
-        "titulo": "Cálculo de la obligación de cargas generales en el tratamiento de desarrollo",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 286,
-        "id": "art-286",
-        "titulo": "Participación del Instituto de Desarrollo Urbano o la entidad competente para la adquisición de predios para la realización de obras para el cumplimiento de obligaciones urbanísticas aplicables al tratamiento de desarrollo",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 287,
-        "id": "art-287",
-        "titulo": "Condiciones aplicables al cumplimiento de las obligaciones asociadas a cargas urbanísticas locales en tratamiento de desarrollo",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 288,
-        "id": "art-288",
-        "titulo": "Cálculo de la obligación de cargas locales asociadas a parques, plazas y plazoletas aplicables al tratamiento de desarrollo",
-        "menciona_anexo_5": true
-      },
-      {
-        "numero": 289,
-        "id": "art-289",
-        "titulo": "Incentivos sobre el pago de carga general y la cesión para carga local mediante la generación de VIS y VIP adicional a la obligatoria en tratamiento de desarrollo",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 290,
-        "id": "art-290",
-        "titulo": "Cálculo de la obligación de cargas locales asociadas a equipamiento comunal público aplicables al tratamiento de desarrollo",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 291,
-        "id": "art-291",
-        "titulo": "Compensación de zonas de cesión para equipamiento comunal público aplicables al tratamiento de desarrollo",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 292,
-        "id": "art-292",
-        "titulo": "Obligación de cargas locales asociadas a vías y servicios públicos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 293,
-        "id": "art-293",
-        "titulo": "Porcentaje mínimo de suelo útil y urbanizado para el desarrollo de vivienda de interés social prioritario (vip) y vivienda de interés social (vis) en tratamiento urbanístico de desarrollo. ",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 294,
-        "id": "art-294",
-        "titulo": "Modalidades de cumplimiento de la obligación de destinación a vivienda de interés social prioritario (VIP) y vivienda de interés social (VIS) en tratamiento urbanístico de desarrollo",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 295,
-        "id": "art-295",
-        "titulo": "Cumplimiento de la obligación de destinación a vivienda de interés social prioritario (VIP) y vivienda de interés social (VIS) en el mismo proyecto",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 296,
-        "id": "art-296",
-        "titulo": "Cumplimiento mediante el traslado de la obligación de vivienda de interés social prioritario (VIP) y vivienda de interés social (VIS) en tratamiento de desarrollo",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 297,
-        "id": "art-297",
-        "titulo": "Cumplimiento mediante compensación en proyectos que adelanten las entidades públicas que desarrollen programas y proyectos VIP o VIS en el tratamiento de desarrollo",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 298,
-        "id": "art-298",
-        "titulo": "Incentivos para la construcción efectiva de la VIS/VIP",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 299,
-        "id": "art-299",
-        "titulo": "Lineamientos urbanísticos para proyectos en Tratamiento de Desarrollo en las áreas de Rango 4C y 4D",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 300,
-        "id": "art-300",
-        "titulo": "Condiciones para la mezcla de usos para predios sometidos al tratamiento de desarrollo",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 301,
-        "id": "art-301",
-        "titulo": "Tratamiento de renovación urbana",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 302,
-        "id": "art-302",
-        "titulo": "Ámbito de aplicación del tratamiento urbanístico de renovación",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 303,
-        "id": "art-303",
-        "titulo": "Exigencia de plan parcial para actuaciones urbanísticas en el tratamiento de Renovación Urbana",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 304,
-        "id": "art-304",
-        "titulo": "Reglas para la aplicación del índice de construcción efectivo en el tratamiento urbanístico de renovación urbana",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 305,
-        "id": "art-305",
-        "titulo": "Condiciones para la mezcla de usos para predios sometidos al tratamiento de renovación urbana",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 306,
-        "id": "art-306",
-        "titulo": "Áreas con edificaciones en amenaza de ruina al tratamiento de renovación urbana",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 307,
-        "id": "art-307",
-        "titulo": "Reordenamiento de clubes y centros recreo-deportivos mediante licenciamiento urbanístico",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 308,
-        "id": "art-308",
-        "titulo": "Tratamiento urbanístico de consolidación",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 309,
-        "id": "art-309",
-        "titulo": "Ámbito de aplicación del tratamiento urbanístico de Consolidación",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 310,
-        "id": "art-310",
-        "titulo": "Normas de edificabilidad aplicables al tratamiento urbanístico de consolidación",
-        "menciona_anexo_5": true
-      },
-      {
-        "numero": 311,
-        "id": "art-311",
-        "titulo": "Normas aplicables a conjuntos o agrupaciones bajo el régimen de copropiedad",
-        "menciona_anexo_5": true
-      },
-      {
-        "numero": 312,
-        "id": "art-312",
-        "titulo": "Normas aplicables a predios de grandes superficies comerciales y manzanas comerciales de urbanizaciones",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 313,
-        "id": "art-313",
-        "titulo": "Normas aplicables a predios urbanizados no edificados en tratamiento de consolidación",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 314,
-        "id": "art-314",
-        "titulo": "Dimensionamiento de antejardines",
-        "menciona_anexo_5": true
-      },
-      {
-        "numero": 315,
-        "id": "art-315",
-        "titulo": "Regularización de la ocupación de antejardines",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 316,
-        "id": "art-316",
-        "titulo": "Normas para el reforzamiento estructural y la accesibilidad al medio físico en el tratamiento urbanístico de consolidación",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 317,
-        "id": "art-317",
-        "titulo": "Cálculo de la obligación urbanística de cesión en suelo para espacio público",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 318,
-        "id": "art-318",
-        "titulo": "Forma de cumplimiento de la obligación urbanística de cesión en suelo para espacio público",
-        "menciona_anexo_5": true
-      },
-      {
-        "numero": 319,
-        "id": "art-319",
-        "titulo": "Obligación urbanística para mejorar las condiciones de infraestructura y prestación del servicio de transporte público",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 320,
-        "id": "art-320",
-        "titulo": "Obligación urbanística relacionada con las redes locales e infraestructura del sistema pluvial, acueducto y alcantarillado sanitario",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 321,
-        "id": "art-321",
-        "titulo": "Condiciones para el cumplimiento de las cargas urbanísticas relacionadas con las redes e infraestructura del sistema pluvial, acueducto y alcantarillado sanitario",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 322,
-        "id": "art-322",
-        "titulo": "Obligación de destinar porciones de suelo a la construcción de vivienda de interés social o prioritario o su equivalente en metros cuadrados de construcción",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 323,
-        "id": "art-323",
-        "titulo": "Alternativas para hacer efectivo el cumplimiento de la obligación de destinar porciones de suelo a la construcción de vivienda de interés social o prioritario o su equivalente en metros cuadrados de construcción",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 324,
-        "id": "art-324",
-        "titulo": "Incorporación de las zonas de reserva en proyectos urbanos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 325,
-        "id": "art-325",
-        "titulo": "Aplicación de los derechos de construcción y desarrollo para terrenos localizados en el suelo de protección",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 326,
-        "id": "art-326",
-        "titulo": "Zonas generadoras y receptoras de derechos de construcción de suelo de protección",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 327,
-        "id": "art-327",
-        "titulo": "Condiciones para el desarrollo de proyectos en áreas de actividad en grandes servicios metropolitanos",
-        "menciona_anexo_5": true
-      },
-      {
-        "numero": 328,
-        "id": "art-328",
-        "titulo": "Obligaciones urbanísticas para proyectos que requieren de la adopción de plan parcial",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 329,
-        "id": "art-329",
-        "titulo": "Obligación urbanística para equipamiento público",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 330,
-        "id": "art-330",
-        "titulo": "Aplicación de los derechos de construcción y desarrollo para bienes de interés cultural en áreas receptoras",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 331,
-        "id": "art-331",
-        "titulo": "Aplicación de los derechos de construcción y desarrollo para bienes de interés cultural cuando se incorpore a un proyecto de renovación urbana",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 332,
-        "id": "art-332",
-        "titulo": "Tratamiento Urbanístico de mejoramiento integral",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 333,
-        "id": "art-333",
-        "titulo": "Ámbito de aplicación del tratamiento urbanístico de mejoramiento integral",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 334,
-        "id": "art-334",
-        "titulo": "Armonización con actos de legalización expedidos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 335,
-        "id": "art-335",
-        "titulo": "Actuaciones en el marco del tratamiento urbanístico de mejoramiento integral",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 336,
-        "id": "art-336",
-        "titulo": "Edificaciones existentes",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 337,
-        "id": "art-337",
-        "titulo": "Ampliaciones, adecuaciones o modificaciones de edificaciones existentes",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 338,
-        "id": "art-338",
-        "titulo": "Altura máxima y cesiones de espacio público en actuaciones urbanísticas de obra nueva o ampliación en el tratamiento urbanístico de mejoramiento integral",
-        "menciona_anexo_5": true
-      },
-      {
-        "numero": 339,
-        "id": "art-339",
-        "titulo": "Bordes Urbanos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 340,
-        "id": "art-340",
-        "titulo": "Subdivisiones",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 341,
-        "id": "art-341",
-        "titulo": "Plan Vecinos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 342,
-        "id": "art-342",
-        "titulo": "Peritaje técnico para el reconocimiento de existencia de edificaciones",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 343,
-        "id": "art-343",
-        "titulo": "Tratamiento urbanístico de conservación",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 344,
-        "id": "art-344",
-        "titulo": "Ámbito de aplicación del tratamiento urbanístico de conservación",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 345,
-        "id": "art-345",
-        "titulo": "Niveles de intervención y tipos de obras permitidas en Bienes de Interés Cultural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 346,
-        "id": "art-346",
-        "titulo": "Normas urbanísticas para el desarrollo de proyectos en predios excluidos de la Estructura Integradora de Patrimonios",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 347,
-        "id": "art-347",
-        "titulo": "Fichas de valoración y caracterización de los Bienes de Interés Cultural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 348,
-        "id": "art-348",
-        "titulo": "Instrumentos normativos para los Sectores de Interés Urbanístico",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 349,
-        "id": "art-349",
-        "titulo": "Aplicación de los derechos de construcción y desarrollo para Bienes de Interés Cultural en áreas generadoras",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 350,
-        "id": "art-350",
-        "titulo": "Reconocimiento de construcciones declaradas como Bien de Interés Cultural del grupo arquitectónico",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 351,
-        "id": "art-351",
-        "titulo": "Amparo provisional",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 352,
-        "id": "art-352",
-        "titulo": "Subdivisiones",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 353,
-        "id": "art-353",
-        "titulo": "Englobe de predios",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 354,
-        "id": "art-354",
-        "titulo": "Obras en espacio público",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 355,
-        "id": "art-355",
-        "titulo": "Instalación de avisos o publicidad exterior visual",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 356,
-        "id": "art-356",
-        "titulo": "Manejo de",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 357,
-        "id": "art-357",
-        "titulo": "Usos permitidos en Bienes de Interés Cultural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 358,
-        "id": "art-358",
-        "titulo": "Propiedad horizontal",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 359,
-        "id": "art-359",
-        "titulo": "Estacionamientos en Bienes de Interés Cultural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 360,
-        "id": "art-360",
-        "titulo": "Acometidas y cableado",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 361,
-        "id": "art-361",
-        "titulo": "Infraestructura de redes de telecomunicaciones y radioeléctricas",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 362,
-        "id": "art-362",
-        "titulo": "Arborización en los Bienes de Interés Cultural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 363,
-        "id": "art-363",
-        "titulo": "Aprovechamiento económico de los antejardines",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 364,
-        "id": "art-364",
-        "titulo": "Edificabilidad máxima para los predios colindantes con Bienes de Interés Cultural fuera del Sector de Interés Urbanístico",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 365,
-        "id": "art-365",
-        "titulo": "Edificabilidad máxima para los predios de nivel 4 en los sectores de interés urbanístico",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 366,
-        "id": "art-366",
-        "titulo": "Obligación urbanística de cesión en suelo para espacio público",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 367,
-        "id": "art-367",
-        "titulo": "Forma de cumplimiento de la obligación urbanística de cesión en suelo para espacio público",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 368,
-        "id": "art-368",
-        "titulo": "Paramentación con los Bienes de Interés Cultural",
-        "menciona_anexo_5": true
-      },
-      {
-        "numero": 369,
-        "id": "art-369",
-        "titulo": "Inmuebles de restitución parcial o total",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 370,
-        "id": "art-370",
-        "titulo": "Protección a moradores y actividades productivas",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 371,
-        "id": "art-371",
-        "titulo": "Beneficiarios de los mecanismos de protección a moradores y actividades productivas",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 372,
-        "id": "art-372",
-        "titulo": "Principios rectores para la protección de moradores y actividades productivas",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 373,
-        "id": "art-373",
-        "titulo": "Implementación de estrategias sociales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 374,
-        "id": "art-374",
-        "titulo": "Participación de los Operadores Urbanos Públicos en planes parciales, Áreas de Integración Modal y Actuaciones Estratégicas",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 375,
-        "id": "art-375",
-        "titulo": "Obligaciones para desarrolladores de acciones o actuaciones urbanísticas",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 376,
-        "id": "art-376",
-        "titulo": "Obligaciones transitorias respecto de propietarios de viviendas y de actividades productivas que permanezcan en el ámbito del proyecto",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 377,
-        "id": "art-377",
-        "titulo": "Incentivo para la vinculación de moradores y de actividades productivas en el marco de instrumentos de planeación",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 378,
-        "id": "art-378",
-        "titulo": "Zonas de reserva",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 379,
-        "id": "art-379",
-        "titulo": "Licenciamientos urbanísticos en zonas de reserva",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 380,
-        "id": "art-380",
-        "titulo": "Entrega de los suelos objeto de reserva",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 381,
-        "id": "art-381",
-        "titulo": "Obtención de suelo para sistema de espacio público peatonal para el encuentro, demarcados como zonas de reserva",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 382,
-        "id": "art-382",
-        "titulo": "Desarrollo de proyectos de renovación urbana para la movilidad sostenible en zonas de reserva",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 383,
-        "id": "art-383",
-        "titulo": "Ajustes",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 384,
-        "id": "art-384",
-        "titulo": "Área mínima para la configuración arquitectónica y espacial de la unidad de vivienda nueva",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 385,
-        "id": "art-385",
-        "titulo": "Reasentamiento de familias",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 386,
-        "id": "art-386",
-        "titulo": "Acciones para el reasentamiento",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 387,
-        "id": "art-387",
-        "titulo": "Adecuación de zonas desocupadas en desarrollo del proceso de reasentamiento por alto riesgo no mitigable",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 388,
-        "id": "art-388",
-        "titulo": "Vivienda de interés prioritario para el reasentamiento de familias en alto riesgo no mitigable",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 389,
-        "id": "art-389",
-        "titulo": "Normas para estacionamientos asociados a los usos urbanos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 390,
-        "id": "art-390",
-        "titulo": "Área construida del proyecto para el cálculo de estacionamientos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 391,
-        "id": "art-391",
-        "titulo": "Condiciones aplicables a la disposición de cupos de estacionamientos",
-        "menciona_anexo_5": true
-      }
-    ]
-  },
-  {
-    "id": "L.4",
-    "nombre": "Libro IV - Componente Rural",
-    "articulos": [
-      {
-        "numero": 392,
-        "id": "art-392",
-        "titulo": "Política de ocupación del suelo rural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 393,
-        "id": "art-393",
-        "titulo": "Principios rectores y estrategias del ordenamiento rural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 394,
-        "id": "art-394",
-        "titulo": "Objetivos de mediano y corto plazo del ordenamiento rural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 395,
-        "id": "art-395",
-        "titulo": "Piezas rurales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 396,
-        "id": "art-396",
-        "titulo": "Zonas de Reserva Campesina -ZRC",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 397,
-        "id": "art-397",
-        "titulo": "Programas de Desarrollo con Enfoque Territorial -PDET",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 398,
-        "id": "art-398",
-        "titulo": "Articulación de las intervenciones institucionales en suelo rural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 399,
-        "id": "art-399",
-        "titulo": "Amenaza por Movimientos en Masa en Suelo Rural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 400,
-        "id": "art-400",
-        "titulo": "Amenaza por inundación en Suelo Rural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 401,
-        "id": "art-401",
-        "titulo": "Amenaza por avenidas torrenciales y/o crecientes súbitas en suelo rural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 402,
-        "id": "art-402",
-        "titulo": "Amenaza por incendios forestales en suelo rural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 403,
-        "id": "art-403",
-        "titulo": "Áreas con condición de amenaza en suelo rural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 404,
-        "id": "art-404",
-        "titulo": "Áreas con condición de riesgo en suelo rural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 405,
-        "id": "art-405",
-        "titulo": "Priorización de estudios detallados de riesgo por Movimientos en Masa en suelo rural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 406,
-        "id": "art-406",
-        "titulo": "Priorización de estudios detallados de riesgo por Avenidas Torrenciales y/o Crecientes Súbitas en Suelo rural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 407,
-        "id": "art-407",
-        "titulo": "Priorización de estudios detallados de riesgo por Inundación",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 408,
-        "id": "art-408",
-        "titulo": "Priorización de Estudios detallados de riesgo de ríos y quebradas por avenidas torrenciales y/o crecientes súbitas en Centros Poblados Rurales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 409,
-        "id": "art-409",
-        "titulo": "Priorización de estudios de amenaza en Nodos de equipamientos rurales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 410,
-        "id": "art-410",
-        "titulo": "Lineamientos para la reducción del riesgo por incendio forestal",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 411,
-        "id": "art-411",
-        "titulo": "Suelo de protección por riesgo",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 412,
-        "id": "art-412",
-        "titulo": "Sistema de espacio público rural peatonal y para el encuentro",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 413,
-        "id": "art-413",
-        "titulo": "Lineamientos para la cualificación, conectividad ambiental y funcional del sistema con las demás estructuras territoriales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 414,
-        "id": "art-414",
-        "titulo": "Coberturas verdes y superficies aplicables a los espacios públicos rurales peatonales y para el encuentro",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 415,
-        "id": "art-415",
-        "titulo": "Régimen de actividades del sistema de espacio público rural peatonal y para el encuentro",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 416,
-        "id": "art-416",
-        "titulo": "Áreas de uso público de la Estructura Ecológica Principal y Áreas de Resiliencia climática y protección por riesgo en Suelo Rural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 417,
-        "id": "art-417",
-        "titulo": "Sistema de Movilidad Rural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 418,
-        "id": "art-418",
-        "titulo": "Espacio público para la movilidad rural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 419,
-        "id": "art-419",
-        "titulo": "Lineamientos para la intervención del Espacio público para la movilidad rural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 420,
-        "id": "art-420",
-        "titulo": "Intervención del espacio público para la movilidad rural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 421,
-        "id": "art-421",
-        "titulo": "Red de Conexión Rural y Regional Estructurante",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 422,
-        "id": "art-422",
-        "titulo": "Red de conexión Rural y Regional Estructurante",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 423,
-        "id": "art-423",
-        "titulo": "Enlaces y puentes",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 424,
-        "id": "art-424",
-        "titulo": "Vías, senderos y caminos rurales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 425,
-        "id": "art-425",
-        "titulo": "Condiciones para la intervención de la red de recorrido de proximidad y cuidado rural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 426,
-        "id": "art-426",
-        "titulo": "Caminos y senderos de la red de recorrido de proximidad y cuidado rural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 427,
-        "id": "art-427",
-        "titulo": "Red",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 428,
-        "id": "art-428",
-        "titulo": "Red de transporte aéreo",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 429,
-        "id": "art-429",
-        "titulo": "Sistema de cuidado y de servicios sociales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 430,
-        "id": "art-430",
-        "titulo": "Lineamientos para el sistema rural de servicios sociales y del cuidado",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 431,
-        "id": "art-431",
-        "titulo": "Condiciones de localización de equipamientos para servicios del cuidado y servicios sociales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 432,
-        "id": "art-432",
-        "titulo": "Localización y organización de los equipamientos rurales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 433,
-        "id": "art-433",
-        "titulo": "Sistemas de servicios públicos domiciliarios y de las tecnologías de la información y las comunicaciones en suelo rural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 434,
-        "id": "art-434",
-        "titulo": "Lineamientos aplicables al sistema de acueducto en suelo rural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 435,
-        "id": "art-435",
-        "titulo": "Lineamientos aplicables a las soluciones alternativas de acueducto y alcantarillado en suelo rural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 436,
-        "id": "art-436",
-        "titulo": "Lineamientos para el manejo de aguas lluvias",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 437,
-        "id": "art-437",
-        "titulo": "Lineamientos aplicables al sistema de alcantarillado y tratamiento de aguas residuales en suelo rural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 438,
-        "id": "art-438",
-        "titulo": "Criterios",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 439,
-        "id": "art-439",
-        "titulo": "Lineamientos del sistema para la gestión integral de residuos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 440,
-        "id": "art-440",
-        "titulo": "Criterios para la localización de infraestructura asociada al sistema para la gestión integral de residuos sólidos en suelo rural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 441,
-        "id": "art-441",
-        "titulo": "Criterios",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 442,
-        "id": "art-442",
-        "titulo": "Lineamientos aplicables al sistema de energía eléctrica, gas y Fuentes No Convencionales de Energía Renovable -FNCER en suelo rural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 443,
-        "id": "art-443",
-        "titulo": "Lineamientos aplicables al sistema",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 444,
-        "id": "art-444",
-        "titulo": "Criterios",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 445,
-        "id": "art-445",
-        "titulo": "Categorías del suelo rural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 446,
-        "id": "art-446",
-        "titulo": "Áreas de conservación y protección ambiental",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 447,
-        "id": "art-447",
-        "titulo": "Áreas para la producción agrícola y ganadera y de explotación de recursos naturales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 448,
-        "id": "art-448",
-        "titulo": "Zonas con pendientes superiores a 45º",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 449,
-        "id": "art-449",
-        "titulo": "Áreas e inmuebles considerados como patrimonio cultural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 450,
-        "id": "art-450",
-        "titulo": "Áreas de amenaza y riesgo no mitigable",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 451,
-        "id": "art-451",
-        "titulo": "Áreas del sistema de servicios públicos domiciliarios",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 452,
-        "id": "art-452",
-        "titulo": "Centros poblados rurales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 453,
-        "id": "art-453",
-        "titulo": "Identificación de los centros poblados rurales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 454,
-        "id": "art-454",
-        "titulo": "Zonas para la localización de nodos de equipamientos rurales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 455,
-        "id": "art-455",
-        "titulo": "Áreas de vivienda campestre",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 456,
-        "id": "art-456",
-        "titulo": "Régimen de usos de las áreas de conservación y protección ambiental",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 457,
-        "id": "art-457",
-        "titulo": "Clasificación de los usos del suelo rural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 458,
-        "id": "art-458",
-        "titulo": "Clasificación de usos por actividad y condiciones para su desarrollo:",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 459,
-        "id": "art-459",
-        "titulo": "Condiciones para el desarrollo de los usos en el suelo rural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 460,
-        "id": "art-460",
-        "titulo": "Régimen de usos para centros poblados rurales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 461,
-        "id": "art-461",
-        "titulo": "Edificabilidad de los centros poblados rurales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 462,
-        "id": "art-462",
-        "titulo": "Volumetría",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 463,
-        "id": "art-463",
-        "titulo": "Régimen de usos para los nodos de equipamiento y equipamientos aislados rurales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 464,
-        "id": "art-464",
-        "titulo": "Edificabilidad de las zonas para la localización de nodos de equipamientos y de equipamientos aislados rurales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 465,
-        "id": "art-465",
-        "titulo": "Volumetrías para los nodos de equipamientos rurales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 466,
-        "id": "art-466",
-        "titulo": "Régimen de usos para la vivienda rural campestre",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 467,
-        "id": "art-467",
-        "titulo": "Edificabilidad y volumetría para el área de vivienda campestre de Guaymaral",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 468,
-        "id": "art-468",
-        "titulo": "Obligaciones urbanísticas",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 469,
-        "id": "art-469",
-        "titulo": "Características de la cesión de suelo en la categoría de desarrollo restringido",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 470,
-        "id": "art-470",
-        "titulo": "Traslados y compensaciones",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 471,
-        "id": "art-471",
-        "titulo": "Cerramientos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 472,
-        "id": "art-472",
-        "titulo": "Volumetría",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 473,
-        "id": "art-473",
-        "titulo": "Régimen de usos para las áreas de producción agrícola y ganadera",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 474,
-        "id": "art-474",
-        "titulo": "Reconversión",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 475,
-        "id": "art-475",
-        "titulo": "Estrategia de Ordenamiento Ambiental y Productivo del área rural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 476,
-        "id": "art-476",
-        "titulo": "Ordenamiento Ambiental",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 477,
-        "id": "art-477",
-        "titulo": "Subdivisión predial en las áreas para la producción agrícola y ganadera y de explotación de recursos naturales",
-        "menciona_anexo_5": false
-      }
-    ]
-  },
-  {
-    "id": "L.5",
-    "nombre": "Libro V - Instrumentos de Planeación",
-    "articulos": [
-      {
-        "numero": 478,
-        "id": "art-478",
-        "titulo": "Actuaciones Estratégicas",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 479,
-        "id": "art-479",
-        "titulo": "Objetivos generales y lineamientos específicos de las actuaciones estratégicas",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 480,
-        "id": "art-480",
-        "titulo": "Priorización de Actuaciones Estratégicas",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 481,
-        "id": "art-481",
-        "titulo": "Actuación Estratégica Lagos de Torca",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 482,
-        "id": "art-482",
-        "titulo": "Actuación Estratégica Reverdecer del Sur",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 483,
-        "id": "art-483",
-        "titulo": "Formulación y adopción de las Actuaciones Estratégicas",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 484,
-        "id": "art-484",
-        "titulo": "Financiación de las Actuaciones estratégicas",
-        "menciona_anexo_5": false
-      }
-    ]
-  },
-  {
-    "id": "L.6",
-    "nombre": "Libro VI - Instrumentos de Gestión, Financiación y Gobernanza",
-    "articulos": [
-      {
-        "numero": 485,
-        "id": "art-485",
-        "titulo": "Instrumentos de planeación derivados del POT",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 486,
-        "id": "art-486",
-        "titulo": "Planes Maestros",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 487,
-        "id": "art-487",
-        "titulo": "Plan de Movilidad Sostenible y Segura –PMSS-",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 488,
-        "id": "art-488",
-        "titulo": "Plan del Hábitat y Servicios Públicos - PHSP",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 489,
-        "id": "art-489",
-        "titulo": "Plan del",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 490,
-        "id": "art-490",
-        "titulo": "Unidad de Planeamiento Local - UPL",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 491,
-        "id": "art-491",
-        "titulo": "Actuaciones Estratégicas",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 492,
-        "id": "art-492",
-        "titulo": "Plan Especiales de Manejo y Protección (PEMP)",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 493,
-        "id": "art-493",
-        "titulo": "Plan para los Patrimonios Vitales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 494,
-        "id": "art-494",
-        "titulo": "Unidad de Planificación Rural -UPR",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 495,
-        "id": "art-495",
-        "titulo": "Plan Parcial",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 496,
-        "id": "art-496",
-        "titulo": "Información pública, citación a propietarios y vecinos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 497,
-        "id": "art-497",
-        "titulo": "Diagnóstico socioeconómico y Plan de Gestión social en planes parciales de renovación urbana",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 498,
-        "id": "art-498",
-        "titulo": "Áreas de manejo diferenciado",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 499,
-        "id": "art-499",
-        "titulo": "Legalización Urbanística",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 500,
-        "id": "art-500",
-        "titulo": "Lineamientos para adelantar el proceso de legalización urbanística",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 501,
-        "id": "art-501",
-        "titulo": "Condiciones para la prestación de servicios públicos, vías y espacio público en los procesos de legalización",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 502,
-        "id": "art-502",
-        "titulo": "Formalización",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 503,
-        "id": "art-503",
-        "titulo": "Requisitos para la implementación de la formalización urbanística",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 504,
-        "id": "art-504",
-        "titulo": "Lineamientos para la aplicación de la Formalización Urbanística",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 505,
-        "id": "art-505",
-        "titulo": "Intervención de la administración pública en el trámite de formalización urbanística",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 506,
-        "id": "art-506",
-        "titulo": "Estudio Urbano",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 507,
-        "id": "art-507",
-        "titulo": "Plan de Intervención para el Mejoramiento Integral del Hábitat PIMI-Hábitat",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 508,
-        "id": "art-508",
-        "titulo": "Definición de los instrumentos y mecanismos de financiación y gestión de suelo. ",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 509,
-        "id": "art-509",
-        "titulo": "Reparto equitativo de las cargas y los beneficios",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 510,
-        "id": "art-510",
-        "titulo": "Ámbitos espaciales del reparto equitativo de cargas y beneficios",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 511,
-        "id": "art-511",
-        "titulo": "Instrumentos y mecanismos de financiación y gestión de suelo. ",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 512,
-        "id": "art-512",
-        "titulo": "Reajuste de terrenos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 513,
-        "id": "art-513",
-        "titulo": "Integración inmobiliaria",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 514,
-        "id": "art-514",
-        "titulo": "Cooperación entre partícipes",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 515,
-        "id": "art-515",
-        "titulo": "Unidades de actuación urbanística",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 516,
-        "id": "art-516",
-        "titulo": "Unidades de Gestión",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 517,
-        "id": "art-517",
-        "titulo": "Condiciones para la implementación del reajuste de terrenos o de la integración inmobiliaria",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 518,
-        "id": "art-518",
-        "titulo": "Ejecución del reajuste de terrenos y la integración inmobiliaria",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 519,
-        "id": "art-519",
-        "titulo": "Obligaciones urbanísticas",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 520,
-        "id": "art-520",
-        "titulo": "Liquidación y recaudo del pago compensatorio de las obligaciones urbanísticas",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 521,
-        "id": "art-521",
-        "titulo": "Edificabilidades básicas y adicionales condicionadas al cumplimiento de obligaciones urbanísticas o a la adquisición de certificados de derechos de construcción",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 522,
-        "id": "art-522",
-        "titulo": "Transferencia de derechos de construcción y desarrollo",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 523,
-        "id": "art-523",
-        "titulo": "Características de los certificados de derechos de construcción",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 524,
-        "id": "art-524",
-        "titulo": "Procedimiento para la implementación de los certificados de derechos de construcción como mecanismo de adquisición pública de suelo en la estructura ecológica principal",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 525,
-        "id": "art-525",
-        "titulo": "Administración del esquema de transferencia de certificados de derechos de construcción",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 526,
-        "id": "art-526",
-        "titulo": "Obligación de destinar porciones de suelo a la construcción de vivienda de interés social o prioritario o su equivalente en metros cuadrados de construcción",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 527,
-        "id": "art-527",
-        "titulo": "Alternativas de cumplimiento de la obligación de destinar porciones de suelo a la construcción de vivienda de interés social o prioritario o su equivalente en metros cuadrados de construcción",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 528,
-        "id": "art-528",
-        "titulo": "Mecanismos para el pago compensatorios del cumplimiento de la obligación de destinar porciones de suelo a la construcción de vivienda de interés social o prioritario o su equivalente en metros cuadrados de construcción",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 529,
-        "id": "art-529",
-        "titulo": "Oferta preferente de Vivienda de Interés Social y de Vivienda de Interés Prioritario",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 530,
-        "id": "art-530",
-        "titulo": "Acciones e incentivos para la permanencia de los hogares beneficiarios de subsidios",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 531,
-        "id": "art-531",
-        "titulo": "Oferta preferente de predios de propiedad de entidades públicas o administrados por estas",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 532,
-        "id": "art-532",
-        "titulo": "Expropiación precedida de las etapas de enajenación voluntaria o negociación directa",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 533,
-        "id": "art-533",
-        "titulo": "Condiciones para la concurrencia de terceros en los procesos de adquisición de inmuebles por enajenación voluntaria y expropiación",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 534,
-        "id": "art-534",
-        "titulo": "Anuncio de proyectos u obras",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 535,
-        "id": "art-535",
-        "titulo": "Contenido del anuncio de proyecto",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 536,
-        "id": "art-536",
-        "titulo": "Bancos de tierra o inmobiliarios",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 537,
-        "id": "art-537",
-        "titulo": "Derecho de preferencia",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 538,
-        "id": "art-538",
-        "titulo": "Condiciones para la adquisición de inmuebles a través del derecho de preferencia",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 539,
-        "id": "art-539",
-        "titulo": "Declaratoria de desarrollo, construcción y uso prioritarios, sujeta a venta forzosa en pública subasta",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 540,
-        "id": "art-540",
-        "titulo": "Desarrollo y construcción prioritaria en unidades de actuación urbanística",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 541,
-        "id": "art-541",
-        "titulo": "Identificación de los inmuebles y seguimiento a su urbanización, edificación o uso",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 542,
-        "id": "art-542",
-        "titulo": "Procedimiento para la enajenación forzosa",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 543,
-        "id": "art-543",
-        "titulo": "Acuerdos para la conservación y",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 544,
-        "id": "art-544",
-        "titulo": "Adquisición de suelo para la conformación de áreas protegidas o de la estructura ecológica principal",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 545,
-        "id": "art-545",
-        "titulo": "Contribución de valorización",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 546,
-        "id": "art-546",
-        "titulo": "Participación del Distrito en la plusvalía que genera su acción urbanística",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 547,
-        "id": "art-547",
-        "titulo": "Participación en el efecto plusvalía",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 548,
-        "id": "art-548",
-        "titulo": "Retribución por aprovechamiento económico en espacio público",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 549,
-        "id": "art-549",
-        "titulo": "Retribución por explotación económica de la infraestructura pública",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 550,
-        "id": "art-550",
-        "titulo": "Pagarés y bonos de reforma urbana",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 551,
-        "id": "art-551",
-        "titulo": "Derecho real de superficie",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 552,
-        "id": "art-552",
-        "titulo": "Titularización de ingresos tributarios futuros - TIRF",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 553,
-        "id": "art-553",
-        "titulo": "Afectaciones para la ejecución de obras públicas",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 554,
-        "id": "art-554",
-        "titulo": "Estrategia de financiación del Plan de Ordenamiento Territorial",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 555,
-        "id": "art-555",
-        "titulo": "Presupuesto anual distrital y armonización con el Plan Distrital de Desarrollo",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 556,
-        "id": "art-556",
-        "titulo": "Gestión y gerencia de los recursos dinerarios provenientes de instrumentos de financiación asociados al ordenamiento territorial",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 557,
-        "id": "art-557",
-        "titulo": "Otras fuentes de financiamiento",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 558,
-        "id": "art-558",
-        "titulo": "Incentivos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 559,
-        "id": "art-559",
-        "titulo": "Incentivos, compensaciones y beneficios para la conservación de Bienes de interés cultural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 560,
-        "id": "art-560",
-        "titulo": "Exenciones bienes de interés cultural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 561,
-        "id": "art-561",
-        "titulo": "Requisitos para la exenciones bienes de interés cultural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 562,
-        "id": "art-562",
-        "titulo": "Incentivo a la conservación por exención en el impuesto predial",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 563,
-        "id": "art-563",
-        "titulo": "Pago por servicios ambientales (PSA)",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 564,
-        "id": "art-564",
-        "titulo": "Descuento del impuesto de delineación urbana en los planes parciales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 565,
-        "id": "art-565",
-        "titulo": "Programas del Plan de Ordenamiento Territorial",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 566,
-        "id": "art-566",
-        "titulo": "Programa Conectividad ecosistémica, reverdecimiento y atención de la emergencia climática",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 567,
-        "id": "art-567",
-        "titulo": "Programa para descarbonizar la movilidad",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 568,
-        "id": "art-568",
-        "titulo": "Programa para la vitalidad y cuidado",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 569,
-        "id": "art-569",
-        "titulo": "Programa de hábitat y vivienda popular",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 570,
-        "id": "art-570",
-        "titulo": "Programa Territorios Productivos, Competitivos e innovadores",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 571,
-        "id": "art-571",
-        "titulo": "Programa de resignificación de nuestra identidad, cultura y patrimonio",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 572,
-        "id": "art-572",
-        "titulo": "Aplicación de normas",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 573,
-        "id": "art-573",
-        "titulo": "Precisiones cartográficas de los mapas oficiales adoptados por el presente Plan",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 574,
-        "id": "art-574",
-        "titulo": "Actualización de los planos oficiales del Plan de Ordenamiento Territorial",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 575,
-        "id": "art-575",
-        "titulo": "Gaceta de Urbanismo y Construcción",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 576,
-        "id": "art-576",
-        "titulo": "Facultad Reglamentaria",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 577,
-        "id": "art-577",
-        "titulo": "Definición del modelo de gobernanza del Plan de Ordenamiento Territorial",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 578,
-        "id": "art-578",
-        "titulo": "Principios del modelo de gobernanza del Plan de Ordenamiento Territorial",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 579,
-        "id": "art-579",
-        "titulo": "Propósitos del modelo de gobernanza del POT",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 580,
-        "id": "art-580",
-        "titulo": "Sistema de Participación Territorial",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 581,
-        "id": "art-581",
-        "titulo": "Conformación y finalidades del esquema de convergencia interinstitucional",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 582,
-        "id": "art-582",
-        "titulo": "Operadores Urbanos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 583,
-        "id": "art-583",
-        "titulo": "Gestión Integral del Hábitat del Distrito Capital",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 584,
-        "id": "art-584",
-        "titulo": "Creación del Sistema de seguimiento, monitoreo y evaluación",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 585,
-        "id": "art-585",
-        "titulo": "Rendición de cuentas del POT",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 586,
-        "id": "art-586",
-        "titulo": "Observatorio del Sistema del cuidado y servicios sociales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 587,
-        "id": "art-587",
-        "titulo": "Observatorio de la Estructura Integradora de Patrimonios",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 588,
-        "id": "art-588",
-        "titulo": "Pactos de borde",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 589,
-        "id": "art-589",
-        "titulo": "Contenido mínimo de los pactos de borde",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 590,
-        "id": "art-590",
-        "titulo": "Curaduría Pública Social",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 591,
-        "id": "art-591",
-        "titulo": "Apoyo técnico en el marco de la Curaduría Pública Social",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 592,
-        "id": "art-592",
-        "titulo": "Acciones de control",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 593,
-        "id": "art-593",
-        "titulo": "Situaciones jurídicas consolidadas",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 594,
-        "id": "art-594",
-        "titulo": "Solicitudes de licencias urbanísticas y reconocimientos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 595,
-        "id": "art-595",
-        "titulo": "Anteproyectos y/o autorización de actuaciones urbanísticas en bienes de interés cultural",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 596,
-        "id": "art-596",
-        "titulo": "Trámites de legalización, regularización y formalización",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 597,
-        "id": "art-597",
-        "titulo": "Transición de los Planes Zonales y de Ordenamiento Zonal",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 598,
-        "id": "art-598",
-        "titulo": "Operación Estratégica Distrito Aeroportuario",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 599,
-        "id": "art-599",
-        "titulo": "Planes parciales",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 600,
-        "id": "art-600",
-        "titulo": "Solicitudes de planes de implantación, planes de regularización y manejo y planes directores para equipamientos deportivos y recreativos en formulación",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 601,
-        "id": "art-601",
-        "titulo": "Planes de Implantación y Planes de Regularización y Manejo aprobados",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 602,
-        "id": "art-602",
-        "titulo": "Planes Directores y Planes Maestros para los parques metropolitanos aprobados con anterioridad a la entrada en vigencia del presente Plan",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 603,
-        "id": "art-603",
-        "titulo": "Radicación de la formulación de Planes Directores para Parques Zonales y Metropolitanos",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 604,
-        "id": "art-604",
-        "titulo": "Acuerdo 20 de 1995",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 605,
-        "id": "art-605",
-        "titulo": "Vigencias de los contenidos del Plan de Ordenamiento Territorial",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 606,
-        "id": "art-606",
-        "titulo": "Glosario",
-        "menciona_anexo_5": false
-      },
-      {
-        "numero": 607,
-        "id": "art-607",
-        "titulo": "Documentos del Plan",
-        "menciona_anexo_5": true
-      },
-      {
-        "numero": 608,
-        "id": "art-608",
-        "titulo": "Derogatorias. ",
-        "menciona_anexo_5": true
-      }
-    ]
+  "advertencias": [
+    "Source contains article label 222A; retained in baseline text for separate content review.",
+    "Source contains article label 390A; retained in baseline text for separate content review.",
+    "Source contains article label 459A; retained in baseline text for separate content review.",
+    "Source contains article label 471A; retained in baseline text for separate content review."
+  ],
+  "fuente": {
+    "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=119582",
+    "sha256": "7a60470d86336262167ffef933a83693f13f5c4dee4fa56722944b28e707f495",
+    "verificado_utc": "2026-10-12T23:50:30.996195+00:00"
   }
-]
+}

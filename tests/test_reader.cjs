@@ -1,0 +1,99 @@
+const fs = require('node:fs');
+const path = require('node:path');
+const vm = require('node:vm');
+const assert = require('node:assert/strict');
+const root = path.resolve(__dirname, '..');
+const page = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+const articles = JSON.parse(fs.readFileSync(path.join(root, 'data/decreto_555_completo.json'), 'utf8')).articulos;
+const index = JSON.parse(fs.readFileSync(path.join(root, 'data/decreto_555_indice.json'), 'utf8'));
+const tree = JSON.parse(fs.readFileSync(path.join(root, 'data/decreto_555_arbol.json'), 'utf8')).libros;
+const ids = new Map();
+class Element {
+  constructor(tag = 'div') {
+    this.tagName = tag.toUpperCase(); this.children = []; this.dataset = {};
+    this.events = {}; this.className = ''; this.attributes = {}; this.style = {};
+    this.value = ''; this.textContent = ''; this.open = false;
+    this.classList = {
+      contains: name => this.className.split(/\s+/).includes(name),
+      add: (...names) => { this.className = [...new Set([...this.className.split(/\s+/), ...names])].join(' '); },
+      remove: (...names) => { this.className = this.className.split(/\s+/).filter(n => !names.includes(n)).join(' '); },
+      toggle: (name, on) => { if (on) this.classList.add(name); else this.classList.remove(name); }
+    };
+    if (tag === 'template') this.content = { querySelectorAll: () => [] };
+  }
+  set id(value) { this._id = value; ids.set(value, this); }
+  get id() { return this._id; }
+  set innerHTML(value) {
+    const remove = el => { if (el.id) ids.delete(el.id); el.children.forEach(remove); };
+    this.children.forEach(remove); this.children = []; this._html = value;
+  }
+  get innerHTML() { return this._html || ''; }
+  append(...nodes) { nodes.forEach(node => this.appendChild(node)); }
+  appendChild(node) {
+    if (node.tagName === 'FRAGMENT') return node.children.forEach(child => this.appendChild(child));
+    node.parentElement = this; this.children.push(node);
+  }
+  setAttribute(name, value) { this.attributes[name] = value; }
+  addEventListener(name, callback) { this.events[name] = callback; }
+  scrollIntoView() { this.scrolled = true; }
+  scrollBy() {}
+  getBoundingClientRect() { return { top: 0, bottom: 100 }; }
+}
+for (const match of page.matchAll(/\bid="([^"]+)"/g)) new Element().id = match[1];
+const pills = [...page.matchAll(/<button data-libro="([^"]+)"/g)].map(match => {
+  const pill = new Element('button'); pill.dataset.libro = match[1]; return pill;
+});
+const document = {
+  getElementById: id => ids.get(id) || null,
+  createElement: tag => new Element(tag),
+  createDocumentFragment: () => new Element('fragment'),
+  addEventListener() {},
+  querySelectorAll(selector) {
+    if (selector === '.libro-filter-pill') return pills;
+    if (selector.startsWith('.art-ref-chip')) return [];
+    if (selector === '.art-nav-item.active') return [...ids.values()].filter(el => el.classList.contains('art-nav-item') && el.classList.contains('active'));
+    if (selector === '.pot-article-card') return [...ids.values()].filter(el => el.classList.contains('pot-article-card'));
+    return [];
+  },
+  querySelector: () => pills[0]
+};
+const context = vm.createContext({ document, articles, index, tree, console,
+  window: { innerWidth: 1200, location: { hash: '' }, addEventListener() {} },
+  history: { pushState(a, b, hash) { context.window.location.hash = hash; } },
+  navigator: {}, setTimeout() {}, clearTimeout() {}, requestAnimationFrame(callback) { callback(); } });
+const script = page.slice(page.lastIndexOf('<script>') + 8, page.lastIndexOf('</script>'));
+new vm.Script(script).runInContext(context);
+vm.runInContext(`potIndex=index;potTree=tree;fullDatabase=articles;
+  const register=node=>{potStructureMap[node.id]=node;node.children.forEach(register)};
+  potTree.forEach(register);articles.forEach(a=>{potArticlesMap[a.numero]=a;potArticlesMap[a.id]=a});
+  setupEventListeners();renderSidebar(potIndex);renderArticles();`, context);
+const cards = () => ids.get('articles-feed').children.filter(el => el.classList.contains('pot-article-card'));
+assert.equal(cards().length, 608);
+assert.equal(pills.length, 9);
+for (const pill of pills) {
+  pill.events.click();
+  const expected = articles.filter(a => pill.dataset.libro === 'all' || a.jerarquia.libro_id === pill.dataset.libro);
+  assert.deepEqual(cards().map(el => el.id), expected.map(a => a.id));
+  assert.equal([...ids.keys()].filter(id => id.startsWith('nav-art-')).length, expected.length);
+}
+// Article jumps across books reset the filter and open the entire parent path.
+vm.runInContext('navigateToArticle(47)', context);
+assert.equal(cards().length, 608);
+assert.equal(ids.get('art-47').scrolled, true);
+for (const id of articles[46].jerarquia.ruta) assert.equal(ids.get('nav-group-' + id).open, true);
+assert(ids.get('breadcrumb-libro').textContent.includes('SUBSECCIÓN 2'));
+const chapter = ids.get('nav-group-L.3.C.5');
+chapter.children[0].children[0].events.click({ preventDefault() {} });
+assert.equal(ids.get('L.3.C.5').scrolled, true);
+assert.equal(context.window.location.hash, '#L.3.C.5');
+// Body-only searches must yield the same article set in the sidebar and feed.
+context.bodyQuery = articles[255].texto_plano.slice(400, 450);
+vm.runInContext('searchQuery=bodyQuery;renderSidebar(potIndex);renderArticles()', context);
+assert(cards().length > 0);
+assert.equal([...ids.keys()].filter(id => id.startsWith('nav-art-')).length, cards().length);
+context.window.location.hash = '#art-608';
+vm.runInContext('handleInitialRoute()', context);
+assert.equal(ids.get('art-608').scrolled, true);
+assert.equal(ids.get('nav-group-L.8').open, true);
+assert.equal(ids.get('breadcrumb-art').textContent, 'Artículo 608');
+console.log('PASS: eight book filters, 608 articles, nested navigation, heading links, automatic branch expansion, body search consistency, deep article links.');
