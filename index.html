@@ -163,20 +163,20 @@
 
         /* Cabecera editorial: texto, líneas y una sola jerarquía de navegación. */
         .site-header { background: #fff; color: #263442; border-top: 3px solid #263442; border-bottom: 3px solid #263442; flex-shrink: 0; z-index: 40; }
-        .header-main { display: flex; align-items: center; gap: 32px; padding: 20px 32px 18px; }
+        .header-main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 460px) minmax(0, 1fr); align-items: center; gap: 32px; padding: 20px 32px 18px; }
         .header-identity { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
         .header-title { margin: 0; display: flex; align-items: baseline; gap: 12px; font: normal 42px/1.1 Georgia, 'Times New Roman', serif; letter-spacing: -1px; }
         .header-abbreviation { font: inherit; letter-spacing: inherit; }
         .header-title-dot { color: #8b4a32; }
         .header-subtitle { margin: 6px 0 0; font: 700 12px/1.4 Arial, sans-serif; color: #626b73; }
-        .header-search { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0; max-width: 460px; margin-left: auto; border-bottom: 1px solid #a8b0b6; color: #626b73; }
+        .header-search { display: flex; align-items: center; gap: 10px; min-width: 0; width: 100%; max-width: 460px; justify-self: center; border-bottom: 1px solid #a8b0b6; color: #626b73; }
         .header-search:focus-within { border-bottom-color: #263442; }
         .header-search svg { flex-shrink: 0; }
         .header-search input { width: 100%; min-width: 0; padding: 9px 0; background: transparent; border: 0; outline: none; font: 14px/1.4 Arial, sans-serif; color: #263442; }
         .header-search input::placeholder { color: #626b73; }
         .header-search input::-webkit-search-cancel-button { display: none; }
         .header-search button { font-size: 24px; line-height: 1; padding: 4px; }
-        .header-actions { display: flex; align-items: center; gap: 24px; flex-shrink: 0; }
+        .header-actions { display: flex; align-items: center; justify-self: end; }
         .header-actions a { font-size: 12px; line-height: 1.5; text-decoration: none; }
         .header-actions a span { display: block; color: #626b73; }
         .header-actions a:hover { text-decoration: underline; text-underline-offset: 3px; }
@@ -191,20 +191,19 @@
         .annex-filter input { margin-top: 3px; accent-color: #263442; }
         .annex-filter p { margin: 5px 0 0 21px; font-size: 11px; color: #64748b; }
         @media (max-width: 1100px) {
-            .header-main { gap: 20px; }
+            .header-main { grid-template-columns: minmax(0, 1fr) minmax(180px, 340px) minmax(0, 1fr); gap: 20px; }
             .header-actions { gap: 12px; }
             .header-books { gap: 20px; }
         }
-        @media (max-width: 767px) {
-            .header-main { flex-wrap: wrap; gap: 14px 12px; padding: 14px 16px 10px; }
+        @media (max-width: 1000px) {
+            .header-main { grid-template-columns: minmax(0, 1fr) auto; gap: 14px 12px; padding: 14px 16px 10px; }
             .header-title { font-size: 34px; gap: 9px; }
             .header-subtitle { font-size: 11px; }
             .header-actions { margin-left: auto; }
             .header-actions a { font-size: 11px; }
-            .header-search { flex-basis: 100%; max-width: none; order: 3; }
+            .header-search { grid-column: 1 / -1; grid-row: 2; max-width: none; }
             .header-books { padding: 0 16px; gap: 22px; }
         }
-        @media (max-width: 380px) { .header-actions a { max-width: 110px; } }
 
 
         .document-heading { padding: 4px 0 32px; margin-bottom: 12px; border-bottom: 1px solid #d5d9dd; }
@@ -220,6 +219,24 @@
             .document-eyebrow { margin-bottom: 14px; font-size: 10px; letter-spacing: 1px; }
             .document-title { letter-spacing: -.6px; }
             .document-decree { font-size: 18px; margin-bottom: 18px; }
+        }
+
+
+        .annex-menu { position: relative; }
+        .annex-toggle { display: flex; align-items: center; gap: 12px; padding: 9px 14px; border: 1px solid #b8bec4; border-radius: 2px; font: 14px/1.4 Arial, sans-serif; cursor: pointer; list-style: none; }
+        .annex-toggle::-webkit-details-marker { display: none; }
+        .annex-toggle:hover, .annex-menu[open] .annex-toggle { background: #f5f6f7; border-color: #263442; }
+        .annex-menu[open] .annex-toggle svg { transform: rotate(180deg); }
+        .annex-toggle:focus-visible { outline: 2px solid #263442; outline-offset: 3px; }
+        .annex-dropdown { position: absolute; right: 0; top: calc(100% + 8px); width: min(320px, calc(100vw - 32px)); padding: 6px; background: #fff; border: 1px solid #d5d9dd; box-shadow: 0 6px 18px rgb(38 52 66 / 12%); z-index: 60; }
+        .header-actions .annex-dropdown a { display: block; padding: 12px; font-size: 13px; }
+        .header-actions .annex-dropdown a:hover { background: #f5f6f7; text-decoration: none; }
+        .annex-dropdown strong { display: block; margin-bottom: 5px; font-weight: 700; }
+        .header-actions .annex-dropdown strong span { display: inline; }
+        @media (min-width: 768px) and (max-width: 900px) { .header-title { font-size: 34px; gap: 8px; } }
+        @media (max-width: 480px) {
+            .header-title { font-size: 28px; gap: 6px; }
+            .annex-toggle { padding: 8px 10px; gap: 8px; font-size: 13px; }
         }
 
     </style>
@@ -245,7 +262,12 @@
                 <button id="clear-search-btn" class="hidden" aria-label="Borrar búsqueda">×</button>
             </div>
             <div class="header-actions">
-                <a href="BK/anexo5_visor_previo/index_anexo5.html" target="_blank" rel="noopener" title="Abrir el Manual de Normas Comunes a los Tratamientos Urbanísticos en otra pestaña">Manual de normas comunes <span>· Anexo 5 ↗</span></a>
+                <details id="annex-menu" class="annex-menu">
+                    <summary class="annex-toggle">Anexos <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="m3 4.5 3 3 3-3" stroke="currentColor" stroke-width="1.3"/></svg></summary>
+                    <div class="annex-dropdown">
+                        <a href="BK/anexo5_visor_previo/index_anexo5.html" target="_blank" rel="noopener"><strong>Anexo 5 <span aria-hidden="true">↗</span></strong><span>Manual de Normas Comunes a los Tratamientos Urbanísticos</span></a>
+                    </div>
+                </details>
             </div>
         </div>
         <nav id="libro-pills-bar" class="header-books" aria-label="Libros del POT">
@@ -794,6 +816,17 @@
 
         // CONFIGURACIÓN DE EVENT LISTENERS
         function setupEventListeners() {
+            const annexMenu = document.getElementById('annex-menu');
+            document.addEventListener('click', (event) => {
+                if (!annexMenu.contains(event.target) || event.target.closest('a')) annexMenu.open = false;
+            });
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && annexMenu.open) {
+                    annexMenu.open = false;
+                    annexMenu.querySelector('summary').focus();
+                }
+            });
+
             // Buscador Global
             const searchInput = document.getElementById('global-search');
             const clearBtn = document.getElementById('clear-search-btn');
