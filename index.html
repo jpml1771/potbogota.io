@@ -498,7 +498,7 @@
         }
 
         // RENDERIZADO POR LOTES DE ARTÍCULOS EN EL CONTENEDOR
-        function renderArticlesBatch(reset = false) {
+        function renderArticlesBatch(reset = false, batchSize = CHUNK_SIZE) {
             if (!fullDatabase) return;
 
             const feed = document.getElementById('articles-feed');
@@ -524,7 +524,7 @@
                 return true;
             });
 
-            const nextBatch = filtered.slice(currentLoadedIndex, currentLoadedIndex + CHUNK_SIZE);
+            const nextBatch = filtered.slice(currentLoadedIndex, currentLoadedIndex + batchSize);
             currentLoadedIndex += nextBatch.length;
 
             const fragment = document.createDocumentFragment();
@@ -636,6 +636,7 @@
 
         // NAVEGACIÓN Y SALTO A ARTÍCULO
         function navigateToArticle(artNum) {
+            if (!fullDatabase || !Number.isInteger(artNum) || !potArticlesMap[artNum]) return;
             const targetId = `art-${artNum}`;
             
             // Si el artículo aún no está en el DOM (porque está en lotes posteriores o filtrado),
@@ -650,14 +651,15 @@
                     document.getElementById('global-search').value = '';
                     document.querySelectorAll('.libro-filter-pill').forEach(b => b.classList.remove('active', 'bg-sky-600', 'text-white'));
                     document.querySelector('.libro-filter-pill[data-libro="all"]').classList.add('active', 'bg-sky-600', 'text-white');
+                    document.getElementById('clear-search-btn').classList.add('hidden');
+                    document.getElementById('filter-anexo5-btn').classList.remove('bg-amber-500', 'text-slate-900');
                     renderSidebar(potIndex);
                 }
 
                 // Renderizar hasta incluir el artículo
                 const targetIndex = fullDatabase.findIndex(a => a.numero === artNum);
                 if (targetIndex !== -1) {
-                    currentLoadedIndex = Math.max(currentLoadedIndex, targetIndex + 1);
-                    renderArticlesBatch(true);
+                    renderArticlesBatch(true, Math.max(CHUNK_SIZE, targetIndex + 1));
                     el = document.getElementById(targetId);
                 }
             }
