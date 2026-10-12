@@ -12,8 +12,9 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Arial', 'Helvetica', 'sans-serif'],
-                        serif: ['Georgia', '"Times New Roman"', 'serif'],
+                        sans: ['"Courier New"', 'Courier', 'monospace'],
+                        serif: ['"Courier New"', 'Courier', 'monospace'],
+                        mono: ['"Courier New"', 'Courier', 'monospace'],
                     },
                     colors: {
                         pot: {
@@ -38,25 +39,26 @@
     <style>
         html, body { 
             overflow: hidden; 
-            font-family: Arial, Helvetica, sans-serif; 
+            font-family: var(--site-font); 
             font-size: 17px;
             scroll-behavior: smooth; 
             -webkit-font-smoothing: antialiased;
         }
         
 
-        :root { --article-font-size: 18px; }
+        :root { --site-font: 'Courier New', Courier, monospace; --article-font-size: 18px; }
+        body, body * { font-family: var(--site-font) !important; }
         .pot-article-card { scroll-margin-top: 64px; overflow-wrap: anywhere; }
         .pot-article-card .article-content, #preview-body {
-            font-family: Georgia, 'Times New Roman', serif;
+            font-family: var(--site-font);
             font-size: var(--article-font-size);
             line-height: 1.65;
         }
         .article-content p, #preview-body p { line-height: inherit; }
         .pot-article-card h2, #preview-title {
-            font-family: Georgia, 'Times New Roman', serif;
+            font-family: var(--site-font);
         }
-        .pot-table { font-family: Arial, Helvetica, sans-serif; font-size: 16px; }
+        .pot-table { font-family: var(--site-font); font-size: 16px; }
         .art-nav-item > div:last-child { font-size: 15px; line-height: 1.4; }
 
         /* Scrollbars refinadas estilo NYC Planning */
@@ -165,14 +167,14 @@
         .site-header { background: #fff; color: #263442; border-top: 3px solid #263442; border-bottom: 3px solid #263442; flex-shrink: 0; z-index: 40; }
         .header-main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 460px) minmax(0, 1fr); align-items: center; gap: 32px; padding: 20px 32px 18px; }
         .header-identity { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
-        .header-title { margin: 0; display: flex; align-items: baseline; gap: 12px; font: normal 42px/1.1 Georgia, 'Times New Roman', serif; letter-spacing: -1px; }
+        .header-title { margin: 0; display: flex; align-items: baseline; gap: 12px; font: normal 42px/1.1 var(--site-font); letter-spacing: -1px; }
         .header-abbreviation { font: inherit; letter-spacing: inherit; }
         .header-title-dot { color: #8b4a32; }
-        .header-subtitle { margin: 6px 0 0; font: 700 12px/1.4 Arial, sans-serif; color: #626b73; }
+        .header-subtitle { margin: 6px 0 0; font: 700 12px/1.4 var(--site-font); color: #626b73; }
         .header-search { display: flex; align-items: center; gap: 10px; min-width: 0; width: 100%; max-width: 460px; justify-self: center; border-bottom: 1px solid #a8b0b6; color: #626b73; }
         .header-search:focus-within { border-bottom-color: #263442; }
         .header-search svg { flex-shrink: 0; }
-        .header-search input { width: 100%; min-width: 0; padding: 9px 0; background: transparent; border: 0; outline: none; font: 14px/1.4 Arial, sans-serif; color: #263442; }
+        .header-search input { width: 100%; min-width: 0; padding: 9px 0; background: transparent; border: 0; outline: none; font: 14px/1.4 var(--site-font); color: #263442; }
         .header-search input::placeholder { color: #626b73; }
         .header-search input::-webkit-search-cancel-button { display: none; }
         .header-search button { font-size: 24px; line-height: 1; padding: 4px; }
@@ -182,7 +184,7 @@
         .header-actions a:hover { text-decoration: underline; text-underline-offset: 3px; }
         .header-menu { padding: 8px 0; }
         .header-books { display: flex; overflow-x: auto; gap: 24px; padding: 0 32px; }
-        .header-books .libro-filter-pill { flex-shrink: 0; background: transparent; color: #626b73; border: 0; border-bottom: 2px solid transparent; border-radius: 0; padding: 12px 0 11px; font: 13px/1.4 Arial, sans-serif; white-space: nowrap; }
+        .header-books .libro-filter-pill { flex-shrink: 0; background: transparent; color: #626b73; border: 0; border-bottom: 2px solid transparent; border-radius: 0; padding: 12px 0 11px; font: 13px/1.4 var(--site-font); white-space: nowrap; }
         .header-books .libro-filter-pill:hover { color: #263442; border-bottom-color: #a8b0b6; }
         .header-books .libro-filter-pill.active { color: #263442; font-weight: 700; border-bottom-color: #263442; }
         .site-header button:focus-visible, .site-header a:focus-visible { outline: 2px solid #263442; outline-offset: 4px; }
@@ -203,12 +205,12 @@
 
 
         .document-heading { padding: 4px 0 32px; margin-bottom: 12px; border-bottom: 1px solid #d5d9dd; }
-        .document-eyebrow { margin: 0 0 20px; font: 11px/1.5 Arial, sans-serif; letter-spacing: 1.5px; text-transform: uppercase; color: #626b73; }
+        .document-eyebrow { margin: 0 0 20px; font: 11px/1.5 var(--site-font); letter-spacing: 1.5px; text-transform: uppercase; color: #626b73; }
         .document-eyebrow span { padding: 0 8px; color: #8b4a32; }
-        .document-title { max-width: 25ch; margin: 0 0 14px; font: normal clamp(30px, 3.6vw, 52px)/1.12 Georgia, 'Times New Roman', serif; letter-spacing: -1.2px; color: #263442; }
-        .document-decree { margin: 0 0 24px; font: normal 20px/1.4 Georgia, 'Times New Roman', serif; color: #626b73; }
-        .document-description { max-width: 80ch; margin: 0; font: 14px/1.7 Arial, sans-serif; color: #626b73; }
-        .document-details { margin: 20px 0 0; font: 12px/1.5 Arial, sans-serif; color: #626b73; }
+        .document-title { max-width: 25ch; margin: 0 0 14px; font: normal clamp(30px, 3.6vw, 52px)/1.12 var(--site-font); letter-spacing: -1.2px; color: #263442; }
+        .document-decree { margin: 0 0 24px; font: normal 20px/1.4 var(--site-font); color: #626b73; }
+        .document-description { max-width: 80ch; margin: 0; font: 14px/1.7 var(--site-font); color: #626b73; }
+        .document-details { margin: 20px 0 0; font: 12px/1.5 var(--site-font); color: #626b73; }
         .document-details span { padding: 0 8px; }
         @media (max-width: 767px) {
             .document-heading { padding-bottom: 24px; }
@@ -219,7 +221,7 @@
 
 
         .annex-menu { position: relative; }
-        .annex-toggle { display: flex; align-items: center; gap: 12px; padding: 9px 14px; border: 1px solid #b8bec4; border-radius: 2px; font: 14px/1.4 Arial, sans-serif; cursor: pointer; list-style: none; }
+        .annex-toggle { display: flex; align-items: center; gap: 12px; padding: 9px 14px; border: 1px solid #b8bec4; border-radius: 2px; font: 14px/1.4 var(--site-font); cursor: pointer; list-style: none; }
         .annex-toggle::-webkit-details-marker { display: none; }
         .annex-toggle:hover, .annex-menu[open] .annex-toggle { background: #f5f6f7; border-color: #263442; }
         .annex-menu[open] .annex-toggle svg { transform: rotate(180deg); }
@@ -231,7 +233,7 @@
         .header-actions .annex-dropdown strong span { display: inline; }
         @media (min-width: 768px) and (max-width: 900px) { .header-title { font-size: 34px; gap: 8px; } }
         @media (max-width: 480px) {
-            .header-title { font-size: 28px; gap: 6px; }
+            .header-title { font-size: 24px; gap: 6px; }
             .annex-toggle { padding: 8px 10px; gap: 8px; font-size: 13px; }
         }
 
