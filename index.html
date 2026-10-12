@@ -165,10 +165,10 @@
         .site-header { background: #fff; color: #263442; border-top: 3px solid #263442; border-bottom: 3px solid #263442; flex-shrink: 0; z-index: 40; }
         .header-main { display: flex; align-items: center; gap: 32px; padding: 20px 32px 18px; }
         .header-identity { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
-        .header-title { margin: 0; display: flex; align-items: baseline; gap: 12px; font: normal 36px/1.1 Georgia, 'Times New Roman', serif; letter-spacing: -1px; }
-        .header-abbreviation { font: 600 12px/1 Arial, sans-serif; letter-spacing: 2px; }
+        .header-title { margin: 0; display: flex; align-items: baseline; gap: 12px; font: normal 42px/1.1 Georgia, 'Times New Roman', serif; letter-spacing: -1px; }
+        .header-abbreviation { font: inherit; letter-spacing: inherit; }
         .header-title-dot { color: #8b4a32; }
-        .header-subtitle { margin: 6px 0 0; font: 12px/1.4 Arial, sans-serif; color: #626b73; }
+        .header-subtitle { margin: 6px 0 0; font: 700 12px/1.4 Arial, sans-serif; color: #626b73; }
         .header-search { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0; max-width: 460px; margin-left: auto; border-bottom: 1px solid #a8b0b6; color: #626b73; }
         .header-search:focus-within { border-bottom-color: #263442; }
         .header-search svg { flex-shrink: 0; }
@@ -199,8 +199,7 @@
         }
         @media (max-width: 767px) {
             .header-main { flex-wrap: wrap; gap: 14px 12px; padding: 14px 16px 10px; }
-            .header-title { font-size: 30px; gap: 9px; }
-            .header-abbreviation { font-size: 11px; }
+            .header-title { font-size: 34px; gap: 9px; }
             .header-subtitle { font-size: 11px; }
             .header-actions { margin-left: auto; }
             .header-actions a { font-size: 11px; }
