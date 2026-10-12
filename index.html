@@ -237,6 +237,23 @@
             .annex-toggle { padding: 8px 10px; gap: 8px; font-size: 13px; }
         }
 
+
+        /* Un fondo continuo, con azul marino muy diluido que se desvanece a blanco. */
+        #reading-layout {
+            background-color: #fff;
+            background-image:
+                radial-gradient(ellipse at 0% 0%, rgba(24, 49, 82, 0.055) 0%, rgba(24, 49, 82, 0) 60%),
+                linear-gradient(115deg, #eaf0f7 0%, #f3f6fa 28%, #fafbfd 55%, #fff 82%);
+        }
+        #sidebar-nav { background: rgba(255, 255, 255, 0.12); border-right-color: #d6dee8; }
+        #sidebar-nav > div:first-child, #sidebar-nav > div:last-child { background: transparent; }
+        #content-pane { background: transparent; }
+        #sticky-breadcrumb-bar { background: rgba(250, 252, 255, 0.88); box-shadow: none; border-bottom-color: #dce3eb; }
+        .art-nav-item.active { background-color: rgba(24, 49, 82, 0.065); }
+        @media (max-width: 767px) {
+            #sidebar-nav { background: linear-gradient(145deg, #eaf0f7 0%, #f5f7fb 55%, #fff 100%); }
+        }
+
     </style>
 </head>
 <body class="h-full bg-slate-100 text-slate-800 flex flex-col antialiased">
@@ -280,7 +297,7 @@
     </header>
 
     <!-- CUERPO PRINCIPAL (2 COLUMNAS: SIDEBAR + LECTURA) -->
-    <div class="flex flex-1 overflow-hidden relative">
+    <div id="reading-layout" class="flex flex-1 overflow-hidden relative">
 
         <!-- Mobile Drawer Overlay -->
         <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-30 hidden md:hidden"></div>
