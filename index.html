@@ -160,95 +160,92 @@
         #toast-notice {
             transition: opacity 0.3s ease, transform 0.3s ease;
         }
+
+        /* Cabecera editorial: texto, líneas y una sola jerarquía de navegación. */
+        .site-header { background: #fff; color: #263442; border-top: 3px solid #263442; border-bottom: 1px solid #d5d9dd; flex-shrink: 0; z-index: 40; }
+        .header-main { display: flex; align-items: center; gap: 32px; padding: 20px 32px 18px; }
+        .header-identity { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+        .header-title { margin: 0; font: normal 30px/1.1 Georgia, 'Times New Roman', serif; letter-spacing: -.5px; }
+        .header-subtitle { margin: 6px 0 0; font: 12px/1.4 Arial, sans-serif; color: #626b73; }
+        .header-search { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0; max-width: 460px; margin-left: auto; border-bottom: 1px solid #a8b0b6; color: #626b73; }
+        .header-search:focus-within { border-bottom-color: #263442; }
+        .header-search svg { flex-shrink: 0; }
+        .header-search input { width: 100%; min-width: 0; padding: 9px 0; background: transparent; border: 0; outline: none; font: 14px/1.4 Arial, sans-serif; color: #263442; }
+        .header-search input::placeholder { color: #626b73; }
+        .header-search input::-webkit-search-cancel-button { display: none; }
+        .header-search button { font-size: 24px; line-height: 1; padding: 4px; }
+        .header-actions { display: flex; align-items: center; gap: 24px; flex-shrink: 0; }
+        .header-actions a { font-size: 12px; line-height: 1.5; text-decoration: none; }
+        .header-actions a span { display: block; color: #626b73; }
+        .header-actions a:hover { text-decoration: underline; text-underline-offset: 3px; }
+        .header-type-controls { display: flex; gap: 4px; border-left: 1px solid #d5d9dd; padding-left: 16px; }
+        .header-type-controls button { padding: 8px; font-size: 14px; }
+        .header-menu { padding: 8px 0; }
+        .header-books { display: flex; overflow-x: auto; gap: 24px; padding: 0 32px; }
+        .header-books .libro-filter-pill { flex-shrink: 0; background: transparent; color: #626b73; border: 0; border-bottom: 2px solid transparent; border-radius: 0; padding: 12px 0 11px; font: 13px/1.4 Arial, sans-serif; white-space: nowrap; }
+        .header-books .libro-filter-pill:hover { color: #263442; border-bottom-color: #a8b0b6; }
+        .header-books .libro-filter-pill.active { color: #263442; font-weight: 700; border-bottom-color: #263442; }
+        .site-header button:focus-visible, .site-header a:focus-visible { outline: 2px solid #263442; outline-offset: 4px; }
+        .annex-filter { padding: 12px 14px; border-bottom: 1px solid #e2e8f0; color: #475569; font: 12px/1.5 Arial, sans-serif; }
+        .annex-filter label { display: flex; align-items: flex-start; gap: 8px; cursor: pointer; }
+        .annex-filter input { margin-top: 3px; accent-color: #263442; }
+        .annex-filter p { margin: 5px 0 0 21px; font-size: 11px; color: #64748b; }
+        @media (max-width: 1100px) {
+            .header-main { gap: 20px; }
+            .header-actions { gap: 12px; }
+            .header-books { gap: 20px; }
+        }
+        @media (max-width: 767px) {
+            .header-main { flex-wrap: wrap; gap: 14px 12px; padding: 14px 16px 10px; }
+            .header-title { font-size: 26px; }
+            .header-subtitle { font-size: 11px; }
+            .header-actions { margin-left: auto; }
+            .header-actions a { font-size: 11px; }
+            .header-type-controls { display: none; }
+            .header-search { flex-basis: 100%; max-width: none; order: 3; }
+            .header-books { padding: 0 16px; gap: 22px; }
+        }
+        @media (max-width: 380px) { .header-actions a { max-width: 110px; } }
+
     </style>
 </head>
 <body class="h-full bg-slate-100 text-slate-800 flex flex-col antialiased">
 
     <!-- BARRA SUPERIOR INSTITUCIONAL Y HERRAMIENTAS (NYC ZR HEADER) -->
-    <header class="bg-slate-900 text-white border-b border-slate-800 z-40 flex-shrink-0 shadow-lg">
-        <div class="px-4 lg:px-8 py-3 flex items-center justify-between gap-4">
-            
-            <!-- Branding / Identidad -->
-            <div class="flex items-center gap-3">
-                <button id="mobile-menu-toggle" class="md:hidden text-slate-300 hover:text-white p-2 rounded-lg hover:bg-slate-800 focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+    <header class="site-header">
+        <div class="header-main">
+            <div class="header-identity">
+                <button id="mobile-menu-toggle" class="header-menu md:hidden" aria-label="Abrir tabla de contenido">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
-                <div class="flex items-center gap-2.5">
-                    <div class="w-9 h-9 rounded-lg bg-sky-500 text-slate-950 font-black flex items-center justify-center text-base shadow-md tracking-tighter">
-                        POT
-                    </div>
-                    <div>
-                        <div class="flex items-center gap-2">
-                            <h1 class="text-base font-extrabold tracking-tight text-white leading-none">POT Bogotá</h1>
-                            <span class="text-[10px] bg-sky-500/20 text-sky-300 font-semibold px-2 py-0.5 rounded border border-sky-400/30">Decreto 555 de 2021</span>
-                        </div>
-                        <p class="text-[11px] text-slate-400 font-medium tracking-wide mt-0.5 hidden sm:block">Plan de Ordenamiento Territorial • Visor de Normativa Digital</p>
-                    </div>
+                <div>
+                    <h1 class="header-title">POT Bogotá</h1>
+                    <p class="header-subtitle">Decreto Distrital 555 de 2021</p>
                 </div>
             </div>
-
-            <!-- Buscador Global Rápido (Estilo NYC ZR) -->
-            <div class="flex-1 max-w-xl mx-2">
-                <div class="relative">
-                    <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400 pointer-events-none">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                    </span>
-                    <input 
-                        type="search" 
-                        id="global-search" 
-                        placeholder="Buscar artículo (ej. 384, antejardín, estacionamientos, consolidación)..." 
-                        class="w-full pl-9 pr-9 py-2 bg-slate-800/80 hover:bg-slate-800 text-sm text-white placeholder-slate-400 rounded-lg border border-slate-700 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:bg-slate-800 transition-all shadow-inner"
-                    />
-                    <button id="clear-search-btn" class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-white hidden">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                    </button>
+            <div class="header-search">
+                <label for="global-search" class="sr-only">Buscar por número de artículo o palabra</label>
+                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-width="1.5" stroke-linecap="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                <input type="search" id="global-search" placeholder="Buscar artículo o palabra…" autocomplete="off">
+                <button id="clear-search-btn" class="hidden" aria-label="Borrar búsqueda">×</button>
+            </div>
+            <div class="header-actions">
+                <a href="BK/anexo5_visor_previo/index_anexo5.html" target="_blank" rel="noopener" title="Abrir el Manual de Normas Comunes a los Tratamientos Urbanísticos en otra pestaña">Manual de normas comunes <span>· Anexo 5 ↗</span></a>
+                <div class="header-type-controls" role="group" aria-label="Tamaño del texto">
+                    <button id="font-decrease" title="Reducir tamaño de letra" aria-label="Reducir tamaño de letra">A−</button>
+                    <button id="font-increase" title="Aumentar tamaño de letra" aria-label="Aumentar tamaño de letra">A+</button>
                 </div>
-            </div>
-
-            <!-- Acciones Rápidas -->
-            <div class="flex items-center gap-2">
-                <a href="BK/anexo5_visor_previo/index_anexo5.html" target="_blank" title="Abrir Visor de Anexo 5 (Manual de Normas Comunes)" class="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-medium transition-all">
-                    <span>Anexo 5</span>
-                </a>
-                <div class="hidden sm:flex items-center bg-slate-800 rounded-lg p-1 border border-slate-700 text-xs">
-                    <button id="font-decrease" title="Reducir tamaño de letra" class="px-2 py-1 text-slate-300 hover:text-white rounded hover:bg-slate-700 font-bold">A-</button>
-                    <button id="font-increase" title="Aumentar tamaño de letra" class="px-2 py-1 text-slate-300 hover:text-white rounded hover:bg-slate-700 font-bold">A+</button>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Barra secundaria de filtros rápidos por Libro -->
-        <div class="px-4 lg:px-8 py-2 bg-slate-950/60 border-t border-slate-800 flex items-center justify-between overflow-x-auto gap-2 text-xs">
-            <div id="libro-pills-bar" class="flex items-center gap-1.5 flex-nowrap">
-                <button data-libro="all" class="libro-filter-pill active px-3 py-1 rounded-full bg-sky-600 text-white font-semibold transition-all whitespace-nowrap">
-                    Todos (608)
-                </button>
-                <button data-libro="L.1" class="libro-filter-pill px-3 py-1 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium transition-all whitespace-nowrap">
-                    Libro I: Adopción
-                </button>
-                <button data-libro="L.2" class="libro-filter-pill px-3 py-1 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium transition-all whitespace-nowrap">
-                    Libro II: General (100)
-                </button>
-                <button data-libro="L.3" class="libro-filter-pill px-3 py-1 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium transition-all whitespace-nowrap">
-                    Libro III: Urbano (290)
-                </button>
-                <button data-libro="L.4" class="libro-filter-pill px-3 py-1 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium transition-all whitespace-nowrap">
-                    Libro IV: Rural (86)
-                </button>
-                <button data-libro="L.5" class="libro-filter-pill px-3 py-1 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium transition-all whitespace-nowrap">
-                    Libro V: Planeación (7)
-                </button>
-                <button data-libro="L.6" class="libro-filter-pill px-3 py-1 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium transition-all whitespace-nowrap">
-                    Libro VI: Gestión (124)
-                </button>
-            </div>
-            <div class="hidden md:flex items-center gap-2 pl-4 flex-shrink-0">
-                <button id="filter-anexo5-btn" class="flex items-center gap-1 px-3 py-1 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 font-medium transition-all whitespace-nowrap">
-                    Citan Anexo 5 (16)
-                </button>
             </div>
         </div>
+        <nav id="libro-pills-bar" class="header-books" aria-label="Libros del POT">
+            <button data-libro="all" class="libro-filter-pill active" aria-pressed="true">Todos</button>
+            <button data-libro="L.1" class="libro-filter-pill" aria-pressed="false">I · Adopción</button>
+            <button data-libro="L.2" class="libro-filter-pill" aria-pressed="false">II · General</button>
+            <button data-libro="L.3" class="libro-filter-pill" aria-pressed="false">III · Urbano</button>
+            <button data-libro="L.4" class="libro-filter-pill" aria-pressed="false">IV · Rural</button>
+            <button data-libro="L.5" class="libro-filter-pill" aria-pressed="false">V · Planeación</button>
+            <button data-libro="L.6" class="libro-filter-pill" aria-pressed="false">VI · Gestión</button>
+        </nav>
     </header>
 
     <!-- CUERPO PRINCIPAL (2 COLUMNAS: SIDEBAR + LECTURA) -->
@@ -269,6 +266,11 @@
                 <button id="sidebar-close-btn" class="md:hidden text-slate-400 hover:text-slate-700 p-1 rounded">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
+            </div>
+
+            <div class="annex-filter">
+                <label for="filter-anexo5-btn"><input type="checkbox" id="filter-anexo5-btn"><span>Solo menciones al Manual / Anexo 5</span></label>
+                <p>16 artículos identificados por coincidencia de texto.</p>
             </div>
 
             <!-- Lista de Artículos -->
@@ -626,10 +628,14 @@
                     onlyAnexo5 = false;
                     searchQuery = '';
                     document.getElementById('global-search').value = '';
-                    document.querySelectorAll('.libro-filter-pill').forEach(b => b.classList.remove('active', 'bg-sky-600', 'text-white'));
-                    document.querySelector('.libro-filter-pill[data-libro="all"]').classList.add('active', 'bg-sky-600', 'text-white');
+                    document.querySelectorAll('.libro-filter-pill').forEach(b => {
+                        b.classList.remove('active');
+                        b.setAttribute('aria-pressed', 'false');
+                    });
+                    document.querySelector('.libro-filter-pill[data-libro="all"]').classList.add('active');
+                    document.querySelector('.libro-filter-pill[data-libro="all"]').setAttribute('aria-pressed', 'true');
                     document.getElementById('clear-search-btn').classList.add('hidden');
-                    document.getElementById('filter-anexo5-btn').classList.remove('bg-amber-500', 'text-slate-900');
+                    document.getElementById('filter-anexo5-btn').checked = false;
                     renderSidebar(potIndex);
                 }
 
@@ -816,11 +822,11 @@
             document.querySelectorAll('.libro-filter-pill').forEach(pill => {
                 pill.addEventListener('click', () => {
                     document.querySelectorAll('.libro-filter-pill').forEach(p => {
-                        p.classList.remove('active', 'bg-sky-600', 'text-white');
-                        p.classList.add('bg-slate-800', 'text-slate-300');
+                        p.classList.remove('active');
+                        p.setAttribute('aria-pressed', 'false');
                     });
-                    pill.classList.add('active', 'bg-sky-600', 'text-white');
-                    pill.classList.remove('bg-slate-800', 'text-slate-300');
+                    pill.classList.add('active');
+                    pill.setAttribute('aria-pressed', 'true');
 
                     clearTimeout(searchDebounce);
                     activeFilterLibro = pill.dataset.libro;
@@ -829,7 +835,7 @@
                     onlyAnexo5 = false;
                     searchInput.value = '';
                     clearBtn.classList.add('hidden');
-                    anexoBtn.classList.remove('bg-amber-500', 'text-slate-900');
+                    anexoBtn.checked = false;
                     renderSidebar(potIndex);
                     renderArticles();
                     document.getElementById('content-pane').scrollTop = 0;
@@ -844,10 +850,8 @@
 
             // Filtro Anexo 5
             const anexoBtn = document.getElementById('filter-anexo5-btn');
-            anexoBtn.addEventListener('click', () => {
-                onlyAnexo5 = !onlyAnexo5;
-                anexoBtn.classList.toggle('bg-amber-500', onlyAnexo5);
-                anexoBtn.classList.toggle('text-slate-900', onlyAnexo5);
+            anexoBtn.addEventListener('change', () => {
+                onlyAnexo5 = anexoBtn.checked;
                 renderSidebar(potIndex);
                 renderArticles();
             });
