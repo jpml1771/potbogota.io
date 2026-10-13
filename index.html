@@ -281,6 +281,19 @@
         .pot-structure-heading.level-seccion h2, .pot-structure-heading.level-subseccion h2 { font-size: 18px; }
         #breadcrumb-libro { overflow: hidden; text-overflow: ellipsis; }
 
+
+        .article-content a[href], #preview-body a[href], .structure-notes a[href], .regulatory-notes a[href] {
+            color: #03599f;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+        }
+        .article-content a[href]:hover, #preview-body a[href]:hover,
+        .structure-notes a[href]:hover, .regulatory-notes a[href]:hover { color: #082848; }
+        .structure-notes, .regulatory-notes { margin-top: 14px; font-size: 14px; line-height: 1.65; color: #475569; }
+        .regulatory-notes { margin-bottom: 18px; }
+        .structure-notes p + p, .regulatory-notes p + p { margin-top: 6px; }
+
     </style>
 </head>
 <body class="h-full bg-slate-100 text-slate-800 flex flex-col antialiased">
@@ -614,6 +627,12 @@
                     const title = document.createElement('h2');
                     title.textContent = node.titulo;
                     heading.append(label, title);
+                    if (node.notas_html?.length) {
+                        const notes = document.createElement('div');
+                        notes.className = 'structure-notes';
+                        notes.innerHTML = node.notas_html.join('');
+                        heading.appendChild(notes);
+                    }
                     fragment.appendChild(heading);
                 });
                 fragment.appendChild(createArticleCard(art));
@@ -643,16 +662,6 @@
                     </span>
             `;
 
-            if (art.nota_reglamentaria) {
-                const url = art.nota_url ? `https://www.alcaldiabogota.gov.co/sisjur/normas/${art.nota_url}` : '#';
-                badgesHtml += `
-                    <a href="${url}" target="_blank" class="inline-flex items-center gap-1.5 text-[11px] font-medium text-slate-700 bg-slate-100 border border-slate-200 px-2.5 py-0.5 rounded hover:bg-slate-200 transition-colors">
-                        <span>${art.nota_reglamentaria}</span>
-                        <svg class="w-3 h-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                    </a>
-                `;
-            }
-
             badgesHtml += `</div>`;
 
             // Toolbar de acciones rápidas (Copiar link, Copiar cita)
@@ -669,18 +678,7 @@
                 </div>
             `;
 
-            // Texto procesado con chips para menciones de artículos
-            let formattedContent = removeLegacyStructuralHeadings(art.contenido_html);
-            
-            // Reemplazar citas del estilo "artículo X" por chips clicables
-            formattedContent = formattedContent.replace(/art[íi]culos?\s+(\d+)/gi, (match, refNum) => {
-                return `<button class="art-ref-chip" data-ref="${refNum}">artículo ${refNum}</button>`;
-            });
-
-            // Resaltar Anexo 5 si aparece en el texto
-            formattedContent = formattedContent.replace(/(Anexo\s+(?:No\.?\s*)?5|Manual\s+de\s+Normas\s+Comunes)/gi, (match) => {
-                return `<span class="bg-amber-100 text-amber-900 font-bold px-1.5 py-0.5 rounded border border-amber-300">${match}</span>`;
-            });
+            const formattedContent = formatArticleContent(art.contenido_html);
 
             articleEl.innerHTML = `
                 <div class="flex flex-wrap items-start justify-between gap-4 mb-5">
@@ -692,12 +690,70 @@
                     </div>
                     ${actionsHtml}
                 </div>
+                ${renderLegalNotes(art)}
                 <div class="article-content text-slate-700 leading-relaxed text-[15px] space-y-4">
                     ${formattedContent}
                 </div>
             `;
 
             return articleEl;
+        }
+
+        function renderLegalNotes(art) {
+            const notes = art.notas_reglamentarias || [];
+            if (!notes.length) return '';
+            const container = document.createElement('div');
+            container.className = 'regulatory-notes';
+            notes.forEach(note => {
+                const paragraph = document.createElement('p');
+                const link = document.createElement('a');
+                link.href = note.url;
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                link.textContent = note.texto;
+                paragraph.appendChild(link);
+                container.appendChild(paragraph);
+            });
+            return container.outerHTML;
+        }
+
+        function formatArticleContent(content) {
+            const template = document.createElement('template');
+            template.innerHTML = removeLegacyStructuralHeadings(content);
+            const walker = document.createTreeWalker(template.content, NodeFilter.SHOW_TEXT);
+            const texts = [];
+            let node;
+            while ((node = walker.nextNode())) {
+                // A source legal link must never become a POT preview button.
+                if (node.parentElement && !node.parentElement.closest('a, button, script, style')) texts.push(node);
+            }
+            texts.forEach(textNode => {
+                const text = textNode.textContent;
+                const pattern = /art[íi]culos?\s+(\d+)|(Anexo\s+(?:No\.?\s*)?5|Manual\s+de\s+Normas\s+Comunes)/gi;
+                const fragment = document.createDocumentFragment();
+                let cursor = 0;
+                let changed = false;
+                for (const match of text.matchAll(pattern)) {
+                    if (match[1] && !potArticlesMap[Number(match[1])]) continue;
+                    fragment.appendChild(document.createTextNode(text.slice(cursor, match.index)));
+                    const decoration = document.createElement(match[1] ? 'button' : 'span');
+                    decoration.textContent = match[0];
+                    if (match[1]) {
+                        decoration.className = 'art-ref-chip';
+                        decoration.dataset.ref = match[1];
+                    } else {
+                        decoration.className = 'bg-amber-100 text-amber-900 font-bold px-1.5 py-0.5 rounded border border-amber-300';
+                    }
+                    fragment.appendChild(decoration);
+                    cursor = match.index + match[0].length;
+                    changed = true;
+                }
+                if (changed) {
+                    fragment.appendChild(document.createTextNode(text.slice(cursor)));
+                    textNode.replaceWith(fragment);
+                }
+            });
+            return template.innerHTML;
         }
 
         // The legacy extraction attached the next division's headings to the
@@ -797,7 +853,7 @@
 
             document.getElementById('preview-badge').textContent = `ARTÍCULO ${art.numero}`;
             document.getElementById('preview-title').textContent = art.titulo;
-            document.getElementById('preview-body').innerHTML = art.contenido_html;
+            document.getElementById('preview-body').innerHTML = renderLegalNotes(art) + removeLegacyStructuralHeadings(art.contenido_html);
             
             const jumpBtn = document.getElementById('preview-jump-btn');
             jumpBtn.onclick = () => {

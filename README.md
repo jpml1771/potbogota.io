@@ -24,11 +24,22 @@ Use `--output-dir` to stage generated files for review before replacing `data`.
 The complete database, index, hierarchy tree and eight book snapshots are
 generated together. No local Windows paths or Antigravity folders are required.
 
-This hierarchy pass deliberately preserves every non-hierarchy article field
-from the existing complete JSON. It is not a full content re-extraction or
-verification of legal wording. The UI suppresses exact known structural heading
+The hierarchy stage preserves existing article wording. The subsequent legal-link
+stage resolves relative SISJUR URLs, restores all regulatory notes from the source
+article headers, and places standalone division notes under their correct heading.
+It does not fully re-extract or verify legal wording. The UI suppresses exact known structural heading
 blocks that the legacy parser misplaced inside the preceding article, then
 renders them at their correct location using the tree.
+
+`restore_legal_links.py` handles link restoration. Its audit output is
+`data/decreto_555_enlaces_auditoria.json`. Known SISJUR document routes are resolved
+to the official HTTPS endpoint while preserving document IDs and article fragments.
+The source's bare `#1365` references explicitly naming DUS 670/2025 are resolved
+to that document (`i=191905`), identified by the source's own introductory link.
+Legal hyperlinks open in a separate tab. Internal article-preview decoration skips
+existing links so a reference to another decree cannot be turned into a POT button.
+The malformed self-fragments in Article 599 explicitly naming Ley 388/1997 are
+likewise resolved to its source-identified document (`i=339`).
 
 ## Known content review items
 

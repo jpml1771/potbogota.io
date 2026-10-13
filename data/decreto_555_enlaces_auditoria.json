@@ -1,0 +1,1189 @@
+{
+  "fuente_url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=119582",
+  "total_enlaces_renderizados": 558,
+  "notas_de_encabezado": 2,
+  "notas_reubicadas": [
+    {
+      "articulo_anterior": 1,
+      "encabezado_correcto": "L.2.T.1.C.U",
+      "texto": "Ver Acuerdo 893 de 2023 Concejo de Bogotá, D.C."
+    },
+    {
+      "articulo_anterior": 93,
+      "encabezado_correcto": "L.2.T.2.C.4.SC.3.S.3",
+      "texto": "Ver Acuerdo Distrital 893 de 2023, Resolución 1325 de 2023 Secretaría de Educación del Distrito - SED., Resolución 1326 de 2023 Secretaría de Educación del Distrito - SED, Ver Decreto Distrital 415 de 2023., Decreto 427 de 2023."
+    }
+  ],
+  "urls_normalizadas": [
+    {
+      "href_fuente": "# 27.p.3",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=339#27.p.3"
+    },
+    {
+      "href_fuente": "# 27.p.4",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=339#27.p.4"
+    },
+    {
+      "href_fuente": "# 27.p.5",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=339#27.p.5"
+    },
+    {
+      "href_fuente": "#1365",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=191905#1365"
+    },
+    {
+      "href_fuente": "#42",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=119582#42"
+    },
+    {
+      "href_fuente": "#44",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=119582#44"
+    },
+    {
+      "href_fuente": "#58",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=119582#58"
+    },
+    {
+      "href_fuente": "#92",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=119582#92"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=105125#28",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=105125#28"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=107630",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=107630"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=11030#3",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=11030#3"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=116182",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=116182"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=1175",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=1175"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=1177#6",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=1177#6"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=118367",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=118367"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=119639",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=119639"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=122131",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=122131"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=122298",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=122298"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=122339",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=122339"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=122401",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=122401"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=122620",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=122620"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=123142",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=123142"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=123359",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=123359"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=123698",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=123698"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=123778#0",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=123778#0"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=124158",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=124158"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=124359",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=124359"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=124421",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=124421"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=124919",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=124919"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=125022",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=125022"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=128458",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=128458"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=128898",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=128898"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=128941",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=128941"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=129002",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=129002"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=129740",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=129740"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=129806",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=129806"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=130098",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=130098"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=131540",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=131540"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=131917",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=131917"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=131997",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=131997"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=132777#1",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=132777#1"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=133357",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=133357"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=135098",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=135098"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=136377",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=136377"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=136537#19",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=136537#19"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=136537#42",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=136537#42"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=136537#50",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=136537#50"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=136537#53",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=136537#53"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=136537#63",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=136537#63"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=136537#66",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=136537#66"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=136717",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=136717"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=13712#7",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=13712#7"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=137297",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=137297"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=137757",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=137757"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=138317",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=138317"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=138337",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=138337"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=13935",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=13935"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=139424",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=139424"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=139499#1",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=139499#1"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=139558",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=139558"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=139580",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=139580"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=140299",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=140299"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=140377",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=140377"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=140672",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=140672"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=140677",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=140677"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=142120",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=142120"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=142221",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=142221"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=142426",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=142426"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=142665",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=142665"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=143258",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=143258"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=143481",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=143481"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=144743",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=144743"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=144998",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=144998"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=145000",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=145000"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=145002",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=145002"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=145003",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=145003"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=145017",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=145017"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=145078",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=145078"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=145081",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=145081"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=145866",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=145866"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=146217",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=146217"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=146478",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=146478"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=147657",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=147657"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=149799",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=149799"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=149978",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=149978"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=150077",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=150077"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=150340",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=150340"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=150341",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=150341"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=150400",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=150400"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=150440",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=150440"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=150472",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=150472"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=150477#0",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=150477#0"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=150627",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=150627"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=150763",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=150763"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=150768",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=150768"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=150770",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=150770"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=151007",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=151007"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=151038",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=151038"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=151099",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=151099"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=151559#0",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=151559#0"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=151617",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=151617"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=151659",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=151659"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=151660",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=151660"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=151878",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=151878"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=151925",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=151925"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=151977",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=151977"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=152209",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=152209"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=152319",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=152319"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=152334",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=152334"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=152367",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=152367"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=152442",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=152442"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=152983",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=152983"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=153000",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=153000"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=153357",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=153357"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=153539",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=153539"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=153561",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=153561"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=153758",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=153758"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=15386",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=15386"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=154178",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=154178"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=155699#106",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=155699#106"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=161077",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=161077"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=161297",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=161297"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=166057",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=166057"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=166241",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=166241"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=170977",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=170977"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=171337",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=171337"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=177077",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=177077"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=188455",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=188455"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=189713",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=189713"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=190811",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=190811"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=190886",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=190886"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=190895",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=190895"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=191905#194",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=191905#194"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=193061",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=193061"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=194187",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=194187"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=194190",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=194190"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=194424",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=194424"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=2052",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=2052"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=25478",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=25478"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=2752",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=2752"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=28087",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=28087"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=29324",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=29324"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=29324#1",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=29324#1"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=29324#61",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=29324#61"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=297",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=297"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=297#61",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=297#61"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=30007",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=30007"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=336",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=336"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=337",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=337"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=337#4",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=337#4"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=337#4.l.b",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=337#4.l.b"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=339",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=339"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=339#2",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=339#2"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=339#35",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=339#35"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=339#36",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=339#36"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=339#38",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=339#38"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=339#44",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=339#44"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=339#58",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=339#58"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=339#58.l.c",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=339#58.l.c"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=339#58.l.l",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=339#58.l.l"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=339#74",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=339#74"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=339#99",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=339#99"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=342",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=342"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=3423",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=3423"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=36913",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=36913"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=41249",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=41249"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=4125#315",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=4125#315"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=4162",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=4162"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=42099",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=42099"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=43101",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=43101"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=43210#3",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=43210#3"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=47141#38",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=47141#38"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=47141#42",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=47141#42"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=488",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=488"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=55612",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=55612"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=55612#4",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=55612#4"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=57353",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=57353"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=60198",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=60198"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=60956",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=60956"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=62511#2.2.1.1.17.6",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62511#2.2.1.1.17.6"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=62512",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62512"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=62512#2.2.2.1.2.3.3",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62512#2.2.2.1.2.3.3"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=62512#2.2.2.1.5.3.1",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62512#2.2.2.1.5.3.1"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=62512#2.2.2.1.5.3.4",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62512#2.2.2.1.5.3.4"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=62512#2.2.3.1.4",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62512#2.2.3.1.4"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=62512#2.2.4.1.1.9",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62512#2.2.4.1.1.9"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=62512#2.2.4.1.4.3",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62512#2.2.4.1.4.3"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=62512#2.2.4.1.6.1.2",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62512#2.2.4.1.6.1.2"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=62512#2.2.5.4.2",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62512#2.2.5.4.2"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=62512#2.2.5.4.3",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62512#2.2.5.4.3"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=62512#2.2.5.4.3.n.2",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62512#2.2.5.4.3.n.2"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=62512#2.2.5.4.5",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62512#2.2.5.4.5"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=62512#2.2.6.1.1.3",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62512#2.2.6.1.1.3"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=62512#2.2.6.1.1.7.p.4",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62512#2.2.6.1.1.7.p.4"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=62512#2.2.6.1.1.7.p.6",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62512#2.2.6.1.1.7.p.6"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=62512#2.2.6.1.1.9",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62512#2.2.6.1.1.9"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=62512#2.2.6.1.2.1.2",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62512#2.2.6.1.2.1.2"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=62512#2.2.6.1.2.4.2",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62512#2.2.6.1.2.4.2"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=62512#2.2.6.1.3.2",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62512#2.2.6.1.3.2"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=62512#2.2.6.4.2.6",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62512#2.2.6.4.2.6"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=62512#2.2.6.5.1",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62512#2.2.6.5.1"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=62512#2.2.6.6.1.4",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62512#2.2.6.6.1.4"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=62514",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62514"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=63792",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=63792"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=64259",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=64259"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=65998#5",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=65998#5"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=66661",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=66661"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=68085",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=68085"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=68421",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=68421"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=69754#3.p.4",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=69754#3.p.4"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=69936#6",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=69936#6"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=69936#7.n.1",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=69936#7.n.1"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=69936#9",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=69936#9"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=70186",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=70186"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=70230",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=70230"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=70337",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=70337"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=71542",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=71542"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=72824",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=72824"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=73086",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=73086"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=73432",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=73432"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=73463",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=73463"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=78512",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=78512"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=78994",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=78994"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=81065",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=81065"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=82031",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=82031"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=82066",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=82066"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=83336",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=83336"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=85510",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=85510"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=86125",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=86125"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=87968#123",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=87968#123"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=88449",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=88449"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=88538",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=88538"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=88580",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=88580"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=88581",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=88581"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=88803",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=88803"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=90114",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=90114"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=9027#38.n.4",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=9027#38.n.4"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=90965",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=90965"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=93444",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=93444"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=94505",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=94505"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=94819",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=94819"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=94920",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=94920"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=94920#6",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=94920#6"
+    },
+    {
+      "href_fuente": "../normas/Norma1.jsp?i=97886",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=97886"
+    },
+    {
+      "href_fuente": "http://www.bogotajuridica.gov.co/normas/Norma1.jsp?i=47141",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=47141"
+    },
+    {
+      "href_fuente": "http://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=297",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=297"
+    },
+    {
+      "href_fuente": "http://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=297#61",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=297#61"
+    },
+    {
+      "href_fuente": "http://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=339",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=339"
+    },
+    {
+      "href_fuente": "http://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=339#10",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=339#10"
+    },
+    {
+      "href_fuente": "http://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=339#121",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=339#121"
+    },
+    {
+      "href_fuente": "http://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=59488",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=59488"
+    },
+    {
+      "href_fuente": "http://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=60179",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=60179"
+    },
+    {
+      "href_fuente": "http://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=62511",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62511"
+    },
+    {
+      "href_fuente": "http://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=62512",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62512"
+    },
+    {
+      "href_fuente": "http://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=62512#12.8.l.e",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62512#12.8.l.e"
+    },
+    {
+      "href_fuente": "http://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=62512#2.2.6.1.1.13",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62512#2.2.6.1.1.13"
+    },
+    {
+      "href_fuente": "http://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=62515",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62515"
+    },
+    {
+      "href_fuente": "http://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=63875",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=63875"
+    },
+    {
+      "href_fuente": "http://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=70073",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=70073"
+    },
+    {
+      "href_fuente": "http://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=73463",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=73463"
+    },
+    {
+      "href_fuente": "http://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=90277",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=90277"
+    },
+    {
+      "href_fuente": "https://www.bogotajuridica.gov.co/normas/Norma1.jsp?i=150477#0",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=150477#0"
+    },
+    {
+      "href_fuente": "https://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=10998",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=10998"
+    },
+    {
+      "href_fuente": "https://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=115559#6",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=115559#6"
+    },
+    {
+      "href_fuente": "https://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=13935",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=13935"
+    },
+    {
+      "href_fuente": "https://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=1503",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=1503"
+    },
+    {
+      "href_fuente": "https://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=1551#83",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=1551#83"
+    },
+    {
+      "href_fuente": "https://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=1646",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=1646"
+    },
+    {
+      "href_fuente": "https://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=2039",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=2039"
+    },
+    {
+      "href_fuente": "https://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=336",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=336"
+    },
+    {
+      "href_fuente": "https://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=3769",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=3769"
+    },
+    {
+      "href_fuente": "https://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=38503",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=38503"
+    },
+    {
+      "href_fuente": "https://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=40984",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=40984"
+    },
+    {
+      "href_fuente": "https://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=4538",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=4538"
+    },
+    {
+      "href_fuente": "https://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=47141",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=47141"
+    },
+    {
+      "href_fuente": "https://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=47141#42",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=47141#42"
+    },
+    {
+      "href_fuente": "https://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=488",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=488"
+    },
+    {
+      "href_fuente": "https://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=62511",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62511"
+    },
+    {
+      "href_fuente": "https://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=62511#2.2.1.1.17.8",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62511#2.2.1.1.17.8"
+    },
+    {
+      "href_fuente": "https://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=62511#2.2.2.1.2.8",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62511#2.2.2.1.2.8"
+    },
+    {
+      "href_fuente": "https://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=62511#2.2.2.1.3.1",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62511#2.2.2.1.3.1"
+    },
+    {
+      "href_fuente": "https://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=62512",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62512"
+    },
+    {
+      "href_fuente": "https://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=62512#2.2.2.1.3.1.4",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62512#2.2.2.1.3.1.4"
+    },
+    {
+      "href_fuente": "https://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=62512#2.2.2.1.3.2.2.1",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62512#2.2.2.1.3.2.2.1"
+    },
+    {
+      "href_fuente": "https://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=62512#2.2.2.1.3.2.2.8",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62512#2.2.2.1.3.2.2.8"
+    },
+    {
+      "href_fuente": "https://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=62516",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=62516"
+    },
+    {
+      "href_fuente": "https://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=70185",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=70185"
+    },
+    {
+      "href_fuente": "https://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=73463",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=73463"
+    },
+    {
+      "href_fuente": "https://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=73692",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=73692"
+    },
+    {
+      "href_fuente": "https://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=78188",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=78188"
+    },
+    {
+      "href_fuente": "https://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=80279",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=80279"
+    },
+    {
+      "href_fuente": "https://www.bogotajuridica.gov.co/sisjurMantenimiento/normas/Norma1.jsp?i=9027#%2062",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=9027#62"
+    }
+  ],
+  "alcance": "Enlaces y anotaciones del texto articulado; no incluye el preámbulo ni verifica la vigencia legal.",
+  "fuente_sha256": "7a60470d86336262167ffef933a83693f13f5c4dee4fa56722944b28e707f495"
+}

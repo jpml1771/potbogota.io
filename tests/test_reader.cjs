@@ -28,6 +28,10 @@ class Element {
     this.children.forEach(remove); this.children = []; this._html = value;
   }
   get innerHTML() { return this._html || ''; }
+  get outerHTML() {
+    const attributes = ['href', 'target', 'rel'].filter(name => this[name]).map(name => ` ${name}="${this[name]}"`).join('');
+    return `<${this.tagName.toLowerCase()}${attributes}>${this._html || this.textContent || this.children.map(child => child.outerHTML).join('')}</${this.tagName.toLowerCase()}>`;
+  }
   append(...nodes) { nodes.forEach(node => this.appendChild(node)); }
   appendChild(node) {
     if (node.tagName === 'FRAGMENT') return node.children.forEach(child => this.appendChild(child));
@@ -55,6 +59,7 @@ const pills = [...page.matchAll(/<button data-libro="([^"]+)"/g)].map(match => {
 const document = {
   getElementById: id => ids.get(id) || null,
   createElement: tag => new Element(tag),
+  createTreeWalker: () => ({ nextNode: () => null }),
   createDocumentFragment: () => new Element('fragment'),
   addEventListener() {},
   querySelectorAll(selector) {
@@ -69,7 +74,7 @@ const document = {
   },
   querySelector: () => pills[0]
 };
-const context = vm.createContext({ document, articles, index, tree, console,
+const context = vm.createContext({ document, articles, index, tree, console, NodeFilter: { SHOW_TEXT: 4 },
   window: { innerWidth: 1200, location: { hash: '', pathname: '/potbogota.io/', search: '' }, addEventListener() {} },
   history: {
     pushState(a, b, hash) { context.window.location.hash = hash; },
@@ -85,6 +90,10 @@ vm.runInContext(`potIndex=index;potTree=tree;fullDatabase=articles;
 const cards = () => ids.get('articles-feed').children.filter(el => el.classList.contains('pot-article-card'));
 assert.equal(cards().length, 608);
 assert.equal(pills.length, 9);
+const restoredNotes = vm.runInContext('renderLegalNotes(potArticlesMap[263])', context);
+assert(restoredNotes.includes('Decreto Único Sectorial 670 de 2025'));
+assert(restoredNotes.includes('i=191905#1365'));
+assert(restoredNotes.includes('target="_blank"'));
 const openGroups = () => document.querySelectorAll('#articles-nav-list details').filter(group => group.open).map(group => group.id);
 assert.deepEqual(openGroups(), []);
 for (const pill of pills) {

@@ -12,7 +12,8 @@
       "articulos": [
         1
       ],
-      "parent_id": null
+      "parent_id": null,
+      "notas_html": []
     },
     {
       "id": "L.2",
@@ -46,11 +47,15 @@
                 4,
                 5
               ],
-              "parent_id": "L.2.T.1"
+              "parent_id": "L.2.T.1",
+              "notas_html": [
+                "<p><a href=\"https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=139558\" target=\"_blank\" rel=\"noopener noreferrer\">Ver Acuerdo 893 de 2023 Concejo de Bogotá, D.C.</a></p>"
+              ]
             }
           ],
           "articulos": [],
-          "parent_id": "L.2"
+          "parent_id": "L.2",
+          "notas_html": []
         },
         {
           "id": "L.2.T.2",
@@ -79,7 +84,8 @@
                 13,
                 14
               ],
-              "parent_id": "L.2.T.2"
+              "parent_id": "L.2.T.2",
+              "notas_html": []
             },
             {
               "id": "L.2.T.2.C.2",
@@ -116,7 +122,8 @@
                     30,
                     31
                   ],
-                  "parent_id": "L.2.T.2.C.2"
+                  "parent_id": "L.2.T.2.C.2",
+                  "notas_html": []
                 },
                 {
                   "id": "L.2.T.2.C.2.S.2",
@@ -132,11 +139,13 @@
                     34,
                     35
                   ],
-                  "parent_id": "L.2.T.2.C.2"
+                  "parent_id": "L.2.T.2.C.2",
+                  "notas_html": []
                 }
               ],
               "articulos": [],
-              "parent_id": "L.2.T.2"
+              "parent_id": "L.2.T.2",
+              "notas_html": []
             },
             {
               "id": "L.2.T.2.C.3",
@@ -152,7 +161,8 @@
                 38,
                 39
               ],
-              "parent_id": "L.2.T.2"
+              "parent_id": "L.2.T.2",
+              "notas_html": []
             },
             {
               "id": "L.2.T.2.C.4",
@@ -181,7 +191,8 @@
                       "articulos": [
                         43
                       ],
-                      "parent_id": "L.2.T.2.C.4.SC.1"
+                      "parent_id": "L.2.T.2.C.4.SC.1",
+                      "notas_html": []
                     },
                     {
                       "id": "L.2.T.2.C.4.SC.1.S.2",
@@ -204,7 +215,8 @@
                             45,
                             46
                           ],
-                          "parent_id": "L.2.T.2.C.4.SC.1.S.2"
+                          "parent_id": "L.2.T.2.C.4.SC.1.S.2",
+                          "notas_html": []
                         },
                         {
                           "id": "L.2.T.2.C.4.SC.1.S.2.SS.2",
@@ -227,7 +239,8 @@
                             56,
                             57
                           ],
-                          "parent_id": "L.2.T.2.C.4.SC.1.S.2"
+                          "parent_id": "L.2.T.2.C.4.SC.1.S.2",
+                          "notas_html": []
                         },
                         {
                           "id": "L.2.T.2.C.4.SC.1.S.2.SS.3",
@@ -247,7 +260,8 @@
                             64,
                             65
                           ],
-                          "parent_id": "L.2.T.2.C.4.SC.1.S.2"
+                          "parent_id": "L.2.T.2.C.4.SC.1.S.2",
+                          "notas_html": []
                         },
                         {
                           "id": "L.2.T.2.C.4.SC.1.S.2.SS.4",
@@ -266,7 +280,8 @@
                             71,
                             72
                           ],
-                          "parent_id": "L.2.T.2.C.4.SC.1.S.2"
+                          "parent_id": "L.2.T.2.C.4.SC.1.S.2",
+                          "notas_html": []
                         },
                         {
                           "id": "L.2.T.2.C.4.SC.1.S.2.SS.5",
@@ -285,18 +300,21 @@
                             78,
                             79
                           ],
-                          "parent_id": "L.2.T.2.C.4.SC.1.S.2"
+                          "parent_id": "L.2.T.2.C.4.SC.1.S.2",
+                          "notas_html": []
                         }
                       ],
                       "articulos": [],
-                      "parent_id": "L.2.T.2.C.4.SC.1"
+                      "parent_id": "L.2.T.2.C.4.SC.1",
+                      "notas_html": []
                     }
                   ],
                   "articulos": [
                     41,
                     42
                   ],
-                  "parent_id": "L.2.T.2.C.4"
+                  "parent_id": "L.2.T.2.C.4",
+                  "notas_html": []
                 },
                 {
                   "id": "L.2.T.2.C.4.SC.2",
@@ -316,7 +334,8 @@
                     86,
                     87
                   ],
-                  "parent_id": "L.2.T.2.C.4"
+                  "parent_id": "L.2.T.2.C.4",
+                  "notas_html": []
                 },
                 {
                   "id": "L.2.T.2.C.4.SC.3",
@@ -339,7 +358,8 @@
                         90,
                         91
                       ],
-                      "parent_id": "L.2.T.2.C.4.SC.3"
+                      "parent_id": "L.2.T.2.C.4.SC.3",
+                      "notas_html": []
                     },
                     {
                       "id": "L.2.T.2.C.4.SC.3.S.2",
@@ -353,7 +373,8 @@
                         92,
                         93
                       ],
-                      "parent_id": "L.2.T.2.C.4.SC.3"
+                      "parent_id": "L.2.T.2.C.4.SC.3",
+                      "notas_html": []
                     },
                     {
                       "id": "L.2.T.2.C.4.SC.3.S.3",
@@ -369,7 +390,10 @@
                         96,
                         97
                       ],
-                      "parent_id": "L.2.T.2.C.4.SC.3"
+                      "parent_id": "L.2.T.2.C.4.SC.3",
+                      "notas_html": [
+                        "<p><span><a href=\"https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=139558\" target=\"_blank\" rel=\"noopener noreferrer\">Ver Acuerdo Distrital 893 de 2023</a>, </span><a href=\"https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=142426\" target=\"_blank\" rel=\"noopener noreferrer\">Resolución 1325 de 2023 Secretaría de Educación del Distrito - SED.</a>,<span> </span><a href=\"https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=142120\" target=\"_blank\" rel=\"noopener noreferrer\">Resolución 1326 de 2023 Secretaría de Educación del Distrito - SED</a><span>, </span><a href=\"https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=146478\" target=\"_blank\" rel=\"noopener noreferrer\">Ver Decreto Distrital 415 de 2023.</a><span>,<a href=\"https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=147657\" target=\"_blank\" rel=\"noopener noreferrer\"> Decreto 427 de 2023.</a></span></p>"
+                      ]
                     },
                     {
                       "id": "L.2.T.2.C.4.SC.3.S.4",
@@ -383,13 +407,15 @@
                         98,
                         99
                       ],
-                      "parent_id": "L.2.T.2.C.4.SC.3"
+                      "parent_id": "L.2.T.2.C.4.SC.3",
+                      "notas_html": []
                     }
                   ],
                   "articulos": [
                     88
                   ],
-                  "parent_id": "L.2.T.2.C.4"
+                  "parent_id": "L.2.T.2.C.4",
+                  "notas_html": []
                 },
                 {
                   "id": "L.2.T.2.C.4.SC.4",
@@ -403,21 +429,25 @@
                     100,
                     101
                   ],
-                  "parent_id": "L.2.T.2.C.4"
+                  "parent_id": "L.2.T.2.C.4",
+                  "notas_html": []
                 }
               ],
               "articulos": [
                 40
               ],
-              "parent_id": "L.2.T.2"
+              "parent_id": "L.2.T.2",
+              "notas_html": []
             }
           ],
           "articulos": [],
-          "parent_id": "L.2"
+          "parent_id": "L.2",
+          "notas_html": []
         }
       ],
       "articulos": [],
-      "parent_id": null
+      "parent_id": null,
+      "notas_html": []
     },
     {
       "id": "L.3",
@@ -439,7 +469,8 @@
             102,
             103
           ],
-          "parent_id": "L.3"
+          "parent_id": "L.3",
+          "notas_html": []
         },
         {
           "id": "L.3.C.2",
@@ -464,7 +495,8 @@
             115,
             116
           ],
-          "parent_id": "L.3"
+          "parent_id": "L.3",
+          "notas_html": []
         },
         {
           "id": "L.3.C.3",
@@ -480,7 +512,8 @@
             119,
             120
           ],
-          "parent_id": "L.3"
+          "parent_id": "L.3",
+          "notas_html": []
         },
         {
           "id": "L.3.C.4",
@@ -520,7 +553,8 @@
                     131,
                     132
                   ],
-                  "parent_id": "L.3.C.4.SC.1"
+                  "parent_id": "L.3.C.4.SC.1",
+                  "notas_html": []
                 },
                 {
                   "id": "L.3.C.4.SC.1.S.2",
@@ -535,7 +569,8 @@
                     134,
                     135
                   ],
-                  "parent_id": "L.3.C.4.SC.1"
+                  "parent_id": "L.3.C.4.SC.1",
+                  "notas_html": []
                 },
                 {
                   "id": "L.3.C.4.SC.1.S.3",
@@ -561,11 +596,13 @@
                     148,
                     149
                   ],
-                  "parent_id": "L.3.C.4.SC.1"
+                  "parent_id": "L.3.C.4.SC.1",
+                  "notas_html": []
                 }
               ],
               "articulos": [],
-              "parent_id": "L.3.C.4"
+              "parent_id": "L.3.C.4",
+              "notas_html": []
             },
             {
               "id": "L.3.C.4.SC.2",
@@ -592,7 +629,8 @@
                     155,
                     156
                   ],
-                  "parent_id": "L.3.C.4.SC.2"
+                  "parent_id": "L.3.C.4.SC.2",
+                  "notas_html": []
                 },
                 {
                   "id": "L.3.C.4.SC.2.S.2",
@@ -614,7 +652,8 @@
                     165,
                     166
                   ],
-                  "parent_id": "L.3.C.4.SC.2"
+                  "parent_id": "L.3.C.4.SC.2",
+                  "notas_html": []
                 },
                 {
                   "id": "L.3.C.4.SC.2.S.3",
@@ -627,7 +666,8 @@
                   "articulos": [
                     167
                   ],
-                  "parent_id": "L.3.C.4.SC.2"
+                  "parent_id": "L.3.C.4.SC.2",
+                  "notas_html": []
                 },
                 {
                   "id": "L.3.C.4.SC.2.S.4",
@@ -640,11 +680,13 @@
                   "articulos": [
                     168
                   ],
-                  "parent_id": "L.3.C.4.SC.2"
+                  "parent_id": "L.3.C.4.SC.2",
+                  "notas_html": []
                 }
               ],
               "articulos": [],
-              "parent_id": "L.3.C.4"
+              "parent_id": "L.3.C.4",
+              "notas_html": []
             },
             {
               "id": "L.3.C.4.SC.3",
@@ -666,7 +708,8 @@
                 177,
                 178
               ],
-              "parent_id": "L.3.C.4"
+              "parent_id": "L.3.C.4",
+              "notas_html": []
             },
             {
               "id": "L.3.C.4.SC.4",
@@ -687,7 +730,8 @@
                   "articulos": [
                     179
                   ],
-                  "parent_id": "L.3.C.4.SC.4"
+                  "parent_id": "L.3.C.4.SC.4",
+                  "notas_html": []
                 },
                 {
                   "id": "L.3.C.4.SC.4.S.2",
@@ -703,7 +747,8 @@
                     182,
                     183
                   ],
-                  "parent_id": "L.3.C.4.SC.4"
+                  "parent_id": "L.3.C.4.SC.4",
+                  "notas_html": []
                 },
                 {
                   "id": "L.3.C.4.SC.4.S.3",
@@ -718,7 +763,8 @@
                     185,
                     186
                   ],
-                  "parent_id": "L.3.C.4.SC.4"
+                  "parent_id": "L.3.C.4.SC.4",
+                  "notas_html": []
                 },
                 {
                   "id": "L.3.C.4.SC.4.S.4",
@@ -754,7 +800,8 @@
                     209,
                     210
                   ],
-                  "parent_id": "L.3.C.4.SC.4"
+                  "parent_id": "L.3.C.4.SC.4",
+                  "notas_html": []
                 },
                 {
                   "id": "L.3.C.4.SC.4.S.5",
@@ -769,7 +816,8 @@
                     212,
                     213
                   ],
-                  "parent_id": "L.3.C.4.SC.4"
+                  "parent_id": "L.3.C.4.SC.4",
+                  "notas_html": []
                 },
                 {
                   "id": "L.3.C.4.SC.4.S.6",
@@ -782,7 +830,8 @@
                   "articulos": [
                     214
                   ],
-                  "parent_id": "L.3.C.4.SC.4"
+                  "parent_id": "L.3.C.4.SC.4",
+                  "notas_html": []
                 },
                 {
                   "id": "L.3.C.4.SC.4.S.7",
@@ -800,7 +849,8 @@
                     219,
                     220
                   ],
-                  "parent_id": "L.3.C.4.SC.4"
+                  "parent_id": "L.3.C.4.SC.4",
+                  "notas_html": []
                 },
                 {
                   "id": "L.3.C.4.SC.4.S.8",
@@ -816,7 +866,8 @@
                     223,
                     224
                   ],
-                  "parent_id": "L.3.C.4.SC.4"
+                  "parent_id": "L.3.C.4.SC.4",
+                  "notas_html": []
                 },
                 {
                   "id": "L.3.C.4.SC.4.S.9",
@@ -836,15 +887,18 @@
                     231,
                     232
                   ],
-                  "parent_id": "L.3.C.4.SC.4"
+                  "parent_id": "L.3.C.4.SC.4",
+                  "notas_html": []
                 }
               ],
               "articulos": [],
-              "parent_id": "L.3.C.4"
+              "parent_id": "L.3.C.4",
+              "notas_html": []
             }
           ],
           "articulos": [],
-          "parent_id": "L.3"
+          "parent_id": "L.3",
+          "notas_html": []
         },
         {
           "id": "L.3.C.5",
@@ -886,7 +940,8 @@
                 253,
                 254
               ],
-              "parent_id": "L.3.C.5"
+              "parent_id": "L.3.C.5",
+              "notas_html": []
             },
             {
               "id": "L.3.C.5.SC.2",
@@ -907,7 +962,8 @@
                   "articulos": [
                     255
                   ],
-                  "parent_id": "L.3.C.5.SC.2"
+                  "parent_id": "L.3.C.5.SC.2",
+                  "notas_html": []
                 },
                 {
                   "id": "L.3.C.5.SC.2.S.2",
@@ -936,7 +992,8 @@
                     271,
                     272
                   ],
-                  "parent_id": "L.3.C.5.SC.2"
+                  "parent_id": "L.3.C.5.SC.2",
+                  "notas_html": []
                 },
                 {
                   "id": "L.3.C.5.SC.2.S.3",
@@ -976,7 +1033,8 @@
                     299,
                     300
                   ],
-                  "parent_id": "L.3.C.5.SC.2"
+                  "parent_id": "L.3.C.5.SC.2",
+                  "notas_html": []
                 },
                 {
                   "id": "L.3.C.5.SC.2.S.4",
@@ -995,7 +1053,8 @@
                     306,
                     307
                   ],
-                  "parent_id": "L.3.C.5.SC.2"
+                  "parent_id": "L.3.C.5.SC.2",
+                  "notas_html": []
                 },
                 {
                   "id": "L.3.C.5.SC.2.S.5",
@@ -1016,7 +1075,8 @@
                     315,
                     316
                   ],
-                  "parent_id": "L.3.C.5.SC.2"
+                  "parent_id": "L.3.C.5.SC.2",
+                  "notas_html": []
                 },
                 {
                   "id": "L.3.C.5.SC.2.S.6",
@@ -1043,7 +1103,8 @@
                     330,
                     331
                   ],
-                  "parent_id": "L.3.C.5.SC.2"
+                  "parent_id": "L.3.C.5.SC.2",
+                  "notas_html": []
                 },
                 {
                   "id": "L.3.C.5.SC.2.S.7",
@@ -1066,7 +1127,8 @@
                     341,
                     342
                   ],
-                  "parent_id": "L.3.C.5.SC.2"
+                  "parent_id": "L.3.C.5.SC.2",
+                  "notas_html": []
                 },
                 {
                   "id": "L.3.C.5.SC.2.S.8",
@@ -1087,7 +1149,8 @@
                       "articulos": [
                         349
                       ],
-                      "parent_id": "L.3.C.5.SC.2.S.8"
+                      "parent_id": "L.3.C.5.SC.2.S.8",
+                      "notas_html": []
                     },
                     {
                       "id": "L.3.C.5.SC.2.S.8.SS.2",
@@ -1113,7 +1176,8 @@
                         362,
                         363
                       ],
-                      "parent_id": "L.3.C.5.SC.2.S.8"
+                      "parent_id": "L.3.C.5.SC.2.S.8",
+                      "notas_html": []
                     },
                     {
                       "id": "L.3.C.5.SC.2.S.8.SS.3",
@@ -1130,7 +1194,8 @@
                         367,
                         368
                       ],
-                      "parent_id": "L.3.C.5.SC.2.S.8"
+                      "parent_id": "L.3.C.5.SC.2.S.8",
+                      "notas_html": []
                     },
                     {
                       "id": "L.3.C.5.SC.2.S.8.SS.4",
@@ -1143,7 +1208,8 @@
                       "articulos": [
                         369
                       ],
-                      "parent_id": "L.3.C.5.SC.2.S.8"
+                      "parent_id": "L.3.C.5.SC.2.S.8",
+                      "notas_html": []
                     }
                   ],
                   "articulos": [
@@ -1154,11 +1220,13 @@
                     347,
                     348
                   ],
-                  "parent_id": "L.3.C.5.SC.2"
+                  "parent_id": "L.3.C.5.SC.2",
+                  "notas_html": []
                 }
               ],
               "articulos": [],
-              "parent_id": "L.3.C.5"
+              "parent_id": "L.3.C.5",
+              "notas_html": []
             },
             {
               "id": "L.3.C.5.SC.3",
@@ -1178,7 +1246,8 @@
                 376,
                 377
               ],
-              "parent_id": "L.3.C.5"
+              "parent_id": "L.3.C.5",
+              "notas_html": []
             },
             {
               "id": "L.3.C.5.SC.4",
@@ -1196,7 +1265,8 @@
                 382,
                 383
               ],
-              "parent_id": "L.3.C.5"
+              "parent_id": "L.3.C.5",
+              "notas_html": []
             },
             {
               "id": "L.3.C.5.SC.5",
@@ -1213,7 +1283,8 @@
                 387,
                 388
               ],
-              "parent_id": "L.3.C.5"
+              "parent_id": "L.3.C.5",
+              "notas_html": []
             },
             {
               "id": "L.3.C.5.SC.6",
@@ -1228,15 +1299,18 @@
                 390,
                 391
               ],
-              "parent_id": "L.3.C.5"
+              "parent_id": "L.3.C.5",
+              "notas_html": []
             }
           ],
           "articulos": [],
-          "parent_id": "L.3"
+          "parent_id": "L.3",
+          "notas_html": []
         }
       ],
       "articulos": [],
-      "parent_id": null
+      "parent_id": null,
+      "notas_html": []
     },
     {
       "id": "L.4",
@@ -1263,7 +1337,8 @@
             397,
             398
           ],
-          "parent_id": "L.4"
+          "parent_id": "L.4",
+          "notas_html": []
         },
         {
           "id": "L.4.C.2",
@@ -1288,7 +1363,8 @@
             410,
             411
           ],
-          "parent_id": "L.4"
+          "parent_id": "L.4",
+          "notas_html": []
         },
         {
           "id": "L.4.C.3",
@@ -1313,7 +1389,8 @@
                 415,
                 416
               ],
-              "parent_id": "L.4.C.3"
+              "parent_id": "L.4.C.3",
+              "notas_html": []
             },
             {
               "id": "L.4.C.3.SC.2",
@@ -1337,7 +1414,8 @@
                 427,
                 428
               ],
-              "parent_id": "L.4.C.3"
+              "parent_id": "L.4.C.3",
+              "notas_html": []
             },
             {
               "id": "L.4.C.3.SC.3",
@@ -1353,7 +1431,8 @@
                 431,
                 432
               ],
-              "parent_id": "L.4.C.3"
+              "parent_id": "L.4.C.3",
+              "notas_html": []
             },
             {
               "id": "L.4.C.3.SC.4",
@@ -1377,11 +1456,13 @@
                 443,
                 444
               ],
-              "parent_id": "L.4.C.3"
+              "parent_id": "L.4.C.3",
+              "notas_html": []
             }
           ],
           "articulos": [],
-          "parent_id": "L.4"
+          "parent_id": "L.4",
+          "notas_html": []
         },
         {
           "id": "L.4.C.4",
@@ -1407,7 +1488,8 @@
                 450,
                 451
               ],
-              "parent_id": "L.4.C.4"
+              "parent_id": "L.4.C.4",
+              "notas_html": []
             },
             {
               "id": "L.4.C.4.SC.2",
@@ -1423,13 +1505,15 @@
                 454,
                 455
               ],
-              "parent_id": "L.4.C.4"
+              "parent_id": "L.4.C.4",
+              "notas_html": []
             }
           ],
           "articulos": [
             445
           ],
-          "parent_id": "L.4"
+          "parent_id": "L.4",
+          "notas_html": []
         },
         {
           "id": "L.4.C.5",
@@ -1453,7 +1537,8 @@
                 458,
                 459
               ],
-              "parent_id": "L.4.C.5"
+              "parent_id": "L.4.C.5",
+              "notas_html": []
             },
             {
               "id": "L.4.C.5.SC.2",
@@ -1468,7 +1553,8 @@
                 461,
                 462
               ],
-              "parent_id": "L.4.C.5"
+              "parent_id": "L.4.C.5",
+              "notas_html": []
             },
             {
               "id": "L.4.C.5.SC.3",
@@ -1483,7 +1569,8 @@
                 464,
                 465
               ],
-              "parent_id": "L.4.C.5"
+              "parent_id": "L.4.C.5",
+              "notas_html": []
             },
             {
               "id": "L.4.C.5.SC.4",
@@ -1497,7 +1584,8 @@
                 466,
                 467
               ],
-              "parent_id": "L.4.C.5"
+              "parent_id": "L.4.C.5",
+              "notas_html": []
             },
             {
               "id": "L.4.C.5.SC.5",
@@ -1513,7 +1601,8 @@
                 470,
                 471
               ],
-              "parent_id": "L.4.C.5"
+              "parent_id": "L.4.C.5",
+              "notas_html": []
             },
             {
               "id": "L.4.C.5.SC.6",
@@ -1526,7 +1615,8 @@
               "articulos": [
                 472
               ],
-              "parent_id": "L.4.C.5"
+              "parent_id": "L.4.C.5",
+              "notas_html": []
             },
             {
               "id": "L.4.C.5.SC.7",
@@ -1543,15 +1633,18 @@
                 476,
                 477
               ],
-              "parent_id": "L.4.C.5"
+              "parent_id": "L.4.C.5",
+              "notas_html": []
             }
           ],
           "articulos": [],
-          "parent_id": "L.4"
+          "parent_id": "L.4",
+          "notas_html": []
         }
       ],
       "articulos": [],
-      "parent_id": null
+      "parent_id": null,
+      "notas_html": []
     },
     {
       "id": "L.5",
@@ -1570,7 +1663,8 @@
         483,
         484
       ],
-      "parent_id": null
+      "parent_id": null,
+      "notas_html": []
     },
     {
       "id": "L.6",
@@ -1604,7 +1698,8 @@
                 490,
                 491
               ],
-              "parent_id": "L.6.T.1"
+              "parent_id": "L.6.T.1",
+              "notas_html": []
             },
             {
               "id": "L.6.T.1.C.2",
@@ -1632,7 +1727,8 @@
                 506,
                 507
               ],
-              "parent_id": "L.6.T.1"
+              "parent_id": "L.6.T.1",
+              "notas_html": []
             },
             {
               "id": "L.6.T.1.C.2.sic",
@@ -1690,13 +1786,15 @@
                 552,
                 553
               ],
-              "parent_id": "L.6.T.1"
+              "parent_id": "L.6.T.1",
+              "notas_html": []
             }
           ],
           "articulos": [
             485
           ],
-          "parent_id": "L.6"
+          "parent_id": "L.6",
+          "notas_html": []
         },
         {
           "id": "L.6.T.2",
@@ -1712,7 +1810,8 @@
             556,
             557
           ],
-          "parent_id": "L.6"
+          "parent_id": "L.6",
+          "notas_html": []
         },
         {
           "id": "L.6.T.3",
@@ -1731,11 +1830,13 @@
             563,
             564
           ],
-          "parent_id": "L.6"
+          "parent_id": "L.6",
+          "notas_html": []
         }
       ],
       "articulos": [],
-      "parent_id": null
+      "parent_id": null,
+      "notas_html": []
     },
     {
       "id": "L.7",
@@ -1754,7 +1855,8 @@
         570,
         571
       ],
-      "parent_id": null
+      "parent_id": null,
+      "notas_html": []
     },
     {
       "id": "L.8",
@@ -1779,7 +1881,8 @@
             575,
             576
           ],
-          "parent_id": "L.8"
+          "parent_id": "L.8",
+          "notas_html": []
         },
         {
           "id": "L.8.C.2",
@@ -1807,7 +1910,8 @@
             591,
             592
           ],
-          "parent_id": "L.8"
+          "parent_id": "L.8",
+          "notas_html": []
         },
         {
           "id": "L.8.C.3",
@@ -1835,11 +1939,13 @@
             607,
             608
           ],
-          "parent_id": "L.8"
+          "parent_id": "L.8",
+          "notas_html": []
         }
       ],
       "articulos": [],
-      "parent_id": null
+      "parent_id": null,
+      "notas_html": []
     }
   ],
   "aliases": {
@@ -1854,6 +1960,6 @@
   "fuente": {
     "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=119582",
     "sha256": "7a60470d86336262167ffef933a83693f13f5c4dee4fa56722944b28e707f495",
-    "verificado_utc": "2026-10-12T23:50:30.996195+00:00"
+    "verificado_utc": "2026-10-13T00:48:23.303434+00:00"
   }
 }

@@ -12,6 +12,7 @@ from pathlib import Path
 import re
 from urllib.request import urlopen
 from lxml import html
+from restore_legal_links import restore_links
 
 SOURCE_URL = "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=119582"
 LEVELS = ("libro", "titulo", "capitulo", "subcapitulo", "seccion", "subseccion")
@@ -160,6 +161,8 @@ def main():
         raw = args.source.read_bytes()
     baseline = json.loads((args.data_dir / "decreto_555_completo.json").read_text(encoding="utf-8"))
     complete, index, tree = restore_hierarchy(raw.decode(args.encoding), baseline)
+    audit = restore_links(raw.decode(args.encoding), complete, tree)
+    audit['fuente_sha256'] = hashlib.sha256(raw).hexdigest()
     tree["fuente"] = {"url": SOURCE_URL, "sha256": hashlib.sha256(raw).hexdigest(),
                        "verificado_utc": datetime.now(timezone.utc).isoformat()}
     output = args.output_dir or args.data_dir
@@ -167,6 +170,7 @@ def main():
     (output / "decreto_555_completo.json").write_text(json.dumps(complete, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     for filename, data in [("decreto_555_indice.json", index), ("decreto_555_arbol.json", tree)]:
         (output / filename).write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    (output / "decreto_555_enlaces_auditoria.json").write_text(json.dumps(audit, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     books_dir = output / "libros"
     books_dir.mkdir(exist_ok=True)
     for number, book in enumerate(tree["libros"], 1):
@@ -174,7 +178,7 @@ def main():
         snapshot = {"libro_id": book["id"], "nombre": book["nombre"],
                     "total_articulos": len(articles), "articulos": articles}
         (books_dir / f"l_{number}.json").write_text(json.dumps(snapshot, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-    print(f"Restored {len(index)} articles, {len(tree['libros'])} books; article wording unchanged.")
+    print(f"Restored {len(index)} articles, {len(tree['libros'])} books and {audit['total_enlaces_renderizados']} legal links.")
     for warning in tree["advertencias"]:
         print(f"Review: {warning}")
 
