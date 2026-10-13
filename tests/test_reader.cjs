@@ -46,7 +46,7 @@ class Element {
     return descendants.filter(node => node.tagName === selector.toUpperCase());
   }
   querySelector(selector) { return this.querySelectorAll(selector)[0] || null; }
-  getBoundingClientRect() { return { top: 0, bottom: 100 }; }
+  getBoundingClientRect() { return { top: this.top || 0, bottom: this.bottom || 100 }; }
 }
 for (const match of page.matchAll(/\bid="([^"]+)"/g)) new Element().id = match[1];
 const pills = [...page.matchAll(/<button data-libro="([^"]+)"/g)].map(match => {
@@ -64,6 +64,7 @@ const document = {
     if (selector.startsWith('.art-ref-chip')) return [];
     if (selector === '.art-nav-item.active') return [...ids.values()].filter(el => el.classList.contains('art-nav-item') && el.classList.contains('active'));
     if (selector === '.pot-article-card') return [...ids.values()].filter(el => el.classList.contains('pot-article-card'));
+    if (selector === '.pot-structure-heading') return [...ids.values()].filter(el => el.classList.contains('pot-structure-heading'));
     return [];
   },
   querySelector: () => pills[0]
@@ -117,6 +118,16 @@ assert(!secondSubchapter.open);
 assert.deepEqual(openGroups(), ['nav-group-L.3', 'nav-group-L.3.C.5', 'nav-group-L.3.C.5.SC.1']);
 firstSubchapter.children[0].events.click({ preventDefault() {} });
 assert(!firstSubchapter.open);
+// When positioned on a new title, track its first article, not the previous one.
+document.querySelectorAll('.pot-article-card').forEach(card => card.top = Number(card.dataset.numero) < 6 ? -1000 : 1000);
+let passedTitle = false;
+document.querySelectorAll('.pot-structure-heading').forEach(heading => {
+  heading.top = passedTitle ? 1000 : -1000;
+  if (heading.id === 'L.2.T.2') { heading.top = 110; passedTitle = true; }
+});
+vm.runInContext('syncNavigationToScroll()', context);
+assert.equal(ids.get('breadcrumb-art').textContent, 'Artículo 6');
+assert.deepEqual(openGroups(), ['nav-group-L.3', 'nav-group-L.3.C.5']);
 // Body-only searches must yield the same article set in the sidebar and feed.
 context.bodyQuery = articles[255].texto_plano.slice(400, 450);
 vm.runInContext('searchQuery=bodyQuery;renderSidebar(potIndex);renderArticles()', context);

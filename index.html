@@ -921,6 +921,22 @@
                 if (card.getBoundingClientRect().top > readingLine) break;
                 current = card;
             }
+            // A division heading belongs to its first article, not the article
+            // above it. This also keeps sidebar tracking stable after heading jumps.
+            let currentHeading = null;
+            for (const heading of document.querySelectorAll('.pot-structure-heading')) {
+                if (heading.getBoundingClientRect().top > readingLine) break;
+                currentHeading = heading;
+            }
+            if (currentHeading && currentHeading.getBoundingClientRect().top > current.getBoundingClientRect().top) {
+                const nextArticle = fullDatabase.find(art =>
+                    matchesArticleFilters(art) && art.jerarquia.ruta.includes(currentHeading.id));
+                if (nextArticle) {
+                    updateBreadcrumbs(nextArticle.numero);
+                    highlightSidebarItem(nextArticle.id);
+                    return;
+                }
+            }
             updateBreadcrumbs(Number(current.dataset.numero));
             highlightSidebarItem(current.id);
         }
