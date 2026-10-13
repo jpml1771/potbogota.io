@@ -729,21 +729,17 @@
             }
             texts.forEach(textNode => {
                 const text = textNode.textContent;
-                const pattern = /art[íi]culos?\s+(\d+)|(Anexo\s+(?:No\.?\s*)?5|Manual\s+de\s+Normas\s+Comunes)/gi;
+                const pattern = /art[íi]culos?\s+(\d+)/gi;
                 const fragment = document.createDocumentFragment();
                 let cursor = 0;
                 let changed = false;
                 for (const match of text.matchAll(pattern)) {
-                    if (match[1] && !potArticlesMap[Number(match[1])]) continue;
+                    if (!potArticlesMap[Number(match[1])]) continue;
                     fragment.appendChild(document.createTextNode(text.slice(cursor, match.index)));
-                    const decoration = document.createElement(match[1] ? 'button' : 'span');
+                    const decoration = document.createElement('button');
                     decoration.textContent = match[0];
-                    if (match[1]) {
-                        decoration.className = 'art-ref-chip';
-                        decoration.dataset.ref = match[1];
-                    } else {
-                        decoration.className = 'bg-amber-100 text-amber-900 font-bold px-1.5 py-0.5 rounded border border-amber-300';
-                    }
+                    decoration.className = 'art-ref-chip';
+                    decoration.dataset.ref = match[1];
                     fragment.appendChild(decoration);
                     cursor = match.index + match[0].length;
                     changed = true;
