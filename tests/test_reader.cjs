@@ -35,8 +35,17 @@ class Element {
   }
   setAttribute(name, value) { this.attributes[name] = value; }
   addEventListener(name, callback) { this.events[name] = callback; }
-  scrollIntoView() { this.scrolled = true; }
+  scrollIntoView(options) { this.scrolled = true; this.scrollOptions = options; }
   scrollBy() {}
+  scrollTo(options) { this.scrollTop = options.top; }
+  contains(other) { return this === other || this.children.some(child => child.contains(other)); }
+  querySelectorAll(selector) {
+    const descendants = [];
+    const visit = node => { node.children.forEach(child => { descendants.push(child); visit(child); }); };
+    visit(this);
+    return descendants.filter(node => node.tagName === selector.toUpperCase());
+  }
+  querySelector(selector) { return this.querySelectorAll(selector)[0] || null; }
   getBoundingClientRect() { return { top: 0, bottom: 100 }; }
 }
 for (const match of page.matchAll(/\bid="([^"]+)"/g)) new Element().id = match[1];
@@ -50,6 +59,8 @@ const document = {
   addEventListener() {},
   querySelectorAll(selector) {
     if (selector === '.libro-filter-pill') return pills;
+    if (selector === '#articles-nav-list details') return ids.get('articles-nav-list').querySelectorAll('details');
+    if (selector === '.pot-nav-heading.is-current') return [...ids.values()].filter(el => el.classList.contains('pot-nav-heading') && el.classList.contains('is-current'));
     if (selector.startsWith('.art-ref-chip')) return [];
     if (selector === '.art-nav-item.active') return [...ids.values()].filter(el => el.classList.contains('art-nav-item') && el.classList.contains('active'));
     if (selector === '.pot-article-card') return [...ids.values()].filter(el => el.classList.contains('pot-article-card'));
@@ -58,8 +69,11 @@ const document = {
   querySelector: () => pills[0]
 };
 const context = vm.createContext({ document, articles, index, tree, console,
-  window: { innerWidth: 1200, location: { hash: '' }, addEventListener() {} },
-  history: { pushState(a, b, hash) { context.window.location.hash = hash; } },
+  window: { innerWidth: 1200, location: { hash: '', pathname: '/potbogota.io/', search: '' }, addEventListener() {} },
+  history: {
+    pushState(a, b, hash) { context.window.location.hash = hash; },
+    replaceState(a, b, target) { context.window.location.hash = target.startsWith('#') ? target : ''; }
+  },
   navigator: {}, setTimeout() {}, clearTimeout() {}, requestAnimationFrame(callback) { callback(); } });
 const script = page.slice(page.lastIndexOf('<script>') + 8, page.lastIndexOf('</script>'));
 new vm.Script(script).runInContext(context);
@@ -70,22 +84,39 @@ vm.runInContext(`potIndex=index;potTree=tree;fullDatabase=articles;
 const cards = () => ids.get('articles-feed').children.filter(el => el.classList.contains('pot-article-card'));
 assert.equal(cards().length, 608);
 assert.equal(pills.length, 9);
+const openGroups = () => document.querySelectorAll('#articles-nav-list details').filter(group => group.open).map(group => group.id);
+assert.deepEqual(openGroups(), []);
 for (const pill of pills) {
   pill.events.click();
   const expected = articles.filter(a => pill.dataset.libro === 'all' || a.jerarquia.libro_id === pill.dataset.libro);
   assert.deepEqual(cards().map(el => el.id), expected.map(a => a.id));
   assert.equal([...ids.keys()].filter(id => id.startsWith('nav-art-')).length, expected.length);
+  assert.deepEqual(openGroups(), pill.dataset.libro === 'all' ? [] : ['nav-group-' + pill.dataset.libro]);
+  assert.equal(ids.get('articles-nav-list').scrollTop, 0);
+  assert.equal(ids.get('content-pane').scrollTop, 0);
 }
-// Article jumps across books reset the filter and open the entire parent path.
+// Following an article must never force closed branches open.
 vm.runInContext('navigateToArticle(47)', context);
 assert.equal(cards().length, 608);
 assert.equal(ids.get('art-47').scrolled, true);
-for (const id of articles[46].jerarquia.ruta) assert.equal(ids.get('nav-group-' + id).open, true);
+assert.equal(ids.get('art-47').scrollOptions.behavior, 'instant');
+assert.deepEqual(openGroups(), []);
 assert(ids.get('breadcrumb-libro').textContent.includes('SUBSECCIÓN 2'));
 const chapter = ids.get('nav-group-L.3.C.5');
-chapter.children[0].children[0].events.click({ preventDefault() {} });
+chapter.children[0].events.click({ preventDefault() {} });
 assert.equal(ids.get('L.3.C.5').scrolled, true);
 assert.equal(context.window.location.hash, '#L.3.C.5');
+assert.deepEqual(openGroups(), ['nav-group-L.3', 'nav-group-L.3.C.5']);
+const firstSubchapter = ids.get('nav-group-L.3.C.5.SC.1');
+const secondSubchapter = ids.get('nav-group-L.3.C.5.SC.2');
+secondSubchapter.children[0].events.click({ preventDefault() {} });
+assert(secondSubchapter.open);
+firstSubchapter.children[0].events.click({ preventDefault() {} });
+assert(firstSubchapter.open);
+assert(!secondSubchapter.open);
+assert.deepEqual(openGroups(), ['nav-group-L.3', 'nav-group-L.3.C.5', 'nav-group-L.3.C.5.SC.1']);
+firstSubchapter.children[0].events.click({ preventDefault() {} });
+assert(!firstSubchapter.open);
 // Body-only searches must yield the same article set in the sidebar and feed.
 context.bodyQuery = articles[255].texto_plano.slice(400, 450);
 vm.runInContext('searchQuery=bodyQuery;renderSidebar(potIndex);renderArticles()', context);
@@ -94,6 +125,8 @@ assert.equal([...ids.keys()].filter(id => id.startsWith('nav-art-')).length, car
 context.window.location.hash = '#art-608';
 vm.runInContext('handleInitialRoute()', context);
 assert.equal(ids.get('art-608').scrolled, true);
-assert.equal(ids.get('nav-group-L.8').open, true);
+assert.equal(ids.get('nav-group-L.8').open, false);
 assert.equal(ids.get('breadcrumb-art').textContent, 'Artículo 608');
-console.log('PASS: eight book filters, 608 articles, nested navigation, heading links, automatic branch expansion, body search consistency, deep article links.');
+assert.equal(ids.get('art-608').scrollOptions.behavior, 'instant');
+assert(!page.includes("behavior: 'smooth'"));
+console.log('PASS: eight book filters, collapsed-by-default tree, single-branch expansion, sibling collapse, book scroll reset, instant jumps, body search consistency, deep article links.');
