@@ -1,4 +1,4 @@
-"""Restore the official POT hierarchy while preserving existing article wording.
+"""Extract the official POT article text, tables, hierarchy, and legal links.
 
 python extract_pot_decreto_555.py --source sisjur_pot_555.html
 python extract_pot_decreto_555.py --download
@@ -19,14 +19,19 @@ LEVELS = ("libro", "titulo", "capitulo", "subcapitulo", "seccion", "subseccion")
 LABEL_LEVEL = dict(zip(("LIBRO", "TÍTULO", "CAPÍTULO", "SUBCAPÍTULO", "SECCIÓN", "SUBSECCIÓN"), LEVELS))
 BLOCK_TAGS = {"p", "h1", "h2", "h3", "h4", "h5", "h6"}
 HEADING = re.compile(r"^(LIBRO|TÍTULO|CAPÍTULO|SUBCAPÍTULO|SECCIÓN|SUBSECCIÓN)\s+(ÚNICO|\d+|[IVXLCDM]+)(?:\s*\(sic\))?", re.I)
-ARTICLE = re.compile(r"^Art[íi]culo\s*(\d+)([A-Z]?)\s*[.:\-)]", re.I)
+ARTICLE = re.compile(r"^Art[íi]culo\s*(\d+)\s*(-?\s*[A-Z])?\s*[.:\-)]", re.I)
+
+
+def article_key(match):
+    suffix = re.sub(r'[-\s]', '', match[2] or '').upper()
+    return f'{int(match[1])}{suffix}' if suffix else int(match[1])
 
 
 def clean_text(element):
     return " ".join(element.text_content().split())
 
 
-def parse_structure(source):
+def parse_structure(source, include_lettered=False):
     """Read real heading blocks, never character windows around HTML anchors."""
     document = html.fromstring(source)
     blocks = document.xpath("//p|//h1|//h2|//h3|//h4|//h5|//h6")
@@ -80,7 +85,10 @@ def parse_structure(source):
         if not match:
             continue
         if match.group(2):
-            warnings.append(f"Source contains article label {match.group(1)}{match.group(2)}; retained in baseline text for separate content review.")
+            if include_lettered:
+                article_positions.append((i, article_key(match)))
+            else:
+                warnings.append(f"Source contains article label {article_key(match)}; retained in baseline text for separate content review.")
         elif int(match.group(1)) == expected:
             article_positions.append((i, expected))
             expected += 1
@@ -160,9 +168,11 @@ def main():
     else:
         raw = args.source.read_bytes()
     baseline = json.loads((args.data_dir / "decreto_555_completo.json").read_text(encoding="utf-8"))
-    complete, index, tree = restore_hierarchy(raw.decode(args.encoding), baseline)
+    from audit_pot_content import extract_content
+    complete, index, tree, content_audit = extract_content(raw.decode(args.encoding), baseline)
     audit = restore_links(raw.decode(args.encoding), complete, tree)
     audit['fuente_sha256'] = hashlib.sha256(raw).hexdigest()
+    content_audit['fuente_sha256'] = audit['fuente_sha256']
     tree["fuente"] = {"url": SOURCE_URL, "sha256": hashlib.sha256(raw).hexdigest(),
                        "verificado_utc": datetime.now(timezone.utc).isoformat()}
     output = args.output_dir or args.data_dir
@@ -171,6 +181,7 @@ def main():
     for filename, data in [("decreto_555_indice.json", index), ("decreto_555_arbol.json", tree)]:
         (output / filename).write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (output / "decreto_555_enlaces_auditoria.json").write_text(json.dumps(audit, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    (output / "decreto_555_contenido_auditoria.json").write_text(json.dumps(content_audit, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     books_dir = output / "libros"
     books_dir.mkdir(exist_ok=True)
     for number, book in enumerate(tree["libros"], 1):

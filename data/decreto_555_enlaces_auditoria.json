@@ -1,6 +1,6 @@
 {
   "fuente_url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=119582",
-  "total_enlaces_renderizados": 558,
+  "total_enlaces_renderizados": 538,
   "notas_de_encabezado": 2,
   "notas_reubicadas": [
     {
@@ -25,6 +25,18 @@
     },
     {
       "href_fuente": "# 27.p.5",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=339#27.p.5"
+    },
+    {
+      "href_fuente": "#%2027.p.3",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=339#27.p.3"
+    },
+    {
+      "href_fuente": "#%2027.p.4",
+      "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=339#27.p.4"
+    },
+    {
+      "href_fuente": "#%2027.p.5",
       "url": "https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=339#27.p.5"
     },
     {

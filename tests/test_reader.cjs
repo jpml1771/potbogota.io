@@ -80,7 +80,7 @@ const context = vm.createContext({ document, articles, index, tree, console, Nod
     pushState(a, b, hash) { context.window.location.hash = hash; },
     replaceState(a, b, target) { context.window.location.hash = target.startsWith('#') ? target : ''; }
   },
-  navigator: {}, setTimeout() {}, clearTimeout() {}, requestAnimationFrame(callback) { callback(); } });
+  navigator: { clipboard: { writeText(value) { context.copied = value; return { then() {} }; } } }, setTimeout() {}, clearTimeout() {}, requestAnimationFrame(callback) { callback(); } });
 const script = page.slice(page.lastIndexOf('<script>') + 8, page.lastIndexOf('</script>'));
 new vm.Script(script).runInContext(context);
 vm.runInContext(`potIndex=index;potTree=tree;fullDatabase=articles;
@@ -88,7 +88,7 @@ vm.runInContext(`potIndex=index;potTree=tree;fullDatabase=articles;
   potTree.forEach(register);articles.forEach(a=>{potArticlesMap[a.numero]=a;potArticlesMap[a.id]=a});
   setupEventListeners();renderSidebar(potIndex);renderArticles();`, context);
 const cards = () => ids.get('articles-feed').children.filter(el => el.classList.contains('pot-article-card'));
-assert.equal(cards().length, 608);
+assert.equal(cards().length, 613);
 assert.equal(pills.length, 9);
 const restoredNotes = vm.runInContext('renderLegalNotes(potArticlesMap[263])', context);
 assert(restoredNotes.includes('Decreto Único Sectorial 670 de 2025'));
@@ -107,7 +107,7 @@ for (const pill of pills) {
 }
 // Following an article must never force closed branches open.
 vm.runInContext('navigateToArticle(47)', context);
-assert.equal(cards().length, 608);
+assert.equal(cards().length, 613);
 assert.equal(ids.get('art-47').scrolled, true);
 assert.equal(ids.get('art-47').scrollOptions.behavior, 'instant');
 assert.deepEqual(openGroups(), []);
@@ -149,4 +149,36 @@ assert.equal(ids.get('nav-group-L.8').open, false);
 assert.equal(ids.get('breadcrumb-art').textContent, 'Artículo 608');
 assert.equal(ids.get('art-608').scrollOptions.behavior, 'instant');
 assert(!page.includes("behavior: 'smooth'"));
-console.log('PASS: eight book filters, collapsed-by-default tree, single-branch expansion, sibling collapse, book scroll reset, instant jumps, body search consistency, deep article links.');
+// Lettered articles keep their source label and sit between numeric neighbors.
+// SISJUR places 222A between 221 and 222; preserve that source order.
+for (const [before, lettered, after] of [[221,'222A',222],[289,'289A',290],[390,'390A',391],[459,'459A',460],[471,'471A',472]]) {
+  vm.runInContext(`navigateToArticle(${before})`, context);
+  ids.get('next-art-btn').events.click();
+  assert.equal(context.window.location.hash, `#art-${lettered}`);
+  assert.equal(ids.get('breadcrumb-art').textContent, `Artículo ${lettered === '289A' ? '289-A' : lettered}`);
+  ids.get('next-art-btn').events.click();
+  assert.equal(context.window.location.hash, `#art-${after}`);
+  ids.get('prev-art-btn').events.click();
+  assert.equal(context.window.location.hash, `#art-${lettered}`);
+}
+vm.runInContext("searchQuery='289-A';renderSidebar(potIndex);renderArticles()", context);
+assert(cards().some(el => el.id === 'art-289A'));
+assert.equal([...ids.keys()].filter(id => id.startsWith('nav-art-')).length, cards().length);
+for (const key of ['222A','289-A','390A','459A','471A']) {
+  context.window.location.hash = `#art-${key}`;
+  vm.runInContext('handleInitialRoute()', context);
+  assert.equal(ids.get('art-' + key.replace('-','')).scrolled, true);
+  assert.equal(context.window.location.hash, `#art-${key}`); // routing must not push another history entry
+  context.previewKey = key;
+  vm.runInContext('showQuickPreview(previewKey)', context);
+  assert.equal(ids.get('preview-badge').textContent, `ARTÍCULO ${key}`);
+}
+context.window.location.origin = 'https://jpml1771.github.io';
+vm.runInContext("window.copyArticleLink('289-A')", context);
+assert.equal(context.copied, 'https://jpml1771.github.io/potbogota.io/#art-289A');
+vm.runInContext("window.copyArticleCitation('289A')", context);
+assert(context.copied.includes('Artículo 289-A:'));
+assert(ids.get('art-289A').innerHTML.includes("copyArticleLink('289A')"));
+vm.runInContext('navigateToArticle(608)', context);
+assert.equal(ids.get('nav-counter').textContent, '613 / 613');
+console.log('PASS: eight book filters, sidebar behavior, search consistency, article/heading routes, five lettered articles, previous/next sequence, previews, copied links and citations.');

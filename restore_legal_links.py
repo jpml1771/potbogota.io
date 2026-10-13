@@ -9,7 +9,7 @@ SOURCE_URL = 'https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=11958
 OFFICIAL_HOSTS = {'www.alcaldiabogota.gov.co', 'alcaldiabogota.gov.co',
                   'www.bogotajuridica.gov.co', 'bogotajuridica.gov.co', 'sisjur.bogotajuridica.gov.co'}
 REGULATORY = re.compile(r'^(Reglamentado|Modificado|Adicionado|Corregido|Derogado)\b', re.I)
-ARTICLE = re.compile(r'^Art[íi]culo\s*(\d+)([A-Z]?)\s*[.:\-)]', re.I)
+ARTICLE = re.compile(r'^Art[íi]culo\s*(\d+)\s*(-?\s*[A-Z])?\s*[.:\-)]', re.I)
 
 
 def normalize_text(text):
@@ -92,6 +92,7 @@ def restore_links(source, complete, tree):
     state = None
     previous_article = None
     expected = 1
+    article_keys = {a['numero'] for a in complete['articulos']}
     heading_notes = []
     source_notes = {}
     corrections = set()
@@ -103,11 +104,16 @@ def restore_links(source, complete, tree):
             if canonical in nodes:
                 state = ('heading', canonical)
         match = ARTICLE.match(text)
-        if match and not match[2] and int(match[1]) == expected:
-            source_notes[expected] = header_notes(block)
-            state = ('article', expected)
-            previous_article = expected
-            expected += 1
+        key = (f'{int(match[1])}{re.sub(r"[-\s]", "", match[2]).upper()}' if match and match[2]
+               else int(match[1]) if match else None)
+        if key in article_keys:
+            source_notes[key] = header_notes(block)
+            state = ('article', key)
+            previous_article = key
+            if isinstance(key, int):
+                if key != expected:
+                    raise ValueError(f'Unexpected article order at {key}')
+                expected += 1
         if expected > 1:
             for anchor in block.xpath('.//a[@href]'):
                 before = anchor.get('href')
