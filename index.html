@@ -265,7 +265,9 @@
 
         .pot-nav-group { border-top: 1px solid rgba(38, 52, 66, .09); }
         .pot-nav-heading { padding: 12px 10px; color: #263442; font-size: 12px; cursor: pointer; }
-        .pot-nav-heading.is-current { color: #03599f; }
+        .pot-nav-heading.is-current { color: #03599f; font-weight: 700; }
+        .pot-nav-heading.is-current .nav-heading-title,
+        .art-nav-item.active .nav-article-title { font-weight: 700; }
         .pot-nav-heading a { display: inline; text-decoration: none; }
         .pot-nav-heading a:hover .nav-heading-title { text-decoration: underline; }
         .nav-heading-label { font-weight: 700; }
@@ -717,6 +719,8 @@
             if (!heading) return;
             heading.scrollIntoView({ behavior: 'instant', block: 'start' });
             history.pushState(null, '', `#${id}`);
+            document.querySelectorAll('.pot-nav-heading.is-current').forEach(item => item.classList.remove('is-current'));
+            document.getElementById(`nav-heading-${id}`)?.classList.add('is-current');
             const article = fullDatabase.find(art => matchesArticleFilters(art) && art.jerarquia.ruta.includes(id));
             if (article) {
                 updateBreadcrumbs(article.numero);
