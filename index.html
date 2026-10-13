@@ -144,19 +144,7 @@
             box-shadow: 0 2px 4px rgba(2, 132, 199, 0.2);
         }
 
-        .anexo5-badge-chip {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.2rem 0.6rem;
-            background-color: #f8fafc;
-            color: #334155;
-            border: 1px solid #cbd5e1;
-            border-radius: 0.375rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.025em;
-            text-transform: uppercase;
-        }
+
 
         /* Tooltip toast */
         #toast-notice {
@@ -652,14 +640,6 @@
                         ${art.jerarquia.libro_nombre || 'POT'}
                     </span>
             `;
-
-            if (art.menciona_anexo_5) {
-                badgesHtml += `
-                    <span class="anexo5-badge-chip" title="Este artículo rige o cita el Manual de Normas Comunes">
-                        Cita Anexo 5
-                    </span>
-                `;
-            }
 
             if (art.nota_reglamentaria) {
                 const url = art.nota_url ? `https://www.alcaldiabogota.gov.co/sisjur/normas/${art.nota_url}` : '#';
