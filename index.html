@@ -54,7 +54,7 @@
             font-size: var(--article-font-size);
             line-height: 1.65;
         }
-        .article-content p, #preview-body p { line-height: inherit; }
+        .article-content p, #preview-body p { margin: 0.75rem 0; line-height: inherit; }
         .pot-article-card h2, #preview-title {
             text-align: left;
             font-family: var(--site-font);
@@ -431,7 +431,7 @@
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
             </div>
-            <div id="preview-body" class="p-6 overflow-y-auto text-sm leading-relaxed text-slate-700 space-y-3">
+            <div id="preview-body" class="p-6 overflow-y-auto text-sm leading-relaxed text-slate-700">
                 <!-- Contenido dinámico -->
             </div>
             <div class="p-3 bg-slate-50 border-t border-slate-200 flex justify-end gap-2">
@@ -692,7 +692,7 @@
                     ${actionsHtml}
                 </div>
                 ${renderLegalNotes(art)}
-                <div class="article-content text-slate-700 leading-relaxed text-[15px] space-y-4">
+                <div class="article-content text-slate-700 leading-relaxed text-[15px]">
                     ${formattedContent}
                 </div>
             `;
@@ -762,7 +762,13 @@
             const template = document.createElement('template');
             template.innerHTML = content;
             template.content.querySelectorAll('h1, h2, h3, h4, h5, h6, p').forEach(block => {
-                if (!block.closest('table, li, blockquote') && known.has(normalize(block.textContent))) block.remove();
+                // Source spacer paragraphs often contain only NBSP, spans or BR.
+                // Keep meaningful media and anchors, and preserve table cells.
+                if (!block.textContent.trim() && !block.querySelector('img, svg, video, audio, iframe, table, a, [id], [name]') && !block.id) {
+                    block.remove();
+                } else if (!block.closest('table, li, blockquote') && known.has(normalize(block.textContent))) {
+                    block.remove();
+                }
             });
             return template.innerHTML;
         }
