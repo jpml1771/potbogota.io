@@ -66,13 +66,31 @@ Save the official download as `official-sisjur-555.html` to run it; the file is
 ignored by Git. Other tests run without it. The audit concerns faithful extraction
 of SISJUR's HTML; it does not determine the legal validity of a provision.
 
-## Local preview and tests
+## Search
 
 Search filters article titles within the selected book (or the whole decree under
 Todos). Accents and capitalization are ignored: `construccion` matches
 `Construcción`. A number such as `384` or `Artículo 384` selects that exact article;
 lettered numbers such as `289-A` also work. Body text, tables, and regulatory notes
 do not cause an article to appear in title search results.
+
+## Official annex documents
+
+The Anexos dropdown mirrors all 25 PDF entries in the official SISJUR attachment
+popup, preserving its descriptions and order. Links point directly to SISJUR and
+open in a new tab. Both the original December 2021 Anexo 5 and the attachment
+labeled as its December 2022 update are included. The previous local Anexo 5
+viewer remains in `BK/anexo5_visor_previo/` for the separate version review.
+
+`data/decreto_555_anexos.json` records filenames, document IDs, attachment URLs,
+the verification date, and the source hash. To refresh the dropdown, save the
+official popup HTML and run:
+
+```sh
+python sync_sisjur_annexes.py --source saved-annex-popup.html --verified-date YYYY-MM-DD
+```
+
+## Local preview and tests
 
 ```sh
 python -m http.server 8000
