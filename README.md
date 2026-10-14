@@ -68,6 +68,12 @@ of SISJUR's HTML; it does not determine the legal validity of a provision.
 
 ## Local preview and tests
 
+Search filters article titles within the selected book (or the whole decree under
+Todos). Accents and capitalization are ignored: `construccion` matches
+`Construcción`. A number such as `384` or `Artículo 384` selects that exact article;
+lettered numbers such as `289-A` also work. Body text, tables, and regulatory notes
+do not cause an article to appear in title search results.
+
 ```sh
 python -m http.server 8000
 python -m unittest discover -s tests -p 'test_*.py'

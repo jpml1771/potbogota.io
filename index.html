@@ -315,9 +315,9 @@
                 </div>
             </div>
             <div class="header-search">
-                <label for="global-search" class="sr-only">Buscar por número de artículo o palabra</label>
+                <label for="global-search" class="sr-only">Buscar por número de artículo o título</label>
                 <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-width="1.5" stroke-linecap="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                <input type="search" id="global-search" placeholder="Buscar artículo o palabra…" autocomplete="off">
+                <input type="search" id="global-search" placeholder="Buscar artículo o título…" autocomplete="off">
                 <button id="clear-search-btn" class="hidden" aria-label="Borrar búsqueda">×</button>
             </div>
             <div class="header-actions">
@@ -510,14 +510,20 @@
             }
         }
 
+        function normalizeSearchText(value) {
+            return String(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+                .toLocaleLowerCase('es').replace(/\s+/g, ' ').trim();
+        }
+
         function matchesArticleFilters(item) {
             const article = potArticlesMap[item.numero] || item;
             const book = article.jerarquia?.libro_id || item.libro_id;
             if (activeFilterLibro !== 'all' && book !== activeFilterLibro) return false;
             if (!searchQuery) return true;
-            const query = searchQuery.toLocaleLowerCase('es');
-            return normalizeArticleKey(query.replace(/^art[íi]culo\s+/i, '')) === String(item.numero) || article.titulo.toLocaleLowerCase('es').includes(query) ||
-                (article.texto_plano || '').toLocaleLowerCase('es').includes(query);
+            const query = normalizeSearchText(searchQuery);
+            const articleKey = normalizeArticleKey(query.replace(/^articulo\s+/i, ''));
+            if (articleKey) return articleKey === String(item.numero);
+            return normalizeSearchText(article.titulo).includes(query);
         }
 
         function renderSidebar(items) {

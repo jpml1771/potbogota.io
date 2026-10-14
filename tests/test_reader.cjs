@@ -137,10 +137,24 @@ document.querySelectorAll('.pot-structure-heading').forEach(heading => {
 vm.runInContext('syncNavigationToScroll()', context);
 assert.equal(ids.get('breadcrumb-art').textContent, 'Artículo 6');
 assert.deepEqual(openGroups(), ['nav-group-L.3', 'nav-group-L.3.C.5']);
-// Body-only searches must yield the same article set in the sidebar and feed.
+// Search filters article headings, ignoring accents and capitalization.
+vm.runInContext("searchQuery='construccion';renderSidebar(potIndex);renderArticles()", context);
+const withoutAccents = cards().map(el => el.id);
+assert(withoutAccents.length > 0);
+vm.runInContext("searchQuery='CONSTRUCCIÓN';renderSidebar(potIndex);renderArticles()", context);
+assert.deepEqual(cards().map(el => el.id), withoutAccents);
+assert.equal([...ids.keys()].filter(id => id.startsWith('nav-art-')).length, cards().length);
+vm.runInContext("searchQuery='area minima';renderSidebar(potIndex);renderArticles()", context);
+assert(cards().some(el => el.id === 'art-384'));
+for (const query of ['384', 'articulo 384', 'Artículo 384']) {
+  context.numberQuery = query;
+  vm.runInContext('searchQuery=numberQuery;renderSidebar(potIndex);renderArticles()', context);
+  assert.deepEqual(cards().map(el => el.id), ['art-384']);
+}
+// A phrase that only appears in the body must not include that article.
 context.bodyQuery = articles[255].texto_plano.slice(400, 450);
 vm.runInContext('searchQuery=bodyQuery;renderSidebar(potIndex);renderArticles()', context);
-assert(cards().length > 0);
+assert.equal(cards().length, 0);
 assert.equal([...ids.keys()].filter(id => id.startsWith('nav-art-')).length, cards().length);
 context.window.location.hash = '#art-608';
 vm.runInContext('handleInitialRoute()', context);
@@ -162,7 +176,7 @@ for (const [before, lettered, after] of [[221,'222A',222],[289,'289A',290],[390,
   assert.equal(context.window.location.hash, `#art-${lettered}`);
 }
 vm.runInContext("searchQuery='289-A';renderSidebar(potIndex);renderArticles()", context);
-assert(cards().some(el => el.id === 'art-289A'));
+assert.deepEqual(cards().map(el => el.id), ['art-289A']);
 assert.equal([...ids.keys()].filter(id => id.startsWith('nav-art-')).length, cards().length);
 for (const key of ['222A','289-A','390A','459A','471A']) {
   context.window.location.hash = `#art-${key}`;
