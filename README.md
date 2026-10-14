@@ -76,14 +76,16 @@ do not cause an article to appear in title search results.
 
 ## Official annex documents
 
-The Anexos dropdown mirrors all 25 PDF entries in the official SISJUR attachment
-popup, preserving its descriptions and order. Links point directly to SISJUR and
+The Anexos dropdown includes all 25 PDF entries in the official SISJUR attachment
+popup, preserving its descriptions. Numbered annexes appear first (1–7, with both
+Anexo 5 versions together), followed by cartography (1–6), then other documents
+in numerical order and the unnumbered digital POT. Links point directly to SISJUR and
 open in a new tab. Both the original December 2021 Anexo 5 and the attachment
 labeled as its December 2022 update are included. The previous local Anexo 5
 viewer remains in `BK/anexo5_visor_previo/` for the separate version review.
 
 `data/decreto_555_anexos.json` records filenames, document IDs, attachment URLs,
-the verification date, and the source hash. To refresh the dropdown, save the
+the verification date, and the source hash, retaining the source order. To refresh the dropdown, save the
 official popup HTML and run:
 
 ```sh

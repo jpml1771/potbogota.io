@@ -43,6 +43,17 @@ def parse_annexes(raw):
     return entries
 
 
+def display_order(entry):
+    description = entry['descripcion']
+    annex = re.search(r'\bAnexo\s+(?:No\.\s*)?(\d+)\b', description, re.I)
+    number = re.match(r'(\d+)\.', description)
+    if annex:
+        # Keep the update ahead of the original within the same annex number.
+        return (0, int(annex[1]), 0 if 'ACTUALIZACIÓN' in description.upper() else 1)
+    group = 1 if re.match(r'\d+\.\s*Cartografía del decreto', description, re.I) else 2
+    return (group, int(number[1]) if number else float('inf'), 0)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--source', type=Path, required=True)
@@ -55,8 +66,8 @@ def main():
     if page.count(START) != 1 or page.count(END) != 1:
         raise ValueError('The reader must have exactly one annex list placeholder')
     lines = [f'<p class="annex-dropdown-heading">SISJUR · {len(entries)} documentos PDF</p>']
-    for entry in entries:
-        # Preserve official descriptions and order. The filename provides version
+    for entry in sorted(entries, key=display_order):
+        # Preserve official descriptions. The filename provides version
         # information where SISJUR's description alone omits it.
         date = re.search(r'Dic\.?\s*\(?\s*(202\d)', entry['archivo'], re.I)
         detail = f'PDF · diciembre de {date[1]}' if date else 'PDF'
@@ -70,7 +81,7 @@ def main():
     record = {'fuente_url': SOURCE_URL, 'verificado_fecha': args.verified_date,
               'fuente_sha256': hashlib.sha256(raw).hexdigest(), 'total_documentos': len(entries), 'documentos': entries}
     (root/'data/decreto_555_anexos.json').write_text(json.dumps(record, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
-    print(f'Copied {len(entries)} official PDF documents, preserving source order.')
+    print(f'Copied {len(entries)} official PDF documents: numbered annexes, cartography, then other documents.')
 
 
 if __name__ == '__main__':
