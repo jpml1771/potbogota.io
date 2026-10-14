@@ -82,7 +82,7 @@ Anexo 5 versions together), followed by cartography (1–6), then other document
 in numerical order and the unnumbered digital POT. Links point directly to SISJUR and
 open in a new tab. Both the original December 2021 Anexo 5 and the attachment
 labeled as its December 2022 update are included. The previous local Anexo 5
-viewer remains in `BK/anexo5_visor_previo/` for the separate version review.
+viewer is preserved in `archive/BK/anexo5_visor_previo/` for the separate version review.
 
 `data/decreto_555_anexos.json` records filenames, document IDs, attachment URLs,
 the verification date, and the source hash, retaining the source order. To refresh the dropdown, save the
@@ -91,6 +91,15 @@ official popup HTML and run:
 ```sh
 python sync_sisjur_annexes.py --source saved-annex-popup.html --verified-date YYYY-MM-DD
 ```
+
+## Repository layout
+
+- `index.html`, `favicon-city.svg`, and `data/`: current reader and its data.
+- `anexos/`: official annex source documents, starting with the updated Anexo 5 PDF.
+- Root Python scripts, `requirements.txt`, and `tests/`: current extraction,
+  synchronization, auditing, and verification tools.
+- `archive/`: older readers, backups, saved examples, and the earlier Word export
+  of Anexo 5 with its images. These files are preserved for reference and comparison.
 
 ## Local preview and tests
 
