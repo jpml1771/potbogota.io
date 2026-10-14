@@ -92,6 +92,25 @@ official popup HTML and run:
 python sync_sisjur_annexes.py --source saved-annex-popup.html --verified-date YYYY-MM-DD
 ```
 
+## Integrated Anexo 5 reading edition
+
+The sidebar lists the updated Anexo 5 below all eight books. Selecting it opens
+its content in the same reading pane, with five expandable chapters, 278 headings,
+33 tables, and 44 full-resolution illustrations/map images extracted from the
+official PDF. The annex supports title search, permanent section links, previous/
+next navigation, and return to the POT through the book controls or article routes.
+
+This first reading edition preserves the archived Word export's wording and
+editorial headings/numbering, including the discrepancies identified in the
+comparison. It does not silently correct the source PDF's inconsistent numbering.
+The official PDF is available from the annex's heading. The archive is unchanged.
+
+Regenerate the annex's `reader.json` and images with `python build_anexo5_reader.py`.
+The builder checks that the Word body wording and table rows/cells/merged spans
+survive cleanup, and that its 44 displayed images correspond in count/order to
+the PDF images reviewed during the comparison. Review the correspondence again
+if either source changes.
+
 ## Repository layout
 
 - `index.html`, `favicon-city.svg`, and `data/`: current reader and its data.

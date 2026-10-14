@@ -12,3 +12,17 @@ publicado en SISJUR, identificado allí como la actualización de diciembre de 2
 - Nombre original: `ACTUALIZACIÓN ANEXO No. 5MANUAL DE NORMAS COMUNES A LOS TRATAMIENTOS URBANÍSTICOS(Dic.2022).pdf`.
 - Tamaño: 3.879.962 bytes.
 - SHA-256: `d90b04351e5e6228cca75365fd6170d8558744bda459494f43a6728e9f621fd4`.
+
+## Edición de lectura integrada
+
+`reader.json` contiene la estructura y el contenido de la primera edición de
+lectura del sitio: 5 capítulos, 278 encabezados y 33 tablas. Conserva la redacción
+y la numeración editorial del HTML de Word archivado, incluidas las diferencias
+detectadas durante la comparación; no incorpora todavía esas correcciones.
+
+`images/` contiene las 44 imágenes originales extraídas de este PDF para mostrar
+las ilustraciones con su resolución completa. El PDF y el HTML archivado se
+conservan sin modificaciones.
+
+Para regenerar esta edición, ejecutar `python build_anexo5_reader.py` desde la
+raíz del repositorio. Los hashes de ambos documentos fuente están en `reader.json`.

@@ -305,6 +305,21 @@
         .regulatory-notes { margin-bottom: 18px; }
         .structure-notes p + p, .regulatory-notes p + p { margin-top: 6px; }
 
+        .annex-nav-root { margin-top: 18px; border-top: 2px solid #a8b0b6; }
+        .annex-nav-link { overflow-wrap: anywhere; }
+        .annex-nav-link.is-current { color: #03599f; font-weight: 700; }
+        .annex-section, .annex-intro { scroll-margin-top: 76px; }
+        .annex-section { padding: 22px 0 12px; }
+        .annex-section > :is(h2, h3) { margin-bottom: 16px; color: #263442; font-size: 18px; font-weight: 700; line-height: 1.5; }
+        .annex-section.annex-level-1 { padding-top: 42px; border-top: 1px solid #a8b0b6; }
+        .annex-level-1 > h2 { text-align: center; font-size: 24px; }
+        .annex-level-2 > h3 { text-align: center; font-size: 20px; }
+        .annex-section .article-content { font-size: var(--article-font-size); line-height: 1.65; overflow-wrap: anywhere; }
+        .annex-section img { display: block; max-width: 100%; height: auto; margin: 20px auto; }
+        .annex-source-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 28px; margin-top: 22px; font-size: 14px; }
+        .annex-source-links a, .annex-source-links button, .annex-retry { color: #03599f; text-decoration: underline; text-underline-offset: 3px; }
+        .annex-retry { padding: 12px 24px; }
+
     </style>
 </head>
 <body class="h-full bg-slate-100 text-slate-800 flex flex-col antialiased">
@@ -485,6 +500,7 @@
         <span id="toast-text">Enlace permanente copiado al portapapeles</span>
     </div>
 
+    <script src="annex5-reader.js"></script>
     <!-- JAVASCRIPT DE LA APLICACIÓN -->
     <script>
         // ESTADO GLOBAL DE LA APLICACIÓN
@@ -563,11 +579,12 @@
         function renderSidebar(items) {
             const container = document.getElementById('articles-nav-list');
             container.innerHTML = '';
-            const filtered = items.filter(matchesArticleFilters);
+            const filtered = window.annex5Reader?.active ? items : items.filter(matchesArticleFilters);
             const selected = new Map(filtered.map(article => [article.numero, article]));
             document.getElementById('search-results-counter').textContent = `Mostrando ${filtered.length} de ${potIndex.length} artículos`;
             if (!filtered.length) {
                 container.innerHTML = '<p class="p-6 text-xs text-slate-500">No se encontraron artículos con ese criterio.</p>';
+                window.annex5Reader?.appendNavigation(container);
                 return;
             }
             const hasResults = node => node.articulos.some(number => selected.has(number)) || node.children.some(hasResults);
@@ -632,6 +649,7 @@
                 parent.appendChild(group);
             };
             potTree.forEach(node => appendNode(node, container));
+            window.annex5Reader?.appendNavigation(container);
         }
 
         function openNavigationBranch(group) {
@@ -648,6 +666,7 @@
 
         // RENDERIZADO COMPLETO DE LOS ARTÍCULOS SELECCIONADOS
         function renderArticles() {
+            if (window.annex5Reader?.active) { window.annex5Reader.render(); return; }
             if (!fullDatabase) return;
 
             const feed = document.getElementById('articles-feed');
@@ -822,6 +841,12 @@
         }
 
         function navigateToHeading(id, updateHistory = true) {
+            if (window.annex5Reader?.leave()) {
+                renderSidebar(potIndex);
+                renderArticles();
+                const branch = document.getElementById(`nav-group-${id}`);
+                if (branch) openNavigationBranch(branch);
+            }
             let heading = document.getElementById(id);
             if (!heading) return;
             heading.scrollIntoView({ behavior: 'instant', block: 'start' });
@@ -844,6 +869,7 @@
             const key = normalizeArticleKey(artNum);
             const article = potArticlesMap[key];
             if (!fullDatabase || !article) return;
+            if (window.annex5Reader?.leave()) { renderSidebar(potIndex); renderArticles(); }
             const targetId = article.id;
             
             // Si el artículo aún no está en el DOM (porque está en lotes posteriores o filtrado),
@@ -1014,6 +1040,7 @@
 
         // El artículo activo es el que cruza la línea de lectura bajo la barra fija.
         function syncNavigationToScroll() {
+            if (window.annex5Reader?.active) { window.annex5Reader.syncScroll(); return; }
             const cards = document.querySelectorAll('.pot-article-card');
             if (!cards.length) return;
             const pane = document.getElementById('content-pane');
@@ -1048,6 +1075,15 @@
         // ROUTING INICIAL POR HASH
         function handleInitialRoute() {
             const id = decodeURIComponent(window.location.hash.slice(1));
+            if (window.annex5Reader?.route(id)) return;
+            if (window.annex5Reader?.leave()) {
+                renderSidebar(potIndex);
+                renderArticles();
+                if (!id) {
+                    document.getElementById('content-pane').scrollTo({ top: 0, behavior: 'instant' });
+                    if (fullDatabase?.length) updateBreadcrumbs(fullDatabase[0].numero);
+                }
+            }
             if (/^art-\d+(?:-?[A-Z])?$/i.test(id)) navigateToArticle(id.slice(4), false);
             else if (potStructureMap[id]) navigateToHeading(id, false);
         }
@@ -1093,6 +1129,7 @@
             // Filtros por Libro (Pills)
             document.querySelectorAll('.libro-filter-pill').forEach(pill => {
                 pill.addEventListener('click', () => {
+                    window.annex5Reader?.leave();
                     document.querySelectorAll('.libro-filter-pill').forEach(p => {
                         p.classList.remove('active');
                         p.setAttribute('aria-pressed', 'false');
@@ -1126,6 +1163,7 @@
 
             // Botón Anterior / Siguiente en barra sticky
             const adjacentArticle = direction => {
+                if (window.annex5Reader?.active) { window.annex5Reader.adjacent(direction); return; }
                 const currentId = document.getElementById('breadcrumb-art').dataset.articleId;
                 const position = fullDatabase?.findIndex(art => art.id === currentId) ?? -1;
                 const target = position >= 0 ? fullDatabase[position + direction] : null;

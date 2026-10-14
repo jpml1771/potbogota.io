@@ -1,7 +1,9 @@
 # Archive
 
-Older material moved here on 2026-10-13. The current reader and maintenance tools
-do not use these files. All 123 moved files retain their original contents.
+Older material moved here on 2026-10-13. All 123 moved files retain their original
+contents. The current reader does not load these files directly; the preserved
+Word export now serves as the build source for the integrated Anexo 5 reading
+edition. The other backups and examples remain historical references.
 
 - `BK/`: previous readers, converters, JSON backups, and the earlier Anexo 5 viewer
   in `BK/anexo5_visor_previo/`.
