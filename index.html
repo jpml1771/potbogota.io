@@ -62,7 +62,6 @@
             text-align: left;
             font-family: var(--site-font);
         }
-        .pot-table { font-family: var(--site-font); font-size: 16px; }
         .art-nav-item > div:last-child { font-size: 15px; line-height: 1.4; }
 
         /* Scrollbars refinadas estilo NYC Planning */
@@ -99,14 +98,15 @@
         }
 
         /* Tablas urbanísticas con estilo limpio NYC ZR */
-        .pot-table {
+        .table-wrapper { width: 100%; max-width: 100%; overflow-x: auto; margin: 1.25rem 0; }
+        .article-content table, #preview-body table {
             width: 100%;
             border-collapse: collapse;
             font-size: 0.875rem;
             background: white;
             border: 1px solid #e2e8f0;
         }
-        .pot-table th {
+        .article-content th, #preview-body th {
             background-color: #f8fafc;
             color: #0f172a;
             font-weight: 700;
@@ -114,16 +114,21 @@
             border: 1px solid #e2e8f0;
             text-align: left;
         }
-        .pot-table td {
+        .article-content td, #preview-body td {
             padding: 0.75rem 1rem;
             border: 1px solid #e2e8f0;
             color: #334155;
             vertical-align: top;
             line-height: 1.5;
         }
-        .pot-table tr:nth-child(even) {
+        .article-content tr:nth-child(even), #preview-body tr:nth-child(even) {
             background-color: #fafbfd;
         }
+        .article-content tr:first-child > td, #preview-body tr:first-child > td {
+            background-color: #f8fafc;
+        }
+        .article-content :is(td, th) > p:first-child, #preview-body :is(td, th) > p:first-child { margin-top: 0; }
+        .article-content :is(td, th) > p:last-child, #preview-body :is(td, th) > p:last-child { margin-bottom: 0; }
 
         /* Chips interactivos para citas internas */
         .art-ref-chip {
@@ -774,6 +779,15 @@
                 if (!block.textContent.trim() && !block.querySelector('img, svg, video, audio, iframe, table, a, [id], [name]') && !block.id) {
                     block.remove();
                 }
+            });
+            // Table presentation belongs to the reader, not the source data.
+            // Keep the audited cells intact and allow wide tables to scroll.
+            template.content.querySelectorAll('table').forEach(table => {
+                if (table.parentElement?.closest('table, .table-wrapper')) return;
+                const wrapper = document.createElement('div');
+                wrapper.className = 'table-wrapper';
+                table.replaceWith(wrapper);
+                wrapper.appendChild(table);
             });
             return template.innerHTML;
         }
