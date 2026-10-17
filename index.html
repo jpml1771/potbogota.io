@@ -164,6 +164,7 @@
         .site-header { background: #fff; color: #263442; border-top: 3px solid #263442; border-bottom: 3px solid #263442; flex-shrink: 0; z-index: 40; }
         .header-main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 460px) minmax(0, 1fr); align-items: center; gap: 32px; padding: 20px 32px 18px; }
         .header-identity { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+        .header-home { display: block; color: inherit; text-decoration: none; }
         .header-title { margin: 0; display: flex; align-items: baseline; gap: 12px; font: normal 42px/1.1 var(--site-font); letter-spacing: -1px; }
         .header-abbreviation { font: inherit; letter-spacing: inherit; }
         .header-title-dot { color: #8b4a32; }
@@ -331,10 +332,10 @@
                 <button id="mobile-menu-toggle" class="header-menu md:hidden" aria-label="Abrir tabla de contenido">
                     <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
-                <div>
+                <a id="home-link" class="header-home" href="./" aria-label="POT Bogotá. Volver al inicio">
                     <h1 class="header-title"><span class="header-abbreviation">POT</span><span>Bogotá<span class="header-title-dot" aria-hidden="true">.</span></span></h1>
                     <p class="header-subtitle">Decreto Distrital 555 de 2021</p>
-                </div>
+                </a>
             </div>
             <div class="header-search">
                 <label for="global-search" class="sr-only">Buscar por número de artículo o título</label>
@@ -1159,6 +1160,14 @@
                         updateBreadcrumbs(firstArticle.numero);
                     }
                 });
+            });
+
+            document.getElementById('home-link').addEventListener('click', event => {
+                if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+                event.preventDefault();
+                document.querySelector('.libro-filter-pill[data-libro="all"]').click();
+                annexMenu.open = false;
+                toggleMobileSidebar(false);
             });
 
             // Botón Anterior / Siguiente en barra sticky
